@@ -20,10 +20,8 @@ import com.google.android.material.elevation.SurfaceColors
 import com.google.android.material.snackbar.Snackbar
 import com.jcapps.adbremote.R
 import com.jcapps.adbremote.adapters.apps.AppsAdapter
-import com.jcapps.adbremote.ads.InterstitialAdManager
 import com.jcapps.adbremote.dao.FavApps
 import com.jcapps.adbremote.databinding.ActivityAppsBinding
-import com.jcapps.adbremote.dialogs.DialogPauseAd
 import com.jcapps.adbremote.dialogs.apps.DialogAppFilter
 import com.jcapps.adbremote.model.App
 import com.jcapps.adbremote.model.AppAction
@@ -31,19 +29,14 @@ import com.jcapps.adbremote.model.AppOpenable
 import com.jcapps.adbremote.model.AppState
 import com.jcapps.adbremote.model.AppType
 import com.jcapps.adbremote.model.AppsTab
-import com.jcapps.adbremote.model.Feature
 import com.jcapps.adbremote.model.TvSupport
-import com.jcapps.adbremote.premium.PremiumManager
 import com.jcapps.adbremote.prefs.AppPrefs
 import com.jcapps.adbremote.services.AdbService
 import com.jcapps.adbremote.ui.BaseActivity
 import com.jcapps.adbremote.utils.AdbServiceLauncher
 import com.jcapps.adbremote.utils.AppOptions
-import com.jcapps.adbremote.utils.FeatureUsage
 import com.jcapps.adbremote.utils.Logger
 import com.jcapps.adbremote.utils.PlayStore
-import com.jcapps.adbremote.utils.destroyNativeAds
-import com.jcapps.adbremote.utils.insertAdPlaceholders
 import com.jcapps.adbremote.utils.requestAppReviewIfRecommended
 import com.jcapps.adbremote.viewmodels.AppViewModel
 import com.jcapps.adbremote.views.State
@@ -327,20 +320,10 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
             if (!sortAscending) {
                 list = list.sortedByDescending { it.name }
             }
-            if (PremiumManager.isPremium(application)) {
-                destroyNativeAds()
-            } else {
-                list = insertAdPlaceholders(list)
-            }
             withContext(Dispatchers.Main) {
                 // obf: C2006
                 stateView.setState(if (list.isEmpty()) State.EMPTY else State.SUCCESS)
                 adapter.differ.submitList(list) {
-                    // obf: RunnableC3440 case 1
-                    adapter.loadAds { position ->
-                        // obf: C2192 case 10 -> RunnableC0456 case 1
-                        binding.list.post { adapter.notifyItemRangeChanged(position, 1, null) }
-                    }
                     if (animateList) {
                         binding.list.scheduleLayoutAnimation()
                         animateList = false
@@ -364,20 +347,7 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
     /** Executes the option [key] (an [com.jcapps.adbremote.model.AppAction] name) picked for [app]. */
     // obf: m866 (confirm lambdas = class မစဍဍဌဏဃ cases 0..3, fav refresh = class ဠဂမခဠညပ, results C0494 / C0753)
     private fun onOptionSelected(key: String, sharedElements: List<Pair<View, String>>?, app: App, position: Int) {
-        val isPremium = PremiumManager.isPremium(application)
-        val premiumActions = listOf(
-            AppAction.LAUNCH.toString(),
-            AppAction.FORCE_STOP.toString(),
-            AppAction.CLEAR_DATA.toString(),
-            AppAction.DISABLE.toString(),
-            AppAction.ENABLE.toString(),
-            AppAction.UNINSTALL.toString(),
-            AppAction.OPEN_APP_INFO_SETTINGS.toString(),
-            AppAction.OPEN_IN_PLAY_STORE.toString(),
-        )
-        if (premiumActions.contains(key) && !isPremium && !FeatureUsage.canUseFeature(appPrefs, Feature.APPS)) {
-            DialogPauseAd().show(supportFragmentManager, DialogPauseAd::class.java.simpleName)
-        } else {
+        run {
             when (key) {
                 AppAction.LAUNCH.toString() -> viewModel.launchApp(this, app, ::onActionResult)
                 AppAction.ADD_TO_FAV_APPS.toString() -> {
@@ -472,8 +442,6 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
     /** Counts an "apps" feature use and maybe asks for a review. */
     // obf: m870
     private fun onFeatureUsed() {
-        FeatureUsage.trackFeatureUsage(dataStore, Feature.APPS)
-        maybeRequestReview()
     }
 
     /** Advances the "force stop all" progress; reloads when done. */
@@ -494,10 +462,6 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
         apps = emptyList()
         filterApps()
         loadApps()
-        if (PremiumManager.isPremium(application) || !dataStore.getBoolean("app_review_recommended", false)) {
-            return
-        }
-        InterstitialAdManager.show(this)
     }
 
     /** Refreshes [AppsAdapter.favApps] on IO, then runs [onUpdated] on Main. */

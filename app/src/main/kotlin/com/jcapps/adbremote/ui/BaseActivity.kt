@@ -14,9 +14,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
 import com.jcapps.adbremote.R
-import com.jcapps.adbremote.ads.InterstitialAdManager
-import com.jcapps.adbremote.premium.PremiumManager
-import com.jcapps.adbremote.utils.hasConnected
 import com.jcapps.adbremote.utils.wrapLocale
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -82,26 +79,6 @@ abstract class BaseActivity : AppCompatActivity() {
         } else {
             @Suppress("DEPRECATION")
             overridePendingTransition(R.anim.zoom_return, R.anim.fade_out_fast)
-        }
-    }
-
-    /**
-     * Off the main thread: when the user is not premium, a review has been recommended and
-     * the ADB service connected in this process, show an interstitial ad on the main thread.
-     */
-    // obf: m3349 (body = suspend lambda C0560)
-    fun maybeRequestReview() {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val prefs = PreferenceManager.getDefaultSharedPreferences(this@BaseActivity)
-            // obf: C1299.m3244
-            val isPremium = PremiumManager.isPremium(application)
-            val reviewRecommended = prefs.getBoolean("app_review_recommended", false)
-            if (!isPremium && reviewRecommended && hasConnected) {
-                withContext(Dispatchers.Main) {
-                    // obf: C2018
-                    InterstitialAdManager.show(this@BaseActivity)
-                }
-            }
         }
     }
 

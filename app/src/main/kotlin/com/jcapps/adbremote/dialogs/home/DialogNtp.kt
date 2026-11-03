@@ -15,8 +15,6 @@ import com.jcapps.adbremote.R
 import com.jcapps.adbremote.api.remote.ApiClient
 import com.jcapps.adbremote.databinding.DialogNtpBinding
 import com.jcapps.adbremote.dialogs.BaseBottomSheet
-import com.jcapps.adbremote.model.Feature
-import com.jcapps.adbremote.utils.FeatureUsage
 import com.jcapps.adbremote.utils.openGuide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -105,12 +103,6 @@ class DialogNtp : BaseBottomSheet<DialogNtpBinding>() {
                     binding.inputEnterTextHere.setText(server, false)
                 } else {
                     binding.inputLayoutText.error = error
-                }
-                if (error == null) {
-                    FeatureUsage.trackFeatureUsage(
-                        PreferenceManager.getDefaultSharedPreferences(requireContext()),
-                        Feature.NTP,
-                    )
                 }
             }
         }

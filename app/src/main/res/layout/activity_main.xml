@@ -6,7 +6,7 @@
             <include android:id="@id/content" layout="@layout/content_remote" />
         </androidx.core.widget.NestedScrollView>
         <com.google.android.material.appbar.AppBarLayout android:id="@id/app_bar" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <com.google.android.material.search.SearchBar android:id="@id/search_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/search_apps" android:paddingEnd="5.0dip" app:backgroundTint="?colorSurface" app:menu="@menu/main" />
+            <com.google.android.material.search.SearchBar android:id="@id/search_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/search_apps" android:paddingEnd="5.0dip" app:backgroundTint="?colorSurface" />
         </com.google.android.material.appbar.AppBarLayout>
         <com.google.android.material.search.SearchView android:id="@id/search_view_search_apps" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/search_apps" app:layout_anchor="@id/search_bar" app:useDrawerArrowDrawable="true">
             <RelativeLayout android:gravity="center" android:background="?colorSurface" android:layout_width="fill_parent" android:layout_height="fill_parent">

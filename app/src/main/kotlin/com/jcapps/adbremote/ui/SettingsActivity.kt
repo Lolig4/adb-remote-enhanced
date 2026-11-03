@@ -14,9 +14,6 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
-import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAdLoadCallback
 import com.google.android.material.color.DynamicColors
 import com.google.android.material.color.DynamicColorsOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -54,13 +51,6 @@ class SettingsActivity : BaseActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setTitle(R.string.settings)
         applySystemBarInsets(binding.root)
-        // obf: C3853 — RECON-UNSURE: empty RewardedInterstitialAdLoadCallback (pre-load only)
-        RewardedInterstitialAd.load(
-            this,
-            Constants.AD_UNIT_REWARDED_INTERSTITIAL,
-            AdRequest.Builder().build(),
-            object : RewardedInterstitialAdLoadCallback() {},
-        )
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frame_settings, SettingsFragment())

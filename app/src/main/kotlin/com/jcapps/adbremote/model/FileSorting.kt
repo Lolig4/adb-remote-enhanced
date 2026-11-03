@@ -1,6 +1,5 @@
 package com.jcapps.adbremote.model
 
-import com.google.android.gms.measurement.api.AppMeasurementSdk
 import com.google.gson.annotations.SerializedName
 
 /** Persisted file-list sort configuration for the Files screen. */
@@ -16,7 +15,7 @@ class FileSorting(
 
     // obf: EnumC1603
     enum class SortBy {
-        @SerializedName(AppMeasurementSdk.ConditionalUserProperty.NAME) NAME,
+        @SerializedName("name") NAME,
         @SerializedName("size") SIZE,
         @SerializedName("last_modified") LAST_MODIFIED,
     }

@@ -6,7 +6,6 @@
     <string name="alt">Alt</string>
     <string name="apply">Apply</string>
     <string name="apply_2">Apply</string>
-    <string name="af">Apply</string>
     <string name="cancel">Cancel</string>
     <string name="connect">Connect</string>
     <string name="ctrl">Ctrl</string>
@@ -21,7 +20,6 @@
     <string name="import_clipboard">Import from clipboard</string>
     <string name="insert">Insert</string>
     <string name="keep_both_files">Keep both files</string>
-    <string name="au">Learn more</string>
     <string name="next">Next</string>
     <string name="no">No</string>
     <string name="ok">OK</string>
@@ -43,9 +41,7 @@
     <string name="tab_2">Tab</string>
     <string name="translations">Translations</string>
     <string name="try_again">Try again</string>
-    <string name="bf">Unbind</string>
     <string name="update">Update</string>
-    <string name="bh">Watch</string>
     <string name="yes">Yes</string>
     <string name="n_5555">5555</string>
     <string name="fallback_root_folder_required">Fallback root folder is required.</string>
@@ -62,9 +58,7 @@
     <string name="invalid_ip_address">Invalid IP Address.</string>
     <string name="invalid_pairing_code">Invalid pairing code.</string>
     <string name="invalid_port">Invalid port.</string>
-    <string name="cx">Invalid promo code.</string>
     <string name="failed_save_screenshot">Failed to save screenshot.</string>
-    <string name="cz">Too many requests. Please try again later.</string>
     <string name="unexpected_error_occurred">Unexpected error occurred.</string>
     <string name="easily_customize_buttons_1_tap">"You can easily customize the buttons.
 
@@ -141,7 +135,6 @@ If none of these solutions work, please contact us."</string>
     <string name="force_stop_app_may_misbehave">If you force stop an app, it may misbehave.</string>
     <string name="processes_have_been_forcibly_stopped">Processes have been forcibly stopped.</string>
     <string name="ftp_server_not_started">FTP server not started.</string>
-    <string name="g_">Got a promo code?</string>
     <string name="app_requesting_apply_icon_pack">An app is requesting to apply the %s icon pack.</string>
     <string name="imported_clipboard">Imported from clipboard.</string>
     <string name="app_send_key_combinations_using">"App can send key combinations using supported modifier keys (Shift, Ctrl, and Alt). However, only two combinations are currently supported.
@@ -161,14 +154,10 @@ Please note that the text preview may differ from the actual text on the connect
 Available: %3$s (%4$d%%)
 Total : %5$s"</string>
     <string name="modifier_keys_key_combinations_only">Modifier keys and key combinations are only available in ADB socket mode. This can be changed in Settings > Button control mode.</string>
-    <string name="gi">No ad to show. Please try again later.</string>
     <string name="provide_seamless_device_connection_alerts">To provide seamless device connection alerts and easy disconnection option, app requires notification permission.</string>
     <string name="ntp_server_has_been_configured">NTP server has been configured successfully. Please reboot the connected device to take effect.</string>
     <string name="network_time_protocol_ntp_synchronizes">Network Time Protocol (NTP) synchronizes the clock of connected device over the internet.</string>
     <string name="pairing">Pairing to %s …</string>
-    <string name="gn">Watch a short ad to unlock 1 day of premium, pause ads, and enjoy an ad-free experience. Earn additional days by viewing more ads.</string>
-    <string name="go">Premium access ends on %s.</string>
-    <string name="gp">Congratulations! Premium access is lifetime.</string>
     <string name="connected_getting_device_ready">Connected! Getting your device ready …</string>
     <string name="connected_getting_device_ready_takes">Connected! Getting your device ready .., if it takes too long, please reconnect or restart/reboot this device.</string>
     <string name="tcp_ip_mode_changed_reconnecting">TCP-IP mode changed. Reconnecting using TCP-IP …</string>
@@ -177,7 +166,6 @@ Total : %5$s"</string>
 
 Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear from you."</string>
     <string name="removed_favorite_apps">Removed from favorite apps.</string>
-    <string name="gw">Still loading, please wait …</string>
     <string name="screenshot_saved">Screenshot saved.</string>
     <string name="set_image_clipboard_successfully">Set image to clipboard successfully.</string>
     <string name="set_text_clipboard_successfully">Set text to clipboard successfully.</string>
@@ -188,7 +176,6 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
 #adbRemote"</string>
     <string name="text_selection_not_supported_yet">Text selection is not supported yet.</string>
     <string name="trackpad_only_available_adb_socket">Trackpad is only available in ADB socket mode. This can be changed in Settings > Button control mode.</string>
-    <string name="h3">Applied promo code will be removed and can be reused on this or another device.</string>
     <string name="use_feature_trusted_networks_like">Use this feature on trusted networks like home Wi-Fi, as file transfers are unencrypted.</string>
     <string name="uninstalling_remove_all_app_data">Uninstalling will remove all app data.</string>
     <string name="cannot_access_selected_file_use">Cannot access selected file. Please use a different gallery app like Google Photos.</string>
@@ -393,7 +380,6 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
     <string name="parent_folder">Parent folder</string>
     <string name="passive_mode">Passive mode</string>
     <string name="password">Password</string>
-    <string name="pm">Pause Ad</string>
     <string name="text_2">%d%%</string>
     <string name="performance">Performance</string>
     <string name="permissions">Permissions</string>
@@ -401,12 +387,10 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
     <string name="pointer_size">Pointer size</string>
     <string name="port">Port</string>
     <string name="power">Power</string>
-    <string name="pu">Premium access</string>
     <string name="preview">Preview</string>
     <string name="previous_2">Previous</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="processes">Processes</string>
-    <string name="pz">Promo code</string>
     <string name="properties">Properties</string>
     <string name="read_only">Read only</string>
     <string name="remove_favorite_apps">Remove from favorite apps</string>

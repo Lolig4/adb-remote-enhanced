@@ -19,8 +19,6 @@ import com.jcapps.adbremote.R
 import com.jcapps.adbremote.api.remote.ApiClient
 import com.jcapps.adbremote.databinding.DialogClipboardGetBinding
 import com.jcapps.adbremote.ui.BaseFragment
-import com.jcapps.adbremote.model.Feature
-import com.jcapps.adbremote.utils.FeatureUsage
 import com.jcapps.adbremote.utils.beginDelayedTransition
 import com.jcapps.adbremote.utils.getClipboardManager
 import com.jcapps.adbremote.utils.toUri
@@ -176,7 +174,6 @@ class ClipboardGetFragment : BaseFragment<DialogClipboardGetBinding>() {
                     }
                 } else if (response.data.hasImage) {
                     imageFile = downloadImage()
-                    FeatureUsage.trackFeatureUsage(dataStore, Feature.CLIPBOARD)
                     withContext(Dispatchers.Main) {
                         // obf: C3340
                         stateView.setState(if (imageFile == null) State.EMPTY else State.SUCCESS)

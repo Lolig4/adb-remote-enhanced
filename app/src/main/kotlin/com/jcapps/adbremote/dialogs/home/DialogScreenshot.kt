@@ -22,8 +22,6 @@ import com.jcapps.adbremote.NativeConfig
 import com.jcapps.adbremote.api.adb.ServerInstaller
 import com.jcapps.adbremote.databinding.DialogScreenshotBinding
 import com.jcapps.adbremote.dialogs.BaseBottomSheet
-import com.jcapps.adbremote.model.Feature
-import com.jcapps.adbremote.utils.FeatureUsage
 import com.jcapps.adbremote.utils.Logger
 import com.jcapps.adbremote.utils.beginDelayedTransition
 import com.jcapps.adbremote.views.State
@@ -166,7 +164,6 @@ class DialogScreenshot : BaseBottomSheet<DialogScreenshotBinding>() {
                     binding.imageImagePlaceholder.visibility = View.VISIBLE
                     binding.btnSave.visibility = View.VISIBLE
                     isLoaded = true
-                    FeatureUsage.trackFeatureUsage(dataStore, Feature.SCREENSHOT)
                 },
             )
             .build()

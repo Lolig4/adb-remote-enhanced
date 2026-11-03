@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Builds the Retrofit services: [ApiService] for the on-device ADB server
  * (`http://<ip>:<ServerInstaller.SERVER_CONSTANT>/`, optional 1-day HTTP cache, "token" header)
- * and [PremiumService] for the backend ([NativeConfig.apiBaseUrl], certificate-pinned).
+ * (the premium backend client was removed together with ads/premium).
  */
 object ApiClient {
     // obf: C0416
@@ -78,26 +78,5 @@ object ApiClient {
                 urls.remove()
             }
         }
-    }
-
-    /** Backend premium API ([NativeConfig.apiBaseUrl]) with certificate pinning for [NativeConfig.apiHost]. */
-    // obf: m2146
-    fun createPremiumService(): PremiumService {
-        val host = NativeConfig.apiHost ?: ""
-        val pinnerBuilder = CertificatePinner.Builder()
-        for (pin in NativeConfig.certificatePins) {
-            pinnerBuilder.add(host, pin)
-        }
-        val certificatePinner = pinnerBuilder.build()
-        return Retrofit.Builder()
-            .baseUrl(NativeConfig.apiBaseUrl)
-            .client(
-                OkHttpClient().newBuilder()
-                    .certificatePinner(certificatePinner)
-                    .build(),
-            )
-            .addConverterFactory(GsonConverterFactory.create(Gson()))
-            .build()
-            .create(PremiumService::class.java)
     }
 }

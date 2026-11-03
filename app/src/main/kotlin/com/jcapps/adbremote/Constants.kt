@@ -26,22 +26,6 @@ object Constants {
     const val GUIDE_HOW_TO_USE_CLIPBOARD = "guide/how-to-use-clipboard"
     const val GUIDE_HOW_TO_USE_NTP = "guide/how-to-use-ntp"
 
-    // ---- AdMob unit ids (names inferred from the use sites) ----
-    /** AdLoader.forNativeAd (AbstractC3420 / C0206). */
-    const val AD_UNIT_NATIVE = "ca-app-pub-8938536730349592/7094249394"
-
-    // RECON-UNSURE: no surviving direct use site (only in the string table) — assumed rewarded.
-    const val AD_UNIT_REWARDED = "ca-app-pub-8938536730349592/8477110689"
-
-    /** AppOpenAd.load (AppOpenAdManager). */
-    const val AD_UNIT_APP_OPEN = "ca-app-pub-8938536730349592/3237226440"
-
-    /** InterstitialAd.load (C0823 / C1321 / C2418). */
-    const val AD_UNIT_INTERSTITIAL = "ca-app-pub-8938536730349592/4741879801"
-
-    /** RewardedInterstitialAd.load (SettingsActivity). */
-    const val AD_UNIT_REWARDED_INTERSTITIAL = "ca-app-pub-8938536730349592/1151457889"
-
     // ---- support links ----
     // obf: f8531
     val telegramLink = Link(NativeConfig.telegramDeepLink, NativeConfig.telegramUrl)

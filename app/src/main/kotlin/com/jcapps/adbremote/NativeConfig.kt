@@ -24,15 +24,8 @@ object NativeConfig {
     const val facebookProfileUrl = "https://www.facebook.com/kaungkhantkyawprofile" // obf: m795
     const val translationsUrl = "https://github.com/kaungkhantjc/adb-remote-translations" // obf: m794
 
-    // ---- backend API (originally C0416 "ApiClient") ----
-    const val apiBaseUrl = "https://adbremote.jcoder.workers.dev/api/client/" // obf: m792
-    const val apiHost = "adbremote.jcoder.workers.dev"                        // obf: m799
-    /** OkHttp CertificatePinner pins for [apiHost]. obf: m793 (returned String[]). */
-    val certificatePins = arrayOf(
-        "sha256/mEflZT5enoR1FuXLgYYGqnVEoZvmf9c2bVBpiOjYQ0c=",
-        "sha256/kIdp6NNEd8wsugYyyIYFsi1ylMCED3hZbSR8ZFsa/A4=",
-    )
-    /** API fallback hosts tried when [apiBaseUrl] is unreachable. obf: m802 (returned String[]). */
+    // ---- website mirrors (originally C0416 "ApiClient"; the premium backend m792/m793/m799 was removed) ----
+    /** Website mirrors (Constants.websites). obf: m802 (returned String[]). */
     val apiFallbackUrls = arrayOf(
         "https://adbremote.netlify.app",
         "https://adbremote.onrender.com",
@@ -90,12 +83,6 @@ object NativeConfig {
     const val hidReportKeyboard = """{"id":0,"command":"report","report":[%s,%s]}"""       // obf: m807
     const val hidReportMouse = """{"id":1,"command":"report","report":[%s,%s,%s,0]}"""      // obf: m801
     const val hidReportConsumer = """{"id":2,"command":"report","report":[%s]}"""           // obf: m788
-
-    /**
-     * obf: m806 — reward grant duration in ms, added in PremiumManager.addAccess for a Reward
-     * (ad-reward) grant (`jMax + m806()`). RESOLVED by emulation: 86_400_000 = exactly 1 day.
-     */
-    const val premiumConstant: Long = 86_400_000L // obf: m806 — 1 day (ad-reward extension)
 
     /**
      * Server launch argument: `<serverMainClass> "<Base64(AES/ECB/PKCS5(token))>"`.

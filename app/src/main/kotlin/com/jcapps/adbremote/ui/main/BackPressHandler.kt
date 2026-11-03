@@ -7,13 +7,11 @@ import com.jcapps.adbremote.dialogs.home.DialogExtraButtons
 import com.jcapps.adbremote.dialogs.home.DialogKeyboard
 import com.jcapps.adbremote.dialogs.home.DialogNumpad
 import com.jcapps.adbremote.dialogs.home.DialogTrackpad
-import com.jcapps.adbremote.model.Feature
 import com.jcapps.adbremote.model.PhysicalKey
 import com.jcapps.adbremote.model.VirtualButton
 import com.jcapps.adbremote.model.VirtualKey
 import com.jcapps.adbremote.services.AdbService
 import com.jcapps.adbremote.ui.MainActivity
-import com.jcapps.adbremote.utils.FeatureUsage
 import com.jcapps.adbremote.utils.requestAppReviewIfRecommended
 
 /**
@@ -50,11 +48,6 @@ class BackPressHandler(
             VirtualButton.MUTE -> activity.sendCommand(command(VirtualKey(127, null), 164))
             VirtualButton.POWER -> activity.sendCommand(command(VirtualKey(102, null), 26))
             VirtualButton.KEYBOARD -> {
-                activity.maybeRequestReview()
-                if (!activity.isPremium && !FeatureUsage.canUseFeature(activity.configPrefs, Feature.KEYBOARD)) {
-                    activity.showPauseAdDialog()
-                    return
-                }
                 val dialog = DialogKeyboard()
                 // obf: C1433 case 11
                 dialog.onKeyEvent = { activity.sendCommand(it) }
@@ -64,17 +57,11 @@ class BackPressHandler(
                 dialog.onDismiss = {
                     if (AdbService.isRunning) {
                         requestAppReviewIfRecommended(activity)
-                        FeatureUsage.trackFeatureUsage(activity.prefs, Feature.KEYBOARD)
                     }
                 }
                 dialog.show(activity.supportFragmentManager, DialogKeyboard::class.java.name)
             }
             VirtualButton.TRACKPAD -> {
-                activity.maybeRequestReview()
-                if (!activity.isPremium && !FeatureUsage.canUseFeature(activity.configPrefs, Feature.TRACKPAD)) {
-                    activity.showPauseAdDialog()
-                    return
-                }
                 val sensitivity = activity.prefs.getFloat("trackpad_sensitivity", 0.0f)
                 val mouse = activity.mainViewModel.adbClient?.mouse
                 if (mouse != null) {
@@ -88,7 +75,6 @@ class BackPressHandler(
                     activity.setToolbarBackground(false)
                     if (AdbService.isRunning) {
                         requestAppReviewIfRecommended(activity)
-                        FeatureUsage.trackFeatureUsage(activity.prefs, Feature.TRACKPAD)
                     }
                 }
                 dialog.show(activity.supportFragmentManager, DialogTrackpad::class.java.name)

@@ -35,7 +35,6 @@ import com.jcapps.adbremote.dialogs.files.DialogFtpSettings
 import com.jcapps.adbremote.dialogs.files.DialogOpenRemotelyWith
 import com.jcapps.adbremote.model.FTPConfig
 import com.jcapps.adbremote.model.FTPSettings
-import com.jcapps.adbremote.model.Feature
 import com.jcapps.adbremote.model.FilesSettings
 import com.jcapps.adbremote.model.IntentParams
 import com.jcapps.adbremote.model.MxPlayerDecodeMode
@@ -55,7 +54,6 @@ import com.jcapps.adbremote.provider.ftp.FtpMode
 import com.jcapps.adbremote.provider.ftp.FtpPath
 import com.jcapps.adbremote.provider.ftp.FtpProtocol
 import com.jcapps.adbremote.ui.BaseActivity
-import com.jcapps.adbremote.utils.FeatureUsage
 import com.jcapps.adbremote.utils.SpacingItemDecoration
 import com.jcapps.adbremote.utils.apiServiceFor
 import com.jcapps.adbremote.utils.copyToClipboard
@@ -310,7 +308,6 @@ class FilesActivity : BaseActivity() {
         // obf: lambda case 0 — paste
         binding.btnPaste.setOnClickListener { paste() }
         if (ftpSettings != null) {
-            maybeRequestReview()
         }
     }
 
@@ -497,7 +494,6 @@ class FilesActivity : BaseActivity() {
                     // RECON-UNSURE: the decompile shows both `z8.f2570` alone and
                     //  `z8.f2570 && z8.f2572`; the shared inlined helper checks both.
                     requestAppReviewIfRecommended(this@FilesActivity)
-                    FeatureUsage.trackFeatureUsage(basePrefs.dataStore, Feature.FILES)
                 }
                 // obf: C2112
                 withContext(Dispatchers.Main) {

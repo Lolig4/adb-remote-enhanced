@@ -19,8 +19,6 @@ android {
         targetSdk = 35
         versionCode = 6
         versionName = "1.1.0"
-        // Original: AdMob App-ID aus dem Manifest
-        manifestPlaceholders["admobAppId"] = "ca-app-pub-8938536730349592~6489945861"
         ndk { abiFilters += listOf("armeabi-v7a", "arm64-v8a") } // adb-Binary (libfs*.so)
         vectorDrawables { useSupportLibrary = true } // Original enthält keine gerasterten Vektor-PNGs
     }
@@ -132,8 +130,6 @@ dependencies {
     implementation("com.google.android.play:review-ktx:2.0.1")
     implementation("com.google.android.gms:play-services-oss-licenses:17.1.0")
 
-    // AdMob
-    implementation("com.google.android.gms:play-services-ads:23.2.0")
 
     // Krypto (adbkey)
     implementation("org.bouncycastle:bcprov-jdk18on:1.78.1")

@@ -10,26 +10,18 @@ import androidx.core.util.Pair
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.elevation.SurfaceColors
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.jcapps.adbremote.R
-import com.jcapps.adbremote.databinding.ItemNativeAdBinding
 import com.jcapps.adbremote.databinding.ItemAppBinding
 import com.jcapps.adbremote.model.App
 import com.jcapps.adbremote.utils.AppIconLoader
 import com.jcapps.adbremote.utils.createShapeAppearanceModel
 import com.jcapps.adbremote.utils.getIconShape
 import com.jcapps.adbremote.utils.loadAppIcon
-import com.jcapps.adbremote.utils.loadNativeAds
-import com.jcapps.adbremote.utils.nativeAds
-import com.jcapps.adbremote.utils.populateNativeAd
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 /**
  * Installed / running apps list (AppsActivity) and the favourite-apps picker (MainActivity).
- * Rows with [App.isAd] are native-ad slots ([AdViewHolder], view type 1).
+ * (The original interleaved native-ad rows; ads were removed from this build.)
  */
 class AppsAdapter(
     // obf: f10811
@@ -57,9 +49,6 @@ class AppsAdapter(
     // obf: f10805
     val backgroundColor: Int = ContextCompat.getColor(context, R.color.white)
 
-    /** Placeholder colour of empty ad slots (surface colour 4). */
-    // obf: f10812 (C2247 case 1; AbstractC3344.m5883(4, ..) = SurfaceColors ordinal 4)
-    val placeholderColor: Int by lazy { SurfaceColors.SURFACE_4.getColor(context) }
 
     // obf: f10810
     lateinit var iconShape: ShapeAppearanceModel
@@ -89,15 +78,12 @@ class AppsAdapter(
 
     override fun getItemCount(): Int = differ.currentList.size
 
-    override fun getItemViewType(position: Int): Int = if (differ.currentList[position].isAd) 1 else 0
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             0 -> AppInfoViewHolder(
                 this,
                 ItemAppBinding.inflate(LayoutInflater.from(parent.context), parent, false),
             )
-            1 -> AdViewHolder(ItemNativeAdBinding.inflate(LayoutInflater.from(parent.context), parent, false))
             else -> throw IllegalStateException()
         }
     }
@@ -129,72 +115,6 @@ class AppsAdapter(
                 ViewCompat.setTransitionName(imageAppIcon, "icon_" + app.packageName)
                 ViewCompat.setTransitionName(textAppVersionName, "version_" + app.packageName)
             }
-            return
-        }
-        if (holder is AdViewHolder) {
-            val nativeAd = nativeAds.getOrNull(app.adPosition)
-            if (nativeAd == null) {
-                with(holder.binding) {
-                    jc.setBackgroundColor(placeholderColor)
-                    icon.setBackgroundColor(placeholderColor)
-                    icon.setImageDrawable(null)
-                    es.isEnabled = false
-                    es.visibility = View.VISIBLE
-                    root.isEnabled = false
-                    jc.text = null
-                    bm.text = null
-                    bo.text = null
-                    bn.rating = 0.0f
-                }
-                return
-            }
-            // RECON-UNSURE: R8 inlined an app extension on the ad-layout binding ("<this>", "nativeAd")
-            with(holder.binding) {
-                populateNativeAd(nativeAd, n9, icon, jc, bn, bm, bo, es)
-                root.isEnabled = true
-            }
-        }
-    }
-
-    /** Loads native ads for every ad slot of the current list; [onAdded] gets the list position. */
-    // obf: m5377 (body = suspend lambda C0206 on Dispatchers.IO, onLoaded C2097 case 0, onFailed C3629 case 0)
-    fun loadAds(onAdded: (Int) -> Unit) {
-        CoroutineScope(Dispatchers.IO).launch {
-            // obf: C0206
-            val list = differ.currentList
-            val count = list.count { it.isAd }
-            loadNativeAds(
-                context,
-                count,
-                // obf: C2097 case 0
-                onLoaded = { _, adPosition ->
-                    val index = list.indexOfFirst { it.isAd && it.adPosition == adPosition }
-                    if (index >= 0) {
-                        onAdded(index)
-                    }
-                },
-                // obf: C3629 case 0
-                onFailed = { adPosition ->
-                    differ.submitList(list.filter { !it.isAd || it.adPosition != adPosition })
-                },
-            )
-        }
-    }
-
-    /** Native-ad row (layout aa). */
-    inner class AdViewHolder(
-        // obf: f3979
-        val binding: ItemNativeAdBinding,
-    ) : RecyclerView.ViewHolder(binding.root) {
-        // obf: C0461
-
-        init {
-            val nativeAdView = binding.n9
-            nativeAdView.callToActionView = binding.es
-            nativeAdView.iconView = binding.icon
-            nativeAdView.headlineView = binding.jc
-            nativeAdView.starRatingView = binding.bn
-            nativeAdView.priceView = binding.bm
         }
     }
 }

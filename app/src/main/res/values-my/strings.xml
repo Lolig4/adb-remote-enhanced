@@ -5,7 +5,6 @@
     <string name="agree">သဘောတူသည်</string>
     <string name="apply">စစ်ထုတ်ရန်</string>
     <string name="apply_2">သုံးရန်</string>
-    <string name="af">အသုံးပြုရန်</string>
     <string name="cancel">မလုပ်တော့</string>
     <string name="connect">ချိတ်ဆက်ရန်</string>
     <string name="delete">ဖျက်ရန်</string>
@@ -17,7 +16,6 @@
     <string name="ignore_time">ဒီတစ်ကြိမ် update မလုပ်သေးပါ</string>
     <string name="import_clipboard">Clipboard မှ ထည့်ရန်</string>
     <string name="keep_both_files">ဖိုင်နှစ်ခုလုံးကို သိမ်းရန်</string>
-    <string name="au">ပိုမိုသိရှိရန်</string>
     <string name="next">ရှေ့သို့</string>
     <string name="no">မဟုတ်</string>
     <string name="ok">အိုကေ</string>
@@ -37,9 +35,7 @@
     <string name="stop">ရပ်ရန်</string>
     <string name="translations">Translations</string>
     <string name="try_again">ထပ်လုပ်ရန်</string>
-    <string name="bf">ပြန်ဖြုတ်ရန်</string>
     <string name="update">Update လုပ်ရန်</string>
-    <string name="bh">ကြည့်ရန်</string>
     <string name="yes">ဟုတ်</string>
     <string name="fallback_root_folder_required">အရံ root folder ထည့်ပါ။</string>
     <string name="root_folder_path_required">Root folder path ထည့်ပါ။</string>
@@ -55,9 +51,7 @@
     <string name="invalid_ip_address">IP လိပ်စာ မှားသည်။</string>
     <string name="invalid_pairing_code">Pairing code မှားသည်။</string>
     <string name="invalid_port">Port နံပါတ် မှားသည်။</string>
-    <string name="cx">ပရိုမိုကုဒ် မမှန်ကန်ပါ။</string>
     <string name="failed_save_screenshot">Screenshot သိမ်းဆည်းမရပါ။</string>
-    <string name="cz">အသုံးပြုရန် တောင်းဆိုမှု များလွန်းသောကြောင့် နောက်မှ ထပ်စမ်းကြည့်ပါ။</string>
     <string name="unexpected_error_occurred">မထင်မှတ်သော ပြဿနာ ဖြစ်ခဲ့သည်။</string>
     <string name="easily_customize_buttons_1_tap">"ခလုတ်များကို စိတ်ကြိုက် နေရာရွှေ့ပြောင်းနိုင်ပါသည်။
 
@@ -134,7 +128,6 @@
     <string name="force_stop_app_may_misbehave">App တစ်ခုကို ချက်ချင်းပိတ်လိုက်ပါက ၎င်း app ၏ လုပ်ဆောင်ချက်များ ချက်ချင်းရပ်တန့်သွားပါမည်။</string>
     <string name="processes_have_been_forcibly_stopped">Processes များကို ချက်ချင်းပိတ်ပစ်လိုက်ပါပြီ။</string>
     <string name="ftp_server_not_started">FTP ဆာဗာ မဖွင့်ရသေးပါ။</string>
-    <string name="g_">ပရိုမိုကုဒ်တစ်ခု ရထားပါသလား?</string>
     <string name="app_requesting_apply_icon_pack">App တစ်ခုမှ %s icon pack ကို အသုံးပြုရန် တောင်းဆိုထားပါသည်။</string>
     <string name="imported_clipboard">Clipboard မှ ကူးထည့်ပြီးပါပြီ။</string>
     <string name="app_send_key_combinations_using">"Shift, Ctrl နှင့် Alt ကီးများကို သုံး၍ ကီးအတွဲများ ပို့နိုင်ပါသည်။ သို့သော် လက်ရှိတွင် ကီးအတွဲ ၂ ခုသာ ပို့နိုင်ပါသည်။
@@ -155,14 +148,10 @@
 လက်ကျန်: %3$s (%4$d%%)
 စုစုပေါင်း : %5$s"</string>
     <string name="modifier_keys_key_combinations_only">Modifier keys များနှင့် ကီးအတွဲများကို ADB socket စနစ်ဖြင့်သာ အသုံးပြုနိုင်ပါသည်။ app ဆက်တင်ထဲမှ ခလုတ်ထိန်းချုပ်စနစ်တွင် ပြင်ဆင်နိုင်ပါသည်။</string>
-    <string name="gi">ပြသရန် ကြော်ငြာ မရှိသေးပါသဖြင့် နောက်မှ ထပ်စမ်းကြည့်ပေးပါ။</string>
     <string name="provide_seamless_device_connection_alerts">မိမိစက်နှင့် ချိတ်ဆက်ထားကြောင်း notification ပြရန်နှင့် ချိတ်ဆက်မှု အလွယ်တကူ ဖြုတ်နိုင်ရန် Notification ခွင့်ပြုချက် လိုအပ်ပါသည်။</string>
     <string name="ntp_server_has_been_configured">NTP ဆာဗာ ထည့်သွင်းပြီးပါပြီ။ အချိန်မှန်စေရန် ချိတ်ထားသော စက်ကို reboot ပြုလုပ်ပေးပါ။</string>
     <string name="network_time_protocol_ntp_synchronizes">Network Time Protocol (NTP) သည် ချိတ်ထားသော စက်၏ အချိန်ကို မှန်ကန်အောင် အင်တာနက်မှ ရယူပြီး ချိန်ညှိပေးနိုင်ပါသည်။</string>
     <string name="pairing">%s နှင့် ဆက်သွယ်နေသည် …</string>
-    <string name="gn">ကြော်ငြာ ဗီဒီယို အတိုတစ်ပုဒ် ကြည့်ရှုပြီး ပရီမီယံ ၁ ရက်စာ ရယူလိုက်ပါ။ ရယူပြီးလျှင် ကြော်ငြာအားလုံး ပျောက်သွားပါမည်။ ကြော်ငြာ ထပ်မံကြည့်ရှုပြီး ပရီမီယံ သက်တမ်းတိုးနိုင်ပါသည်။</string>
-    <string name="go">%s တွင် ပရီမီယံ အသုံးပြုခွင့်ကုန်ဆုံးပါမည်။</string>
-    <string name="gp">ဂုဏ်ယူပါသည်။ တစ်သက်တာ ပရီမီယံအသုံးပြုခွင့် ရရှိထားပါသည်။</string>
     <string name="connected_getting_device_ready">ချိတ်ဆက်ပြီးပါပြီ။ အဆင်သင့်ဖြစ်ရန် ပြင်ဆင်နေပါသည် …</string>
     <string name="connected_getting_device_ready_takes">ချိတ်ဆက်ပြီးပါပြီ။ အဆင်သင့်ဖြစ်ရန် ပြင်ဆင်နေပါသည် … ၊ အချိန်ကြာနေလျှင် ပြန်ချိတ်ကြည့်ပါ၊ သို့မဟုတ် ယခုဖုန်းကို reboot လုပ်ပြီး ပြန်ချိတ်ပါ။</string>
     <string name="tcp_ip_mode_changed_reconnecting">TCP-IP စနစ် ပြောင်းပြီးပါပြီ။ TCP-IP ဖြင့် ပြန်ချိတ်နေပါသည် …</string>
@@ -171,7 +160,6 @@
 
 app ကို နှစ်သက်လျှင် Play Store တွင် အဆင့်သတ်မှတ်ပြီး မှတ်ချက်ပေးနိုင်ပါသည်။ အသုံးပြုရာတွင် ပြဿနာ တစ်ခုခုရှိပါက အကြံပြုချက်များ ပေးပို့ရန် မေတ္တာရပ်ခံအပ်ပါသည်။"</string>
     <string name="removed_favorite_apps">စိတ်ကြိုက် app စာရင်းမှ ဖယ်လိုက်ပါပြီ။</string>
-    <string name="gw">ကြော်ငြာ ဗီဒီယို ရယူနေဆဲမို့ ခဏ စောင့်ဆိုင်းပေးပါရန် မေတ္တာရပ်ခံအပ်ပါသည် …</string>
     <string name="screenshot_saved">Screenshot ကို သိမ်းပြီးပါပြီ။</string>
     <string name="set_image_clipboard_successfully">ဓာတ်ပုံကို clipboard ထဲသို့ ထည့်သွင်းပြီးပါပြီ။</string>
     <string name="set_text_clipboard_successfully">စာသားကို clipboard ထဲသို့ ထည့်သွင်းပြီးပါပြီ။</string>
@@ -182,7 +170,6 @@ app ကို နှစ်သက်လျှင် Play Store တွင် အ�
 #adbRemote"</string>
     <string name="text_selection_not_supported_yet">စာသားရွေးချယ်မှုကို လက်ရှိတွင် ခွင့်မပြုထားသေးပါ။</string>
     <string name="trackpad_only_available_adb_socket">Trackpad ကို ADB socket စနစ်ဖြင့်သာ အသုံးပြုနိုင်ပါသည်။ app ဆက်တင်ထဲမှ ခလုတ်ထိန်းချုပ်စနစ်တွင် ပြင်ဆင်နိုင်ပါသည်။</string>
-    <string name="h3">အသုံးပြုထားသော ပရိုမိုကုဒ်ကို ဖယ်ရှားမည်ဖြစ်ပြီး ဤစက် သို့မဟုတ် အခြားစက်တွင် ပြန်လည်အသုံးပြုနိုင်ပါသည်။</string>
     <string name="use_feature_trusted_networks_like">unecrypted FTP ဖြစ်သောကြောင့် ဤ feature ကို အိမ်သုံး Wi-Fi ကဲ့သို့ စိတ်ချရသော ကွန်ရက်များတွင်သာ အသုံးပြုပါ။</string>
     <string name="uninstalling_remove_all_app_data">Uninstall လုပ်လျှင် app ၏ data များ အားလုံး ပျက်ပါမည်။</string>
     <string name="cannot_access_selected_file_use">ရွေးချယ်ထားသော ဓာတ်ပုံကို ဖတ်မရသောကြောင့် Google Photos ကဲ့သို့ အခြား Gallery app တစ်ခုခုနှင့် ရွေးချယ်ပေးပါ။</string>
@@ -358,18 +345,15 @@ app ကို နှစ်သက်လျှင် Play Store တွင် အ�
     <string name="parent_folder">Parent folder</string>
     <string name="passive_mode">Passive စနစ်</string>
     <string name="password">စကားဝှက်</string>
-    <string name="pm">ကြော်ငြာပိတ်ရန်</string>
     <string name="performance">စွမ်းဆောင်ရည်</string>
     <string name="permissions">ခွင့်ပြုချက်များ</string>
     <string name="play_pause">ဖွင့်၊ ရပ်</string>
     <string name="pointer_size">Pointer အရွယ်အစား</string>
     <string name="power">ပါဝါ</string>
-    <string name="pu">ပရီမီယံ အသုံးပြုခွင့်</string>
     <string name="preview">အစမ်းကြည့်ရှုမှု</string>
     <string name="previous_2">ရှေ့တစ်ပုဒ်</string>
     <string name="privacy_policy">ကိုယ်ရေးအချက်အလက် မူဝါဒ</string>
     <string name="processes">Processes</string>
-    <string name="pz">ပရိုမိုကုဒ်</string>
     <string name="properties">အသေးစိတ်</string>
     <string name="read_only">Read သီးသန့်စနစ်</string>
     <string name="remove_favorite_apps">စိတ်ကြိုက် app စာရင်းတွင် ဖယ်ရန်</string>

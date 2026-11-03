@@ -14,13 +14,11 @@ import com.jcapps.adbremote.R
 import com.jcapps.adbremote.databinding.ActivityIconShapeBinding
 import com.jcapps.adbremote.databinding.ItemIconShapeParamBinding
 import com.jcapps.adbremote.model.IconShape
-import com.jcapps.adbremote.premium.PremiumManager
 import com.jcapps.adbremote.ui.BaseActivity
 import com.jcapps.adbremote.utils.copyToClipboard
 import com.jcapps.adbremote.utils.createShapeAppearanceModel
 import com.jcapps.adbremote.utils.getClipboardText
 import com.jcapps.adbremote.utils.getCustomIconShape
-import com.jcapps.adbremote.utils.loadNativeAd
 import com.jcapps.adbremote.utils.parseIconShape
 
 /** "Customize icon shape": per-corner family/size and per-edge type/size editor with copy/paste/save. */
@@ -76,88 +74,8 @@ class IconShapeActivity : BaseActivity() {
             setResult(RESULT_OK)
             finish()
         }
-        if (PremiumManager.isPremium(application)) {
-            binding.content.frameExtraContent.removeAllViews()
-        } else {
-            loadNativeAd(
-                this,
-                true,
-                // obf: C1920 case 0 (R8-inlined NativeAdCardBinding.populate(nativeAd) helper)
-                { ad, _ ->
-                    val adLayout = binding.content.bk
-                    adLayout.bl.background = null
-                    adLayout.bf.background = null
-                    adLayout.bj.background = null
-                    adLayout.bh.isEnabled = true
-                    // obf: ViewGroupOnHierarchyChangeListenerC0419
-                    adLayout.bl.setOnHierarchyChangeListener(object : ViewGroup.OnHierarchyChangeListener {
-                        override fun onChildViewAdded(parent: View?, child: View?) {
-                            if (child is ImageView) {
-                                child.adjustViewBounds = true
-                            }
-                        }
-
-                        override fun onChildViewRemoved(parent: View?, child: View?) {}
-                    })
-                    val nativeAdView = adLayout.root
-                    nativeAdView.mediaView = adLayout.bl
-                    nativeAdView.headlineView = adLayout.bj
-                    nativeAdView.bodyView = adLayout.bg
-                    nativeAdView.callToActionView = adLayout.bh
-                    nativeAdView.iconView = adLayout.bf
-                    nativeAdView.priceView = adLayout.bm
-                    nativeAdView.starRatingView = adLayout.bn
-                    nativeAdView.storeView = adLayout.bo
-                    nativeAdView.advertiserView = adLayout.be
-                    adLayout.bj.text = ad.headline
-                    ad.mediaContent?.let { adLayout.bl.mediaContent = it }
-                    if (ad.body == null) {
-                        adLayout.bg.visibility = View.INVISIBLE
-                    } else {
-                        adLayout.bg.visibility = View.VISIBLE
-                        adLayout.bg.text = ad.body
-                    }
-                    if (ad.callToAction == null) {
-                        adLayout.bh.visibility = View.INVISIBLE
-                    } else {
-                        adLayout.bh.visibility = View.VISIBLE
-                        adLayout.bh.text = ad.callToAction
-                    }
-                    if (ad.icon == null) {
-                        adLayout.bf.visibility = View.GONE
-                    } else {
-                        adLayout.bf.setImageDrawable(ad.icon?.drawable)
-                        adLayout.bf.visibility = View.VISIBLE
-                    }
-                    if (ad.price == null) {
-                        adLayout.bm.visibility = View.INVISIBLE
-                    } else {
-                        adLayout.bm.visibility = View.VISIBLE
-                        adLayout.bm.text = ad.price
-                    }
-                    if (ad.store == null) {
-                        adLayout.bo.visibility = View.INVISIBLE
-                    } else {
-                        adLayout.bo.visibility = View.VISIBLE
-                        adLayout.bo.text = ad.store
-                    }
-                    if (ad.starRating == null) {
-                        adLayout.bn.visibility = View.INVISIBLE
-                    } else {
-                        adLayout.bn.rating = ad.starRating!!.toFloat()
-                        adLayout.bn.visibility = View.VISIBLE
-                    }
-                    if (ad.advertiser == null) {
-                        adLayout.be.visibility = View.INVISIBLE
-                    } else {
-                        adLayout.be.text = ad.advertiser
-                        adLayout.be.visibility = View.VISIBLE
-                    }
-                    nativeAdView.setNativeAd(ad)
-                },
-                { binding.content.frameExtraContent.removeAllViews() },
-            )
-        }
+        // ads removed: the static native-ad container is always cleared
+        binding.content.frameExtraContent.removeAllViews()
     }
 
     // obf: m856

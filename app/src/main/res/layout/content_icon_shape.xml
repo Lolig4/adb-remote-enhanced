@@ -16,7 +16,6 @@
         <include android:id="@id/include_edge_right" layout="@layout/item_icon_shape_param" />
         <include android:id="@id/include_edge_bottom" layout="@layout/item_icon_shape_param" />
         <LinearLayout android:gravity="center_horizontal" android:id="@id/frame_extra_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="20.0dip">
-            <include android:id="@id/bk" layout="@layout/native_ad_card" />
         </LinearLayout>
         <com.google.android.material.button.MaterialButton android:gravity="start|center" android:id="@id/btn_import_clipboard" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/import_clipboard" android:insetTop="0.0dip" android:insetBottom="0.0dip" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" app:icon="@drawable/ic_paste" app:shapeAppearance="@style/ShapeAppearance.AdbRemote.TopRounded" style="@style/Widget.Material3.Button.TonalButton" />
         <com.google.android.material.divider.MaterialDivider android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" />

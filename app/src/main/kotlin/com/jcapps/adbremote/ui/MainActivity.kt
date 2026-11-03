@@ -31,8 +31,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.preference.PreferenceManager
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.material.color.DynamicColors
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.elevation.SurfaceColors
@@ -44,7 +42,6 @@ import com.jcapps.adbremote.R
 import com.jcapps.adbremote.adapters.ToolsAdapter
 import com.jcapps.adbremote.adapters.apps.AppsAdapter
 import com.jcapps.adbremote.adapters.icons.IconShapePreviewAdapter
-import com.jcapps.adbremote.ads.InterstitialAdManager
 import com.jcapps.adbremote.api.adb.AdbBinary
 import com.jcapps.adbremote.api.adb.ConnectionMethod
 import com.jcapps.adbremote.api.adb.ServerInstaller
@@ -54,11 +51,8 @@ import com.jcapps.adbremote.api.remote.ApiClient
 import com.jcapps.adbremote.dao.Fav
 import com.jcapps.adbremote.dao.FavApps
 import com.jcapps.adbremote.databinding.ActivityMainBinding
-import com.jcapps.adbremote.databinding.LayoutNativeAdBinding
 import com.jcapps.adbremote.databinding.NavHeaderBinding
-import com.jcapps.adbremote.dialogs.AdFragment
 import com.jcapps.adbremote.dialogs.DialogOption
-import com.jcapps.adbremote.dialogs.DialogPauseAd
 import com.jcapps.adbremote.dialogs.DialogRateApp
 import com.jcapps.adbremote.dialogs.home.DialogClipboard
 import com.jcapps.adbremote.dialogs.home.DialogConnect
@@ -73,13 +67,11 @@ import com.jcapps.adbremote.model.App
 import com.jcapps.adbremote.model.AppsTab
 import com.jcapps.adbremote.model.ConnectionState
 import com.jcapps.adbremote.model.Direction
-import com.jcapps.adbremote.model.Feature
 import com.jcapps.adbremote.model.Link
 import com.jcapps.adbremote.model.Option
 import com.jcapps.adbremote.model.ServerState
 import com.jcapps.adbremote.model.ToolType
 import com.jcapps.adbremote.model.VirtualKey
-import com.jcapps.adbremote.premium.PremiumManager
 import com.jcapps.adbremote.prefs.AppPrefs
 import com.jcapps.adbremote.prefs.DevicesStore
 import com.jcapps.adbremote.services.AdbService
@@ -92,26 +84,21 @@ import com.jcapps.adbremote.utils.AppConfigLoader
 import com.jcapps.adbremote.utils.ButtonManager
 import com.jcapps.adbremote.utils.ButtonPressOverlay
 import com.jcapps.adbremote.utils.ContinuousPressHandler
-import com.jcapps.adbremote.utils.FeatureUsage
 import com.jcapps.adbremote.utils.HapticFeedback
 import com.jcapps.adbremote.utils.HidKeyMapper
 import com.jcapps.adbremote.utils.Logger
 import com.jcapps.adbremote.utils.NetworkState
 import com.jcapps.adbremote.utils.PlayStore
 import com.jcapps.adbremote.utils.SpacingItemDecoration
-import com.jcapps.adbremote.utils.destroyNativeAds
 import com.jcapps.adbremote.utils.getConnectionMethod
 import com.jcapps.adbremote.utils.getIconPacks
 import com.jcapps.adbremote.utils.getIconShape
 import com.jcapps.adbremote.utils.createShapeAppearanceModel
 import com.jcapps.adbremote.utils.hasConnected
 import com.jcapps.adbremote.utils.hasSentCommand
-import com.jcapps.adbremote.utils.insertAdPlaceholders
 import com.jcapps.adbremote.utils.killAdbServer
 import com.jcapps.adbremote.utils.loadIconPack
-import com.jcapps.adbremote.utils.loadNativeAd
 import com.jcapps.adbremote.utils.networkStateFlow
-import com.jcapps.adbremote.utils.populateNativeAd
 import com.jcapps.adbremote.utils.requestAppReviewIfRecommended
 import com.jcapps.adbremote.utils.showMarkdownDialog
 import com.jcapps.adbremote.utils.showNetworkWarning
@@ -144,17 +131,11 @@ import kotlin.math.roundToInt
 class MainActivity : BaseActivity() {
     // obf: C1204
 
-    // obf: f1494 — premium flag (skips Feature checks)
-    var isPremium: Boolean = false
-
     // obf: f1495 ("toolAdapter")
     private lateinit var toolsAdapter: ToolsAdapter
 
     // obf: f1496 (C0808 case 6)
     private val animation: Animation by lazy { AnimationUtils.loadAnimation(this, R.anim.blink) }
-
-    // obf: f1497
-    private var nativeAd: NativeAd? = null
 
     // obf: f1498 (C0808 case 5) / m821
     val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -163,12 +144,6 @@ class MainActivity : BaseActivity() {
     private val drawerToggle: ActionBarDrawerToggle by lazy {
         ActionBarDrawerToggle(this, binding.drawerMain, binding.searchBar, R.string.open_drawer, R.string.close_drawer_2)
     }
-
-    // obf: f1500
-    private var isNativeAdLoading: Boolean = false
-
-    // obf: f1507
-    private var lastNativeAdLoad: Long = 0L
 
     // obf: f1501 (C1425 case 5)
     private val surfaceColor: Int by lazy { SurfaceColors.SURFACE_3.getColor(this) }
@@ -308,9 +283,6 @@ class MainActivity : BaseActivity() {
                     startCommandProcessing()
                 }
             }
-            if (!PremiumManager.isPremium(application)) {
-                InterstitialAdManager.showRewarded(this)
-            }
         }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
@@ -394,7 +366,6 @@ class MainActivity : BaseActivity() {
     /** Main setup once the intro was completed. */
     // obf: C0538 case 0
     private fun onProceed(savedInstanceState: Bundle?) {
-        MobileAds.initialize(this)
         setContentView(binding.root)
         // obf: C0583 case 1 ("main", "view")
         ViewCompat.setOnApplyWindowInsetsListener(binding.coordinatorMain) { v, insets ->
@@ -680,65 +651,8 @@ class MainActivity : BaseActivity() {
             // obf: C2439
             Logger.isEnabled = prefs.getBoolean("enable_connection_history", true)
             connectionMethod = prefs.getConnectionMethod()
-            val access = PremiumManager.getAccess(this@MainActivity)
-            val app = application
-            if (app !is AdbRemoteApp) {
-                Process.killProcess(Process.myPid())
-                throw IllegalStateException()
-            }
-            var isPremiumCached = PremiumManager.isPremiumCached(this@MainActivity, app.sntpClient, access)
-            val config = configPrefs.config
-            val showAd: Boolean
-            if (config.ad == null) {
-                showAd = false
-            } else {
-                when (config.ad.type) {
-                    0 -> isPremiumCached = true
-                    1 -> isPremiumCached = !isPremiumCached
-                    2 -> {}
-                    else -> isPremiumCached = config.ad.type == 3 && access != null && access.isLifetime
-                }
-                showAd = isPremiumCached
-            }
             withContext(Dispatchers.Main) {
-                // obf: C0350
-                if (showAd) {
-                    val adFragment = AdFragment()
-                    adFragment.arguments = Bundle().apply { putParcelable("ad", config.ad) }
-                    // obf: C0808 case 12
-                    adFragment.onDismiss = { startConnection() }
-                    supportFragmentManager.commit {
-                        setTransition(androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        add(android.R.id.content, adFragment)
-                    }
-                } else {
-                    startConnection()
-                }
-                if (access?.promoCode != null) {
-                    with(PlayStore) {
-                        PremiumManager.updateDevice(
-                            lifecycleScope,
-                            access.promoCode,
-                            getAndroidId(),
-                            false,
-                            {
-                                // obf: C3079 case 2 — no-op
-                            },
-                            { isInvalid, _ ->
-                                // obf: C2097 case 2
-                                if (isInvalid) {
-                                    val application = application
-                                    if (application !is AdbRemoteApp) {
-                                        Process.killProcess(Process.myPid())
-                                        throw IllegalStateException()
-                                    }
-                                    val now = application.sntpClient.cachedTime()?.timestamp ?: System.currentTimeMillis()
-                                    PremiumManager.removePromo(this@MainActivity, now)
-                                }
-                            },
-                        )
-                    }
-                }
+                startConnection()
             }
         }
         loadApps(!isResumedOnce)
@@ -772,10 +686,7 @@ class MainActivity : BaseActivity() {
                 dialog.show(supportFragmentManager, DialogPerformance::class.java.name)
             }
             ToolType.SCREENSHOT -> {
-                maybeRequestReview()
-                if (!isPremium && !FeatureUsage.canUseFeature(configPrefs, Feature.SCREENSHOT)) {
-                    showPauseAdDialog()
-                } else {
+                run {
                     val dialog = DialogScreenshot()
                     // obf: C1433 case 5
                     dialog.onScreenshotSaved = { isSaved ->
@@ -793,24 +704,18 @@ class MainActivity : BaseActivity() {
                 dialog.show(supportFragmentManager, DialogDeviceInfo::class.java.name)
             }
             ToolType.FILES -> {
-                if (!isPremium && !FeatureUsage.canUseFeature(configPrefs, Feature.FILES)) {
-                    showPauseAdDialog()
-                } else {
+                run {
                     val intent = Intent(this, FilesActivity::class.java)
                     startActivity(intent, ActivityOptions.makeCustomAnimation(this, R.anim.zoom_enter, R.anim.fade_out_slow).toBundle())
                 }
             }
             ToolType.CLIPBOARD -> {
-                maybeRequestReview()
-                if (!isPremium && !FeatureUsage.canUseFeature(configPrefs, Feature.CLIPBOARD)) {
-                    showPauseAdDialog()
-                } else {
+                run {
                     DialogClipboard().show(supportFragmentManager, DialogClipboard::class.java.name)
                 }
             }
             ToolType.NTP -> {
-                maybeRequestReview()
-                if (isPremium || FeatureUsage.canUseFeature(configPrefs, Feature.NTP)) {
+                run {
                     DialogNtp().show(supportFragmentManager, DialogNtp::class.java.name)
                 }
             }
@@ -871,17 +776,8 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
     override fun onDestroy() {
         appConfigLoader.job?.cancel()
-        nativeAd?.destroy()
-        InterstitialAdManager.interstitialAd = null
-        InterstitialAdManager.rewardedInterstitialAd = null
-        destroyNativeAds()
         buttonPressOverlay.release()
         super.onDestroy()
     }
@@ -889,13 +785,6 @@ class MainActivity : BaseActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         handleIntent(intent)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.m5) {
-            showPauseAdDialog()
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onPause() {
@@ -920,33 +809,9 @@ class MainActivity : BaseActivity() {
         }
         lifecycleScope.launch(Dispatchers.IO) {
             // obf: C2703
-            isPremium = PremiumManager.isPremium(application)
-            // obf: inlined FeatureUsage loader ("dataStore")
-            val usedFeatures: Set<Feature>? = prefs.getString("used_features", null)?.let { json ->
-                try {
-                    // obf: C0378
-                    Gson().fromJson<Set<Feature>>(json, object : TypeToken<Set<Feature>>() {}.type)
-                } catch (e: JsonSyntaxException) {
-                    null
-                }
-            }
-            FeatureUsage.usedFeatures.clear()
-            if (usedFeatures != null) {
-                FeatureUsage.usedFeatures.addAll(usedFeatures)
-            }
             val isConnected = mainViewModel.connectionState.value == ConnectionState.CONNECTED
             if (isResumedOnce && !AdbService.isRunning && isConnected) {
                 mainViewModel.disconnect()
-            }
-            if (!isPremium) {
-                withContext(Dispatchers.Main) {
-                    // obf: C2418
-                    loadNativeAd()
-                    InterstitialAdManager.load(this@MainActivity)
-                }
-            }
-            if (hasConnected && hasSentCommand) {
-                prefs.edit().putBoolean("should_show_open_ad", true).apply()
             }
             isResumedOnce = true
         }
@@ -981,21 +846,10 @@ class MainActivity : BaseActivity() {
             if (!(query == null || query.isBlank())) {
                 apps = apps.filter { it.name.contains(query, true) }
             }
-            if (PremiumManager.isPremium(application)) {
-                destroyNativeAds()
-            } else {
-                apps = insertAdPlaceholders(apps)
-            }
             withContext(Dispatchers.Main) {
                 // obf: C1715
                 stateView.setState(if (apps.isEmpty()) State.EMPTY else State.SUCCESS)
-                appsAdapter.differ.submitList(apps) {
-                    // obf: RunnableC3533 case 1
-                    appsAdapter.loadAds { position ->
-                        // obf: C1433 case 8 -> RunnableC0456 case 0
-                        binding.listSearchResults.post { appsAdapter.notifyItemRangeChanged(position, 1, null) }
-                    }
-                }
+                appsAdapter.differ.submitList(apps)
             }
         }
     }
@@ -1028,53 +882,6 @@ class MainActivity : BaseActivity() {
         val intent = Intent(this, AppsActivity::class.java)
         intent.putExtra("tool_type", AppsTab.APPS)
         toolLauncher.launch(intent, ActivityOptionsCompat.makeCustomAnimation(this, R.anim.zoom_enter, R.anim.fade_out_slow))
-    }
-
-    // obf: m822 (layout ab, C2097 case 1, C1425 case 26)
-    fun loadNativeAd() {
-        if (isNativeAdLoading) {
-            return
-        }
-        val now = System.currentTimeMillis()
-        if (now - lastNativeAdLoad >= 120000) {
-            lastNativeAdLoad = now
-            isNativeAdLoading = true
-            val existing = binding.content.frameExtraContent.findViewById<android.view.View>(R.id.n9)
-            val adBinding = if (existing == null) {
-                LayoutNativeAdBinding.inflate(layoutInflater, null, false).also { binding.content.frameExtraContent.addView(it.root) }
-            } else {
-                LayoutNativeAdBinding.bind(existing)
-            }
-            loadNativeAd(
-                this,
-                false,
-                { ad, _ ->
-                    // obf: C2097 case 1
-                    isNativeAdLoading = false
-                    if (isDestroyed || isFinishing) {
-                        ad.destroy()
-                    } else {
-                        nativeAd?.destroy()
-                        nativeAd = ad
-                        populateNativeAd(
-                            ad,
-                            adBinding.root,
-                            adBinding.icon,
-                            adBinding.jc,
-                            adBinding.bn,
-                            adBinding.bm,
-                            adBinding.bo,
-                            adBinding.es,
-                        )
-                    }
-                },
-                {
-                    // obf: C1425 case 26
-                    isNativeAdLoading = false
-                    nativeAd = null
-                },
-            )
-        }
     }
 
     // obf: m823 (DialogConnect, onConnect = C1433 case 6)
@@ -1116,21 +923,6 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    // obf: m832 (DialogPauseAd, callback C1425 case 0)
-    fun showPauseAdDialog() {
-        val dialog = DialogPauseAd()
-        dialog.onDismiss = {
-            if (PremiumManager.isPremium(application)) {
-                nativeAd?.destroy()
-                nativeAd = null
-                binding.content.frameExtraContent.removeAllViews()
-            } else {
-                loadNativeAd()
-            }
-        }
-        dialog.show(supportFragmentManager, DialogPauseAd::class.java.simpleName)
-    }
-
     // obf: m833 (suspend lambda C3066, Dispatchers.IO)
     fun loadApps(refresh: Boolean) {
         lifecycleScope.launch(Dispatchers.IO) {
@@ -1165,7 +957,6 @@ class MainActivity : BaseActivity() {
             Logger.log(message)
             Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
             if (isSuccess) {
-                maybeRequestReview()
                 requestAppReviewIfRecommended(this)
             }
         }
