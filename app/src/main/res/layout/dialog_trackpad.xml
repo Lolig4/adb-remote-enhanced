@@ -5,6 +5,7 @@
     <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip">
         <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceHeadlineSmall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/trackpad" />
         <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/trackpad_keyboard" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@string/keyboard" app:icon="@drawable/ic_keyboard" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
     </LinearLayout>
     <!-- touches below the title never drag the sheet -->
     <com.jcapps.adbremote.views.NoSheetDragLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">

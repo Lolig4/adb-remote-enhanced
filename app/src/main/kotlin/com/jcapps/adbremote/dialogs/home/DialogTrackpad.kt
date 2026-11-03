@@ -38,6 +38,9 @@ class DialogTrackpad : BaseBottomSheet<DialogTrackpadBinding>() {
     // obf: f4556 — mouse/key events to MainViewModel.enqueue (MainActivity C1433 case 10)
     var onEvent: ((Any) -> Unit)? = null
 
+    /** Rebuild addition: keyboard button in the header opens the keyboard sheet over the trackpad. */
+    var onKeyboardClicked: (() -> Unit)? = null
+
     // obf: mo1933 (C1968)
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> DialogTrackpadBinding
         get() = DialogTrackpadBinding::inflate
@@ -63,6 +66,7 @@ class DialogTrackpad : BaseBottomSheet<DialogTrackpadBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.trackpadKeyboard.setOnClickListener { onKeyboardClicked?.invoke() }
         // Rebuild: no setToolbarBackground(true) any more - the full-height sheet covers the status bar
         // itself; the coloured activity background only showed up as a box while the sheet slid.
         val pointersEnabled = prefs.getBoolean("trackpad_pointers_enabled", true)

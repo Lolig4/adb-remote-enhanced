@@ -42,26 +42,29 @@ class BackPressHandler(
         activity.sendCommand(command(PhysicalKey(4), 4))
     }
 
+    /** Keyboard sheet (main-screen KEYBOARD button and the trackpad header button). */
+    private fun showKeyboard() {
+        val dialog = DialogKeyboard()
+        // obf: C1433 case 11
+        dialog.onKeyEvent = { activity.sendCommand(it) }
+        // obf: C1433 case 12
+        dialog.onAdbKeyEvent = { keyCode -> activity.mainViewModel.sendKeyEvent(keyCode) }
+        // obf: C0808 case 11
+        dialog.onDismiss = {
+            if (AdbService.isRunning) {
+                requestAppReviewIfRecommended(activity)
+            }
+        }
+        dialog.show(activity.supportFragmentManager, DialogKeyboard::class.java.name)
+    }
+
     /** Body inlined into ButtonManager.m3233 (switch over VirtualButton.ordinal). */
     // obf: ButtonManager.m3233 (inlined)
     fun onButtonClicked(virtualButton: VirtualButton) {
         when (virtualButton) {
             VirtualButton.MUTE -> activity.sendCommand(command(VirtualKey(127, null), 164))
             VirtualButton.POWER -> activity.sendCommand(command(VirtualKey(102, null), 26))
-            VirtualButton.KEYBOARD -> {
-                val dialog = DialogKeyboard()
-                // obf: C1433 case 11
-                dialog.onKeyEvent = { activity.sendCommand(it) }
-                // obf: C1433 case 12
-                dialog.onAdbKeyEvent = { keyCode -> activity.mainViewModel.sendKeyEvent(keyCode) }
-                // obf: C0808 case 11
-                dialog.onDismiss = {
-                    if (AdbService.isRunning) {
-                        requestAppReviewIfRecommended(activity)
-                    }
-                }
-                dialog.show(activity.supportFragmentManager, DialogKeyboard::class.java.name)
-            }
+            VirtualButton.KEYBOARD -> showKeyboard()
             VirtualButton.TRACKPAD -> {
                 val sensitivity = activity.prefs.getFloat("trackpad_sensitivity", 0.0f)
                 val mouse = activity.mainViewModel.adbClient?.mouse
@@ -74,6 +77,7 @@ class BackPressHandler(
                 // recycled after dispatch; the worker thread then read a dead MotionEvent (SIGABRT
                 // in libinput on Android 17). AdbClient recycles the copy after use.
                 dialog.onEvent = { activity.mainViewModel.enqueue(if (it is MotionEvent) MotionEvent.obtain(it) else it) }
+                dialog.onKeyboardClicked = { showKeyboard() }
                 // obf: C0808 case 10
                 dialog.onDismiss = {
                     if (AdbService.isRunning) {
