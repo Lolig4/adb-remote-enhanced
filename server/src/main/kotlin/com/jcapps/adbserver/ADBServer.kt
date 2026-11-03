@@ -108,11 +108,12 @@ object ADBServer {
 
     /** Keeps the main thread (and so the process) alive; the server runs on AsyncServer's thread. */
     // obf: AbstractC0182.start
-    // BUG(original): busy-wait, burns one CPU core at 100% for the whole lifetime of the server
-    // (a Looper.loop()/Thread.join() would do).
+    // Fixed (rebuild): the original busy-waited (`while (true) {}`), burning one CPU core at 100%
+    // for the whole lifetime of the server. Sleeping keeps the process alive just as well.
     @JvmStatic
     private fun keepAlive() {
         while (true) {
+            Thread.sleep(Long.MAX_VALUE)
         }
     }
 }

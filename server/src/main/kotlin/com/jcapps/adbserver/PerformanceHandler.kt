@@ -31,11 +31,10 @@ class PerformanceHandler(param: Param, private val context: Context) : BaseHandl
                         val after = second[index]
                         val restBefore = before?.rest ?: 0L
                         val restAfter = after?.rest ?: 0L
-                        // BUG(original): Long division by zero (ArithmeticException, request dies)
-                        // when a line's counters did not change between the two samples, and every
-                        // unparsable line (null) counts as 0/0.
-                        val percent = ((restAfter - restBefore) * 100L) /
-                            ((restAfter + (after?.idle ?: 0L)) - (restBefore + (before?.idle ?: 0L)))
+                        // Fixed (rebuild): the original divided by zero (request died) when a core's
+                        // counters did not change between the two samples (e.g. an offline core).
+                        val total = (restAfter + (after?.idle ?: 0L)) - (restBefore + (before?.idle ?: 0L))
+                        val percent = if (total > 0L) ((restAfter - restBefore) * 100L) / total else 0L
                         Performance.CPU(
                             name = if (index == 0) "CPU" else "CPU $index",
                             percent = percent.toInt(),

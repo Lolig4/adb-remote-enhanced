@@ -85,7 +85,7 @@ class AppViewModel : ViewModel() {
                 } else if (response.status) {
                     context.getString(R.string.app_launched, app.name)
                 } else {
-                    response.data ?: getUnreachableMessage(context)
+                    response.data ?: response.message ?: getUnreachableMessage(context) // rebuild: show the server's error message
                 }
                 callback(response != null && response.status, message)
             },
@@ -157,7 +157,7 @@ class AppViewModel : ViewModel() {
                 } else if (response.status) {
                     context.getString(R.string.app_force_stopped, app.name)
                 } else {
-                    response.data ?: getUnreachableMessage(context)
+                    response.data ?: response.message ?: getUnreachableMessage(context) // rebuild: show the server's error message
                 }
                 callback(response?.status ?: false, message)
             },
@@ -236,7 +236,7 @@ class AppViewModel : ViewModel() {
                 } else if (response.status) {
                     context.getString(R.string.app_data_cleared, app.name)
                 } else {
-                    response.data ?: getUnreachableMessage(context)
+                    response.data ?: response.message ?: getUnreachableMessage(context) // rebuild: show the server's error message
                 }
                 callback(response?.status ?: false, message)
             },
@@ -256,7 +256,7 @@ class AppViewModel : ViewModel() {
                 } else if (response.status) {
                     context.getString(R.string.app_disabled, app.name)
                 } else {
-                    response.data ?: getUnreachableMessage(context)
+                    response.data ?: response.message ?: getUnreachableMessage(context) // rebuild: show the server's error message
                 }
                 callback(response?.status ?: false, message)
             },
@@ -276,7 +276,7 @@ class AppViewModel : ViewModel() {
                 } else if (response.status) {
                     context.getString(R.string.app_enabled, app.name)
                 } else {
-                    response.data ?: getUnreachableMessage(context)
+                    response.data ?: response.message ?: getUnreachableMessage(context) // rebuild: show the server's error message
                 }
                 callback(response?.status ?: false, message)
             },
@@ -322,7 +322,7 @@ class AppViewModel : ViewModel() {
                 } else if (response.status) {
                     context.getString(R.string.app_info_settings_launched, app.name)
                 } else {
-                    response.data ?: getUnreachableMessage(context)
+                    response.data ?: response.message ?: getUnreachableMessage(context) // rebuild: show the server's error message
                 }
                 callback(response?.status ?: false, message)
             },
@@ -341,7 +341,7 @@ class AppViewModel : ViewModel() {
                 } else if (response.status) {
                     context.getString(R.string.app_launched_play_store, app.name)
                 } else {
-                    response.data ?: getUnreachableMessage(context)
+                    response.data ?: response.message ?: getUnreachableMessage(context) // rebuild: show the server's error message
                 }
                 callback(response?.status ?: false, message)
             },

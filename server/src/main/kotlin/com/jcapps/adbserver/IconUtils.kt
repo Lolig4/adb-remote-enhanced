@@ -19,8 +19,8 @@ internal object IconUtils {
     // obf: C0335.m327
     fun saveBitmap(file: File, bitmap: Bitmap): File? {
         return try {
-            // BUG(original): the FileOutputStream is never closed (fd leaks until GC).
-            if (!bitmap.compress(Bitmap.CompressFormat.PNG, 100, FileOutputStream(file))) null else file
+            // Fixed (rebuild): the original never closed the FileOutputStream (fd leak).
+            if (!FileOutputStream(file).use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }) null else file
         } catch (e: Exception) {
             null
         }

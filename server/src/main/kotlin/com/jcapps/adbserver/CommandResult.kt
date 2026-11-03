@@ -8,4 +8,8 @@ data class CommandResult(
     @field:SerializedName("exit_code") val exitCode: Int,
     @field:SerializedName("output") val output: String,
     @field:SerializedName("error") val error: String,
-)
+) {
+    /** Rebuild addition: exit 0 and no "Error:"/"Failure" output (`am start` exits 0 on some errors). */
+    fun succeeded(): Boolean =
+        exitCode == 0 && !output.startsWith("Error") && !output.contains("\nError") && !output.startsWith("Failure")
+}

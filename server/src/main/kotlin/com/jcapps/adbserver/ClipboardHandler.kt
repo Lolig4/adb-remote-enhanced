@@ -179,8 +179,11 @@ class ClipboardHandler(param: Param, private val action: Action) : BaseHandler(p
                     response.sendError(errMessage ?: exc?.toString() ?: "")
                     return@CompletedCallback
                 }
-                // BUG(original): with no error and no image part (e.g. an empty multipart body) no
-                // response is ever sent and the request hangs.
+                // Fixed (rebuild): without an image part the original never answered (request hung).
+                if (imageFile == null) {
+                    response.sendError("Failed to set clipboard.")
+                    return@CompletedCallback
+                }
                 if (imageFile != null) {
                     val path = imageFile!!.absolutePath
                     // obf: C0135 (first constructor) = scan-completed callback

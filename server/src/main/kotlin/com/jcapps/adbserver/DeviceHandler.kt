@@ -99,11 +99,11 @@ class DeviceHandler(param: Param, private val mode: Mode) : BaseHandler(param) {
             dir.mkdir()
         }
         val file = File(dir, "screenshot.png")
+        // Fixed (rebuild): drop the previous screenshot first and require exit 0; the original
+        // could answer a failed screencap with the stale image of an earlier call.
+        file.delete()
         val result = Shell.run("screencap " + file.path, true)
-        // BUG(original): see deviceInfo — the exit-code check only catches -1; success is really
-        // decided by the file length. A stale screenshot.png from an earlier call is never deleted,
-        // so a failing screencap still "succeeds" with the old image.
-        if (result.exitCode >= 0 && file.length() > 0) {
+        if (result.exitCode == 0 && file.length() > 0) {
             response.headers.set("Content-Type", "image/png")
             response.sendFile(file)
         } else {

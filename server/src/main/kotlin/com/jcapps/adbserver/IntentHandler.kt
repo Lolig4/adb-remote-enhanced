@@ -131,10 +131,10 @@ class IntentHandler(param: Param) : BaseHandler(param) {
             }
         }
         params.flags?.let { sb.append("-f " + it + ' ') }
-        val result = Shell.run(sb.toString().trim(), false)
-        // BUG(original): `>= 0` treats every exit code as success (only Shell's own failure gives -1),
-        // and with readOutput = false the output is always "", so the app gets success with "".
-        if (result.exitCode >= 0) {
+        // Fixed (rebuild): the original accepted every exit code (`>= 0`) and never read the output,
+        // so the app always got success with "".
+        val result = Shell.run(sb.toString().trim(), true)
+        if (result.succeeded()) {
             response.sendSuccess(result.output)
         } else {
             // am prints "Starting: Intent {...}" on stdout and the reason on stderr -> prefer stderr

@@ -124,10 +124,14 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
                 "Failed to launch app info settings.",
                 "am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:$packageName",
             )
-            // BUG(original): no `--user 0`, so for system apps `pm uninstall` fails (only updates
-            // could be removed with -k/--user); combined with the exit-code check in runCommand
-            // the client is told "App uninstalled." anyway.
-            "uninstall" -> runCommand(response, "App uninstalled.", "Failed to uninstall.", "pm uninstall $packageName")
+            // Fixed (rebuild): system apps can only be removed for the user (`--user 0`, undo with
+            // `cmd package install-existing <pkg>`); the original always ran plain `pm uninstall`.
+            "uninstall" -> runCommand(
+                response,
+                "App uninstalled.",
+                "Failed to uninstall.",
+                "pm uninstall " + (if (isSystemApp(packageName)) "--user 0 " else "") + packageName,
+            )
             "info" -> sendAppInfo(response, packageName)
             "stop" -> runCommand(response, "Force stopped.", "Failed to force stop.", "am force-stop $packageName")
             "clear" -> runCommand(response, "App data cleared.", "Failed to clear data.", "pm clear $packageName")
@@ -161,12 +165,12 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
             } else {
                 "am start -n " + component.packageName + '/' + component.className
             }
-            // BUG(original): exitCode >= 0 is true for every finished command (am returns 0 even on
-            // many errors, and 1 is >= 0 as well); only Shell's -1 (exception) counts as failure.
-            if (Shell.run(command, true).exitCode >= 0) {
+            // Fixed (rebuild): the original accepted every exit code (`>= 0`).
+            val result = Shell.run(command, true)
+            if (result.succeeded()) {
                 response.sendSuccess("App launched.")
             } else {
-                response.sendError("Failed to launch.")
+                response.sendError(withDetails("Failed to launch.", result))
             }
         } catch (e: Exception) {
             response.sendError("No launch intent found.")
@@ -177,8 +181,8 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
     // obf: m258 case "info"
     private fun sendAppInfo(response: AsyncHttpServerResponse, packageName: String) {
         var permissions: List<String> = emptyList() // obf: C0166.f339 (EmptyList)
-        // BUG(original): "%s" is never formatted, the client gets the literal placeholder.
-        val failedMessage = "Failed to get app info for %s."
+        // Fixed (rebuild): the original sent the literal "%s".
+        val failedMessage = "Failed to get app info for %s.".format(packageName)
         try {
             val pkgManager = context.packageManager!!
             val packageInfo = pkgManager.getPackageInfo(packageName, 8192)
@@ -248,16 +252,31 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
     /** Runs [command] (output not read) and answers with [successMessage] / [failureMessage]. */
     // obf: m259
     fun runCommand(response: AsyncHttpServerResponse, successMessage: String, failureMessage: String, command: String) {
-        // BUG(original): pm returns 1 on failure, which is >= 0 → always reports success
-        if (Shell.run(command, false).exitCode >= 0) {
+        // Fixed (rebuild): the original checked `exitCode >= 0`, so every failed pm/am call (exit 1)
+        // was reported as success. Now success needs exit 0 and no error text; the failure message
+        // carries pm/am's own output so the user sees why.
+        val result = Shell.run(command, true)
+        if (result.succeeded()) {
             response.sendSuccess(successMessage)
         } else {
-            response.sendError(failureMessage)
+            response.sendError(withDetails(failureMessage, result))
         }
     }
 
     /** Java package-name syntax (letters, digits, '_', dot-separated); "android" is valid too. */
     private fun isValidPackageName(name: String): Boolean = PACKAGE_NAME_REGEX.matches(name)
+
+    private fun isSystemApp(packageName: String): Boolean = try {
+        val flags = context.packageManager!!.getApplicationInfo(packageName, 0).flags
+        flags and android.content.pm.ApplicationInfo.FLAG_SYSTEM != 0
+    } catch (e: Exception) {
+        false
+    }
+
+    private fun withDetails(message: String, result: CommandResult): String {
+        val details = result.output.ifEmpty { result.error }
+        return if (details.isEmpty()) message else "$message $details"
+    }
 
     // ------------------------------------------------------------------------------------------
     // /app-icon?package_name=..[&icon_only]

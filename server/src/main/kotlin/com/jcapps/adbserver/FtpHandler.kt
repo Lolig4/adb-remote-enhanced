@@ -62,9 +62,10 @@ class FtpHandler(param: Param, private val action: Action) : BaseHandler(param) 
             response.sendError("FTP server needs FTP params.")
             return
         }
-        // BUG(original): a body without "ip_address" leaves the non-null Kotlin field null (Gson
-        // bypasses the constructor); the parameter null-check then throws an uncaught NPE here.
-        if (!MiscUtils.isValidIpAddress(params.ipAddress)) {
+        // Fixed (rebuild): a body without "ip_address" left the field null (Gson bypasses the
+        // constructor) and crashed the request with an NPE.
+        @Suppress("SENSELESS_COMPARISON")
+        if (params.ipAddress == null || !MiscUtils.isValidIpAddress(params.ipAddress)) {
             response.sendError("Invalid IP address.")
             return
         }

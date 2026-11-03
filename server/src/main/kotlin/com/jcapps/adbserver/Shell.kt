@@ -21,38 +21,28 @@ object Shell {
                 stdin.writeBytes("\n exit \n")
                 stdin.close()
             }
+            // Fixed (rebuild): stdout/stderr are always drained (a chatty command used to block
+            // forever when readOutput was false) and the readers are joined before the result is
+            // built (the original interrupted them, so output/error came back empty or cut off).
+            // readOutput only decides whether the text is returned.
             var output = "" // obf: c0322
             var error = ""  // obf: c0323
-            var outputThread: Thread? = null // obf: c0324
-            var errorThread: Thread? = null  // obf: c0325
-            if (readOutput) {
-                // obf: lambda ဘဒဝသဗငက case 0 -> C0287 mode 1
-                outputThread = Thread {
-                    MiscUtils.ignoreExceptions {
-                        output = proc.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() }
-                    }
-                }.also { it.start() }
-                // obf: lambda ဘဒဝသဗငက case 1 -> C0287 mode 2
-                errorThread = Thread {
-                    MiscUtils.ignoreExceptions {
-                        error = proc.errorStream.bufferedReader(Charsets.UTF_8).use { it.readText() }
-                    }
-                }.also { it.start() }
-            }
-            // BUG(original): with readOutput == false nobody drains stdout/stderr, so a command that
-            // writes more than the pipe buffer blocks forever and waitFor() never returns.
+            // obf: lambda ဘဒဝသဗငက case 0 -> C0287 mode 1
+            val outputThread = Thread {
+                MiscUtils.ignoreExceptions { output = proc.inputStream.bufferedReader(Charsets.UTF_8).use { it.readText() } }
+            }.also { it.start() }
+            // obf: lambda ဘဒဝသဗငက case 1 -> C0287 mode 2
+            val errorThread = Thread {
+                MiscUtils.ignoreExceptions { error = proc.errorStream.bufferedReader(Charsets.UTF_8).use { it.readText() } }
+            }.also { it.start() }
             val exitCode = proc.waitFor()
-            if (readOutput) {
-                // BUG(original): the reader threads are interrupted, not joined. interrupt() does
-                // not stop a blocking read, and nothing waits for them, so output/error are read
-                // racily: if a reader has not finished yet, the result below carries "" (or a stale
-                // value) for that stream. Also the writes from the reader threads are not volatile.
-                MiscUtils.ignoreExceptions { outputThread?.interrupt() } // obf: C0110 mode 2
-                MiscUtils.ignoreExceptions { errorThread?.interrupt() }  // obf: C0110 mode 3
-            }
-            // BUG(original): destroy() also closes the pipes, which can cut off a reader that is
-            // still running (see above).
+            outputThread.join()
+            errorThread.join()
             MiscUtils.ignoreExceptions { proc.destroy() } // obf: C0110 mode 4
+            if (!readOutput) {
+                output = ""
+                error = ""
+            }
             output = output.trim()
             error = error.trim()
             if (output == "null") {
