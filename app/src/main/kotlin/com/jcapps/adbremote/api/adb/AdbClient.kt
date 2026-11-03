@@ -101,7 +101,11 @@ class AdbClient(
             is List<*> -> for (key in item) {
                 if (key is VirtualKey) keyboard.sendKey(key.keyCode, key.modifierKey)
             }
-            is MotionEvent -> mouse.onMotionEvent(item)
+            is MotionEvent -> try {
+                mouse.onMotionEvent(item)
+            } finally {
+                item.recycle() // the queued event is a private copy (see BackPressHandler TRACKPAD)
+            }
             is PhysicalKey -> {
                 val keyCode = item.keyCode
                 require(keyCode in 0..255) { "Key code must be between 0..255" }

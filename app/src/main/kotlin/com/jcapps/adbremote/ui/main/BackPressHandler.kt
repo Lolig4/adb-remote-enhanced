@@ -1,5 +1,6 @@
 package com.jcapps.adbremote.ui.main
 
+import android.view.MotionEvent
 import com.jcapps.adbremote.api.adb.ConnectionMethod
 import com.jcapps.adbremote.api.adb.commands.ApiCommand
 import com.jcapps.adbremote.api.adb.commands.BinaryCommand
@@ -69,7 +70,10 @@ class BackPressHandler(
                 }
                 val dialog = DialogTrackpad()
                 // obf: C1433 case 10
-                dialog.onEvent = { activity.mainViewModel.enqueue(it) }
+                // Fix (rebuild): queue a copy. The original queued the framework's event, which is
+                // recycled after dispatch; the worker thread then read a dead MotionEvent (SIGABRT
+                // in libinput on Android 17). AdbClient recycles the copy after use.
+                dialog.onEvent = { activity.mainViewModel.enqueue(if (it is MotionEvent) MotionEvent.obtain(it) else it) }
                 // obf: C0808 case 10
                 dialog.onDismiss = {
                     if (AdbService.isRunning) {
