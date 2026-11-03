@@ -69,19 +69,17 @@ class IntentHandler(param: Param) : BaseHandler(param) {
                 params.flags?.let { intent.flags = it }
                 params.extras?.let { extras ->
                     for ((key, value) in extras) {
-                        // BUG(original): Gson parses JSON numbers into LazilyParsedNumber, which is none
-                        // of Short/Integer/Long/Float/Double, so numeric extras are silently dropped.
+                        // Fixed (rebuild): Gson yields LazilyParsedNumber, which matched none of the
+                        // original's branches, so numeric extras were dropped. Classify by the JSON text.
                         if (value.isString) {
                             intent.putExtra(key, value.asString)
                         } else if (value.isBoolean) {
                             intent.putExtra(key, value.asBoolean)
                         } else if (value.isNumber) {
-                            when (val number = value.asNumber) {
-                                is Short -> intent.putExtra(key, number.toShort())
-                                is Int -> intent.putExtra(key, number.toInt())
-                                is Long -> intent.putExtra(key, number.toLong())
-                                is Float -> intent.putExtra(key, number.toFloat())
-                                is Double -> intent.putExtra(key, number.toDouble())
+                            when (val number = typedNumber(value)) {
+                                is Int -> intent.putExtra(key, number)
+                                is Long -> intent.putExtra(key, number)
+                                is Double -> intent.putExtra(key, number)
                             }
                         }
                     }
@@ -121,11 +119,11 @@ class IntentHandler(param: Param) : BaseHandler(param) {
                 } else if (value.isBoolean) {
                     sb.append("--ez '" + escape(key) + "' " + value.asBoolean + ' ')
                 } else if (value.isNumber) {
-                    // BUG(original): same LazilyParsedNumber problem as above — numbers never match.
-                    when (val number = value.asNumber) {
-                        is Int -> sb.append("--ei '" + escape(key) + "' " + number.toInt() + ' ')
-                        is Long -> sb.append("--el '" + escape(key) + "' " + number.toLong() + ' ')
-                        is Float -> sb.append("--ef '" + escape(key) + "' " + number.toFloat() + ' ')
+                    // Fixed (rebuild): same LazilyParsedNumber problem as above.
+                    when (val number = typedNumber(value)) {
+                        is Int -> sb.append("--ei '" + escape(key) + "' " + number + ' ')
+                        is Long -> sb.append("--el '" + escape(key) + "' " + number + ' ')
+                        is Double -> sb.append("--ef '" + escape(key) + "' " + number.toFloat() + ' ')
                     }
                 }
             }
@@ -177,4 +175,14 @@ data class IntentParams(
         @field:SerializedName("fallback_parent") val fallbackParent: String, // obf: f247 / m161
         @field:SerializedName("child") val child: String,                    // obf: f249 / m162
     )
+}
+
+/** Int / Long / Double for a JSON number (Gson's LazilyParsedNumber), by its literal text. */
+private fun typedNumber(value: com.google.gson.JsonPrimitive): Any? {
+    val text = value.asString
+    return if (text.contains('.') || text.contains('e', ignoreCase = true)) {
+        text.toDoubleOrNull()
+    } else {
+        text.toIntOrNull() ?: text.toLongOrNull()
+    }
 }

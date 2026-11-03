@@ -119,11 +119,14 @@ class ClipboardHandler(param: Param, private val action: Action) : BaseHandler(p
     private fun sendFileDescriptor(response: AsyncHttpServerResponse, pfd: ParcelFileDescriptor, mimeType: String) {
         response.headers.set("Content-Type", mimeType)
         try {
-            val input = FileInputStream(pfd.fileDescriptor)
+            // Fixed (rebuild): AutoCloseInputStream closes the ParcelFileDescriptor together with the
+            // stream (the original leaked it). The provider itself is still not released (see above).
+            val input = ParcelFileDescriptor.AutoCloseInputStream(pfd)
             response.sendStream(input, input.channel.size())
         } catch (e: Exception) {
-            // BUG(original): the stack trace goes out with the image Content-Type set just above.
-            response.send(e.stackTraceToString()) // send(String): Content-Type header or text/html
+            // Fixed (rebuild): answer as a normal JSON error instead of a stack trace typed as an image.
+            response.headers.set("Content-Type", "application/json; charset=utf-8")
+            response.send("{\"message\":\"Failed to get image from clipboard.\",\"status\":false}")
         }
     }
 
@@ -217,10 +220,9 @@ class ClipboardHandler(param: Param, private val action: Action) : BaseHandler(p
                         if (pictures.exists() || pictures.mkdir()) {
                             val clipboardDir = File(pictures, "Clipboard")
                             if (clipboardDir.exists() || clipboardDir.mkdir()) {
+                                // Fixed (rebuild): the original overwrote this with the hard-coded
+                                // /storage/emulated/0/Pictures/Clipboard, ignoring the dir created above.
                                 imageFile = File(clipboardDir, part.filename)
-                                // BUG(original): immediately overwritten with a hard-coded path, so the
-                                // directory checked/created above is ignored if Pictures lives elsewhere.
-                                imageFile = File("/storage/emulated/0/Pictures/Clipboard", part.filename)
                                 val output = FileOutputStream(imageFile!!)
                                 imageFileOutputStream = output
                                 // obf: C0043 mode 2 (data callback) + C0345 (write error callback)

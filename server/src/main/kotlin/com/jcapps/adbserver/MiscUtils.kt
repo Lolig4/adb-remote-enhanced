@@ -36,42 +36,24 @@ internal object MiscUtils {
     /**
      * IPv6 check (obf: inlined, smali `:cond_5 .. :cond_10` of C0171).
      *
-     * BUG(original): at most one empty group is allowed, but `split(":")` yields *two* empty groups
-     * for a leading or trailing `::` ("::1", "fe80::" ...), so those valid addresses are rejected.
-     * IPv4-mapped forms ("::ffff:1.2.3.4") and zone ids ("%eth0") are rejected as well.
+     * Fixed (rebuild): the original counted empty groups of `split(":")` and so rejected valid
+     * addresses with a leading/trailing `::` ("::1", "fe80::"), IPv4-mapped forms and zone ids.
+     * A literal containing ':' is parsed without any DNS lookup.
      */
     private fun isValidIpv6Address(address: String): Boolean {
-        val groups = address.split(":")
-        if (address.length == 0) {
+        if (!address.contains(':') || address.any { it.isWhitespace() || it == '/' }) {
             return false
         }
-        val size = groups.size
-        if (size < 3 || size >= 9) {
-            return false
-        }
-        var emptyGroups = 0
-        for (group in groups) {
-            if (group.length == 0) {
-                emptyGroups++
-                if (emptyGroups > 1) {
-                    return false
-                }
+        return try {
+            if (android.os.Build.VERSION.SDK_INT >= 29) {
+                android.net.InetAddresses.isNumericAddress(address) &&
+                    android.net.InetAddresses.parseNumericAddress(address) is java.net.Inet6Address
             } else {
-                val len = group.length
-                if (len < 1 || len >= 5) {
-                    return false
-                }
-                for (c in group) {
-                    val hex = c in '0'..'9' || c in 'a'..'f' || c in 'A'..'F'
-                    if (!hex) {
-                        return false
-                    }
-                }
+                java.net.InetAddress.getByName(address) is java.net.Inet6Address
             }
+        } catch (e: Exception) {
+            false
         }
-        // obf: Iterable.count { } (with its "Count overflow has happened." check)
-        val nonEmptyGroups = groups.count { it.length > 0 }
-        return nonEmptyGroups + emptyGroups <= 8
     }
 
     /**

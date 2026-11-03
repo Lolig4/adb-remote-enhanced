@@ -304,15 +304,22 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
         if (!cacheDir.isDirectory) {
             cacheDir.mkdir()
         }
-        // BUG(original): prefix match, so "com.foo" also hits a cached "com.foobar.png"; and the
-        // cache ignores icon_only (a cached banner is returned for an icon request and vice versa)
-        // and is never invalidated after app updates.
+        // Fixed (rebuild): the original matched cache files by prefix ("com.foo" also hit a cached
+        // "com.foobar.png", i.e. the wrong icon), ignored icon_only (banner vs. icon) and never
+        // invalidated the cache after an app update. Now: exact key, separate key for icon_only,
+        // and a cached file older than the app's last update is ignored.
+        val cacheKey = if (iconOnly) "$packageName@icon" else packageName
+        val appUpdated = try {
+            context.packageManager!!.getPackageInfo(packageName, 0).lastUpdateTime
+        } catch (e: Exception) {
+            0L
+        }
         var cached: File? = null
         if (cacheDir.exists()) {
             val files = cacheDir.listFiles()
             if (files != null) {
                 for (file in files) {
-                    if (file.name.startsWith(packageName)) {
+                    if (file.nameWithoutExtension == cacheKey && file.length() > 0 && file.lastModified() >= appUpdated) {
                         cached = file
                         break
                     }
@@ -346,25 +353,36 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
         } else if (drawable is BitmapDrawable) {
             drawable.bitmap
         } else {
-            // BUG(original): outside any try; drawables without intrinsic size (e.g. ColorDrawable,
-            // -1) make createBitmap throw out of the handler.
-            val created = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
-            val canvas = Canvas(created)
-            drawable.setBounds(0, 0, canvas.width, canvas.height)
-            drawable.draw(canvas)
-            created
+            // Fixed (rebuild): the original called createBitmap outside any try, so drawables without
+            // an intrinsic size (-1, e.g. ColorDrawable) killed the request. Fall back to 192 px and
+            // to the APK path below if drawing fails.
+            try {
+                val width = drawable.intrinsicWidth.takeIf { it > 0 } ?: 192
+                val height = drawable.intrinsicHeight.takeIf { it > 0 } ?: 192
+                val created = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+                val canvas = Canvas(created)
+                drawable.setBounds(0, 0, canvas.width, canvas.height)
+                drawable.draw(canvas)
+                created
+            } catch (e: Exception) {
+                null
+            }
         }
         if (bitmap != null) {
-            val iconFile = File(cacheDir, "$packageName.png")
+            val iconFile = File(cacheDir, "$cacheKey.png")
+            var written = false
             if (!bitmap.isRecycled) {
                 try {
-                    FileOutputStream(iconFile).use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
+                    written = FileOutputStream(iconFile).use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
                 } catch (e: Exception) {
                 }
             }
-            // BUG(original): sent even when writing failed / the bitmap was recycled (404 then).
-            response.sendImageFile(iconFile)
-            return
+            // Fixed (rebuild): the original sent the file even when writing failed (404 then);
+            // now it falls through to the APK extraction below.
+            if (written && iconFile.length() > 0) {
+                response.sendImageFile(iconFile)
+                return
+            }
         }
 
         val apkPath: String? = try {
@@ -377,7 +395,7 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
         } catch (e: Exception) {
             null
         }
-        val iconFile = if (apkPath != null) getIconFromApk(context, apkPath, cacheDir, packageName) else null
+        val iconFile = if (apkPath != null) getIconFromApk(context, apkPath, cacheDir, cacheKey) else null
         if (iconFile != null) {
             response.sendImageFile(iconFile)
         } else {
