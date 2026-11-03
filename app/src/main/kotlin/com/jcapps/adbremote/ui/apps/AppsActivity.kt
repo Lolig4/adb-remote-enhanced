@@ -179,7 +179,9 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
         }
         if (toolType != null) {
             this.toolType = toolType
-            supportActionBar?.setTitle(if (this.toolType == AppsTab.APPS) R.string.manage_apps else R.string.oi)
+            // Rebuild change: short titles ("Apps" / "Processes", as on the main-screen tiles) so they
+            // fit next to the four toolbar icons; the original used "Manage apps" / "Manage processes".
+            supportActionBar?.setTitle(if (this.toolType == AppsTab.APPS) R.string.apps else R.string.processes)
         }
         // RECON-UNSURE: inlined app extension on SwipeRefreshLayout (leftover checks "swipe", "<this>")
         val swipe = binding.swipeRefresh
@@ -519,6 +521,17 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
             .show()
     }
 
+    /** [title] with a red exclamation-mark icon in front of it. */
+    private fun warningTitle(title: String): CharSequence {
+        val icon = androidx.core.content.ContextCompat.getDrawable(this, R.drawable.ic_warning_circle)!!.mutate()
+        icon.setTint(0xFFE53935.toInt()) // vivid red (Material Red 600); the theme's colorError is pale in dark mode
+        val size = (resources.displayMetrics.density * 24).toInt()
+        icon.setBounds(0, 0, size, size)
+        return android.text.SpannableStringBuilder("  ").append(title).apply {
+            setSpan(CapCenteredImageSpan(icon), 0, 1, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+    }
+
     /** Icon and title of the sort toggle follow [sortAscending]. */
     private fun updateSortItem(item: MenuItem) {
         item.setIcon(if (sortAscending) R.drawable.ic_sort_az_asc else R.drawable.ic_sort_az_desc)
@@ -528,7 +541,7 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
     /** Rebuild addition: second confirmation before a system app is removed (for user 0). */
     private fun showSystemAppUninstallWarning(app: App, onConfirm: () -> Unit) {
         MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.system_app_uninstall_title)
+            .setTitle(warningTitle(getString(R.string.system_app_uninstall_title)))
             .setMessage(getString(R.string.system_app_uninstall_message, app.name, app.packageName))
             .setNegativeButton(R.string.cancel, null)
             .setPositiveButton(R.string.system_app_uninstall_confirm) { _, _ -> onConfirm() }
@@ -542,5 +555,22 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
         /** Packages that must not be force-stopped (name proven by the "restrictedSystemApps" check). */
         // obf: f1664
         val restrictedSystemApps: List<String> = listOf("com.android.providers.media.module")
+    }
+}
+
+/** ImageSpan whose drawable is vertically centred on the cap height of the surrounding text. */
+private class CapCenteredImageSpan(drawable: android.graphics.drawable.Drawable) :
+    android.text.style.ImageSpan(drawable) {
+    override fun draw(
+        canvas: android.graphics.Canvas, text: CharSequence?, start: Int, end: Int, x: Float,
+        top: Int, y: Int, bottom: Int, paint: android.graphics.Paint,
+    ) {
+        val bounds = android.graphics.Rect().also { paint.getTextBounds("H", 0, 1, it) }
+        val capCenter = y - bounds.height() / 2f
+        val icon = drawable
+        canvas.save()
+        canvas.translate(x, capCenter - icon.bounds.height() / 2f)
+        icon.draw(canvas)
+        canvas.restore()
     }
 }

@@ -311,7 +311,6 @@ app ကို နှစ်သက်လျှင် Play Store တွင် အ�
     <string name="last_update_time">နောက်ဆုံး Update လုပ်ခဲ့သောအချိန်</string>
     <string name="app_logs">App မှတ်တမ်းများ</string>
     <string name="manage_apps">App များ စီမံပါ</string>
-    <string name="oi">Process များ စီမံပါ</string>
     <string name="manufacturer">ထုတ်လုပ်သူ</string>
     <string name="memory">Memory</string>
     <string name="memory_info">Memory အသေးစိတ် အချက်အလက်</string>
