@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/ic_search" android:id="@id/action_search" android:title="@string/search" app:actionLayout="@layout/action_search_view" app:showAsAction="ifRoom|collapseActionView" />
+    <item android:icon="@drawable/ic_filter" android:id="@id/action_filter" android:title="@string/filter" app:showAsAction="ifRoom" />
+    <group android:checkableBehavior="single">
+        <item android:id="@id/rj" android:checked="true" android:title="@string/sort_name_z" />
+        <item android:id="@id/rn" android:title="@string/sort_name_z_2" />
+    </group>
+    <item android:id="@id/action_force_stop_all" android:title="@string/force_stop_all_processes_2" />
+</menu>

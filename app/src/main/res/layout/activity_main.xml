@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@id/drawer_main" android:background="?colorSurface" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@id/coordinator_main" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.core.widget.NestedScrollView android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="?actionBarSize" app:layout_behavior="@string/searchbar_scrolling_view_behavior">
+            <include android:id="@id/content" layout="@layout/content_remote" />
+        </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.appbar.AppBarLayout android:id="@id/app_bar" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.material.search.SearchBar android:id="@id/search_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/search_apps" android:paddingEnd="5.0dip" app:backgroundTint="?colorSurface" app:menu="@menu/main" />
+        </com.google.android.material.appbar.AppBarLayout>
+        <com.google.android.material.search.SearchView android:id="@id/search_view_search_apps" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hint="@string/search_apps" app:layout_anchor="@id/search_bar" app:useDrawerArrowDrawable="true">
+            <RelativeLayout android:gravity="center" android:background="?colorSurface" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/list_search_results" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                <include android:id="@id/include_view_state" layout="@layout/view_state" />
+            </RelativeLayout>
+        </com.google.android.material.search.SearchView>
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/image_button_press_overlay" android:background="@drawable/bg_button_press_overlay" android:padding="10.0dip" android:visibility="gone" android:layout_width="100.0dip" android:layout_height="100.0dip" app:tint="@color/file_icon_black" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.navigation.NavigationView android:layout_gravity="start" android:id="@id/nav_view_main" android:layout_width="wrap_content" android:layout_height="fill_parent" android:backgroundTint="?colorSurface" app:headerLayout="@layout/nav_header" app:menu="@menu/drawer" />
+</androidx.drawerlayout.widget.DrawerLayout>

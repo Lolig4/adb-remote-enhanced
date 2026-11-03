@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView android:layout_gravity="center_horizontal" android:id="@id/drag_handle" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip" android:paddingStart="20.0dip" android:paddingEnd="20.0dip">
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/clipboard" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_help" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10.0dip" app:icon="@drawable/ic_help" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
+    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout android:id="@id/tabs_clipboard" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <androidx.viewpager2.widget.ViewPager2 android:id="@id/pager" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.button.MaterialButtonToggleGroup android:id="@id/toggle_type" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="16.0dip" android:layout_marginTop="10.0dip" app:checkedButton="@id/btn_text" app:selectionRequired="true" app:singleSelection="true">
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/text_3" android:layout_weight="1.0" style="?materialButtonOutlinedStyle" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/image" android:layout_weight="1.0" style="?materialButtonOutlinedStyle" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/input_layout_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/text_3" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" app:expandedHintEnabled="false">
+        <com.google.android.material.textfield.TextInputEditText android:gravity="start" android:id="@id/input_enter_text_here" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/enter_text_here" android:lines="8" android:inputType="textMultiLine" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.card.MaterialCardView android:id="@id/card_selected_image" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginTop="16.0dip" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip">
+        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/image_image_placeholder" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerInside" android:adjustViewBounds="true" app:srcCompat="@drawable/ic_image_placeholder" />
+    </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.textview.MaterialTextView android:textAppearance="@style/TextAppearance.Material3.BodyMedium" android:id="@id/text_result" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="16.0dip" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" />
+    <com.google.android.material.button.MaterialButton android:enabled="false" android:layout_gravity="center_horizontal" android:id="@id/btn_set_clipboard" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:text="@string/set_clipboard" android:layout_marginStart="16.0dip" android:layout_marginEnd="16.0dip" app:icon="@drawable/ic_clipboard_send" />
+</LinearLayout>

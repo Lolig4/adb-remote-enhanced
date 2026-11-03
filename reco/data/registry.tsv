@@ -1,0 +1,186 @@
+# alias	kotlin FQN (com.jcapps.adbremote. prefix = "~.")	owner group	note
+C0104	~.AdbRemoteApp	core-app	Application; DROP native m787-m807 + System.loadLibrary("app"); native values now in NativeConfig.kt (Variant 1)
+AbstractActivityC1418	~.ui.BaseActivity	core-app	base of all activities
+AbstractC1494	~.ui.BaseFragment	core-app	original name (string evidence); <T : ViewBinding>
+AbstractC2199	~.dialogs.BaseBottomSheet	core-app	original name (string evidence); <T : ViewBinding>
+AbstractC2972	~.ui.intro.BaseIntroFragment	custom	<T : ViewBinding> extends BaseFragment
+C1527	~.services.AdbService	core-adb	foreground service (connectedDevice)
+C1393	~.services.ServerService	core-adb	starts on-device server via app_process (RunnableC0506)
+C1303	~.receivers.AdbServiceStateReceiver	core-adb	"Broadcast onReceive" state connected/disconnected
+C1251	~.receivers.ConnectivityReceiver	core-adb	CONNECTIVITY_CHANGE
+C0205	~.viewmodels.MainViewModel	core-adb	ADB socket connect, adbkey (string "mainViewModel")
+C0272	~.viewmodels.AppViewModel	core-app	api/app update/promo + cache (verify)
+C0398	(lib) androidx.loader.app.LoaderManagerImpl.LoaderViewModel	core-adb	NOT app code — file removed in Phase 2
+C3617	~.viewmodels.?	core-app	tiny ViewModel — name after reading
+AbstractC3932	~.viewmodels.BaseViewModel	core-app	verify
+C0180	~.api.adb.AdbClient	core-adb	CNXN/AUTH/OPEN over socket, AutoCloseable
+C0702	~.api.adb.AdbConnection	core-adb	low-level ADB protocol w/ keyPair (vendored cgutman style)
+C2872	~.api.adb.stream.MessageHeader	core-adb	original FQN (string evidence)
+C0514	~.api.adb.stream.Message	core-adb	original FQN (string evidence)
+C0797	~.model.AdbConnectionConfig	core-adb	data AdbConnection(ipAddress,port,connectionTimeout,socketTimeout) — toString name "AdbConnection" clashes; keep toString text
+C3193	~.api.adb.AdbBinary	core-adb	runs libfs/libfs64 adb binary, HOME/.android/adbkey
+C1410	~.api.adb.ServerInstaller	core-adb	pushes server_v1.1.0.jar to /data/local/tmp
+C3817	~.api.adb.AdbDeviceHelper	core-adb	getDeviceSerial etc (verify)
+EnumC1188	~.api.adb.ConnectionMethod	core-adb	socket/binary/server
+EnumC1991	~.model.ConnectionState	core-adb	DISCONNECTED/CONNECTING/CONNECTED
+EnumC4044	~.model.AuthResult	core-adb	SUCCESS/FAILURE/REQUIRES_AUTH
+C2140	~.model.ConnectionResult	core-adb	data
+C2639	~.model.AdbDevice	core-adb	data Parcelable
+C2848	~.model.DeviceState	core-adb	data DeviceInfo(serial,state,model) — toString "DeviceInfo"
+C1702	~.model.DeviceInfo	core-adb	data
+C0133	~.model.Performance	core-adb	data with nested Memory (C0134) & CPU (C0135)
+C1635	~.model.ShellResult	core-adb	data Result(exitCode,output,error,e)
+C1645	~.model.CommandResult	core-adb	data Result(type,exitCode,output,error)
+C0120	~.model.SimpleResult	core-adb	data Result(status,message)
+C3434	~.model.ProcessStream	core-adb	data Stream(process,stdIn,stdOut,stdError)
+C3668	~.model.VirtualKey	main-a	data
+C2121	~.model.PhysicalKey	main-a	data
+C1131	~.model.TouchPoint	main-a	data
+C1172	~.model.Position	main-a	data
+C2234	~.model.GetClipboard	main-b	data
+C0493	~.model.Tool	main-a	data
+C3005	~.model.Option	main-a	data
+C1293	~.model.TitleValue	main-b	data Data(title,value)
+C2776	~.model.Info	custom	data Info(title,value)
+EnumC3807	~.model.Direction	main-a	UP/DOWN/LEFT/RIGHT/CENTER
+EnumC2313	~.model.Feature	core-app	keyboard/screenshot/apps/files/clipboard/trackpad...
+AbstractC0763	~.utils.FeatureUsage	core-app	trackFeatureUsage(dataStore, feature) -> "used_features"
+C1047	~.prefs.JsonPrefs	core-app	SharedPreferences+Gson helper (dataStore)
+C1963	~.prefs.DevicesStore	core-adb	adb_devices list in dataStore
+C3575	~.prefs.AdbDeviceListType	core-adb	TypeToken<List<AdbDevice>> (inline as object : TypeToken)
+C0657	~.services.NotificationChannels	core-adb	adb_notification_channel
+C3097	~.utils.AdbServiceLauncher	core-adb	starts AdbService from activity (verify)
+AbstractC0923	~.utils.DeviceIpExt	core-adb	deviceIp/ipAddress helpers (verify)
+AbstractC1309	~.utils.Logger	core-app	in-app log StateFlow ("log"), used by LogsActivity
+C3491	~.utils.SecureStorage	core-app	AndroidKeyStore AES/GCM "ADBRemote"
+C2120	~.Constants	core-app	urls, guide paths, ad unit ids, default token
+C2548	~.utils.PlayStore	core-app	open store/url (Link)
+C0416	~.api.remote.ApiClient	core-app	OkHttp cache "http_cache", retrofit service (verify)
+InterfaceC3558	~.api.remote.ApiService	core-app	retrofit interface ("ftp/stop","performance",...)
+C3618	~.api.remote.BaseResponse	core-app	data BaseResponse<Data>
+C1299	~.premium.PremiumManager	core-app	access/promoCode/androidId/safeTime
+C0918	~.premium.PremiumAccess	core-app	data (gson)
+C1811	~.premium.Promo	core-app	data
+C0491	~.premium.LifetimePromo	core-app	data
+C2079	~.premium.ApplyPromoRequest	core-app	data
+C2522	~.premium.ApplyPromoResponse	core-app	data
+k0	~.premium.UpdateDeviceRequest	core-app	data
+l0	~.premium.UpdateDeviceResponse	core-app	data
+C3073	~.model.AppConfig	core-app	data (api/app_v6.json: update/ad/facebook_page/telegram/...)
+C0916	~.model.App	apps	data Parcelable (installed app)
+C3396	~.model.SupportedApp	files	data
+C3283	~.ntp.SntpClient	core-app	NTP client (vendored?) — port faithfully
+C0221	~.ntp.NtpSocket	core-app	DatagramSocket wrapper, AutoCloseable
+C3741	~.ntp.NtpOptions	core-app	data Options(...)
+C2732	~.ntp.SafeTimeInfo	core-app	data
+C1204	~.ui.MainActivity	main-a	launcher-ish main screen
+C1880	~.ui.main.BackPressHandler	main-a	verify
+C1137	~.adapters.ToolsAdapter	main-a	tools grid
+C2919	~.adapters.ControlButtonsAdapter	main-a	buttons/onButtonTouched
+C3442	~.adapters.OptionsAdapter	main-a	options/onOptionSelected/virtualButtons
+C0234	~.dialogs.home.DialogKeyboard	main-a	original FQN (string evidence)
+C0958	~.dialogs.home.DialogNumpad	main-a	original FQN (string evidence)
+C0687	~.dialogs.home.DialogTrackpad	main-a	binding DialogTrackpadBinding
+C2717	~.dialogs.home.DialogExtraButtons	main-a	buttonManager/vibrator (verify binding)
+C1054	~.dialogs.DialogOption	main-a	binding DialogOptionBinding
+C1626	~.dialogs.DialogInput	main-a	binding DialogInputBinding
+C0434	~.dialogs.home.DialogConnect	main-b	binding DialogConnectBinding
+C0881	~.dialogs.home.DialogDevices	main-b	binding DialogDevicesBinding
+C3006	~.dialogs.home.DialogEditDevice	main-b	binding DialogEditDeviceBinding
+C0868	~.dialogs.home.DialogAdbServerToken	main-b	binding DialogAdbServerTokenBinding
+C0961	~.dialogs.home.DialogDeviceInfo	main-b	binding DialogDeviceInfoBinding (C3998)
+C2638	~.dialogs.home.DialogPerformance	main-b	binding DialogPerformanceBinding
+C1955	~.dialogs.home.DialogScreenshot	main-b	binding DialogScreenshotBinding
+C2326	~.dialogs.home.DialogNtp	main-b	binding DialogNtpBinding
+C2825	~.dialogs.home.DialogClipboard	main-b	binding DialogClipboardBinding (tabs)
+C2758	~.dialogs.home.ClipboardGetFragment	main-b	binding DialogClipboardGetBinding
+C1704	~.dialogs.home.ClipboardSetFragment	main-b	binding DialogClipboardSetBinding
+C2410	~.dialogs.DialogPauseAd	main-b	binding DialogPauseAdBinding (premium/promo UI)
+C1044	~.dialogs.AdFragment	main-b	binding DialogAdBinding
+C2687	~.dialogs.DialogRateApp	main-b	binding DialogRateAppBinding
+C1586	~.dialogs.DialogUpdate	main-b	binding DialogUpdateBinding
+C1292	~.views.StateView	core-app	loading/empty/disconnected lottie state controller (binding C1110)
+EnumC1753	~.views.State	core-app	DISCONNECTED/LOADING/EMPTY/SUCCESS
+C2593	~.views.StateParams	core-app	data Params(disconnected,loading,empty)
+C1673	~.ui.files.FilesActivity	files
+C1399	~.adapters.files.FileViewHolder	files
+C1776	~.adapters.DevicesAdapter.DeviceViewHolder	main-b	saved-device list holder (was misattributed to files; uses AdbDevice C2639)
+C3254	~.adapters.files.FilesAdapter	files	verify
+C2789	~.dialogs.files.DialogFtpSettings	files	binding DialogFtpSettingsBinding
+C2631	~.dialogs.files.DialogFileProgress	files	binding DialogFileProgressBinding
+C1389	~.dialogs.files.DialogFilesSettings	files	binding DialogFilesSettingsBinding
+C1481	~.dialogs.files.DialogOpenRemotelyWith	files	binding DialogOpenRemotelyWithBinding
+C1807	~.adapters.files.ProgressFileViewHolder	files
+C2532	~.model.FTPSettings	files	data Parcelable
+C0824	~.model.FTPConfig	files	data
+C3993	~.model.FilesSettings	files	data
+C1602	~.model.FileSorting	files	data
+C0311	~.model.SelectedFile	files	data Parcelable
+C1733	~.model.ProgressFTPFile	files	data
+C3925	~.model.PickedFile	files	data
+AbstractC1652	~.model.TransferFile	files	sealed base of ProgressFTPFile/PickedFile (verify)
+s	~.model.UiProgressFile	files	data
+C1980	~.model.Progress	files	data
+C1828	~.model.MoveResult	files	data
+C1985	~.model.NavDirectory	files	data
+C2082	~.model.IntentParams	files	data (FilePath/IntentParams)
+C3799	~.model.InputValidation	files	data
+EnumC3707	~.model.TransferType	files	UPLOAD_FILES/UPLOAD_FOLDER/DOWNLOAD/COPY/CUT
+EnumC1024	~.provider.ftp.FtpProtocol	files	ftp/ftps/ftpes
+C1222	~.provider.ftp.FtpAuthority	files	data Parcelable (protocol,host,port,username,mode,encoding)
+C3591	~.provider.ftp.FtpFileSystem	files	original FQN
+AbstractC2640	~.provider.common.ByteStringListPath	files	original FQN
+C2089	~.provider.ftp.FtpPath	files
+C3091	~.provider.common.ByteString	files	original FQN
+AbstractC4058	~.provider.ftp.FtpFileSystemProvider	files	original FQN (readAttributes)
+C2834	~.provider.ftp.FtpFileAttributes	files	data
+C3262	~.provider.ftp.FtpClientHelper	files	MLSD/REST/DELE/MKD, directoryFilesCache (verify name)
+C2686	~.provider.ftp.FtpInputStream	files
+C1331	~.provider.ftp.FtpOutputStream	files
+AbstractC3138	~.provider.ftp.FtpMlsdParser	files	verify
+AbstractC0633	~.utils.MimeTypes	files	extension→mime table
+AbstractC3456	~.utils.MimeTypeTable	files	verify vs AbstractC0633
+C3552	~.provider.common.MimeType	files	data Parcelable
+EnumC2111	~.provider.common.PosixFileType	files
+EnumC2436	~.provider.common.OpenOptions	files	verify (StandardOpenOption-like enum)
+C1634	~.ui.apps.AppsActivity	apps	app manager (tool_type, swipe)
+C1621	~.ui.apps.AppInfoActivity	apps
+C1978	~.model.AppDetails	apps	parser of app info json (compile_sdk/min_sdk/...)
+C3120	~.dialogs.apps.DialogAppFilter	apps	binding DialogAppFilterBinding (verify)
+C2995	~.adapters.apps.AppsAdapter	apps
+C0448	~.adapters.apps.AppInfoViewHolder	apps	verify
+EnumC3293	~.model.AppAction	apps	LAUNCH/ADD_TO_FAV_APPS/...
+EnumC0775	~.model.AppsTab	apps	APPS/PROCESSES
+C2670	~.dao.FavApps	apps	"fav_apps_"+serial key helper (verify vs dao.Fav)
+C1575	~.ui.icons.IconShapeActivity	custom	"Customize icon shape"
+C2281	~.model.IconShape	custom	data (nested Corners C2282, Edges C2284, Edge C2285, Corner C2283)
+C0950	~.dialogs.icons.DialogIconShapeChooser	custom	binding DialogIconShapeChooserBinding
+C1156	~.dialogs.icons.DialogIconPackChooser	custom	binding DialogIconPackChooserBinding
+C1543	~.dialogs.icons.DialogIconPackApply	custom	iconPackInfo/onApplied (verify)
+C1242	~.adapters.icons.IconPackAdapter	custom
+C1205	~.adapters.icons.IconShapeAdapter	custom	verify
+C1444	~.adapters.icons.IconShapePreviewAdapter	custom	verify
+C0227	~.model.IconPackInfo	custom	data
+C2853	~.model.IconPack	custom	data
+C2320	~.model.IconShapeData	custom	data Data(id, shape)
+C0853	~.model.Param	custom	data
+C1385	~.ui.ControlButtonsActivity	custom	"Customize control buttons"
+C1429	~.ui.intro.IntroActivity	custom
+C3942	~.ui.intro.IntroPagerAdapter	custom
+C2429	~.ui.intro.IntroLanguageChoiceFragment	custom	binding IntroLanguageChoiceBinding
+C1148	~.ui.intro.IntroNotificationPermissionFragment	custom	binding IntroNotificationPermissionBinding
+C2550	~.ui.intro.IntroTermsFragment	custom	binding IntroTermsBinding
+C1468	~.ui.SettingsActivity	custom
+C1394	~.settings.?Preference	custom	name after reading
+C1421	~.settings.IconPackPreference	custom
+C1286	~.settings.IconShapePreference	custom
+C0608	~.settings.?Preference	custom	name after reading
+C1520	~.ui.LogsActivity	custom	"App logs"
+C1253	~.views.ControlPadView	custom	custom ImageView+GestureDetector, used in layout a5 (XML references expose.C1253 -> update XML)
+C1368	~.views.KeyInputEditText	main-a	TextInputEditText w/ onCreateInputConnection, layouts bi/bl (XML ref)
+C1452	~.views.TrackpadView	main-a	MaterialCardView canvas, layout bs (XML ref)
+C1495	~.views.ZoomableImageView	main-b	ShapeableImageView + scaleDetector, layout br (XML ref)
+C1422	~.views.MaterialSwitchView	custom	MaterialSwitch subclass, many layouts (XML ref) — verify purpose
+ReadOnlyTextInput	~.views.ReadOnlyTextInput	files	original kept FQN (com/jcapps/adbremote/views/ReadOnlyTextInput.java)
+AppProvider	~.provider.AppProvider	core-adb	original kept FQN (com/jcapps/adbremote/provider/AppProvider.java)
+FileProvider	~.provider.FileProvider	files	original kept FQN (com/jcapps/adbremote/provider/FileProvider.java)

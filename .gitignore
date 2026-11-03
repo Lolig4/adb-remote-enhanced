@@ -1,0 +1,9 @@
+# build output / IDE / machine-local
+build/
+.gradle/
+.kotlin/
+local.properties
+.idea/
+*.iml
+# old approximate reconstruction, superseded by app/src/main
+app/src/legacy/

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/action_open_remotely" android:title="@string/open_remotely" />
+    <item android:id="@id/action_open_remotely_with" android:title="@string/open_remotely_2" />
+    <item android:id="@id/action_download" android:title="@string/download_2" />
+    <item android:id="@id/action_cut" android:title="@string/cut_2" />
+    <item android:id="@id/action_copy" android:title="@string/copy_2" />
+    <item android:id="@id/action_rename" android:title="@string/rename" />
+    <item android:id="@id/action_delete" android:title="@string/delete_2" />
+    <item android:id="@id/action_copy_path" android:title="@string/copy_path" />
+    <item android:id="@id/action_properties" android:title="@string/properties" />
+</menu>

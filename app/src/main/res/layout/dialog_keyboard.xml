@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/input_layout_preview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip" app:boxBackgroundMode="filled" app:endIconMode="clear_text" app:helperText="@string/preview_may_differ_actual_text" app:placeholderText="@string/preview" app:startIconDrawable="@drawable/ic_paste">
+        <com.jcapps.adbremote.views.KeyInputEditText android:gravity="start" android:id="@id/input_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="3" android:lines="3" android:inputType="textMultiLine|textNoSuggestions" android:importantForAutofill="no" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="10.0dip" android:paddingEnd="10.0dip">
+        <com.google.android.material.button.MaterialButtonToggleGroup android:id="@id/toggle_keyboard_mode" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" app:singleSelection="true">
+            <com.google.android.material.button.MaterialButton android:id="@id/btn_shift" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/shift" style="@style/Widget.Material3.Button.OutlinedButton" />
+            <com.google.android.material.button.MaterialButton android:id="@id/btn_ctrl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ctrl" style="@style/Widget.Material3.Button.OutlinedButton" />
+            <com.google.android.material.button.MaterialButton android:id="@id/btn_alt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/alt" style="@style/Widget.Material3.Button.OutlinedButton" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_info" android:layout_width="wrap_content" android:layout_height="wrap_content" app:icon="@drawable/ic_info" style="@style/Widget.Material3.Button.IconButton" />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/list_keyboard_keys" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    <androidx.recyclerview.widget.RecyclerView android:orientation="horizontal" android:id="@id/list_keyboard_function_keys" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+</LinearLayout>

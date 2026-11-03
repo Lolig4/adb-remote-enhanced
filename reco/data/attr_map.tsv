@@ -1,0 +1,1396 @@
+a	SharedValue	(('integer',), None, ())	{}
+b	SharedValueId	(('reference',), None, ())	{}
+c	actionBarDivider	(('reference',), None, ())	{}
+d	actionBarItemBackground	(('reference',), None, ())	{}
+e	actionBarPopupTheme	(('reference',), None, ())	{}
+f	actionBarSize	(('dimension',), 'enum', (0,))	{"wa": "wrap_content"}
+g	actionBarSplitStyle	(('reference',), None, ())	{}
+h	actionBarStyle	(('reference',), None, ())	{}
+i	actionBarTabBarStyle	(('reference',), None, ())	{}
+j	actionBarTabStyle	(('reference',), None, ())	{}
+k	actionBarTabTextStyle	(('reference',), None, ())	{}
+l	actionBarTheme	(('reference',), None, ())	{}
+m	actionBarWidgetTheme	(('reference',), None, ())	{}
+n	actionButtonStyle	(('reference',), None, ())	{}
+o	actionDropDownStyle	(('reference',), None, ())	{}
+p	actionLayout	(('reference',), None, ())	{}
+q	actionMenuTextAppearance	(('reference',), None, ())	{}
+r	actionMenuTextColor	(('color', 'reference'), None, ())	{}
+s	actionModeBackground	(('reference',), None, ())	{}
+t	actionModeCloseButtonStyle	(('reference',), None, ())	{}
+u	actionModeCloseContentDescription	(('string',), None, ())	{}
+v	actionModeCloseDrawable	(('reference',), None, ())	{}
+w	actionModeCopyDrawable	(('reference',), None, ())	{}
+x	actionModeCutDrawable	(('reference',), None, ())	{}
+y	actionModeFindDrawable	(('reference',), None, ())	{}
+z	actionModePasteDrawable	(('reference',), None, ())	{}
+a0	actionModePopupWindowStyle	(('reference',), None, ())	{}
+a1	actionModeSelectAllDrawable	(('reference',), None, ())	{}
+a2	actionModeShareDrawable	(('reference',), None, ())	{}
+a3	actionModeSplitBackground	(('reference',), None, ())	{}
+a4	actionModeStyle	(('reference',), None, ())	{}
+a5	actionModeTheme	(('reference',), None, ())	{}
+a6	actionModeWebSearchDrawable	(('reference',), None, ())	{}
+a7	actionOverflowButtonStyle	(('reference',), None, ())	{}
+a8	actionOverflowMenuStyle	(('reference',), None, ())	{}
+a9	actionProviderClass	(('string',), None, ())	{}
+a_	actionTextColorAlpha	(('float',), None, ())	{}
+aa	actionViewClass	(('string',), None, ())	{}
+ab	activeIndicatorLabelPadding	(('dimension',), None, ())	{}
+ac	activityAction	(('string',), None, ())	{}
+ad	activityChooserViewStyle	(('reference',), None, ())	{}
+ae	activityName	(('string',), None, ())	{}
+af	adSize	(('string',), None, ())	{}
+ag	adSizes	(('string',), None, ())	{}
+ah	adUnitId	(('string',), None, ())	{}
+ai	addElevationShadow	(('boolean',), None, ())	{}
+aj	adjustable	(('boolean',), None, ())	{}
+ak	alertDialogButtonGroupStyle	(('reference',), None, ())	{}
+al	alertDialogCenterButtons	(('boolean',), None, ())	{}
+am	alertDialogStyle	(('reference',), None, ())	{}
+an	alertDialogTheme	(('reference',), None, ())	{}
+ao	alignContent	((), 'enum', (0, 1, 2, 3, 4, 5))	{"iu": "flex_start", "it": "flex_end", "ey": "center", "rq": "space_between", "rp": "space_around", "sl": "stretch"}
+ap	alignItems	((), 'enum', (0, 1, 2, 3, 4))	{"iu": "flex_start", "it": "flex_end", "ey": "center", "ci": "baseline", "sl": "stretch"}
+aq	allowDividerAbove	(('boolean',), None, ())	{}
+ar	allowDividerAfterLastItem	(('boolean',), None, ())	{}
+as	allowDividerBelow	(('boolean',), None, ())	{}
+at	allowStacking	(('boolean',), None, ())	{}
+au	alpha	(('float',), None, ())	{}
+av	alphabeticModifiers	((), 'flag', (1, 2, 4, 8, 4096, 65536))	{"f": "META", "d": "CTRL", "a": "ALT", "h": "SHIFT", "l": "SYM", "e": "FUNCTION"}
+aw	altSrc	(('reference',), None, ())	{}
+ax	alwaysExpand	(('boolean',), None, ())	{}
+ay	animateCircleAngleTo	((), 'enum', (0, 1, 2, 3, 4))	{"cm": "bestChoice", "ff": "closest", "fe": "clockwise", "c4": "antiClockwise", "fn": "constraint"}
+az	animateMenuItems	(('boolean',), None, ())	{}
+b0	animateNavigationIcon	(('boolean',), None, ())	{}
+b1	animateRelativeTo	(('reference',), None, ())	{}
+b2	animationBackgroundColor	(('color',), None, ())	{}
+b3	animationMode	((), 'enum', (0, 1))	{"rb": "slide", "ih": "fade"}
+b4	appBarLayoutStyle	(('reference',), None, ())	{}
+b5	applyMotionScene	(('boolean',), None, ())	{}
+b6	arcMode	((), 'enum', (0, 1, 2))	{"s_": "startVertical", "s8": "startHorizontal", "iv": "flip"}
+b7	arrowHeadLength	(('dimension',), None, ())	{}
+b8	arrowShaftLength	(('dimension',), None, ())	{}
+b9	attributeName	(('string',), None, ())	{}
+b_	autoAdjustToWithinGrandparentBounds	(('boolean',), None, ())	{}
+ba	autoCompleteMode	((), 'enum', (0, 1))	{"ft": "continuousVelocity", "s0": "spring"}
+bb	autoCompleteTextViewStyle	(('reference',), None, ())	{}
+bc	autoShowKeyboard	(('boolean',), None, ())	{}
+bd	autoSizeMaxTextSize	(('dimension',), None, ())	{}
+be	autoSizeMinTextSize	(('dimension',), None, ())	{}
+bf	autoSizePresetSizes	(('reference',), None, ())	{}
+bg	autoSizeStepGranularity	(('dimension',), None, ())	{}
+bh	autoSizeTextType	((), 'enum', (0, 1))	{"nm": "none", "vn": "uniform"}
+bi	autoTransition	((), 'enum', (0, 1, 2, 3, 4))	{"nm": "none", "ke": "jumpToStart", "kd": "jumpToEnd", "c3": "animateToStart", "c2": "animateToEnd"}
+bj	backHandlingEnabled	(('boolean',), None, ())	{}
+bk	background	(('reference',), None, ())	{}
+bl	backgroundColor	(('color',), None, ())	{}
+bm	backgroundInsetBottom	(('dimension',), None, ())	{}
+bn	backgroundInsetEnd	(('dimension',), None, ())	{}
+bo	backgroundInsetStart	(('dimension',), None, ())	{}
+bp	backgroundInsetTop	(('dimension',), None, ())	{}
+bq	backgroundOverlayColorAlpha	(('float',), None, ())	{}
+br	backgroundSplit	(('color', 'reference'), None, ())	{}
+bs	backgroundStacked	(('color', 'reference'), None, ())	{}
+bt	backgroundTint	(('color',), None, ())	{}
+bu	backgroundTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+bv	badgeGravity	((), 'enum', (8388659, 8388661, 8388691, 8388693))	{"m": "TOP_END", "n": "TOP_START", "b": "BOTTOM_END", "c": "BOTTOM_START"}
+bw	badgeHeight	(('dimension',), None, ())	{}
+bx	badgeRadius	(('dimension',), None, ())	{}
+by	badgeShapeAppearance	(('reference',), None, ())	{}
+bz	badgeShapeAppearanceOverlay	(('reference',), None, ())	{}
+c0	badgeStyle	(('reference',), None, ())	{}
+c1	badgeText	(('string',), None, ())	{}
+c2	badgeTextAppearance	(('reference',), None, ())	{}
+c3	badgeTextColor	(('color',), None, ())	{}
+c4	badgeVerticalPadding	(('dimension',), None, ())	{}
+c5	badgeWidePadding	(('dimension',), None, ())	{}
+c6	badgeWidth	(('dimension',), None, ())	{}
+c7	badgeWithTextHeight	(('dimension',), None, ())	{}
+c8	badgeWithTextRadius	(('dimension',), None, ())	{}
+c9	badgeWithTextShapeAppearance	(('reference',), None, ())	{}
+c_	badgeWithTextShapeAppearanceOverlay	(('reference',), None, ())	{}
+ca	badgeWithTextWidth	(('dimension',), None, ())	{}
+cb	barLength	(('dimension',), None, ())	{}
+cc	barrierAllowsGoneWidgets	(('boolean',), None, ())	{}
+cd	barrierDirection	((), 'enum', (0, 1, 2, 3, 5, 6))	{"kt": "left", "q0": "right", "u0": "top", "co": "bottom", "s7": "start", "i9": "end"}
+ce	barrierMargin	(('dimension',), None, ())	{}
+cf	behavior_autoHide	(('boolean',), None, ())	{}
+cg	behavior_autoShrink	(('boolean',), None, ())	{}
+ch	behavior_draggable	(('boolean',), None, ())	{}
+ci	behavior_expandedOffset	(('dimension', 'reference'), None, ())	{}
+cj	behavior_fitToContents	(('boolean',), None, ())	{}
+ck	behavior_halfExpandedRatio	(('float', 'reference'), None, ())	{}
+cl	behavior_hideable	(('boolean',), None, ())	{}
+cm	behavior_overlapTop	(('dimension',), None, ())	{}
+cn	behavior_peekHeight	(('dimension',), 'enum', (4294967295,))	{"cb": "auto"}
+co	behavior_saveFlags	((), 'flag', (0, 1, 2, 4, 8, 4294967295))	{"oz": "peekHeight", "iq": "fitToContents", "jf": "hideable", "r_": "skipCollapsed", "bv": "all", "nm": "none"}
+cp	behavior_significantVelocityThreshold	(('dimension',), None, ())	{}
+cq	behavior_skipCollapsed	(('boolean',), None, ())	{}
+cr	blendSrc	(('reference',), None, ())	{}
+cs	borderRound	(('dimension',), None, ())	{}
+ct	borderRoundPercent	(('float',), None, ())	{}
+cu	borderWidth	(('dimension',), None, ())	{}
+cv	borderlessButtonStyle	(('reference',), None, ())	{}
+cw	bottomAppBarStyle	(('reference',), None, ())	{}
+cx	bottomInsetScrimEnabled	(('boolean',), None, ())	{}
+cy	bottomNavigationStyle	(('reference',), None, ())	{}
+cz	bottomSheetDialogTheme	(('reference',), None, ())	{}
+d0	bottomSheetDragHandleStyle	(('reference',), None, ())	{}
+d1	bottomSheetStyle	(('reference',), None, ())	{}
+d2	boxBackgroundColor	(('color',), None, ())	{}
+d3	boxBackgroundMode	((), 'enum', (0, 1, 2))	{"nm": "none", "il": "filled", "oj": "outline"}
+d4	boxCollapsedPaddingTop	(('dimension',), None, ())	{}
+d5	boxCornerRadiusBottomEnd	(('dimension',), None, ())	{}
+d6	boxCornerRadiusBottomStart	(('dimension',), None, ())	{}
+d7	boxCornerRadiusTopEnd	(('dimension',), None, ())	{}
+d8	boxCornerRadiusTopStart	(('dimension',), None, ())	{}
+d9	boxStrokeColor	(('color',), None, ())	{}
+d_	boxStrokeErrorColor	(('color',), None, ())	{}
+da	boxStrokeWidth	(('dimension',), None, ())	{}
+db	boxStrokeWidthFocused	(('dimension',), None, ())	{}
+dc	brightness	(('float',), None, ())	{}
+dd	buttonBarButtonStyle	(('reference',), None, ())	{}
+de	buttonBarNegativeButtonStyle	(('reference',), None, ())	{}
+df	buttonBarNeutralButtonStyle	(('reference',), None, ())	{}
+dg	buttonBarPositiveButtonStyle	(('reference',), None, ())	{}
+dh	buttonBarStyle	(('reference',), None, ())	{}
+di	buttonCompat	(('reference',), None, ())	{}
+dj	buttonGravity	((), 'flag', (16, 48, 80))	{"f2": "center_vertical", "u0": "top", "co": "bottom"}
+dk	buttonIcon	(('reference',), None, ())	{}
+dl	buttonIconDimen	(('dimension',), None, ())	{}
+dm	buttonIconTint	(('color', 'reference'), None, ())	{}
+dn	buttonIconTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+do	buttonPanelSideLayout	(('reference',), None, ())	{}
+dp	buttonSize	(('reference',), 'enum', (0, 1, 2))	{"s6": "standard", "w5": "wide", "jq": "icon_only"}
+dq	buttonStyle	(('reference',), None, ())	{}
+dr	buttonStyleSmall	(('reference',), None, ())	{}
+ds	buttonTint	(('color',), None, ())	{}
+dt	buttonTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+du	cardBackgroundColor	(('color',), None, ())	{}
+dv	cardCornerRadius	(('dimension',), None, ())	{}
+dw	cardElevation	(('dimension',), None, ())	{}
+dx	cardForegroundColor	(('color',), None, ())	{}
+dy	cardMaxElevation	(('dimension',), None, ())	{}
+dz	cardPreventCornerOverlap	(('boolean',), None, ())	{}
+e0	cardUseCompatPadding	(('boolean',), None, ())	{}
+e1	cardViewStyle	(('reference',), None, ())	{}
+e2	carousel_alignment	((), 'enum', (0, 1))	{"s7": "start", "ey": "center"}
+e3	carousel_backwardTransition	(('reference',), None, ())	{}
+e4	carousel_emptyViewsBehavior	((), 'enum', (4, 8))	{"k4": "invisible", "j4": "gone"}
+e5	carousel_firstView	(('reference',), None, ())	{}
+e6	carousel_forwardTransition	(('reference',), None, ())	{}
+e7	carousel_infinite	(('boolean',), None, ())	{}
+e8	carousel_nextState	(('reference',), None, ())	{}
+e9	carousel_previousState	(('reference',), None, ())	{}
+e_	carousel_touchUpMode	((), 'enum', (1, 2))	{"jy": "immediateStop", "ex": "carryVelocity"}
+ea	carousel_touchUp_dampeningFactor	(('float',), None, ())	{}
+eb	carousel_touchUp_velocityThreshold	(('float',), None, ())	{}
+ec	centerIfNoTextEnabled	(('boolean',), None, ())	{}
+ee	chainUseRtl	(('boolean',), None, ())	{}
+eh	checkBoxPreferenceStyle	(('reference',), None, ())	{}
+en	checkMarkCompat	(('reference',), None, ())	{}
+ep	checkMarkTint	(('color',), None, ())	{}
+eq	checkMarkTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+er	checkboxStyle	(('reference',), None, ())	{}
+es	checkedButton	(('reference',), None, ())	{}
+et	checkedChip	(('reference',), None, ())	{}
+eu	checkedIcon	(('reference',), None, ())	{}
+ev	checkedIconEnabled	(('boolean',), None, ())	{}
+ew	checkedIconGravity	((), 'enum', (8388659, 8388661, 8388691, 8388693))	{"m": "TOP_END", "n": "TOP_START", "b": "BOTTOM_END", "c": "BOTTOM_START"}
+ex	checkedIconMargin	(('dimension',), None, ())	{}
+ey	checkedIconSize	(('dimension',), None, ())	{}
+ez	checkedIconTint	(('color',), None, ())	{}
+f0	checkedIconVisible	(('boolean',), None, ())	{}
+f1	checkedState	((), 'enum', (0, 1, 2))	{"vm": "unchecked", "f8": "checked", "k0": "indeterminate"}
+f2	checkedTextViewStyle	(('reference',), None, ())	{}
+f3	chipBackgroundColor	(('color',), None, ())	{}
+f4	chipCornerRadius	(('dimension',), None, ())	{}
+f5	chipEndPadding	(('dimension',), None, ())	{}
+f6	chipGroupStyle	(('reference',), None, ())	{}
+f7	chipIcon	(('reference',), None, ())	{}
+f8	chipIconEnabled	(('boolean',), None, ())	{}
+f9	chipIconSize	(('dimension',), None, ())	{}
+f_	chipIconTint	(('color',), None, ())	{}
+fa	chipIconVisible	(('boolean',), None, ())	{}
+fb	chipMinHeight	(('dimension',), None, ())	{}
+fc	chipMinTouchTargetSize	(('dimension',), None, ())	{}
+fd	chipSpacing	(('dimension',), None, ())	{}
+fe	chipSpacingHorizontal	(('dimension',), None, ())	{}
+ff	chipSpacingVertical	(('dimension',), None, ())	{}
+fg	chipStandaloneStyle	(('reference',), None, ())	{}
+fh	chipStartPadding	(('dimension',), None, ())	{}
+fi	chipStrokeColor	(('color',), None, ())	{}
+fj	chipStrokeWidth	(('dimension',), None, ())	{}
+fk	chipStyle	(('reference',), None, ())	{}
+fl	chipSurfaceColor	(('color',), None, ())	{}
+fm	circleCrop	(('boolean',), None, ())	{}
+fn	circleRadius	(('dimension',), None, ())	{}
+fo	circularProgressIndicatorStyle	(('reference',), None, ())	{}
+fp	circularflow_angles	(('string',), None, ())	{}
+fq	circularflow_defaultAngle	(('float',), None, ())	{}
+fr	circularflow_defaultRadius	(('dimension',), None, ())	{}
+fs	circularflow_radiusInDP	(('string',), None, ())	{}
+ft	circularflow_viewCenter	(('reference',), None, ())	{}
+fu	clearTop	(('boolean',), None, ())	{}
+fv	clearsTag	(('reference',), None, ())	{}
+fw	clickAction	((), 'flag', (1, 16, 17, 256, 4096))	{"tx": "toggle", "u6": "transitionToEnd", "u7": "transitionToStart", "kd": "jumpToEnd", "ke": "jumpToStart"}
+fx	clockFaceBackgroundColor	(('color',), None, ())	{}
+fy	clockHandColor	(('color',), None, ())	{}
+fz	clockIcon	(('reference',), None, ())	{}
+g0	clockNumberTextColor	(('color',), None, ())	{}
+g1	closeIcon	(('reference',), None, ())	{}
+g2	closeIconEnabled	(('boolean',), None, ())	{}
+g3	closeIconEndPadding	(('dimension',), None, ())	{}
+g4	closeIconSize	(('dimension',), None, ())	{}
+g5	closeIconStartPadding	(('dimension',), None, ())	{}
+g6	closeIconTint	(('color',), None, ())	{}
+g7	closeIconVisible	(('boolean',), None, ())	{}
+g8	closeItemLayout	(('reference',), None, ())	{}
+g9	collapseContentDescription	(('string',), None, ())	{}
+g_	collapseIcon	(('reference',), None, ())	{}
+ga	collapsedSize	(('dimension',), None, ())	{}
+gb	collapsedTitleGravity	((), 'flag', (1, 3, 5, 16, 17, 48, 80, 112, 8388611, 8388613))	{"u0": "top", "co": "bottom", "kt": "left", "q0": "right", "f2": "center_vertical", "ik": "fill_vertical", "f1": "center_horizontal", "ey": "center", "s7": "start", "i9": "end"}
+gc	collapsedTitleTextAppearance	(('reference',), None, ())	{}
+gd	collapsedTitleTextColor	(('color', 'reference'), None, ())	{}
+ge	collapsingToolbarLayoutLargeSize	(('reference',), None, ())	{}
+gf	collapsingToolbarLayoutLargeStyle	(('reference',), None, ())	{}
+gg	collapsingToolbarLayoutMediumSize	(('reference',), None, ())	{}
+gh	collapsingToolbarLayoutMediumStyle	(('reference',), None, ())	{}
+gi	collapsingToolbarLayoutStyle	(('reference',), None, ())	{}
+gj	color	(('color',), None, ())	{}
+gk	colorAccent	(('color',), None, ())	{}
+gl	colorBackgroundFloating	(('color',), None, ())	{}
+gm	colorButtonNormal	(('color',), None, ())	{}
+gn	colorContainer	(('color',), None, ())	{}
+go	colorControlActivated	(('color',), None, ())	{}
+gp	colorControlHighlight	(('color',), None, ())	{}
+gq	colorControlNormal	(('color',), None, ())	{}
+gr	colorError	(('color', 'reference'), None, ())	{}
+gs	colorErrorContainer	(('color',), None, ())	{}
+gt	colorOnBackground	(('boolean', 'color', 'dimension', 'float', 'fraction', 'integer', 'reference', 'string'), None, ())	{}
+gu	colorOnContainer	(('color',), None, ())	{}
+gv	colorOnContainerUnchecked	(('color',), None, ())	{}
+gw	colorOnError	(('color',), None, ())	{}
+gx	colorOnErrorContainer	(('color',), None, ())	{}
+gy	colorOnPrimary	(('color',), None, ())	{}
+gz	colorOnPrimaryContainer	(('color',), None, ())	{}
+h0	colorOnPrimaryFixed	(('color',), None, ())	{}
+h1	colorOnPrimaryFixedVariant	(('color',), None, ())	{}
+h2	colorOnPrimarySurface	(('color',), None, ())	{}
+h3	colorOnSecondary	(('color',), None, ())	{}
+h4	colorOnSecondaryContainer	(('color',), None, ())	{}
+h5	colorOnSecondaryFixed	(('color',), None, ())	{}
+h6	colorOnSecondaryFixedVariant	(('color',), None, ())	{}
+h7	colorOnSurface	(('color',), None, ())	{}
+h8	colorOnSurfaceInverse	(('color',), None, ())	{}
+h9	colorOnSurfaceVariant	(('color',), None, ())	{}
+h_	colorOnTertiary	(('color',), None, ())	{}
+ha	colorOnTertiaryContainer	(('color',), None, ())	{}
+hb	colorOnTertiaryFixed	(('color',), None, ())	{}
+hc	colorOnTertiaryFixedVariant	(('color',), None, ())	{}
+hd	colorOutline	(('color',), None, ())	{}
+he	colorOutlineVariant	(('color',), None, ())	{}
+hf	colorPrimary	(('color',), None, ())	{}
+hg	colorPrimaryContainer	(('color',), None, ())	{}
+hh	colorPrimaryDark	(('color',), None, ())	{}
+hi	colorPrimaryFixed	(('color',), None, ())	{}
+hj	colorPrimaryFixedDim	(('color',), None, ())	{}
+hk	colorPrimaryInverse	(('color',), None, ())	{}
+hl	colorPrimarySurface	(('color',), None, ())	{}
+hm	colorPrimaryVariant	(('color',), None, ())	{}
+hn	colorScheme	(('reference',), 'enum', (0, 1, 2))	{"g9": "dark", "kw": "light", "cb": "auto"}
+ho	colorSecondary	(('color',), None, ())	{}
+hp	colorSecondaryContainer	(('color',), None, ())	{}
+hq	colorSecondaryFixed	(('color',), None, ())	{}
+hr	colorSecondaryFixedDim	(('color',), None, ())	{}
+hs	colorSecondaryVariant	(('color',), None, ())	{}
+ht	colorSurface	(('color',), None, ())	{}
+hu	colorSurfaceBright	(('color',), None, ())	{}
+hv	colorSurfaceContainer	(('color',), None, ())	{}
+hw	colorSurfaceContainerHigh	(('color',), None, ())	{}
+hx	colorSurfaceContainerHighest	(('color',), None, ())	{}
+hy	colorSurfaceContainerLow	(('color',), None, ())	{}
+hz	colorSurfaceContainerLowest	(('color',), None, ())	{}
+i0	colorSurfaceDim	(('color',), None, ())	{}
+i1	colorSurfaceInverse	(('color',), None, ())	{}
+i2	colorSurfaceVariant	(('color',), None, ())	{}
+i3	colorSwitchThumbNormal	(('color',), None, ())	{}
+i4	colorTertiary	(('color',), None, ())	{}
+i5	colorTertiaryContainer	(('color',), None, ())	{}
+i6	colorTertiaryFixed	(('color',), None, ())	{}
+i7	colorTertiaryFixedDim	(('color',), None, ())	{}
+i8	commitIcon	(('reference',), None, ())	{}
+i9	compatShadowEnabled	(('boolean',), None, ())	{}
+i_	constraintRotate	((), 'enum', (0, 1, 2, 3, 4))	{"nm": "none", "q0": "right", "kt": "left", "wf": "x_right", "we": "x_left"}
+ia	constraintSet	(('reference',), None, ())	{}
+ib	constraintSetEnd	(('reference',), None, ())	{}
+ic	constraintSetStart	(('reference',), None, ())	{}
+id	constraint_referenced_ids	(('string',), None, ())	{}
+ie	constraint_referenced_tags	(('string',), None, ())	{}
+if	constraints	(('reference',), None, ())	{}
+ig	content	(('reference',), None, ())	{}
+ih	contentDescription	(('string',), None, ())	{}
+ii	contentInsetEnd	(('dimension',), None, ())	{}
+ij	contentInsetEndWithActions	(('dimension',), None, ())	{}
+ik	contentInsetLeft	(('dimension',), None, ())	{}
+il	contentInsetRight	(('dimension',), None, ())	{}
+im	contentInsetStart	(('dimension',), None, ())	{}
+in	contentInsetStartWithNavigation	(('dimension',), None, ())	{}
+io	contentPadding	(('dimension',), None, ())	{}
+ip	contentPaddingBottom	(('dimension',), None, ())	{}
+iq	contentPaddingEnd	(('dimension',), None, ())	{}
+ir	contentPaddingLeft	(('dimension',), None, ())	{}
+is	contentPaddingRight	(('dimension',), None, ())	{}
+it	contentPaddingStart	(('dimension',), None, ())	{}
+iu	contentPaddingTop	(('dimension',), None, ())	{}
+iv	contentScrim	(('color',), None, ())	{}
+iw	contrast	(('float',), None, ())	{}
+ix	controlBackground	(('reference',), None, ())	{}
+iy	coordinatorLayoutStyle	(('reference',), None, ())	{}
+iz	coplanarSiblingViewId	(('reference',), None, ())	{}
+j0	cornerFamily	((), 'enum', (0, 1))	{"q4": "rounded", "g7": "cut"}
+j1	cornerFamilyBottomLeft	((), 'enum', (0, 1))	{"q4": "rounded", "g7": "cut"}
+j2	cornerFamilyBottomRight	((), 'enum', (0, 1))	{"q4": "rounded", "g7": "cut"}
+j3	cornerFamilyTopLeft	((), 'enum', (0, 1))	{"q4": "rounded", "g7": "cut"}
+j4	cornerFamilyTopRight	((), 'enum', (0, 1))	{"q4": "rounded", "g7": "cut"}
+j5	cornerRadius	(('dimension',), None, ())	{}
+j6	cornerSize	(('dimension', 'fraction'), None, ())	{}
+j7	cornerSizeBottomLeft	(('dimension', 'fraction'), None, ())	{}
+j8	cornerSizeBottomRight	(('dimension', 'fraction'), None, ())	{}
+j9	cornerSizeTopLeft	(('dimension', 'fraction'), None, ())	{}
+j_	cornerSizeTopRight	(('dimension', 'fraction'), None, ())	{}
+ja	counterEnabled	(('boolean',), None, ())	{}
+jb	counterMaxLength	(('integer',), None, ())	{}
+jc	counterOverflowTextAppearance	(('reference',), None, ())	{}
+jd	counterOverflowTextColor	(('reference',), None, ())	{}
+je	counterTextAppearance	(('reference',), None, ())	{}
+jf	counterTextColor	(('reference',), None, ())	{}
+jg	crossfade	(('float',), None, ())	{}
+jh	currentState	(('reference',), None, ())	{}
+ji	cursorColor	(('color',), None, ())	{}
+jj	cursorErrorColor	(('color',), None, ())	{}
+jk	curveFit	((), 'enum', (0, 1))	{"rw": "spline", "kz": "linear"}
+jl	customBoolean	(('boolean',), None, ())	{}
+jm	customColorDrawableValue	(('color',), None, ())	{}
+jn	customColorValue	(('color',), None, ())	{}
+jo	customDimension	(('dimension',), None, ())	{}
+jp	customFloatValue	(('float',), None, ())	{}
+jq	customIntegerValue	(('integer',), None, ())	{}
+jr	customNavigationLayout	(('reference',), None, ())	{}
+js	customPixelDimension	(('dimension',), None, ())	{}
+jt	customReference	(('reference',), None, ())	{}
+ju	customStringValue	(('string',), None, ())	{}
+jv	dampingRatio	(('float',), None, ())	{}
+jw	dayInvalidStyle	(('reference',), None, ())	{}
+jx	daySelectedStyle	(('reference',), None, ())	{}
+jy	dayStyle	(('reference',), None, ())	{}
+jz	dayTodayStyle	(('reference',), None, ())	{}
+k0	defaultDuration	(('integer',), None, ())	{}
+k1	defaultMarginsEnabled	(('boolean',), None, ())	{}
+k2	defaultQueryHint	(('string',), None, ())	{}
+k3	defaultScrollFlagsEnabled	(('boolean',), None, ())	{}
+k5	defaultState	(('reference',), None, ())	{}
+k6	defaultValue	(('boolean', 'float', 'integer', 'reference', 'string'), None, ())	{}
+k7	deltaPolarAngle	(('float',), None, ())	{}
+k8	deltaPolarRadius	(('float',), None, ())	{}
+k9	dependency	(('string',), None, ())	{}
+k_	deriveConstraintsFrom	(('reference',), None, ())	{}
+ka	dialogCornerRadius	(('dimension',), None, ())	{}
+kb	dialogIcon	(('reference',), None, ())	{}
+kc	dialogLayout	(('reference',), None, ())	{}
+kd	dialogMessage	(('string',), None, ())	{}
+ke	dialogPreferenceStyle	(('reference',), None, ())	{}
+kf	dialogPreferredPadding	(('dimension',), None, ())	{}
+kg	dialogTheme	(('reference',), None, ())	{}
+kh	dialogTitle	(('string',), None, ())	{}
+kj	disableDependentsState	(('boolean',), None, ())	{}
+kk	displayOptions	((), 'flag', (0, 1, 2, 4, 8, 16, 32))	{"nm": "none", "vr": "useLogo", "r6": "showHome", "jh": "homeAsUp", "r7": "showTitle", "r5": "showCustom", "gq": "disableHome"}
+kl	divider	(('reference',), None, ())	{}
+km	dividerColor	(('color', 'reference'), None, ())	{}
+kn	dividerDrawable	(('reference',), None, ())	{}
+ko	dividerDrawableHorizontal	(('reference',), None, ())	{}
+kp	dividerDrawableVertical	(('reference',), None, ())	{}
+kq	dividerHorizontal	(('reference',), None, ())	{}
+kr	dividerInsetEnd	(('dimension',), None, ())	{}
+ks	dividerInsetStart	(('dimension',), None, ())	{}
+kt	dividerPadding	(('dimension',), None, ())	{}
+ku	dividerThickness	(('dimension',), None, ())	{}
+kv	dividerVertical	(('reference',), None, ())	{}
+kw	dotsClickable	(('boolean',), None, ())	{}
+kx	dotsColor	(('color',), None, ())	{}
+ky	dotsCornerRadius	(('dimension',), None, ())	{}
+kz	dotsElevation	(('dimension',), None, ())	{}
+l0	dotsSize	(('dimension',), None, ())	{}
+l1	dotsSpacing	(('dimension',), None, ())	{}
+l2	dotsStrokeColor	(('color',), None, ())	{}
+l3	dotsStrokeWidth	(('dimension',), None, ())	{}
+l4	dotsWidthFactor	(('float',), None, ())	{}
+l6	dragDirection	((), 'enum', (0, 1, 2, 3, 4, 5, 6, 7))	{"h7": "dragUp", "h2": "dragDown", "h4": "dragLeft", "h5": "dragRight", "h6": "dragStart", "h3": "dragEnd", "h1": "dragClockwise", "h0": "dragAnticlockwise"}
+l7	dragScale	(('float',), None, ())	{}
+l8	dragThreshold	(('float',), None, ())	{}
+l9	drawPath	((), 'enum', (0, 1, 2, 3, 4, 5))	{"nm": "none", "ox": "path", "oy": "pathRelative", "gf": "deltaRelative", "c_": "asConfigured", "pi": "rectangles"}
+l_	drawableBottomCompat	(('reference',), None, ())	{}
+la	drawableEndCompat	(('reference',), None, ())	{}
+lb	drawableLeftCompat	(('reference',), None, ())	{}
+lc	drawableRightCompat	(('reference',), None, ())	{}
+ld	drawableSize	(('dimension',), None, ())	{}
+le	drawableStartCompat	(('reference',), None, ())	{}
+lf	drawableTint	(('color',), None, ())	{}
+lg	drawableTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+lh	drawableTopCompat	(('reference',), None, ())	{}
+li	drawerArrowStyle	(('reference',), None, ())	{}
+lj	drawerLayoutCornerSize	(('dimension',), None, ())	{}
+lk	drawerLayoutStyle	(('reference',), None, ())	{}
+ll	dropDownBackgroundTint	(('color',), None, ())	{}
+lm	dropDownListViewStyle	(('reference',), None, ())	{}
+ln	dropdownListPreferredItemHeight	(('dimension',), None, ())	{}
+lo	dropdownPreferenceStyle	(('reference',), None, ())	{}
+lp	duration	(('integer',), None, ())	{}
+lq	dynamicColorThemeOverlay	(('reference',), None, ())	{}
+lr	editTextBackground	(('reference',), None, ())	{}
+ls	editTextColor	(('color', 'reference'), None, ())	{}
+lt	editTextPreferenceStyle	(('reference',), None, ())	{}
+lu	editTextStyle	(('reference',), None, ())	{}
+lv	elevation	(('dimension',), None, ())	{}
+lw	elevationOverlayAccentColor	(('color',), None, ())	{}
+lx	elevationOverlayColor	(('color',), None, ())	{}
+ly	elevationOverlayEnabled	(('boolean',), None, ())	{}
+lz	emojiCompatEnabled	(('boolean',), None, ())	{}
+m0	enableCopying	(('boolean',), None, ())	{}
+m1	enableEdgeToEdge	(('boolean',), None, ())	{}
+m2	enabled	(('boolean',), None, ())	{}
+m3	endIconCheckable	(('boolean',), None, ())	{}
+m4	endIconContentDescription	(('string',), None, ())	{}
+m5	endIconDrawable	(('reference',), None, ())	{}
+m6	endIconMinSize	(('dimension',), None, ())	{}
+m7	endIconMode	((), 'enum', (0, 1, 2, 3, 4294967295))	{"g5": "custom", "nm": "none", "ov": "password_toggle", "fb": "clear_text", "h9": "dropdown_menu"}
+m8	endIconScaleType	((), 'enum', (0, 1, 2, 3, 4, 5, 6))	{"ir": "fitXY", "ip": "fitStart", "in": "fitCenter", "io": "fitEnd", "ey": "center", "ez": "centerCrop", "f0": "centerInside"}
+m9	endIconTint	(('color',), None, ())	{}
+m_	endIconTintMode	((), 'enum', (3, 5, 9, 14, 15))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen"}
+ma	enforceMaterialTheme	(('boolean',), None, ())	{}
+mb	enforceTextAppearance	(('boolean',), None, ())	{}
+mc	ensureMinTouchTargetSize	(('boolean',), None, ())	{}
+md	entries	(('reference',), None, ())	{}
+me	entryValues	(('reference',), None, ())	{}
+mf	errorAccessibilityLabel	(('string',), None, ())	{}
+mg	errorAccessibilityLiveRegion	(('integer',), None, ())	{}
+mh	errorContentDescription	(('string',), None, ())	{}
+mi	errorEnabled	(('boolean',), None, ())	{}
+mj	errorIconDrawable	(('reference',), None, ())	{}
+mk	errorIconTint	(('reference',), None, ())	{}
+ml	errorIconTintMode	((), 'enum', (3, 5, 9, 14, 15))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen"}
+mm	errorShown	(('boolean',), None, ())	{}
+mn	errorTextAppearance	(('reference',), None, ())	{}
+mo	errorTextColor	(('color',), None, ())	{}
+mp	expandActivityOverflowButtonDrawable	(('reference',), None, ())	{}
+mq	expanded	(('boolean',), None, ())	{}
+mr	expandedHintEnabled	(('boolean',), None, ())	{}
+ms	expandedTitleGravity	((), 'flag', (1, 3, 5, 16, 17, 48, 80, 112, 8388611, 8388613))	{"u0": "top", "co": "bottom", "kt": "left", "q0": "right", "f2": "center_vertical", "ik": "fill_vertical", "f1": "center_horizontal", "ey": "center", "s7": "start", "i9": "end"}
+mt	expandedTitleMargin	(('dimension',), None, ())	{}
+mu	expandedTitleMarginBottom	(('dimension',), None, ())	{}
+mv	expandedTitleMarginEnd	(('dimension',), None, ())	{}
+mw	expandedTitleMarginStart	(('dimension',), None, ())	{}
+mx	expandedTitleMarginTop	(('dimension',), None, ())	{}
+my	expandedTitleTextAppearance	(('reference',), None, ())	{}
+mz	expandedTitleTextColor	(('color', 'reference'), None, ())	{}
+n0	extendMotionSpec	(('reference',), None, ())	{}
+n1	extendStrategy	((), 'enum', (0, 1, 2))	{"cb": "auto", "wa": "wrap_content", "ld": "match_parent"}
+n2	extendedFloatingActionButtonPrimaryStyle	(('reference',), None, ())	{}
+n3	extendedFloatingActionButtonSecondaryStyle	(('reference',), None, ())	{}
+n4	extendedFloatingActionButtonStyle	(('reference',), None, ())	{}
+n5	extendedFloatingActionButtonSurfaceStyle	(('reference',), None, ())	{}
+n6	extendedFloatingActionButtonTertiaryStyle	(('reference',), None, ())	{}
+n7	extraMultilineHeightEnabled	(('boolean',), None, ())	{}
+n8	fabAlignmentMode	((), 'enum', (0, 1))	{"ey": "center", "i9": "end"}
+n9	fabAlignmentModeEndMargin	(('dimension',), None, ())	{}
+n_	fabAnchorMode	((), 'enum', (0, 1))	{"i7": "embed", "g3": "cradle"}
+na	fabAnimationMode	((), 'enum', (0, 1))	{"qb": "scale", "rb": "slide"}
+nb	fabCradleMargin	(('dimension',), None, ())	{}
+nc	fabCradleRoundedCornerRadius	(('dimension',), None, ())	{}
+nd	fabCradleVerticalOffset	(('dimension',), None, ())	{}
+ne	fabCustomSize	(('dimension',), None, ())	{}
+nf	fabSize	((), 'enum', (0, 1, 4294967295))	{"cb": "auto", "nn": "normal", "mb": "mini"}
+ng	fastScrollEnabled	(('boolean',), None, ())	{}
+nh	fastScrollHorizontalThumbDrawable	(('reference',), None, ())	{}
+ni	fastScrollHorizontalTrackDrawable	(('reference',), None, ())	{}
+nj	fastScrollVerticalThumbDrawable	(('reference',), None, ())	{}
+nk	fastScrollVerticalTrackDrawable	(('reference',), None, ())	{}
+nl	finishPrimaryWithPlaceholder	((), 'enum', (1, 2))	{"bx": "always", "bq": "adjacent"}
+nm	finishPrimaryWithSecondary	((), 'enum', (0, 1, 2))	{"nh": "never", "bx": "always", "bq": "adjacent"}
+nn	finishSecondaryWithPrimary	((), 'enum', (0, 1, 2))	{"nh": "never", "bx": "always", "bq": "adjacent"}
+no	firstBaselineToTopHeight	(('dimension',), None, ())	{}
+np	flexDirection	((), 'enum', (0, 1, 2, 3))	{"q5": "row", "q7": "row_reverse", "fi": "column", "fj": "column_reverse"}
+nq	flexWrap	((), 'enum', (0, 1, 2))	{"ns": "nowrap", "w_": "wrap", "wc": "wrap_reverse"}
+nr	floatingActionButtonLargePrimaryStyle	(('reference',), None, ())	{}
+ns	floatingActionButtonLargeSecondaryStyle	(('reference',), None, ())	{}
+nt	floatingActionButtonLargeStyle	(('reference',), None, ())	{}
+nu	floatingActionButtonLargeSurfaceStyle	(('reference',), None, ())	{}
+nv	floatingActionButtonLargeTertiaryStyle	(('reference',), None, ())	{}
+nw	floatingActionButtonPrimaryStyle	(('reference',), None, ())	{}
+nx	floatingActionButtonSecondaryStyle	(('reference',), None, ())	{}
+ny	floatingActionButtonSmallPrimaryStyle	(('reference',), None, ())	{}
+nz	floatingActionButtonSmallSecondaryStyle	(('reference',), None, ())	{}
+o0	floatingActionButtonSmallStyle	(('reference',), None, ())	{}
+o1	floatingActionButtonSmallSurfaceStyle	(('reference',), None, ())	{}
+o2	floatingActionButtonSmallTertiaryStyle	(('reference',), None, ())	{}
+o3	floatingActionButtonStyle	(('reference',), None, ())	{}
+o4	floatingActionButtonSurfaceStyle	(('reference',), None, ())	{}
+o5	floatingActionButtonTertiaryStyle	(('reference',), None, ())	{}
+o6	flow_firstHorizontalBias	(('float',), None, ())	{}
+o7	flow_firstHorizontalStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+o8	flow_firstVerticalBias	(('float',), None, ())	{}
+o9	flow_firstVerticalStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+o_	flow_horizontalAlign	((), 'enum', (0, 1, 2))	{"s7": "start", "i9": "end", "ey": "center"}
+oa	flow_horizontalBias	(('float',), None, ())	{}
+ob	flow_horizontalGap	(('dimension',), None, ())	{}
+oc	flow_horizontalStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+od	flow_lastHorizontalBias	(('float',), None, ())	{}
+oe	flow_lastHorizontalStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+of	flow_lastVerticalBias	(('float',), None, ())	{}
+og	flow_lastVerticalStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+oh	flow_maxElementsWrap	(('integer',), None, ())	{}
+oi	flow_padding	(('dimension',), None, ())	{}
+oj	flow_verticalAlign	((), 'enum', (0, 1, 2, 3))	{"u0": "top", "co": "bottom", "ey": "center", "ci": "baseline"}
+ok	flow_verticalBias	(('float',), None, ())	{}
+ol	flow_verticalGap	(('dimension',), None, ())	{}
+om	flow_verticalStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+on	flow_wrapMode	((), 'enum', (0, 1, 2, 3))	{"nm": "none", "f3": "chain", "bu": "aligned", "f4": "chain2"}
+oo	font	(('reference',), None, ())	{}
+op	fontFamily	(('string',), None, ())	{}
+oq	fontProviderAuthority	(('string',), None, ())	{}
+or	fontProviderCerts	(('reference',), None, ())	{}
+ot	fontProviderFetchStrategy	((), 'enum', (0, 1))	{"cn": "blocking", "ca": "async"}
+ou	fontProviderFetchTimeout	(('integer',), 'enum', (4294967295,))	{"iy": "forever"}
+ov	fontProviderPackage	(('string',), None, ())	{}
+ow	fontProviderQuery	(('string',), None, ())	{}
+ox	fontProviderSystemFontFamily	(('string',), None, ())	{}
+oy	fontStyle	((), 'enum', (0, 1))	{"nn": "normal", "k7": "italic"}
+oz	fontVariationSettings	(('string',), None, ())	{}
+p0	fontWeight	(('integer',), None, ())	{}
+p1	forceApplySystemWindowInsetTop	(('boolean',), None, ())	{}
+p2	forceDefaultNavigationOnClickListener	(('boolean',), None, ())	{}
+p3	foregroundInsidePadding	(('boolean',), None, ())	{}
+p4	fragment	(('string',), None, ())	{}
+p5	framePosition	(('integer',), None, ())	{}
+p6	gapBetweenBars	(('dimension',), None, ())	{}
+p7	gestureInsetBottomIgnored	(('boolean',), None, ())	{}
+p8	goIcon	(('reference',), None, ())	{}
+pg	guidelineUseRtl	(('boolean',), None, ())	{}
+pk	haloColor	(('color',), None, ())	{}
+pl	haloRadius	(('dimension',), None, ())	{}
+pm	headerLayout	(('reference',), None, ())	{}
+pn	height	(('dimension',), None, ())	{}
+po	helperText	(('string',), None, ())	{}
+pp	helperTextEnabled	(('boolean',), None, ())	{}
+pq	helperTextTextAppearance	(('reference',), None, ())	{}
+pr	helperTextTextColor	(('color',), None, ())	{}
+ps	hideAnimationBehavior	((), 'enum', (0, 1, 2, 3))	{"nm": "none", "ok": "outward", "k5": "inward", "ic": "escape"}
+pt	hideMotionSpec	(('reference',), None, ())	{}
+pu	hideNavigationIcon	(('boolean',), None, ())	{}
+pv	hideOnContentScroll	(('boolean',), None, ())	{}
+pw	hideOnScroll	(('boolean',), None, ())	{}
+px	hintAnimationEnabled	(('boolean',), None, ())	{}
+py	hintEnabled	(('boolean',), None, ())	{}
+pz	hintTextAppearance	(('reference',), None, ())	{}
+q0	hintTextColor	(('color',), None, ())	{}
+q1	homeAsUpIndicator	(('reference',), None, ())	{}
+q2	homeLayout	(('reference',), None, ())	{}
+q3	horizontalOffset	(('dimension',), None, ())	{}
+q4	horizontalOffsetWithText	(('dimension',), None, ())	{}
+q5	hoveredFocusedTranslationZ	(('dimension',), None, ())	{}
+q6	icon	(('reference',), None, ())	{}
+q7	iconEndPadding	(('dimension',), None, ())	{}
+q8	iconGravity	((), 'flag', (1, 2, 3, 4, 16, 32))	{"s7": "start", "ti": "textStart", "i9": "end", "tf": "textEnd", "u0": "top", "tj": "textTop"}
+q9	iconPadding	(('dimension',), None, ())	{}
+q_	iconSize	(('dimension',), None, ())	{}
+qa	iconSpaceReserved	(('boolean',), None, ())	{}
+qb	iconStartPadding	(('dimension',), None, ())	{}
+qc	iconTint	(('color',), None, ())	{}
+qd	iconTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+qe	iconifiedByDefault	(('boolean',), None, ())	{}
+qf	ifTagNotSet	(('reference',), None, ())	{}
+qg	ifTagSet	(('reference',), None, ())	{}
+qh	imageAspectRatio	(('float',), None, ())	{}
+qi	imageAspectRatioAdjust	((), 'enum', (0, 1, 2))	{"nm": "none", "bs": "adjust_width", "br": "adjust_height"}
+qj	imageButtonStyle	(('reference',), None, ())	{}
+ql	imagePanX	(('float',), None, ())	{}
+qm	imagePanY	(('float',), None, ())	{}
+qn	imageRotate	(('float',), None, ())	{}
+qo	imageZoom	(('float',), None, ())	{}
+qp	indeterminateAnimationType	((), 'enum', (0, 1))	{"fs": "contiguous", "gv": "disjoint"}
+qq	indeterminateProgressStyle	(('reference',), None, ())	{}
+qr	indicatorColor	(('color', 'reference'), None, ())	{}
+qs	indicatorDirectionCircular	((), 'enum', (0, 1))	{"fe": "clockwise", "g2": "counterclockwise"}
+qt	indicatorDirectionLinear	((), 'enum', (0, 1, 2, 3))	{"ku": "leftToRight", "q1": "rightToLeft", "s9": "startToEnd", "i_": "endToStart"}
+qu	indicatorInset	(('dimension',), None, ())	{}
+qv	indicatorSize	(('dimension',), None, ())	{}
+qw	indicatorTrackGapSize	(('dimension',), None, ())	{}
+qx	initialActivityCount	(('string',), None, ())	{}
+qy	initialExpandedChildrenCount	(('integer',), None, ())	{}
+qz	insetForeground	(('color', 'reference'), None, ())	{}
+r0	isLightTheme	(('boolean',), None, ())	{}
+r1	isMaterial3DynamicColorApplied	(('boolean',), None, ())	{}
+r2	isMaterial3Theme	(('boolean',), None, ())	{}
+r3	isMaterialTheme	(('boolean',), None, ())	{}
+r4	isPreferenceVisible	(('boolean',), None, ())	{}
+r5	itemActiveIndicatorStyle	(('reference',), None, ())	{}
+r6	itemBackground	(('reference',), None, ())	{}
+r7	itemFillColor	(('color',), None, ())	{}
+r8	itemHorizontalPadding	(('dimension',), None, ())	{}
+r9	itemHorizontalTranslationEnabled	(('boolean',), None, ())	{}
+r_	itemIconPadding	(('dimension',), None, ())	{}
+ra	itemIconSize	(('dimension',), None, ())	{}
+rb	itemIconTint	(('color',), None, ())	{}
+rc	itemMaxLines	(('integer',), None, ())	{}
+rd	itemMinHeight	(('dimension',), None, ())	{}
+re	itemPadding	(('dimension',), None, ())	{}
+rf	itemPaddingBottom	(('dimension',), None, ())	{}
+rg	itemPaddingTop	(('dimension',), None, ())	{}
+rh	itemRippleColor	(('color',), None, ())	{}
+ri	itemShapeAppearance	(('reference',), None, ())	{}
+rj	itemShapeAppearanceOverlay	(('reference',), None, ())	{}
+rk	itemShapeFillColor	(('color',), None, ())	{}
+rl	itemShapeInsetBottom	(('dimension',), None, ())	{}
+rm	itemShapeInsetEnd	(('dimension',), None, ())	{}
+rn	itemShapeInsetStart	(('dimension',), None, ())	{}
+ro	itemShapeInsetTop	(('dimension',), None, ())	{}
+rp	itemSpacing	(('dimension',), None, ())	{}
+rq	itemStrokeColor	(('color',), None, ())	{}
+rr	itemStrokeWidth	(('dimension',), None, ())	{}
+rs	itemTextAppearance	(('reference',), None, ())	{}
+rt	itemTextAppearanceActive	(('reference',), None, ())	{}
+ru	itemTextAppearanceActiveBoldEnabled	(('boolean',), None, ())	{}
+rv	itemTextAppearanceInactive	(('reference',), None, ())	{}
+rw	itemTextColor	(('color',), None, ())	{}
+rx	itemVerticalPadding	(('dimension',), None, ())	{}
+ry	justifyContent	((), 'enum', (0, 1, 2, 3, 4, 5))	{"iu": "flex_start", "it": "flex_end", "ey": "center", "rq": "space_between", "rp": "space_around", "rr": "space_evenly"}
+rz	key	(('string',), None, ())	{}
+s1	keyboardIcon	(('reference',), None, ())	{}
+s2	keylines	(('reference',), None, ())	{}
+s3	lStar	(('float',), None, ())	{}
+s4	labelBehavior	((), 'enum', (0, 1, 2, 3))	{"iw": "floating", "w8": "withinBounds", "j4": "gone", "w2": "visible"}
+s5	labelStyle	(('reference',), None, ())	{}
+s6	labelVisibilityMode	((), 'enum', (0, 1, 2, 4294967295))	{"cb": "auto", "qx": "selected", "kg": "labeled", "vo": "unlabeled"}
+s7	largeFontVerticalOffsetAdjustment	(('dimension',), None, ())	{}
+s8	lastBaselineToBottomHeight	(('dimension',), None, ())	{}
+s9	lastItemDecorated	(('boolean',), None, ())	{}
+s_	layout	(('reference',), None, ())	{}
+sa	layoutDescription	(('reference',), None, ())	{}
+sb	layoutDuringTransition	((), 'enum', (0, 1, 2))	{"jv": "ignoreRequest", "ji": "honorRequest", "er": "callMeasure"}
+sc	layoutManager	(('string',), None, ())	{}
+sd	layout_alignSelf	((), 'enum', (0, 1, 2, 3, 4, 4294967295))	{"cb": "auto", "iu": "flex_start", "it": "flex_end", "ey": "center", "ci": "baseline", "sl": "stretch"}
+se	layout_anchor	(('reference',), None, ())	{}
+sf	layout_anchorGravity	((), 'flag', (1, 3, 5, 7, 8, 16, 17, 48, 80, 112, 119, 128, 8388611, 8388613))	{"u0": "top", "co": "bottom", "kt": "left", "q0": "right", "f2": "center_vertical", "ik": "fill_vertical", "f1": "center_horizontal", "ij": "fill_horizontal", "ey": "center", "ii": "fill", "fd": "clip_vertical", "fc": "clip_horizontal", "s7": "start", "i9": "end"}
+sg	layout_behavior	(('string',), None, ())	{}
+sh	layout_collapseMode	((), 'enum', (0, 1, 2))	{"nm": "none", "p1": "pin", "op": "parallax"}
+si	layout_collapseParallaxMultiplier	(('float',), None, ())	{}
+sj	layout_constrainedHeight	(('boolean',), None, ())	{}
+sk	layout_constrainedWidth	(('boolean',), None, ())	{}
+sl	layout_constraintBaseline_creator	(('integer',), None, ())	{}
+sm	layout_constraintBaseline_toBaselineOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+sn	layout_constraintBaseline_toBottomOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+so	layout_constraintBaseline_toTopOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+sp	layout_constraintBottom_creator	(('integer',), None, ())	{}
+sq	layout_constraintBottom_toBottomOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+sr	layout_constraintBottom_toTopOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+ss	layout_constraintCircle	(('reference',), None, ())	{}
+st	layout_constraintCircleAngle	(('float',), None, ())	{}
+su	layout_constraintCircleRadius	(('dimension',), None, ())	{}
+sv	layout_constraintDimensionRatio	(('string',), None, ())	{}
+sw	layout_constraintEnd_toEndOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+sx	layout_constraintEnd_toStartOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+sy	layout_constraintGuide_begin	(('dimension',), None, ())	{}
+sz	layout_constraintGuide_end	(('dimension',), None, ())	{}
+t0	layout_constraintGuide_percent	(('float',), None, ())	{}
+t1	layout_constraintHeight	(('dimension', 'string'), 'enum', (4294967292, 4294967293, 4294967294, 4294967295))	{"ld": "match_parent", "wa": "wrap_content", "lc": "match_constraint", "wb": "wrap_content_constrained"}
+t2	layout_constraintHeight_default	((), 'enum', (0, 1, 2))	{"ry": "spread", "w_": "wrap", "p0": "percent"}
+t3	layout_constraintHeight_max	(('dimension',), 'enum', (4294967294,))	{"w_": "wrap"}
+t4	layout_constraintHeight_min	(('dimension',), 'enum', (4294967294,))	{"w_": "wrap"}
+t5	layout_constraintHeight_percent	(('float',), None, ())	{}
+t6	layout_constraintHorizontal_bias	(('float',), None, ())	{}
+t7	layout_constraintHorizontal_chainStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+t8	layout_constraintHorizontal_weight	(('float',), None, ())	{}
+t9	layout_constraintLeft_creator	(('integer',), None, ())	{}
+t_	layout_constraintLeft_toLeftOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+ta	layout_constraintLeft_toRightOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+tb	layout_constraintRight_creator	(('integer',), None, ())	{}
+tc	layout_constraintRight_toLeftOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+td	layout_constraintRight_toRightOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+te	layout_constraintStart_toEndOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+tf	layout_constraintStart_toStartOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+tg	layout_constraintTag	(('string',), None, ())	{}
+th	layout_constraintTop_creator	(('integer',), None, ())	{}
+ti	layout_constraintTop_toBottomOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+tj	layout_constraintTop_toTopOf	(('reference',), 'enum', (0,))	{"oq": "parent"}
+tk	layout_constraintVertical_bias	(('float',), None, ())	{}
+tl	layout_constraintVertical_chainStyle	((), 'enum', (0, 1, 2))	{"ry": "spread", "rz": "spread_inside", "om": "packed"}
+tm	layout_constraintVertical_weight	(('float',), None, ())	{}
+tn	layout_constraintWidth	(('dimension', 'string'), 'enum', (4294967292, 4294967293, 4294967294, 4294967295))	{"ld": "match_parent", "wa": "wrap_content", "lc": "match_constraint", "wb": "wrap_content_constrained"}
+to	layout_constraintWidth_default	((), 'enum', (0, 1, 2))	{"ry": "spread", "w_": "wrap", "p0": "percent"}
+tp	layout_constraintWidth_max	(('dimension',), 'enum', (4294967294,))	{"w_": "wrap"}
+tq	layout_constraintWidth_min	(('dimension',), 'enum', (4294967294,))	{"w_": "wrap"}
+tr	layout_constraintWidth_percent	(('float',), None, ())	{}
+ts	layout_dodgeInsetEdges	((), 'flag', (0, 3, 5, 48, 80, 119, 8388611, 8388613))	{"nm": "none", "u0": "top", "co": "bottom", "kt": "left", "q0": "right", "s7": "start", "i9": "end", "bv": "all"}
+tt	layout_editor_absoluteX	(('dimension',), None, ())	{}
+tu	layout_editor_absoluteY	(('dimension',), None, ())	{}
+tv	layout_flexBasisPercent	(('fraction',), None, ())	{}
+tw	layout_flexGrow	(('float',), None, ())	{}
+tx	layout_flexShrink	(('float',), None, ())	{}
+ty	layout_goneMarginBaseline	(('dimension',), None, ())	{}
+tz	layout_goneMarginBottom	(('dimension',), None, ())	{}
+u0	layout_goneMarginEnd	(('dimension',), None, ())	{}
+u1	layout_goneMarginLeft	(('dimension',), None, ())	{}
+u2	layout_goneMarginRight	(('dimension',), None, ())	{}
+u3	layout_goneMarginStart	(('dimension',), None, ())	{}
+u4	layout_goneMarginTop	(('dimension',), None, ())	{}
+u5	layout_insetEdge	((), 'enum', (0, 3, 5, 48, 80, 8388611, 8388613))	{"nm": "none", "u0": "top", "co": "bottom", "kt": "left", "q0": "right", "s7": "start", "i9": "end"}
+u6	layout_keyline	(('integer',), None, ())	{}
+u7	layout_marginBaseline	(('dimension',), None, ())	{}
+u8	layout_maxHeight	(('dimension',), None, ())	{}
+u9	layout_maxWidth	(('dimension',), None, ())	{}
+u_	layout_minHeight	(('dimension',), None, ())	{}
+ua	layout_minWidth	(('dimension',), None, ())	{}
+ub	layout_optimizationLevel	((), 'flag', (0, 0, 1, 2, 4, 8, 16, 32, 64, 128, 256, 257, 512, 1024))	{"kv": "legacy", "s6": "standard", "gp": "direct", "ch": "barrier", "f5": "chains", "go": "dimensions", "ph": "ratio", "j9": "groups", "j5": "graph", "j6": "graph_wrap", "eq": "cache_measures", "gg": "dependency_ordering", "j8": "grouping"}
+uc	layout_order	(('integer',), None, ())	{}
+ud	layout_scrollEffect	((), 'enum', (0, 1))	{"nm": "none", "fl": "compress"}
+ue	layout_scrollFlags	((), 'flag', (0, 1, 2, 4, 8, 16, 32))	{"nk": "noScroll", "qd": "scroll", "id": "exitUntilCollapsed", "ia": "enterAlways", "ib": "enterAlwaysCollapsed", "rf": "snap", "rg": "snapMargins"}
+uf	layout_scrollInterpolator	(('reference',), None, ())	{}
+ug	layout_wrapBefore	(('boolean',), None, ())	{}
+uh	layout_wrapBehaviorInParent	((), 'enum', (0, 1, 2, 3))	{"jz": "included", "jk": "horizontal_only", "vv": "vertical_only", "ra": "skipped"}
+ui	liftOnScroll	(('boolean',), None, ())	{}
+uj	liftOnScrollColor	(('color',), None, ())	{}
+uk	liftOnScrollTargetViewId	(('reference',), None, ())	{}
+ul	limitBoundsTo	(('reference',), None, ())	{}
+um	lineHeight	(('dimension',), None, ())	{}
+un	lineSpacing	(('dimension',), None, ())	{}
+uo	linearProgressIndicatorStyle	(('reference',), None, ())	{}
+up	listChoiceBackgroundIndicator	(('reference',), None, ())	{}
+uq	listChoiceIndicatorMultipleAnimated	(('reference',), None, ())	{}
+ur	listChoiceIndicatorSingleAnimated	(('reference',), None, ())	{}
+us	listDividerAlertDialog	(('reference',), None, ())	{}
+ut	listItemLayout	(('reference',), None, ())	{}
+uu	listLayout	(('reference',), None, ())	{}
+uv	listMenuViewStyle	(('reference',), None, ())	{}
+uw	listPopupWindowStyle	(('reference',), None, ())	{}
+ux	listPreferredItemHeight	(('dimension',), None, ())	{}
+uy	listPreferredItemHeightLarge	(('dimension',), None, ())	{}
+uz	listPreferredItemHeightSmall	(('dimension',), None, ())	{}
+v0	listPreferredItemPaddingEnd	(('dimension',), None, ())	{}
+v1	listPreferredItemPaddingLeft	(('dimension',), None, ())	{}
+v2	listPreferredItemPaddingRight	(('dimension',), None, ())	{}
+v3	listPreferredItemPaddingStart	(('dimension',), None, ())	{}
+v4	logo	(('reference',), None, ())	{}
+v5	logoAdjustViewBounds	(('boolean',), None, ())	{}
+v6	logoDescription	(('string',), None, ())	{}
+v7	logoScaleType	((), 'enum', (0, 1, 2, 3, 4, 5, 6, 7))	{"ly": "matrix", "ir": "fitXY", "ip": "fitStart", "in": "fitCenter", "io": "fitEnd", "ey": "center", "ez": "centerCrop", "f0": "centerInside"}
+v8	lottieAnimationViewStyle	(('reference',), None, ())	{}
+v9	lottie_asyncUpdates	((), 'enum', (0, 1, 2))	{"cf": "automatic", "i8": "enabled", "gu": "disabled"}
+v_	lottie_autoPlay	(('boolean',), None, ())	{}
+va	lottie_cacheComposition	(('boolean',), None, ())	{}
+vb	lottie_clipTextToBoundingBox	(('boolean',), None, ())	{}
+vc	lottie_clipToCompositionBounds	(('boolean',), None, ())	{}
+vd	lottie_colorFilter	(('color',), None, ())	{}
+ve	lottie_defaultFontFileExtension	(('string',), None, ())	{}
+vf	lottie_enableMergePathsForKitKatAndAbove	(('boolean',), None, ())	{}
+vg	lottie_fallbackRes	(('reference',), None, ())	{}
+vh	lottie_fileName	(('string',), None, ())	{}
+vi	lottie_ignoreDisabledSystemAnimations	(('boolean',), None, ())	{}
+vj	lottie_imageAssetsFolder	(('string',), None, ())	{}
+vk	lottie_loop	(('boolean',), None, ())	{}
+vl	lottie_progress	(('float',), None, ())	{}
+vm	lottie_rawRes	(('reference',), None, ())	{}
+vn	lottie_renderMode	((), 'enum', (0, 1, 2))	{"cf": "automatic", "ja": "hardware", "rh": "software"}
+vo	lottie_repeatCount	(('integer',), None, ())	{}
+vp	lottie_repeatMode	((), 'enum', (1, 2))	{"px": "restart", "py": "reverse"}
+vq	lottie_speed	(('float',), None, ())	{}
+vr	lottie_url	(('string',), None, ())	{}
+vs	lottie_useCompositionFrameRate	(('boolean',), None, ())	{}
+vt	marginHorizontal	(('dimension',), None, ())	{}
+vu	marginLeftSystemWindowInsets	(('boolean',), None, ())	{}
+vv	marginRightSystemWindowInsets	(('boolean',), None, ())	{}
+vw	marginTopSystemWindowInsets	(('boolean',), None, ())	{}
+vx	materialAlertDialogBodyTextStyle	(('reference',), None, ())	{}
+vy	materialAlertDialogButtonSpacerVisibility	(('integer',), None, ())	{}
+vz	materialAlertDialogTheme	(('reference',), None, ())	{}
+w0	materialAlertDialogTitleIconStyle	(('reference',), None, ())	{}
+w1	materialAlertDialogTitlePanelStyle	(('reference',), None, ())	{}
+w2	materialAlertDialogTitleTextStyle	(('reference',), None, ())	{}
+w3	materialButtonOutlinedStyle	(('reference',), None, ())	{}
+w4	materialButtonStyle	(('reference',), None, ())	{}
+w5	materialButtonToggleGroupStyle	(('reference',), None, ())	{}
+w6	materialCalendarDay	(('reference',), None, ())	{}
+w7	materialCalendarDayOfWeekLabel	(('reference',), None, ())	{}
+w8	materialCalendarFullscreenTheme	(('reference',), None, ())	{}
+w9	materialCalendarHeaderCancelButton	(('reference',), None, ())	{}
+w_	materialCalendarHeaderConfirmButton	(('reference',), None, ())	{}
+wa	materialCalendarHeaderDivider	(('reference',), None, ())	{}
+wb	materialCalendarHeaderLayout	(('reference',), None, ())	{}
+wc	materialCalendarHeaderSelection	(('reference',), None, ())	{}
+wd	materialCalendarHeaderTitle	(('reference',), None, ())	{}
+we	materialCalendarHeaderToggleButton	(('reference',), None, ())	{}
+wf	materialCalendarMonth	(('reference',), None, ())	{}
+wg	materialCalendarMonthNavigationButton	(('reference',), None, ())	{}
+wh	materialCalendarStyle	(('reference',), None, ())	{}
+wi	materialCalendarTheme	(('reference',), None, ())	{}
+wj	materialCalendarYearNavigationButton	(('reference',), None, ())	{}
+wk	materialCardViewElevatedStyle	(('reference',), None, ())	{}
+wl	materialCardViewFilledStyle	(('reference',), None, ())	{}
+wm	materialCardViewOutlinedStyle	(('reference',), None, ())	{}
+wn	materialCardViewStyle	(('reference',), None, ())	{}
+wo	materialCircleRadius	(('dimension',), None, ())	{}
+wp	materialClockStyle	(('reference',), None, ())	{}
+wq	materialDisplayDividerStyle	(('reference',), None, ())	{}
+wr	materialDividerHeavyStyle	(('boolean', 'color', 'dimension', 'float', 'fraction', 'integer', 'reference', 'string'), None, ())	{}
+ws	materialDividerStyle	(('boolean', 'color', 'dimension', 'float', 'fraction', 'integer', 'reference', 'string'), None, ())	{}
+wt	materialIconButtonFilledStyle	(('reference',), None, ())	{}
+wu	materialIconButtonFilledTonalStyle	(('reference',), None, ())	{}
+wv	materialIconButtonOutlinedStyle	(('reference',), None, ())	{}
+ww	materialIconButtonStyle	(('reference',), None, ())	{}
+wx	materialSearchBarStyle	(('reference',), None, ())	{}
+wy	materialSearchViewPrefixStyle	(('reference',), None, ())	{}
+wz	materialSearchViewStyle	(('reference',), None, ())	{}
+x0	materialSearchViewToolbarHeight	(('dimension',), None, ())	{}
+x1	materialSearchViewToolbarStyle	(('reference',), None, ())	{}
+x2	materialSwitchStyle	(('boolean', 'color', 'dimension', 'float', 'fraction', 'integer', 'reference', 'string'), None, ())	{}
+x3	materialThemeOverlay	(('reference',), None, ())	{}
+x4	materialTimePickerStyle	(('reference',), None, ())	{}
+x5	materialTimePickerTheme	(('reference',), None, ())	{}
+x6	materialTimePickerTitleStyle	(('reference',), None, ())	{}
+x7	maxAcceleration	(('float',), None, ())	{}
+x8	maxActionInlineWidth	(('dimension',), None, ())	{}
+x9	maxButtonHeight	(('dimension',), None, ())	{}
+x_	maxCharacterCount	(('integer',), None, ())	{}
+xa	maxHeight	(('dimension',), None, ())	{}
+xb	maxImageSize	(('dimension',), None, ())	{}
+xc	maxLine	(('integer',), None, ())	{}
+xd	maxLines	(('integer',), None, ())	{}
+xe	maxNumber	(('integer',), None, ())	{}
+xf	maxVelocity	(('float',), None, ())	{}
+xg	maxWidth	(('dimension',), None, ())	{}
+xh	measureWithLargestChild	(('boolean',), None, ())	{}
+xi	menu	(('reference',), None, ())	{}
+xj	menuAlignmentMode	((), 'enum', (0, 1))	{"cb": "auto", "s7": "start"}
+xk	menuGravity	((), 'enum', (17, 49, 81))	{"u0": "top", "ey": "center", "co": "bottom"}
+xl	methodName	(('string',), None, ())	{}
+xm	min	(('integer',), None, ())	{}
+xn	minHeight	(('dimension',), None, ())	{}
+xo	minHideDelay	(('integer',), None, ())	{}
+xp	minSeparation	(('dimension',), None, ())	{}
+xq	minTouchTargetSize	(('dimension',), None, ())	{}
+xr	minWidth	(('dimension',), None, ())	{}
+xs	mock_diagonalsColor	(('color',), None, ())	{}
+xt	mock_label	(('string',), None, ())	{}
+xu	mock_labelBackgroundColor	(('color',), None, ())	{}
+xv	mock_labelColor	(('color',), None, ())	{}
+xw	mock_showDiagonals	(('boolean',), None, ())	{}
+xx	mock_showLabel	(('boolean',), None, ())	{}
+xy	motionDebug	((), 'enum', (0, 1, 2, 3))	{"g": "NO_DEBUG", "k": "SHOW_PROGRESS", "j": "SHOW_PATH", "i": "SHOW_ALL"}
+xz	motionDurationExtraLong1	(('integer',), None, ())	{}
+y0	motionDurationExtraLong2	(('integer',), None, ())	{}
+y1	motionDurationExtraLong3	(('integer',), None, ())	{}
+y2	motionDurationExtraLong4	(('integer',), None, ())	{}
+y3	motionDurationLong1	(('integer',), None, ())	{}
+y4	motionDurationLong2	(('integer',), None, ())	{}
+y5	motionDurationLong3	(('integer',), None, ())	{}
+y6	motionDurationLong4	(('integer',), None, ())	{}
+y7	motionDurationMedium1	(('integer',), None, ())	{}
+y8	motionDurationMedium2	(('integer',), None, ())	{}
+y9	motionDurationMedium3	(('integer',), None, ())	{}
+y_	motionDurationMedium4	(('integer',), None, ())	{}
+ya	motionDurationShort1	(('integer',), None, ())	{}
+yb	motionDurationShort2	(('integer',), None, ())	{}
+yc	motionDurationShort3	(('integer',), None, ())	{}
+yd	motionDurationShort4	(('integer',), None, ())	{}
+ye	motionEasingAccelerated	(('string',), None, ())	{}
+yf	motionEasingDecelerated	(('string',), None, ())	{}
+yg	motionEasingEmphasized	(('string',), None, ())	{}
+yh	motionEasingEmphasizedAccelerateInterpolator	(('reference',), None, ())	{}
+yi	motionEasingEmphasizedDecelerateInterpolator	(('reference',), None, ())	{}
+yj	motionEasingEmphasizedInterpolator	(('reference',), None, ())	{}
+yk	motionEasingLinear	(('string',), None, ())	{}
+yl	motionEasingLinearInterpolator	(('reference',), None, ())	{}
+ym	motionEasingStandard	(('string',), None, ())	{}
+yn	motionEasingStandardAccelerateInterpolator	(('reference',), None, ())	{}
+yo	motionEasingStandardDecelerateInterpolator	(('reference',), None, ())	{}
+yp	motionEasingStandardInterpolator	(('reference',), None, ())	{}
+yq	motionEffect_alpha	(('float',), None, ())	{}
+yr	motionEffect_end	(('integer',), None, ())	{}
+ys	motionEffect_move	((), 'enum', (0, 1, 2, 3, 4294967295))	{"cb": "auto", "no": "north", "ro": "south", "hc": "east", "w4": "west"}
+yt	motionEffect_start	(('integer',), None, ())	{}
+yu	motionEffect_strict	(('boolean',), None, ())	{}
+yv	motionEffect_translationX	(('dimension',), None, ())	{}
+yw	motionEffect_translationY	(('dimension',), None, ())	{}
+yx	motionEffect_viewTransition	(('reference',), None, ())	{}
+yy	motionInterpolator	(('reference', 'string'), 'enum', (0, 1, 2, 3, 4, 5, 6))	{"ha": "easeInOut", "h_": "easeIn", "hb": "easeOut", "kz": "linear", "cr": "bounce", "ol": "overshoot", "c5": "anticipate"}
+yz	motionPath	(('string',), 'enum', (0, 1))	{"kz": "linear", "c9": "arc"}
+z0	motionPathRotate	(('float',), None, ())	{}
+z1	motionProgress	(('float',), None, ())	{}
+z2	motionStagger	(('float',), None, ())	{}
+z3	motionTarget	(('reference', 'string'), None, ())	{}
+z4	motion_postLayoutCollision	(('boolean',), None, ())	{}
+z5	motion_triggerOnCollision	(('reference',), None, ())	{}
+z6	moveWhenScrollAtTop	(('boolean',), None, ())	{}
+z7	multiChoiceItemLayout	(('reference',), None, ())	{}
+z8	navigationContentDescription	(('string',), None, ())	{}
+z9	navigationIcon	(('reference',), None, ())	{}
+z_	navigationIconTint	(('color',), None, ())	{}
+za	navigationMode	((), 'enum', (0, 1, 2))	{"nn": "normal", "l0": "listMode", "sz": "tabMode"}
+zb	navigationRailStyle	(('reference',), None, ())	{}
+zc	navigationViewStyle	(('reference',), None, ())	{}
+zd	negativeButtonText	(('string',), None, ())	{}
+ze	nestedScrollFlags	((), 'flag', (0, 1, 2, 4))	{"nm": "none", "gs": "disablePostScroll", "gt": "disableScroll", "sp": "supportScrollUp"}
+zf	nestedScrollViewStyle	(('reference',), None, ())	{}
+zg	nestedScrollable	(('boolean',), None, ())	{}
+zi	number	(('integer',), None, ())	{}
+zj	numericModifiers	((), 'flag', (1, 2, 4, 8, 4096, 65536))	{"f": "META", "d": "CTRL", "a": "ALT", "h": "SHIFT", "l": "SYM", "e": "FUNCTION"}
+zm	offsetAlignmentMode	((), 'enum', (0, 1))	{"hd": "edge", "kv": "legacy"}
+zn	onCross	(('string',), None, ())	{}
+zo	onHide	(('boolean',), None, ())	{}
+zp	onNegativeCross	(('string',), None, ())	{}
+zq	onPositiveCross	(('string',), None, ())	{}
+zr	onShow	(('boolean',), None, ())	{}
+zs	onStateTransition	((), 'enum', (1, 2, 3, 4, 5))	{"am": "actionDown", "ao": "actionUp", "an": "actionDownUp", "r2": "sharedValueSet", "r3": "sharedValueUnset"}
+zt	onTouchUp	((), 'enum', (0, 1, 2, 3, 4, 5, 6, 7))	{"cc": "autoComplete", "ce": "autoCompleteToStart", "cd": "autoCompleteToEnd", "sk": "stop", "ga": "decelerate", "gb": "decelerateAndComplete", "nj": "neverCompleteToStart", "ni": "neverCompleteToEnd"}
+zu	order	(('integer',), None, ())	{}
+zv	orderingFromXml	(('boolean',), None, ())	{}
+zw	overlapAnchor	(('boolean',), None, ())	{}
+zx	overlay	(('boolean',), None, ())	{}
+zy	paddingBottomNoButtons	(('dimension',), None, ())	{}
+zz	paddingBottomSystemWindowInsets	(('boolean',), None, ())	{}
+a00	paddingEnd	(('dimension',), None, ())	{}
+a01	paddingLeftSystemWindowInsets	(('boolean',), None, ())	{}
+a02	paddingRightSystemWindowInsets	(('boolean',), None, ())	{}
+a03	paddingStart	(('dimension',), None, ())	{}
+a04	paddingStartSystemWindowInsets	(('boolean',), None, ())	{}
+a05	paddingTopNoTitle	(('dimension',), None, ())	{}
+a06	paddingTopSystemWindowInsets	(('boolean',), None, ())	{}
+a07	panelBackground	(('reference',), None, ())	{}
+a08	panelMenuListTheme	(('reference',), None, ())	{}
+a09	panelMenuListWidth	(('dimension',), None, ())	{}
+a0_	passwordToggleContentDescription	(('string',), None, ())	{}
+a0a	passwordToggleDrawable	(('reference',), None, ())	{}
+a0b	passwordToggleEnabled	(('boolean',), None, ())	{}
+a0c	passwordToggleTint	(('color',), None, ())	{}
+a0d	passwordToggleTintMode	((), 'enum', (3, 5, 9, 14, 15))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen"}
+a0f	path_percent	(('float',), None, ())	{}
+a0g	percentHeight	(('float',), None, ())	{}
+a0h	percentWidth	(('float',), None, ())	{}
+a0i	percentX	(('float',), None, ())	{}
+a0j	percentY	(('float',), None, ())	{}
+a0k	perpendicularPath_percent	(('float',), None, ())	{}
+a0l	persistent	(('boolean',), None, ())	{}
+a0m	pivotAnchor	(('reference',), 'enum', (0,))	{"oq": "parent"}
+a0n	placeholderActivityName	(('string',), None, ())	{}
+a0o	placeholderText	(('string',), None, ())	{}
+a0p	placeholderTextAppearance	(('reference',), None, ())	{}
+a0q	placeholderTextColor	(('color',), None, ())	{}
+a0r	placeholder_emptyVisibility	((), 'enum', (0, 4, 8))	{"w2": "visible", "k4": "invisible", "j4": "gone"}
+a0s	polarRelativeTo	(('reference',), None, ())	{}
+a0t	popupMenuBackground	(('reference',), None, ())	{}
+a0u	popupMenuStyle	(('reference',), None, ())	{}
+a0v	popupTheme	(('reference',), None, ())	{}
+a0w	popupWindowStyle	(('reference',), None, ())	{}
+a0x	positiveButtonText	(('string',), None, ())	{}
+a0y	postSplashScreenTheme	(('reference',), None, ())	{}
+a0z	preferenceCategoryStyle	(('reference',), None, ())	{}
+a10	preferenceCategoryTitleTextAppearance	(('reference',), None, ())	{}
+a11	preferenceCategoryTitleTextColor	(('color', 'reference'), None, ())	{}
+a12	preferenceFragmentCompatStyle	(('reference',), None, ())	{}
+a13	preferenceFragmentListStyle	(('reference',), None, ())	{}
+a14	preferenceFragmentStyle	(('reference',), None, ())	{}
+a15	preferenceInformationStyle	(('reference',), None, ())	{}
+a16	preferenceScreenStyle	(('reference',), None, ())	{}
+a17	preferenceStyle	(('reference',), None, ())	{}
+a18	preferenceTheme	(('reference',), None, ())	{}
+a19	prefixText	(('string',), None, ())	{}
+a1_	prefixTextAppearance	(('reference',), None, ())	{}
+a1a	prefixTextColor	(('color',), None, ())	{}
+a1b	preserveIconSpacing	(('boolean',), None, ())	{}
+a1d	pressedTranslationZ	(('dimension',), None, ())	{}
+a1e	primaryActivityName	(('string',), None, ())	{}
+a1f	progressBarPadding	(('dimension',), None, ())	{}
+a1g	progressBarStyle	(('reference',), None, ())	{}
+a1h	progressMode	(('boolean',), None, ())	{}
+a1i	quantizeMotionInterpolator	(('reference', 'string'), 'enum', (0, 1, 2, 3, 4, 5))	{"ha": "easeInOut", "h_": "easeIn", "hb": "easeOut", "kz": "linear", "cr": "bounce", "ol": "overshoot"}
+a1j	quantizeMotionPhase	(('float',), None, ())	{}
+a1k	quantizeMotionSteps	(('integer',), None, ())	{}
+a1l	queryBackground	(('reference',), None, ())	{}
+a1m	queryHint	(('string',), None, ())	{}
+a1n	queryPatterns	(('reference',), None, ())	{}
+a1o	radioButtonStyle	(('reference',), None, ())	{}
+a1p	rangeFillColor	(('color',), None, ())	{}
+a1q	ratingBarStyle	(('reference',), None, ())	{}
+a1r	ratingBarStyleIndicator	(('reference',), None, ())	{}
+a1s	ratingBarStyleSmall	(('reference',), None, ())	{}
+a1t	reactiveGuide_animateChange	(('boolean',), None, ())	{}
+a1u	reactiveGuide_applyToAllConstraintSets	(('boolean',), None, ())	{}
+a1v	reactiveGuide_applyToConstraintSet	(('reference',), None, ())	{}
+a1w	reactiveGuide_valueId	(('reference',), None, ())	{}
+a1x	recyclerViewStyle	(('reference',), None, ())	{}
+a1y	region_heightLessThan	(('dimension',), None, ())	{}
+a1z	region_heightMoreThan	(('dimension',), None, ())	{}
+a20	region_widthLessThan	(('dimension',), None, ())	{}
+a21	region_widthMoreThan	(('dimension',), None, ())	{}
+a22	removeEmbeddedFabElevation	(('boolean',), None, ())	{}
+a23	reverseLayout	(('boolean',), None, ())	{}
+a24	rippleColor	(('color',), None, ())	{}
+a25	rotationCenterId	(('reference',), None, ())	{}
+a26	round	(('dimension',), None, ())	{}
+a27	roundPercent	(('float',), None, ())	{}
+a28	saturation	(('float',), None, ())	{}
+a29	scaleFromTextSize	(('dimension',), None, ())	{}
+a2_	scopeUris	(('reference', 'string'), None, ())	{}
+a2a	scrimAnimationDuration	(('integer',), None, ())	{}
+a2b	scrimBackground	(('color', 'reference'), None, ())	{}
+a2c	scrimVisibleHeightTrigger	(('dimension',), None, ())	{}
+a2d	searchHintIcon	(('reference',), None, ())	{}
+a2e	searchIcon	(('reference',), None, ())	{}
+a2f	searchPrefixText	(('string',), None, ())	{}
+a2g	searchViewStyle	(('reference',), None, ())	{}
+a2h	secondaryActivityAction	(('string',), None, ())	{}
+a2i	secondaryActivityName	(('string',), None, ())	{}
+a2j	seekBarIncrement	(('integer',), None, ())	{}
+a2k	seekBarPreferenceStyle	(('reference',), None, ())	{}
+a2l	seekBarStyle	(('reference',), None, ())	{}
+a2m	selectable	(('boolean',), None, ())	{}
+a2n	selectableItemBackground	(('reference',), None, ())	{}
+a2o	selectableItemBackgroundBorderless	(('reference',), None, ())	{}
+a2p	selectedDotColor	(('color',), None, ())	{}
+a2q	selectionRequired	(('boolean',), None, ())	{}
+a2r	selectorSize	(('dimension',), None, ())	{}
+a2s	setsTag	(('reference',), None, ())	{}
+a2t	shapeAppearance	(('reference',), None, ())	{}
+a2u	shapeAppearanceCornerExtraLarge	(('reference',), None, ())	{}
+a2v	shapeAppearanceCornerExtraSmall	(('reference',), None, ())	{}
+a2w	shapeAppearanceCornerLarge	(('reference',), None, ())	{}
+a2x	shapeAppearanceCornerMedium	(('reference',), None, ())	{}
+a2y	shapeAppearanceCornerSmall	(('reference',), None, ())	{}
+a2z	shapeAppearanceLargeComponent	(('reference',), None, ())	{}
+a30	shapeAppearanceMediumComponent	(('reference',), None, ())	{}
+a31	shapeAppearanceOverlay	(('reference',), None, ())	{}
+a32	shapeAppearanceSmallComponent	(('reference',), None, ())	{}
+a33	shapeCornerFamily	((), 'enum', (0, 1))	{"q4": "rounded", "g7": "cut"}
+a34	shortcutMatchRequired	(('boolean',), None, ())	{}
+a35	shouldDisableView	(('boolean',), None, ())	{}
+a36	shouldRemoveExpandedCorners	(('boolean',), None, ())	{}
+a37	showAnimationBehavior	((), 'enum', (0, 1, 2))	{"nm": "none", "ok": "outward", "k5": "inward"}
+a38	showAsAction	((), 'flag', (0, 1, 2, 4, 8))	{"nh": "never", "jt": "ifRoom", "bx": "always", "w6": "withText", "fh": "collapseActionView"}
+a39	showDelay	(('integer',), None, ())	{}
+a3_	showDivider	((), 'flag', (0, 1, 2, 4))	{"nm": "none", "ck": "beginning", "ma": "middle", "i9": "end"}
+a3a	showDividerHorizontal	((), 'flag', (0, 1, 2, 4))	{"nm": "none", "ck": "beginning", "ma": "middle", "i9": "end"}
+a3b	showDividerVertical	((), 'flag', (0, 1, 2, 4))	{"nm": "none", "ck": "beginning", "ma": "middle", "i9": "end"}
+a3c	showDividers	((), 'flag', (0, 1, 2, 4))	{"nm": "none", "ck": "beginning", "ma": "middle", "i9": "end"}
+a3d	showMarker	(('boolean',), None, ())	{}
+a3e	showMotionSpec	(('reference',), None, ())	{}
+a3f	showPaths	(('boolean',), None, ())	{}
+a3g	showSeekBarValue	(('boolean',), None, ())	{}
+a3h	showText	(('boolean',), None, ())	{}
+a3i	showTitle	(('boolean',), None, ())	{}
+a3j	shrinkMotionSpec	(('reference',), None, ())	{}
+a3k	sideSheetDialogTheme	(('reference',), None, ())	{}
+a3l	sideSheetModalStyle	(('reference',), None, ())	{}
+a3m	simpleItemLayout	(('reference',), None, ())	{}
+a3n	simpleItemSelectedColor	(('color',), None, ())	{}
+a3o	simpleItemSelectedRippleColor	(('color',), None, ())	{}
+a3p	simpleItems	(('reference',), None, ())	{}
+a3q	singleChoiceItemLayout	(('reference',), None, ())	{}
+a3r	singleLine	(('boolean',), None, ())	{}
+a3s	singleLineTitle	(('boolean',), None, ())	{}
+a3t	singleSelection	(('boolean',), None, ())	{}
+a3u	sizePercent	(('float',), None, ())	{}
+a3v	sliderStyle	(('reference',), None, ())	{}
+a3w	snackbarButtonStyle	(('reference',), None, ())	{}
+a3x	snackbarStyle	(('reference',), None, ())	{}
+a3y	snackbarTextViewStyle	(('reference',), None, ())	{}
+a3z	spanCount	(('integer',), None, ())	{}
+a40	spinBars	(('boolean',), None, ())	{}
+a41	spinnerDropDownItemStyle	(('reference',), None, ())	{}
+a42	spinnerStyle	(('reference',), None, ())	{}
+a43	splashScreenIconSize	(('dimension',), None, ())	{}
+a44	splitLayoutDirection	((), 'enum', (0, 1, 2, 3, 4))	{"l3": "locale", "l6": "ltr", "q8": "rtl", "u2": "topToBottom", "cp": "bottomToTop"}
+a45	splitMaxAspectRatioInLandscape	(('float',), 'enum', (0, 4294967295))	{"by": "alwaysAllow", "bz": "alwaysDisallow"}
+a46	splitMaxAspectRatioInPortrait	(('float',), 'enum', (0, 4294967295))	{"by": "alwaysAllow", "bz": "alwaysDisallow"}
+a47	splitMinHeightDp	(('integer',), None, ())	{}
+a48	splitMinSmallestWidthDp	(('integer',), None, ())	{}
+a49	splitMinWidthDp	(('integer',), None, ())	{}
+a4_	splitRatio	(('float',), None, ())	{}
+a4a	splitTrack	(('boolean',), None, ())	{}
+a4b	springBoundary	((), 'flag', (0, 1, 2, 3))	{"ol": "overshoot", "cu": "bounceStart", "ct": "bounceEnd", "cs": "bounceBoth"}
+a4c	springDamping	(('float',), None, ())	{}
+a4d	springMass	(('float',), None, ())	{}
+a4e	springStiffness	(('float',), None, ())	{}
+a4f	springStopThreshold	(('float',), None, ())	{}
+a4g	srcCompat	(('reference',), None, ())	{}
+a4h	stackFromEnd	(('boolean',), None, ())	{}
+a4i	staggered	(('float',), None, ())	{}
+a4j	startIconCheckable	(('boolean',), None, ())	{}
+a4k	startIconContentDescription	(('string',), None, ())	{}
+a4l	startIconDrawable	(('reference',), None, ())	{}
+a4m	startIconMinSize	(('dimension',), None, ())	{}
+a4n	startIconScaleType	((), 'enum', (0, 1, 2, 3, 4, 5, 6))	{"ir": "fitXY", "ip": "fitStart", "in": "fitCenter", "io": "fitEnd", "ey": "center", "ez": "centerCrop", "f0": "centerInside"}
+a4o	startIconTint	(('color',), None, ())	{}
+a4p	startIconTintMode	((), 'enum', (3, 5, 9, 14, 15))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen"}
+a4r	state_above_anchor	(('boolean',), None, ())	{}
+a4s	state_collapsed	(('boolean',), None, ())	{}
+a4t	state_collapsible	(('boolean',), None, ())	{}
+a4u	state_dragged	(('boolean',), None, ())	{}
+a4v	state_error	(('boolean',), None, ())	{}
+a4w	state_indeterminate	(('boolean',), None, ())	{}
+a4x	state_liftable	(('boolean',), None, ())	{}
+a4y	state_lifted	(('boolean',), None, ())	{}
+a4z	state_with_icon	(('boolean',), None, ())	{}
+a50	statusBarBackground	(('color', 'reference'), None, ())	{}
+a51	statusBarForeground	(('color',), None, ())	{}
+a52	statusBarScrim	(('color',), None, ())	{}
+a54	stickyPlaceholder	(('boolean',), None, ())	{}
+a55	stiffness	(('float',), None, ())	{}
+a56	strokeColor	(('color',), None, ())	{}
+a57	strokeWidth	(('dimension',), None, ())	{}
+a58	subMenuArrow	(('reference',), None, ())	{}
+a59	subheaderColor	(('color', 'reference'), None, ())	{}
+a5_	subheaderInsetEnd	(('dimension',), None, ())	{}
+a5a	subheaderInsetStart	(('dimension',), None, ())	{}
+a5b	subheaderTextAppearance	(('reference',), None, ())	{}
+a5c	submitBackground	(('reference',), None, ())	{}
+a5d	subtitle	(('string',), None, ())	{}
+a5e	subtitleCentered	(('boolean',), None, ())	{}
+a5f	subtitleTextAppearance	(('reference',), None, ())	{}
+a5g	subtitleTextColor	(('color',), None, ())	{}
+a5h	subtitleTextStyle	(('reference',), None, ())	{}
+a5i	suffixText	(('string',), None, ())	{}
+a5j	suffixTextAppearance	(('reference',), None, ())	{}
+a5k	suffixTextColor	(('color',), None, ())	{}
+a5l	suggestionRowLayout	(('reference',), None, ())	{}
+a5m	summary	(('string',), None, ())	{}
+a5n	summaryOff	(('string',), None, ())	{}
+a5o	summaryOn	(('string',), None, ())	{}
+a5p	swipeRefreshLayoutProgressSpinnerBackgroundColor	(('color',), None, ())	{}
+a5q	switchMinWidth	(('dimension',), None, ())	{}
+a5r	switchPadding	(('dimension',), None, ())	{}
+a5s	switchPreferenceCompatStyle	(('reference',), None, ())	{}
+a5t	switchPreferenceStyle	(('reference',), None, ())	{}
+a5u	switchStyle	(('reference',), None, ())	{}
+a5v	switchTextAppearance	(('reference',), None, ())	{}
+a5w	switchTextOff	(('string',), None, ())	{}
+a5x	switchTextOn	(('string',), None, ())	{}
+a5y	tabBackground	(('reference',), None, ())	{}
+a5z	tabContentStart	(('dimension',), None, ())	{}
+a60	tabGravity	((), 'enum', (0, 1, 2))	{"ii": "fill", "ey": "center", "s7": "start"}
+a61	tabIconTint	(('color',), None, ())	{}
+a62	tabIconTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+a63	tabIndicator	(('reference',), None, ())	{}
+a64	tabIndicatorAnimationDuration	(('integer',), None, ())	{}
+a65	tabIndicatorAnimationMode	((), 'enum', (0, 1, 2))	{"kz": "linear", "i6": "elastic", "ih": "fade"}
+a66	tabIndicatorColor	(('color',), None, ())	{}
+a67	tabIndicatorFullWidth	(('boolean',), None, ())	{}
+a68	tabIndicatorGravity	((), 'enum', (0, 1, 2, 3))	{"co": "bottom", "ey": "center", "u0": "top", "sl": "stretch"}
+a69	tabIndicatorHeight	(('dimension',), None, ())	{}
+a6_	tabInlineLabel	(('boolean',), None, ())	{}
+a6a	tabMaxWidth	(('dimension',), None, ())	{}
+a6b	tabMinWidth	(('dimension',), None, ())	{}
+a6c	tabMode	((), 'enum', (0, 1, 2))	{"qh": "scrollable", "is": "fixed", "cb": "auto"}
+a6d	tabPadding	(('dimension',), None, ())	{}
+a6e	tabPaddingBottom	(('dimension',), None, ())	{}
+a6f	tabPaddingEnd	(('dimension',), None, ())	{}
+a6g	tabPaddingStart	(('dimension',), None, ())	{}
+a6h	tabPaddingTop	(('dimension',), None, ())	{}
+a6i	tabRippleColor	(('color',), None, ())	{}
+a6j	tabSecondaryStyle	(('reference',), None, ())	{}
+a6k	tabSelectedTextAppearance	(('reference',), None, ())	{}
+a6l	tabSelectedTextColor	(('color',), None, ())	{}
+a6m	tabStyle	(('reference',), None, ())	{}
+a6n	tabTextAppearance	(('reference',), None, ())	{}
+a6o	tabTextColor	(('color',), None, ())	{}
+a6p	tabUnboundedRipple	(('boolean',), None, ())	{}
+a6q	tag	(('string',), None, ())	{}
+a6r	targetId	(('reference',), None, ())	{}
+a6s	telltales_tailColor	(('color',), None, ())	{}
+a6t	telltales_tailScale	(('float',), None, ())	{}
+a6u	telltales_velocityMode	((), 'enum', (0, 1, 2, 3))	{"ki": "layout", "p6": "postLayout", "sg": "staticPostLayout", "sf": "staticLayout"}
+a6v	textAllCaps	(('boolean', 'reference'), None, ())	{}
+a6w	textAppearanceBody1	(('reference',), None, ())	{}
+a6x	textAppearanceBody2	(('reference',), None, ())	{}
+a6y	textAppearanceBodyLarge	(('reference',), None, ())	{}
+a6z	textAppearanceBodyMedium	(('reference',), None, ())	{}
+a70	textAppearanceBodySmall	(('reference',), None, ())	{}
+a71	textAppearanceButton	(('reference',), None, ())	{}
+a72	textAppearanceCaption	(('reference',), None, ())	{}
+a73	textAppearanceDisplayLarge	(('reference',), None, ())	{}
+a74	textAppearanceDisplayMedium	(('reference',), None, ())	{}
+a75	textAppearanceDisplaySmall	(('reference',), None, ())	{}
+a76	textAppearanceHeadline1	(('reference',), None, ())	{}
+a77	textAppearanceHeadline2	(('reference',), None, ())	{}
+a78	textAppearanceHeadline3	(('reference',), None, ())	{}
+a79	textAppearanceHeadline4	(('reference',), None, ())	{}
+a7_	textAppearanceHeadline5	(('reference',), None, ())	{}
+a7a	textAppearanceHeadline6	(('reference',), None, ())	{}
+a7b	textAppearanceHeadlineLarge	(('reference',), None, ())	{}
+a7c	textAppearanceHeadlineMedium	(('reference',), None, ())	{}
+a7d	textAppearanceHeadlineSmall	(('reference',), None, ())	{}
+a7e	textAppearanceLabelLarge	(('reference',), None, ())	{}
+a7f	textAppearanceLabelMedium	(('reference',), None, ())	{}
+a7g	textAppearanceLabelSmall	(('reference',), None, ())	{}
+a7h	textAppearanceLargePopupMenu	(('reference',), None, ())	{}
+a7i	textAppearanceLineHeightEnabled	(('boolean',), None, ())	{}
+a7j	textAppearanceListItem	(('reference',), None, ())	{}
+a7k	textAppearanceListItemSecondary	(('reference',), None, ())	{}
+a7l	textAppearanceListItemSmall	(('reference',), None, ())	{}
+a7m	textAppearanceOverline	(('reference',), None, ())	{}
+a7n	textAppearancePopupMenuHeader	(('reference',), None, ())	{}
+a7o	textAppearanceSearchResultSubtitle	(('reference',), None, ())	{}
+a7p	textAppearanceSearchResultTitle	(('reference',), None, ())	{}
+a7q	textAppearanceSmallPopupMenu	(('reference',), None, ())	{}
+a7r	textAppearanceSubtitle1	(('reference',), None, ())	{}
+a7s	textAppearanceSubtitle2	(('reference',), None, ())	{}
+a7t	textAppearanceTitleLarge	(('reference',), None, ())	{}
+a7u	textAppearanceTitleMedium	(('reference',), None, ())	{}
+a7v	textAppearanceTitleSmall	(('reference',), None, ())	{}
+a7w	textBackground	(('reference',), None, ())	{}
+a7x	textBackgroundPanX	(('float',), None, ())	{}
+a7y	textBackgroundPanY	(('float',), None, ())	{}
+a7z	textBackgroundRotate	(('float',), None, ())	{}
+a80	textBackgroundZoom	(('float',), None, ())	{}
+a81	textColorAlertDialogListItem	(('color', 'reference'), None, ())	{}
+a82	textColorSearchUrl	(('color', 'reference'), None, ())	{}
+a83	textEndPadding	(('dimension',), None, ())	{}
+a84	textFillColor	(('color',), None, ())	{}
+a85	textInputFilledDenseStyle	(('reference',), None, ())	{}
+a86	textInputFilledExposedDropdownMenuStyle	(('reference',), None, ())	{}
+a87	textInputFilledStyle	(('reference',), None, ())	{}
+a88	textInputLayoutFocusedRectEnabled	(('boolean',), None, ())	{}
+a89	textInputOutlinedDenseStyle	(('reference',), None, ())	{}
+a8_	textInputOutlinedExposedDropdownMenuStyle	(('reference',), None, ())	{}
+a8a	textInputOutlinedStyle	(('reference',), None, ())	{}
+a8b	textInputStyle	(('reference',), None, ())	{}
+a8c	textLocale	(('string',), None, ())	{}
+a8d	textOutlineColor	(('color',), None, ())	{}
+a8e	textOutlineThickness	(('dimension',), None, ())	{}
+a8f	textPanX	(('float',), None, ())	{}
+a8g	textPanY	(('float',), None, ())	{}
+a8h	textStartPadding	(('dimension',), None, ())	{}
+a8i	textureBlurFactor	(('integer',), None, ())	{}
+a8j	textureEffect	((), 'enum', (0, 1))	{"nm": "none", "j0": "frost"}
+a8k	textureHeight	(('dimension',), None, ())	{}
+a8l	textureWidth	(('dimension',), None, ())	{}
+a8m	theme	(('reference',), None, ())	{}
+a8n	thickness	(('dimension',), None, ())	{}
+a8o	thumbColor	(('color',), None, ())	{}
+a8p	thumbElevation	(('dimension',), None, ())	{}
+a8q	thumbHeight	(('dimension',), None, ())	{}
+a8r	thumbIcon	(('reference',), None, ())	{}
+a8s	thumbIconSize	(('dimension',), None, ())	{}
+a8t	thumbIconTint	(('color',), None, ())	{}
+a8u	thumbIconTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+a8v	thumbRadius	(('dimension',), None, ())	{}
+a8w	thumbStrokeColor	(('color',), None, ())	{}
+a8x	thumbStrokeWidth	(('dimension',), None, ())	{}
+a8y	thumbTextPadding	(('dimension',), None, ())	{}
+a8z	thumbTint	(('color',), None, ())	{}
+a90	thumbTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+a91	thumbTrackGapSize	(('dimension',), None, ())	{}
+a92	thumbWidth	(('dimension',), None, ())	{}
+a93	tickColor	(('color',), None, ())	{}
+a94	tickColorActive	(('color',), None, ())	{}
+a95	tickColorInactive	(('color',), None, ())	{}
+a96	tickMark	(('reference',), None, ())	{}
+a97	tickMarkTint	(('color',), None, ())	{}
+a98	tickMarkTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+a99	tickRadiusActive	(('dimension',), None, ())	{}
+a9_	tickRadiusInactive	(('dimension',), None, ())	{}
+a9a	tickVisible	(('boolean',), None, ())	{}
+a9b	tint	(('color',), None, ())	{}
+a9c	tintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+a9d	tintNavigationIcon	(('boolean',), None, ())	{}
+a9e	title	(('string',), None, ())	{}
+a9f	titleCentered	(('boolean',), None, ())	{}
+a9g	titleCollapseMode	((), 'enum', (0, 1))	{"qb": "scale", "ih": "fade"}
+a9h	titleEnabled	(('boolean',), None, ())	{}
+a9i	titleMargin	(('dimension',), None, ())	{}
+a9j	titleMarginBottom	(('dimension',), None, ())	{}
+a9k	titleMarginEnd	(('dimension',), None, ())	{}
+a9l	titleMarginStart	(('dimension',), None, ())	{}
+a9m	titleMarginTop	(('dimension',), None, ())	{}
+a9n	titleMargins	(('dimension',), None, ())	{}
+a9o	titlePositionInterpolator	(('reference',), None, ())	{}
+a9p	titleTextAppearance	(('reference',), None, ())	{}
+a9q	titleTextColor	(('color',), None, ())	{}
+a9r	titleTextEllipsize	((), 'enum', (0, 1, 2, 3))	{"s7": "start", "ma": "middle", "i9": "end", "la": "marquee"}
+a9s	titleTextStyle	(('reference',), None, ())	{}
+a9t	toggleCheckedStateOnClick	(('boolean',), None, ())	{}
+a9u	toolbarId	(('reference',), None, ())	{}
+a9v	toolbarNavigationButtonStyle	(('reference',), None, ())	{}
+a9w	toolbarStyle	(('reference',), None, ())	{}
+a9x	toolbarSurfaceStyle	(('reference',), None, ())	{}
+a9y	tooltipForegroundColor	(('color', 'reference'), None, ())	{}
+a9z	tooltipFrameBackground	(('reference',), None, ())	{}
+a_0	tooltipStyle	(('reference',), None, ())	{}
+a_1	tooltipText	(('string',), None, ())	{}
+a_2	topInsetScrimEnabled	(('boolean',), None, ())	{}
+a_3	touchAnchorId	(('reference',), None, ())	{}
+a_4	touchAnchorSide	((), 'enum', (0, 1, 2, 3, 4, 5, 6))	{"u0": "top", "kt": "left", "q0": "right", "co": "bottom", "ma": "middle", "s7": "start", "i9": "end"}
+a_5	touchRegionId	(('reference',), None, ())	{}
+a_6	track	(('reference',), None, ())	{}
+a_7	trackColor	(('color',), None, ())	{}
+a_8	trackColorActive	(('color',), None, ())	{}
+a_9	trackColorInactive	(('color',), None, ())	{}
+a__	trackCornerRadius	(('dimension',), None, ())	{}
+a_a	trackDecoration	(('reference',), None, ())	{}
+a_b	trackDecorationTint	(('color',), None, ())	{}
+a_c	trackDecorationTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+a_d	trackHeight	(('dimension',), None, ())	{}
+a_e	trackInsideCornerSize	(('dimension',), None, ())	{}
+a_f	trackStopIndicatorSize	(('dimension',), None, ())	{}
+a_g	trackThickness	(('dimension',), None, ())	{}
+a_h	trackTint	(('color',), None, ())	{}
+a_i	trackTintMode	((), 'enum', (3, 5, 9, 14, 15, 16))	{"s5": "src_over", "s4": "src_in", "s3": "src_atop", "n7": "multiply", "qc": "screen", "bp": "add"}
+a_j	transformPivotTarget	(('reference',), None, ())	{}
+a_k	transitionDisable	(('boolean',), None, ())	{}
+a_l	transitionEasing	(('string',), 'enum', (0, 1, 2, 3))	{"s6": "standard", "p": "accelerate", "ga": "decelerate", "kz": "linear"}
+a_m	transitionFlags	((), 'flag', (0, 1, 2, 4))	{"nm": "none", "cj": "beginOnFirstDraw", "gr": "disableIntraAutoTransition", "ny": "onInterceptTouchReturnSwipe"}
+a_n	transitionPathRotate	(('float',), None, ())	{}
+a_o	transitionShapeAppearance	(('reference',), None, ())	{}
+a_p	triggerId	(('reference',), None, ())	{}
+a_q	triggerReceiver	(('reference',), None, ())	{}
+a_r	triggerSlack	(('float',), None, ())	{}
+a_s	ttcIndex	(('integer',), None, ())	{}
+a_t	upDuration	(('integer',), None, ())	{}
+a_u	updatesContinuously	(('boolean',), None, ())	{}
+a_v	useCompatPadding	(('boolean',), None, ())	{}
+a_w	useDrawerArrowDrawable	(('boolean',), None, ())	{}
+a_x	useMaterialThemeColors	(('boolean',), None, ())	{}
+a_y	useSimpleSummaryProvider	(('boolean',), None, ())	{}
+aa1	values	(('reference',), None, ())	{}
+aa2	verticalOffset	(('dimension',), None, ())	{}
+aa3	verticalOffsetWithText	(('dimension',), None, ())	{}
+aa4	viewInflaterClass	(('string',), None, ())	{}
+aa5	viewTransitionMode	((), 'enum', (0, 1, 2))	{"g4": "currentState", "bw": "allStates", "nl": "noState"}
+aa6	viewTransitionOnCross	(('reference',), None, ())	{}
+aa7	viewTransitionOnNegativeCross	(('reference',), None, ())	{}
+aa8	viewTransitionOnPositiveCross	(('reference',), None, ())	{}
+aa9	visibilityMode	((), 'enum', (0, 1))	{"nn": "normal", "ju": "ignore"}
+aa_	voiceIcon	(('reference',), None, ())	{}
+aaa	warmth	(('float',), None, ())	{}
+aab	waveDecay	(('integer',), None, ())	{}
+aac	waveOffset	(('dimension', 'float'), None, ())	{}
+aad	wavePeriod	(('float',), None, ())	{}
+aae	wavePhase	(('float',), None, ())	{}
+aaf	waveShape	(('string',), 'enum', (0, 1, 2, 3, 4, 5, 6))	{"r8": "sin", "s2": "square", "uf": "triangle", "qa": "sawtooth", "pz": "reverseSawtooth", "g1": "cos", "cr": "bounce"}
+aag	waveVariesBy	((), 'enum', (0, 1))	{"p5": "position", "ox": "path"}
+aah	widgetLayout	(('reference',), None, ())	{}
+aai	windowActionBar	(('boolean',), None, ())	{}
+aaj	windowActionBarOverlay	(('boolean',), None, ())	{}
+aak	windowActionModeOverlay	(('boolean',), None, ())	{}
+aal	windowFixedHeightMajor	(('dimension', 'fraction'), None, ())	{}
+aam	windowFixedHeightMinor	(('dimension', 'fraction'), None, ())	{}
+aan	windowFixedWidthMajor	(('dimension', 'fraction'), None, ())	{}
+aao	windowFixedWidthMinor	(('dimension', 'fraction'), None, ())	{}
+aap	windowMinWidthMajor	(('dimension', 'fraction'), None, ())	{}
+aaq	windowMinWidthMinor	(('dimension', 'fraction'), None, ())	{}
+aar	windowNoTitle	(('boolean',), None, ())	{}
+aas	windowSplashScreenAnimatedIcon	(('reference',), None, ())	{}
+aat	windowSplashScreenAnimationDuration	(('integer',), None, ())	{}
+aau	windowSplashScreenBackground	(('color',), None, ())	{}
+aav	windowSplashScreenIconBackgroundColor	(('color',), None, ())	{}
+aaw	yearSelectedStyle	(('reference',), None, ())	{}
+aax	yearStyle	(('reference',), None, ())	{}
+aay	yearTodayStyle	(('reference',), None, ())	{}

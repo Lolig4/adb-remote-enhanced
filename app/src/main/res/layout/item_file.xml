@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:checkable="true" app:strokeWidth="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" app:srcCompat="@drawable/ic_folder" />
+        <LinearLayout android:orientation="vertical" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:id="@id/text_adb_remote" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyMedium" android:ellipsize="end" android:id="@id/text_file_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:maxLines="1" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_more_vert" android:layout_width="wrap_content" android:layout_height="wrap_content" app:icon="@drawable/ic_more_vert" style="@style/Widget.Material3.Button.IconButton" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

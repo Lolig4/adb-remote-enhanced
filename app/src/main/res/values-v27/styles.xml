@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AdbRemote.SplashScreen.V21" parent="@style/Base.v27.Theme.SplashScreen" />
+    <style name="Theme.AdbRemote.SplashScreen.Light" parent="@style/Theme.AdbRemote.SplashScreen.Light.V27" />
+    <style name="Theme.AdbRemote.SplashScreen.Light.V27" parent="@style/Theme.AdbRemote.SplashScreen.Light.Base">
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+</resources>

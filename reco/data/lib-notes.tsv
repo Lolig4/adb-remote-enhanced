@@ -1,0 +1,78 @@
+InterfaceC1090	java8.nio.file.Path	retrofile (me.zhanghai.android.retrofile:library:1.1.1) java.nio backport; empty alias in expose; USE real API
+InterfaceC3806	java8.nio.file.OpenOption	retrofile backport marker interface; implemented by OpenOptions/CopyOption enums; USE real API
+java8/nio/file/spi/FileSystemProvider	java8.nio.file.spi.FileSystemProvider	retrofile backport; base of FtpFileSystemProvider
+C1170	java8.nio.file.attribute.FileTime	retrofile backport; Instant+cached toString, Comparable; m3163()=toInstant(); used in FtpFileAttributes
+C1081	me.zhanghai...FtpFileSystemProvider-registry? NO -> app provider.ftp.FtpFileSystemProvider impl holder	files
+NOTE: C1081 = provider singleton (newFileSystem/getFileSystem cache); AbstractC4058 is the abstract spi base. verify ownership		
+AbstractC1581	java8.nio.file.AbstractPath (MaterialFiles provider.common.AbstractPath)	files	empty-rendered abstract Path base of ByteStringListPath; impl Path,Comparable,Iterable; body not recoverable (inlined) -> skeleton only
+AbstractC3493	java8.nio.file.Files / ProviderFiles helper	shared	Files-like static helpers: m6042=path.provider, m6024=size, m6002; retrofile/merged; USE real API where possible
+EnumC0204	java8.nio.file.LinkOption/CopyOption	files	marker enum impl OpenOption-marker (InterfaceC3806); NOFOLLOW_LINKS etc.; retrofile/common
+InterfaceC0598	java8.nio.file.attribute.FileAttribute	files	empty marker; vararg attrs in provider calls; USE real API
+C4072	org.apache.commons.net.io.* input stream (commons-net)	files	wrapped by FtpInputStream; commons-net data-connection stream
+AbstractC2616	java.io.FilterOutputStream-like base of FtpOutputStream	files	base wrapping SocketOutputStream; verify (MaterialFiles DelegateOutputStream?)
+C2886	file item ViewBinding (layout cb)	files	generated binding used by FileViewHolder (list) and FileGridViewHolder (grid)
+C1946	progress item ViewBinding	files	generated binding used by ProgressFileViewHolder
+C2821	A7Binding (FilesActivity layout a7)	files	generated binding; activity_files
+AbstractC0343	app default Charset (f3593)	files	used by ByteString.toString + FtpAuthority default encoding; = UTF-8 (RECON-UNSURE)
+AbstractC0395	merged helper; m2078 = FTPFile -> mimeType string	files	top-level util; inline
+InterfaceC1620	retrofit2.http.POST	core-app	@interface value() default "" ; used with @Body/@Field/@FormUrlEncoded on InterfaceC3558/InterfaceC3915
+InterfaceC0962	retrofit2.http.GET	core-app	@interface value() default ""
+InterfaceC0384	retrofit2.http.Query	core-app	@interface value() (required)
+InterfaceC0351	retrofit2.http.Field	core-app	@interface value() (required), with @FormUrlEncoded
+InterfaceC3358	retrofit2.http.FormUrlEncoded	core-app	marker annotation
+InterfaceC0887	retrofit2.http.Multipart	core-app	marker annotation
+InterfaceC1079	retrofit2.http.Part	core-app	value() default "", encoding() default "binary"
+InterfaceC0721	retrofit2.http.Headers	core-app	String[] value()
+InterfaceC3929	retrofit2.http.Body	core-app	marker annotation
+C3249	retrofit2.Response	core-app	generic wrapper okhttp3.Response + body; return of PremiumService methods
+C3353	okhttp3.MultipartBody.Part	core-app	@Part arg of ApiService clipboard/image (verify)
+C1532	com.google.android.material.bottomsheet.BottomSheetDialog	core-app	DialogC1532 extends AppCompatDialog
+C1876	kotlinx.coroutines.flow.ReadonlyStateFlow	core-app	result of MutableStateFlow.asStateFlow()
+AbstractC2564.m4871	androidx.lifecycle.viewModelScope	core-app	ViewModel coroutine scope getter
+AbstractC2727.findChildViewById	androidx.viewbinding.ViewBindings.findChildViewById	core-app
+NEEDS_LIB	androidx.window:window	core-app	BaseBottomSheet full-height dialog uses androidx.window.layout.WindowMetricsCalculator (not in build.gradle libs) -- integrator must add OR reconstruct via reflection path
+C3817	4-way R8 merge	core-adb	tag f13433: 0=appcompat AppCompatDrawableManager color/tint arrays; 1=APP AdbDeviceHelper; 2=okhttp Dispatcher(TaskRunner); 3=okhttp Request+Request.Builder(m6406)/CacheControl(m6407). Port ONLY tag 1.
+C1251	R8 merge (lib receivers)	core-adb	switch f6086: 0=appcompat AbstractC1072; 1=WorkManager BroadcastReceiverConstraintTracker; default=WorkManager NetworkStateTracker CONNECTIVITY_CHANGE. No app ConnectivityReceiver body recoverable.
+C2517	merged alias	core-adb	context-dependent: LocalBroadcastManager (C3097), ViewModelLazy, okhttp Request.Builder (C3817 m6406). Trust use site.
+AbstractC1846	kotlin.random.Random	core-adb	f7681=Random.Default (C2803/FallbackThreadLocalRandom by SDK); mo4040=nextInt(); mo4039=nextInt(100000,1000000). Used for ADB local stream id.
+C0450.m2180	okio ByteString.decodeBase64	core-adb	.string(UTF_8) decodes base64. Around native values it is dropped (NativeConfig stores decoded JSON).
+z8.m1600	kotlin ByteArray.reversedArray()	core-adb	reverse copy (little-endian helper)
+z8.m1614	kotlin ByteArray.plus	core-adb	vararg concat; 2-arg usages = a + b
+AbstractC0999.m2959	kotlinx MutableStateFlow(x)	core-adb	StateFlowImpl factory
+C1876	kotlinx ReadonlyStateFlow (asStateFlow)	core-adb	wraps a MutableStateFlow
+AbstractC3437.m5992	kotlin Reader.readText()	core-adb	read full reader to String
+eb.m1179	RSA private key parse (PEM/PKCS1, BC)	core-adb	used by MainViewModel adbkey load (verify: app or BC helper)
+b.m979	app top-level server-start launcher	core-adb	MainViewModel.startServer (f3177 = b.m979(adb,ip,port,2000L,cb)); not yet claimed/owned - verify
+C3617	androidx.lifecycle.SavedStateHandlesVM	core-app	registry row C3617 (~.viewmodels.?) is LIBRARY: created as "androidx.lifecycle.internal.SavedStateHandlesVM" in AbstractC2564.m4915; NOT ported
+C0221	org.apache.commons.net.ntp.NTPUDPClient	core-app	registry row C0221 (~.ntp.NtpSocket) is LIBRARY (DatagramSocketClient inlined: f3254 timeout, f3255 socketFactory, f3256 isOpen, f3257 version=3, f3258 socket; m1929=getTime(InetAddress)); NOT ported
+C3319	org.apache.commons.net.ntp.TimeInfo	core-app	claim ~.ntp.NtpTimeInfo is wrong: equals/hashCode match commons-net TimeInfo(message, returnTime); use library
+C2352(f3253)	org.apache.commons.net.DefaultDatagramSocketFactory	core-app	C0221.f3253 static default factory (C2352 is a merge)
+C2067.m4245	org.apache.commons.net.ntp.TimeStamp.getTime(long)	core-app	TimeStamp.getTime(ntpValue) -> TimeStamp.time
+C1224	kotlinx.coroutines.SupervisorJobImpl	core-app	childCancelled=false -> SupervisorJob()
+C3898	okhttp3.Cache	core-app	Cache(File) (maxSize dropped by R8); Cache$urls$1 = Cache.urls()
+C3948	okhttp3.OkHttpClient.Builder	core-app	f13830 interceptors, f13825 networkInterceptors, f13819 cache, f13839 certificatePinner
+C2916(int 12)	retrofit2.Retrofit.Builder	core-app	m5313 baseUrl, f10595 client, f10597 converterFactories, m5311 build; C2517.m4772 = Retrofit.create
+C0079	retrofit2.converter.gson.GsonConverterFactory	core-app	new C0079(Gson) = GsonConverterFactory.create(gson)
+AbstractC1398	okhttp3.ResponseBody	core-app	return of ApiService clipboard?type=image
+C1880	androidx.core.splashscreen.SplashScreen.Impl (merged with app class ~.ui.main.BackPressHandler)	main-a	mo4055=install, m4057=setPostSplashScreenTheme; C3369=Impl31; use installSplashScreen() (needs androidx.core:core-splashscreen)
+C3414	androidx.appcompat.app.ActionBarDrawerToggle	main-a	MainActivity drawer toggle; m5953=syncState
+AbstractC3344.m5883	com.google.android.material.elevation.SurfaceColors.getColor (SURFACE_n by ordinal)	main-a	MainActivity f1501
+InputConnectionCompat	merged: androidx InputConnectionCompat wrapper (case 1) + app KeyInputEditText.KeyInputConnection (case 0)	main-a	case 0 overrides sendKeyEvent
+C0608	androidx.preference.ExpandButton (library, created by PreferenceGroupAdapter C2464) — not an app class	custom	registry row C0608 is not portable
+AbstractC2110.m4297	androidx.core.app.ActivityCompat.recreate	custom	SettingsActivity theme change
+C2710(case1)	com.google.android.material.shape.TriangleEdgeTreatment(size, inside=true) (R8-merged with app CurvedEdgeTreatment)	custom	IconShapeKt.createEdgeTreatment
+C0554(case0)	io.noties.markwon.linkify.LinkifyPlugin (configure: registry.require(CorePlugin)) — RECON-UNSURE; needs markwon:linkify	custom	showMarkdownDialog
+MarkwonTheme.f13628	MarkwonTheme bulletWidth	custom	C0554 case 1 builder.bulletWidth(16)
+C3886	androidx.recyclerview.widget.DividerItemDecoration	apps: new C3886(activity) = DividerItemDecoration(context, VERTICAL) (listDivider attr, orientation 1)
+AbstractC3437.m5994	androidx.lifecycle.repeatOnLifecycle	apps: LifecycleOwner.repeatOnLifecycle(state, block) (state constant inlined; check C1849)
+C0355	coil.request ImageLoaderOptions	apps: C2916(context).m5312() = ImageLoader.Builder.respectCacheHeaders(false); m5323 = crossfade(100); m5316 = build(); C3779 = ImageRequest.Builder
+EnumC2436	java8.nio.file.StandardOpenOption (retrofile)	files	library enum, not ported; app OpenOptions.kt is now the MaterialFiles flags holder
+EnumC0204	java8.nio.file.LinkOption (retrofile)	files	NOFOLLOW_LINKS
+C2435	java8.nio.file.ProviderMismatchException	files	
+C0813	java8.nio.file.InvalidPathException	files	
+C2939/C4075/C2447/C0898	java8.nio.file.FileSystemException / NoSuchFileException / FileAlreadyExistsException / AccessDeniedException	files	C2939 is also an R8 merge
+C1170	java8.nio.file.attribute.FileTime	files	original retrofile build used j$.time.Instant; retrofile 1.1.1 uses org.threeten.bp.Instant
+AbstractC4058.m6640	java8.nio.file.Files.installFileTypeDetector	files	called by initializeFileSystemProviders (C1703/AbstractC0880)
+C0288	kotlinx.coroutines.GlobalScope	files	
+AbstractC2727.m5142	kotlinx.coroutines.withTimeout (setupTimeout)	files	
+C1528	androidx.documentfile:documentfile:1.0.0 DocumentFile (Single+Tree merged)	transitive dep already on classpath; consider declaring explicitly

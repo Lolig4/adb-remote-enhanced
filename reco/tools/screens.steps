@@ -1,0 +1,114 @@
+# Full screen sweep (no target device). Run on original and rebuild with drive.py, then compare.
+launch
+snap 01_terms
+tap text:Agree
+snap 02_notification
+tap id:dr allow=com.google.android.permissioncontroller
+tapopt text:Erlauben allow=com.google.android.permissioncontroller
+snap 04_language
+tap id:b9
+snap 05_language_dropdown
+back
+tap id:dr
+snap 06_connect_sheet
+tap text:Cancel
+snap 07_main
+scroll
+snap 08_main_scrolled
+# tool tiles
+find text:Add app
+snap 10_add_app
+home id:h8
+find text:Apps
+snap 11_apps
+home id:h8
+find text:Processes
+snap 12_processes
+home id:h8
+find text:Files
+snap 13_files
+home id:h8
+find text:Clipboard
+snap 14_clipboard
+home id:h8
+find text:Performance
+snap 15_performance
+home id:h8
+find text:Screenshot
+snap 16_screenshot
+home id:h8
+find text:Device Info
+snap 17_device_info
+home id:h8
+find text:NTP
+snap 18_ntp
+home id:h8
+# remote buttons
+find desc:Keyboard
+snap 20_keyboard
+home id:h8
+find desc:Trackpad
+snap 21_trackpad
+home id:h8
+find desc:Numpad
+snap 22_numpad
+home id:h8
+find desc:Extra buttons
+snap 23_extra_buttons
+home id:h8
+find text:Connect to a device
+snap 24_connect
+home id:h8
+# drawer
+find desc:Open drawer
+snap 30_drawer
+tap text:What's New
+snap 31_whats_new
+home id:h8
+tap desc:Open drawer
+tap text:App logs
+snap 32_app_logs
+home id:h8
+tap desc:Open drawer
+tap text:Settings
+snap 40_settings
+find text:App theme
+snap 41_theme
+back
+find text:Language
+snap 42_language
+back
+find text:Apps icon style
+snap 43_icon_style
+back
+find text:Apps icon shape
+snap 44_icon_shape
+back
+find text:Button control mode
+snap 45_button_mode
+back
+find text:Apps in search
+snap 46_apps_in_search
+back
+find text:ADB server token
+snap 47_server_token
+back
+find text:Clear cache
+snap 48_clear_cache
+back
+find text:Reset ADB configurations
+snap 49_reset_adb
+back
+find text:Customize control buttons
+snap 50_control_buttons
+back
+find text:Trackpad sensitivity
+snap 51_sliders
+find text:Acknowledgement
+snap 52_acknowledgement
+back
+find text:Open source licenses
+snap 53_oss_licenses
+back
+back
+snap 59_main_again

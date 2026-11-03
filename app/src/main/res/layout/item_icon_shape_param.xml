@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:translationY="5.0dip" android:paddingStart="13.0dip" android:paddingEnd="13.0dip">
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceLabelMedium" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceLabelMedium" android:id="@id/text_param_value" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <com.google.android.material.slider.Slider android:id="@id/slider" android:layout_width="fill_parent" android:layout_height="wrap_content" android:stepSize="1.0" android:valueFrom="0" android:valueTo="100" app:labelBehavior="gone" app:thumbHeight="30.0dip" app:tickVisible="false" />
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton android:layout_gravity="bottom" android:id="@id/input_arrow_drop_down" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10.0dip" app:icon="@drawable/ic_arrow_drop_down" app:iconGravity="end" style="@style/Widget.Material3.Button.TextButton" />
+</LinearLayout>

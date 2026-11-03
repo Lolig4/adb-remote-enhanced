@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AdbRemote.Base" parent="@style/Theme.Material3.Light">
+        <item name="android:colorBackground">@color/theme_background</item>
+        <item name="colorError">@color/theme_error</item>
+        <item name="colorErrorContainer">@color/theme_error_container</item>
+        <item name="colorOnBackground">@color/theme_on_background</item>
+        <item name="colorOnError">@color/theme_on_error</item>
+        <item name="colorOnErrorContainer">@color/theme_on_error_container</item>
+        <item name="colorOnPrimary">@color/theme_on_primary</item>
+        <item name="colorOnPrimaryContainer">@color/theme_on_primary_container</item>
+        <item name="colorOnPrimaryFixed">@color/theme_on_primary_fixed</item>
+        <item name="colorOnPrimaryFixedVariant">@color/theme_on_primary_fixed_variant</item>
+        <item name="colorOnSecondary">@color/theme_on_secondary</item>
+        <item name="colorOnSecondaryContainer">@color/theme_on_secondary_container</item>
+        <item name="colorOnSecondaryFixed">@color/theme_on_secondary_fixed</item>
+        <item name="colorOnSecondaryFixedVariant">@color/theme_on_secondary_fixed_variant</item>
+        <item name="colorOnSurface">@color/theme_on_surface</item>
+        <item name="colorOnSurfaceInverse">@color/theme_on_surface_inverse</item>
+        <item name="colorOnSurfaceVariant">@color/theme_on_surface_variant</item>
+        <item name="colorOnTertiary">@color/theme_on_tertiary</item>
+        <item name="colorOnTertiaryContainer">@color/theme_on_tertiary_container</item>
+        <item name="colorOnTertiaryFixed">@color/theme_on_tertiary_fixed</item>
+        <item name="colorOnTertiaryFixedVariant">@color/theme_on_tertiary_fixed_variant</item>
+        <item name="colorOutline">@color/theme_outline</item>
+        <item name="colorOutlineVariant">@color/theme_outline_variant</item>
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryContainer">@color/theme_primary_container</item>
+        <item name="colorPrimaryFixed">@color/theme_primary_fixed</item>
+        <item name="colorPrimaryFixedDim">@color/theme_primary_fixed_dim</item>
+        <item name="colorPrimaryInverse">@color/theme_primary_inverse</item>
+        <item name="colorSecondary">@color/theme_secondary</item>
+        <item name="colorSecondaryContainer">@color/theme_secondary_container</item>
+        <item name="colorSecondaryFixed">@color/theme_secondary_fixed</item>
+        <item name="colorSecondaryFixedDim">@color/theme_secondary_fixed_dim</item>
+        <item name="colorSurface">@color/theme_surface</item>
+        <item name="colorSurfaceBright">@color/theme_surface_bright</item>
+        <item name="colorSurfaceContainer">@color/theme_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/theme_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/theme_surface_container_highest</item>
+        <item name="colorSurfaceContainerLow">@color/theme_surface_container_low</item>
+        <item name="colorSurfaceContainerLowest">@color/theme_surface_container_lowest</item>
+        <item name="colorSurfaceDim">@color/theme_surface_dim</item>
+        <item name="colorSurfaceInverse">@color/theme_surface_inverse</item>
+        <item name="colorSurfaceVariant">@color/theme_surface_variant</item>
+        <item name="colorTertiary">@color/theme_tertiary</item>
+        <item name="colorTertiaryContainer">@color/theme_tertiary_container</item>
+        <item name="colorTertiaryFixed">@color/theme_tertiary_fixed</item>
+        <item name="colorTertiaryFixedDim">@color/theme_tertiary_fixed_dim</item>
+    </style>
+    <style name="Theme.AdbRemote.SplashScreen.V21" parent="@style/Base.v21.Theme.SplashScreen" />
+    <style name="Theme.AdbRemote.SplashScreen.DayNight" parent="@style/Theme.AdbRemote.SplashScreen.Light" />
+    <style name="Theme.AdbRemote.SplashScreen.Light" parent="@style/Theme.AdbRemote.SplashScreen.Light.Base" />
+    <style name="Theme.AdbRemote.SplashScreen.Light.Base" parent="Theme.Material3.Light.NoActionBar">
+        <item name="isLightTheme">true</item>
+    </style>
+    <style name="PreferenceThemeOverlay.AdbRemote.Base" parent="">
+        <item name="android:scrollbars">vertical</item>
+        <item name="checkMarkCompat">@style/Preference.CheckBoxPreference.Material</item>
+        <item name="dialogPreferenceStyle">@style/Preference.DialogPreference.Material</item>
+        <item name="dropdownPreferenceStyle">@style/Preference.DropDown.Material</item>
+        <item name="editTextPreferenceStyle">@style/Preference.DialogPreference.EditTextPreference.Material</item>
+        <item name="preferenceCategoryStyle">@style/Preference.Category.Material</item>
+        <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.AppCompat.Body2</item>
+        <item name="preferenceFragmentCompatStyle">@style/PreferenceFragment.AdbRemote</item>
+        <item name="preferenceFragmentListStyle">@style/PreferenceFragmentList.Material</item>
+        <item name="preferenceFragmentStyle">@style/PreferenceFragment.AdbRemote</item>
+        <item name="preferenceScreenStyle">@style/Preference.PreferenceScreen.Material</item>
+        <item name="preferenceStyle">@style/Preference.Material</item>
+        <item name="seekBarPreferenceStyle">@style/Preference.SeekBarPreference.Material</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.SwitchPreferenceCompat.Material</item>
+        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference.Material</item>
+    </style>
+    <style name="Preference.AdbRemote.SwitchPreference" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="allowDividerBelow">false</item>
+        <item name="iconSpaceReserved">false</item>
+        <item name="widgetLayout">@layout/preference_switch_widget</item>
+    </style>
+    <style name="Preference.AdbRemote.Category" parent="@style/Preference.Category.Material">
+        <item name="android:layout">@layout/preference_category_header</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">false</item>
+        <item name="iconSpaceReserved">false</item>
+    </style>
+    <style name="PreferenceFragment.AdbRemote" parent="@style/PreferenceFragment">
+        <item name="android:divider">@drawable/list_divider</item>
+        <item name="allowDividerAfterLastItem">false</item>
+    </style>
+    <style name="PreferenceThemeOverlay.AdbRemote" parent="@style/PreferenceThemeOverlay.AdbRemote.Base">
+        <item name="preferenceCategoryTitleTextColor">?android:colorAccent</item>
+    </style>
+    <style name="PreferenceThemeOverlay.AdbRemote.Tinted" parent="@style/PreferenceThemeOverlay.AdbRemote">
+        <item name="android:tint">?colorControlNormal</item>
+        <item name="preferenceCategoryStyle">@style/Preference.AdbRemote.Category</item>
+        <item name="preferenceCategoryTitleTextAppearance">@style/TextAppearance.Material3.LabelLarge</item>
+        <item name="preferenceCategoryTitleTextColor">?colorPrimary</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.Circle" parent="">
+        <item name="cornerSizeBottomLeft">50.0%</item>
+        <item name="cornerSizeBottomRight">50.0%</item>
+        <item name="cornerSizeTopLeft">0.0%</item>
+        <item name="cornerSizeTopRight">0.0%</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.LeftRounded" parent="">
+        <item name="cornerSizeBottomLeft">50.0%</item>
+        <item name="cornerSizeBottomRight">0.0%</item>
+        <item name="cornerSizeTopLeft">0.0%</item>
+        <item name="cornerSizeTopRight">0.0%</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.RightRounded" parent="">
+        <item name="cornerSizeBottomLeft">0.0%</item>
+        <item name="cornerSizeBottomRight">50.0%</item>
+        <item name="cornerSizeTopLeft">0.0%</item>
+        <item name="cornerSizeTopRight">0.0%</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.AppIcon" parent="">
+        <item name="cornerSize">14.999998%</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.TopRounded" parent="">
+        <item name="cornerSizeBottomLeft">0.0%</item>
+        <item name="cornerSizeBottomRight">0.0%</item>
+        <item name="cornerSizeTopLeft">50.0%</item>
+        <item name="cornerSizeTopRight">50.0%</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.TopLeftRounded" parent="">
+        <item name="cornerSizeBottomLeft">0.0%</item>
+        <item name="cornerSizeBottomRight">0.0%</item>
+        <item name="cornerSizeTopLeft">50.0%</item>
+        <item name="cornerSizeTopRight">0.0%</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.TopRightRounded" parent="">
+        <item name="cornerSizeBottomLeft">0.0%</item>
+        <item name="cornerSizeBottomRight">0.0%</item>
+        <item name="cornerSizeTopLeft">0.0%</item>
+        <item name="cornerSizeTopRight">50.0%</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.Image" parent="">
+        <item name="cornerSize">4.999995%</item>
+    </style>
+    <style name="Theme.AdbRemote.Settings" parent="@style/Theme.AdbRemote.NoActionBar">
+        <item name="android:listPreferredItemPaddingLeft">24.0dip</item>
+        <item name="android:listPreferredItemPaddingRight">16.0dip</item>
+        <item name="android:listPreferredItemPaddingEnd">16.0dip</item>
+        <item name="colorBackgroundFloating">?colorSurface</item>
+        <item name="listPreferredItemPaddingStart">24.0dip</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.AdbRemote.Tinted</item>
+        <item name="switchPreferenceCompatStyle">@style/Preference.AdbRemote.SwitchPreference</item>
+        <item name="textAppearanceListItem">@style/TextAppearance.Material3.TitleMedium</item>
+    </style>
+    <style name="Theme.AdbRemote" parent="@style/Theme.AdbRemote.Base">
+        <item name="android:statusBarColor">?colorSurface</item>
+        <item name="android:navigationBarColor">?colorSurface</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="keyIconButtonStyle">@style/Widget.AdbRemote.KeyIconButton</item>
+        <item name="keyTextButtonStyle">@style/Widget.AdbRemote.KeyTextButton</item>
+        <item name="toolbarStyle">@style/Widget.AdbRemote.Toolbar</item>
+    </style>
+    <style name="Theme.AdbRemote.NoActionBar" parent="@style/Theme.AdbRemote">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Widget.AdbRemote.Toolbar" parent="@style/Widget.Material3.Toolbar">
+        <item name="android:background">?android:windowBackground</item>
+    </style>
+    <style name="ShapeAppearance.AdbRemote.BottomSheet" parent="@style/Theme.AdbRemote">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">0.0dip</item>
+        <item name="cornerSizeBottomRight">0.0dip</item>
+        <item name="cornerSizeTopLeft">30.0dip</item>
+        <item name="cornerSizeTopRight">30.0dip</item>
+    </style>
+    <style name="Theme.AdbRemote.Starting" parent="@style/Theme.AdbRemote.SplashScreen.IconBackground">
+        <item name="postSplashScreenTheme">@style/Theme.AdbRemote.NoActionBar</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
+    </style>
+    <style name="Theme.AdbRemote.SplashScreen" parent="@style/Theme.AdbRemote.SplashScreen.Common">
+        <item name="postSplashScreenTheme">?android:theme</item>
+        <item name="windowSplashScreenAnimatedIcon">@android:drawable/sym_def_app_icon</item>
+        <item name="windowSplashScreenAnimationDuration">@integer/default_icon_animation_duration</item>
+        <item name="windowSplashScreenBackground">?android:colorBackground</item>
+    </style>
+    <style name="Theme.AdbRemote.SplashScreen.Common" parent="@style/Theme.AdbRemote.SplashScreen.DayNight">
+        <item name="android:windowBackground">@drawable/compat_splash_screen_no_icon_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:opacity">opaque</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="splashScreenIconSize">@dimen/splashscreen_icon_size_no_background</item>
+    </style>
+    <style name="Theme.AdbRemote.SplashScreen.IconBackground" parent="@style/Theme.AdbRemote.SplashScreen">
+        <item name="android:windowBackground">@drawable/compat_splash_screen</item>
+        <item name="splashScreenIconSize">@dimen/splashscreen_icon_size_with_background</item>
+    </style>
+    <style name="Widget.AdbRemote.ControlButton" parent="@style/Widget.Material3.Button.IconButton.Filled.Tonal">
+        <item name="android:padding">15.0dip</item>
+        <item name="android:stateListAnimator">@animator/button_press_state_list_anim</item>
+        <item name="iconSize">@dimen/control_button_icon_size</item>
+    </style>
+    <style name="Widget.AdbRemote.KeyTextButton" parent="@style/Widget.Material3.Button.TonalButton">
+        <item name="android:textSize">30.0sp</item>
+        <item name="android:paddingTop">10.0dip</item>
+        <item name="android:paddingBottom">10.0dip</item>
+        <item name="android:paddingStart">40.0dip</item>
+        <item name="android:paddingEnd">40.0dip</item>
+        <item name="android:stateListAnimator">@animator/button_press_state_list_anim</item>
+    </style>
+    <style name="Widget.AdbRemote.KeyIconButton" parent="@style/Widget.Material3.Button.IconButton.Filled.Tonal">
+        <item name="android:paddingTop">10.0dip</item>
+        <item name="android:paddingBottom">10.0dip</item>
+        <item name="android:paddingStart">28.0dip</item>
+        <item name="android:paddingEnd">28.0dip</item>
+        <item name="android:stateListAnimator">@animator/button_press_state_list_anim</item>
+        <item name="iconSize">40.0dip</item>
+    </style>
+</resources>

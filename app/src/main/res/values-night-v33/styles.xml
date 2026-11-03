@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AdbRemote.SplashScreen.DayNight" parent="@style/Theme.AdbRemote.SplashScreen.V21">
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

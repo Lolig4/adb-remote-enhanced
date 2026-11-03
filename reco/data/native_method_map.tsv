@@ -1,0 +1,23 @@
+# C0104 native method -> recovered value. m#=dex order (=jadx). type from C0104 decl.
+# m-method	addr	type	value / meaning	call site(s)
+m787	0x8eed4	String	{"id":0,"command":"register","bus":"usb","descriptor":[5,1,9,6,161,1,5,7,25,0,41,255,21,0,37,255,149,2,117,8,129,0,192]}  (HID register: device 0 / keyboard)	C0180
+m788	0x8ed7c	String	{"id":2,"command":"report","report":[%s]}  (HID report template, device 2 / consumer-control)	C0180
+m789	0x88f10	String	fb://profile/100012183557720	C2120 Constants
+m790	0x8f2d8	String	{"id":2,"command":"register","bus":"usb","descriptor":[5,12,9,1,161,1,21,0,37,1,117,1,149,5,10,162,1,10,35,2,10,36,2,9,233,9,234,129,6,149,1,117,3,129,3,192]}  (HID register: device 2 / consumer-control)	C0180
+m791	0x88c9c	String	fb://page/425618483963397	C2120 Constants
+m792	0x8dc64	String	https://adbremote.jcoder.workers.dev/api/client/  (primary API base URL)	C0416 ApiClient
+m793	0x8d904	String[]	[sha256/mEflZT5enoR1FuXLgYYGqnVEoZvmf9c2bVBpiOjYQ0c=, sha256/kIdp6NNEd8wsugYyyIYFsi1ylMCED3hZbSR8ZFsa/A4=]  (OkHttp CertificatePinner pins)	C0416 ApiClient
+m794	0x891f4	String	https://github.com/kaungkhantjc/adb-remote-translations	C2120 Constants
+m795	0x8906c	String	https://www.facebook.com/kaungkhantkyawprofile	C2120 Constants
+m796	0x88b54	String	https://t.me/adbRemote	C2120 Constants
+m797	0x8d730	String	<UNRESOLVED: global std::string @file-vaddr 0x11fa68, filled by a C++ ctor that did not finish under static emulation; used as an OkHttp interceptor value in ApiClient (C2265(it,2)), likely an auth/header token. Extract at runtime (Frida) if required.>	C0416, C1872, C1955
+m798	0x893fc	String	RECOVERED (Phase 2, JNI-traced emulation): reads `adb_server_token` from prefs "<decrypt(serverTokenAesKeyBase64)>_preferences" (= com.jcapps.adbremote_preferences; the Base64 is CIPHERTEXT, key = Cipher::class.java.name padded with '0' to 24 bytes); creates+saves a UUID if missing; returns `com.jcapps.adbserver.ADBServer "<Base64(AES/ECB/PKCS5(token, key = "com.jcapps.adbserver.ADBServer" padded '0' to 32))>"` → NativeConfig.serverAppClassNameWithEncryptedToken(context)	AdbService
+m799	0x8d77c	String	adbremote.jcoder.workers.dev  (API host, used with m792)	C0416 ApiClient
+m800	0x88dcc	String	https://www.facebook.com/adbRemote	C2120 Constants
+m801	0x8ec20	String	{"id":1,"command":"report","report":[%s,%s,%s,0]}  (HID report template, device 1 / mouse)	C1082
+m802	0x8e380	String[]	[https://adbremote.netlify.app, https://adbremote.onrender.com, https://adbremote.web.app, https://adbremote.vercel.app, https://adbremote.pages.dev]  (API fallback hosts)	(ApiClient)
+m803	0x892f0	String	y7bK&0lvJh8p1qLU  (16-char key/IV — AES-128)	C0198
+m804	0x8f070	String	{"id":1,"command":"register","bus":"usb","descriptor":[5,1,9,2,161,1,9,1,161,0,5,9,9,1,9,2,21,0,37,1,149,8,117,1,129,2,5,1,9,48,9,49,9,56,21,129,37,127,117,8,149,3,129,6,192,192]}  (HID register: device 1 / mouse)	C0180
+m805	0x889f0	String	tg://resolve?domain=adbRemote	C2120 Constants
+m806	0x8f558	long	<returns a long (not a string); numeric constant used in premium calc (C1299 jMax + m806()). Needs a numeric trace to capture; not a string secret.>	C1299
+m807	0x8eac4	String	{"id":0,"command":"report","report":[%s,%s]}  (HID report template, device 0 / keyboard)	u4

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.preference.PreferenceCategory app:iconSpaceReserved="false" app:title="@string/user_interface">
+        <androidx.preference.ListPreference app:defaultValue="system" app:entries="@array/system_default_light_dark_entries" app:entryValues="@array/system_light_dark_entries" app:icon="@drawable/ic_theme" app:key="theme" app:negativeButtonText="@string/cancel" app:title="@string/app_theme" app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:icon="@drawable/ic_colorize" app:key="use_dynamic_color" app:summary="@string/apply_colors_wallpapers_app_theme" app:title="@string/use_dynamic_color" />
+        <androidx.preference.ListPreference app:defaultValue="en" app:entries="@array/english_myanmar_entries" app:entryValues="@array/en_my_entries" app:icon="@drawable/ic_language" app:key="language" app:negativeButtonText="@string/cancel" app:title="@string/language" app:useSimpleSummaryProvider="true" />
+        <com.jcapps.adbremote.settings.IconPackPreference app:key="icon_style" />
+        <com.jcapps.adbremote.settings.IconShapePreference app:key="icon_shape" />
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory app:iconSpaceReserved="false" app:title="@string/general">
+        <SwitchPreferenceCompat app:defaultValue="true" app:icon="@drawable/ic_stop" app:key="force_stop_app_on_long_press" app:summary="@string/force_stop_favorite_apps_long" app:title="@string/force_stop_app_long_press" />
+        <androidx.preference.ListPreference app:defaultValue="socket" app:entries="@array/adb_socket_fast_adb_entries" app:entryValues="@array/socket_binary_server_entries" app:icon="@drawable/ic_control_mode" app:key="button_control_mode" app:negativeButtonText="@string/cancel" app:title="@string/button_control_mode" app:useSimpleSummaryProvider="true" />
+        <androidx.preference.ListPreference app:defaultValue="all" app:entries="@array/all_apps_user_apps_entries" app:entryValues="@array/all_user_system_entries" app:icon="@drawable/ic_search" app:key="apps_in_search" app:negativeButtonText="@string/cancel" app:summary="@string/openable_apps_only" app:title="@string/apps_search" />
+        <androidx.preference.Preference app:icon="@drawable/ic_token" app:key="adb_server_token" app:summary="d6188332-6ef0-4ea1-bab1-b139110d54f6" app:title="@string/adb_server_token" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:icon="@drawable/ic_default_token" app:key="use_default_adb_server_token" app:summary="@string/testing_only_use_shared_random" app:title="@string/use_default_adb_server_token" />
+        <androidx.preference.Preference app:icon="@drawable/ic_clear_cache" app:key="clear_cache" app:summary="0 B" app:title="@string/clear_cache" />
+        <androidx.preference.Preference app:icon="@drawable/ic_reset_adb" app:key="reset_adb_config" app:summary="@string/resetting_may_fix_unexpected_adb" app:title="@string/reset_adb_configurations" />
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory app:iconSpaceReserved="false" app:title="@string/buttons">
+        <androidx.preference.Preference app:icon="@drawable/ic_control_buttons" app:key="manage_key_layout" app:title="@string/customize_control_buttons">
+            <intent android:targetPackage="com.jcapps.adbremote.qa" android:action="android.intent.action.VIEW" android:targetClass="com.jcapps.adbremote.ui.ControlButtonsActivity" />
+        </androidx.preference.Preference>
+        <com.jcapps.adbremote.settings.SliderPreference app:defaultSliderValue="0" app:icon="@drawable/ic_trackpad" app:key="trackpad_sensitivity" app:stepSize="1.0" app:title="@string/trackpad_sensitivity" app:valueFrom="-50" app:valueTo="50" />
+        <com.jcapps.adbremote.settings.SliderPreference app:defaultSliderValue="100" app:icon="@drawable/ic_timer" app:key="continuous_press_delay" app:stepSize="5.0" app:tickVisible="false" app:title="@string/continuous_press_delay" app:valueFrom="5" app:valueTo="500" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:icon="@drawable/ic_tooltip" app:key="enable_tooltip_on_buttons" app:title="@string/show_tooltip_buttons" />
+        <SwitchPreferenceCompat app:defaultValue="true" app:icon="@drawable/ic_physical_buttons" app:key="use_physical_buttons" app:summary="@string/use_physical_buttons_device_external" app:title="@string/use_physical_buttons" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:dependency="use_physical_buttons" app:iconSpaceReserved="true" app:key="do_not_use_back_action" app:summary="@string/app_controls_back_action_using" app:title="@string/dont_use_back_action" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:dependency="use_physical_buttons" app:iconSpaceReserved="true" app:key="do_not_use_volume_buttons" app:summary="@string/app_controls_volume_actions_using" app:title="@string/dont_use_volume_buttons" />
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory app:iconSpaceReserved="false" app:title="@string/haptic_feedback">
+        <SwitchPreferenceCompat app:defaultValue="true" app:icon="@drawable/ic_vibration" app:key="enable_haptic_feedback" app:summary="@string/enable_haptic_feedback_when_tapping" app:title="@string/enable_haptic_feedback" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:dependency="enable_haptic_feedback" app:icon="@drawable/ic_haptic_release" app:key="disable_haptic_on_release" app:summary="@string/disable_haptic_feedback_when_releasing" app:title="@string/disable_haptic_release" />
+        <SwitchPreferenceCompat app:defaultValue="false" app:dependency="enable_haptic_feedback" app:iconSpaceReserved="true" app:key="use_vibrator_api_for_haptic" app:summary="@string/use_vibrator_api_haptic_feedback" app:title="@string/use_vibrator_api_haptic" />
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory app:iconSpaceReserved="false" app:title="@string/other_settings">
+        <androidx.preference.Preference app:icon="@drawable/ic_code" app:key="developer" app:summary="@string/kaung_khant_kyaw" app:title="@string/developer" />
+        <androidx.preference.Preference app:icon="@drawable/ic_translate" app:key="translations" app:title="@string/translations" />
+        <androidx.preference.Preference app:icon="@drawable/ic_favorite" app:key="acknowledgement" app:title="@string/acknowledgement" />
+        <androidx.preference.Preference app:summary="@string/license_details_open_source_software" app:title="@string/open_source_licenses">
+            <intent android:targetPackage="com.jcapps.adbremote.qa" android:action="android.intent.action.VIEW" android:targetClass="com.google.android.gms.oss.licenses.OssLicensesMenuActivity" />
+        </androidx.preference.Preference>
+        <androidx.preference.Preference app:key="privacy_policy" app:title="@string/privacy_policy" />
+        <androidx.preference.Preference app:key="terms" app:title="@string/terms_service" />
+    </androidx.preference.PreferenceCategory>
+</PreferenceScreen>

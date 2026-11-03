@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="do_kw" format="reference" />
+    <attr name="centerCircleNormalColor" format="color" />
+    <attr name="centerCirclePressedColor" format="color" />
+    <attr name="centerRadiusDivider" format="float" />
+    <attr name="fixedPadSize" format="dimension" />
+    <attr name="padSizeMode">
+        <enum name="w_" value="0" />
+        <enum name="is" value="1" />
+    </attr>
+    <attr name="centerIconTint" format="color" />
+    <attr name="if_kw" format="reference" />
+    <attr name="defaultSliderValue" format="integer|float" />
+    <attr name="dpadIconAngle" format="float" />
+    <attr name="dpadIconsTint" format="color" />
+    <attr name="dpadIconsPadding" format="dimension" />
+    <attr name="normalColor" format="color" />
+    <attr name="keyIconButtonStyle" format="reference" />
+    <attr name="keyTextButtonStyle" format="reference" />
+    <attr name="pressedColor" format="color" />
+    <attr name="stepSize" format="float" />
+    <attr name="valueFrom" format="integer|float" />
+    <attr name="valueTo" format="integer|float" />
+    <!-- RECON: original styleable was stripped by R8 (int array inlined); re-declared so aapt keeps it ID-sorted -->
+    <declare-styleable name="SliderPreference">
+        <attr name="defaultSliderValue" />
+        <attr name="icon" />
+        <attr name="stepSize" />
+        <attr name="tickVisible" />
+        <attr name="title" />
+        <attr name="valueFrom" />
+        <attr name="valueTo" />
+    </declare-styleable>
+    <!-- RECON: ControlPadView attrs; real names from the original XML string pools, ec/ee/eg/ei/ej/ki/qk unknown (never set in XML) -->
+    <attr name="drawDirectionIcons" format="boolean" />
+    <attr name="drawCenterCircle" format="boolean" />
+    <attr name="centerIcon" format="reference" />
+    <declare-styleable name="ControlPadView">
+        <attr name="drawDirectionIcons" />
+        <attr name="centerCircleNormalColor" />
+        <attr name="drawCenterCircle" />
+        <attr name="centerCirclePressedColor" />
+        <attr name="centerRadiusDivider" />
+        <attr name="centerIcon" />
+        <attr name="fixedPadSize" />
+        <attr name="padSizeMode" />
+        <attr name="centerIconTint" />
+        <attr name="dpadIconAngle" />
+        <attr name="dpadIconsTint" />
+        <attr name="dpadIconsPadding" />
+        <attr name="normalColor" />
+        <attr name="pressedColor" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="all_apps_user_apps_entries">
+        <item>All apps</item>
+        <item>User apps</item>
+        <item>System apps</item>
+    </string-array>
+    <string-array name="all_user_system_entries">
+        <item>all</item>
+        <item>user</item>
+        <item>system</item>
+    </string-array>
+    <string-array name="adb_socket_fast_adb_entries">
+        <item>ADB socket (Fast)</item>
+        <item>ADB binary (Stable)</item>
+        <item>ADB server (Alternative)</item>
+    </string-array>
+    <string-array name="socket_binary_server_entries">
+        <item>socket</item>
+        <item>binary</item>
+        <item>server</item>
+    </string-array>
+    <string-array name="english_myanmar_entries">
+        <item>English</item>
+        <item>Myanmar</item>
+    </string-array>
+    <string-array name="en_my_entries">
+        <item>en</item>
+        <item>my</item>
+    </string-array>
+    <string-array name="app_default_hw_decoder_entries">
+        <item>App default</item>
+        <item>HW decoder</item>
+        <item>SW decoder</item>
+        <item>HW+ decoder</item>
+    </string-array>
+    <string-array name="shell_normal_intent_entries">
+        <item>Shell</item>
+        <item>Normal intent</item>
+    </string-array>
+    <string-array name="internal_storage_custom_path_entries">
+        <item>Internal storage</item>
+        <item>Custom path</item>
+    </string-array>
+    <string-array name="system_default_light_dark_entries">
+        <item>System default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="system_light_dark_entries">
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+</resources>

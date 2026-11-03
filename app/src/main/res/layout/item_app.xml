@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:background="?android:selectableItemBackground" android:paddingTop="20.0dip" android:paddingBottom="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="20.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.imageview.ShapeableImageView android:id="@id/image_app_icon" android:layout_width="@dimen/app_icon_height" android:layout_height="@dimen/app_icon_width" android:adjustViewBounds="true" app:shapeAppearanceOverlay="@style/ShapeAppearance.AdbRemote.AppIcon" app:strokeWidth="1.0dip" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:baselineAligned="false" android:layout_weight="1.0" android:layout_marginStart="20.0dip">
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+            <androidx.appcompat.widget.AppCompatImageView android:id="@id/image_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10.0dip" app:srcCompat="@drawable/ic_tv" />
+            <androidx.appcompat.widget.AppCompatImageView android:id="@id/image_settings" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10.0dip" app:srcCompat="@drawable/ic_settings" app:tint="?colorControlNormal" />
+            <androidx.appcompat.widget.AppCompatImageView android:id="@id/image_disabled" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10.0dip" app:srcCompat="@drawable/ic_disabled" app:tint="?colorControlNormal" />
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyLarge" android:ellipsize="end" android:id="@id/text_app_version_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton android:id="@id/btn_favorite_outline" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="15.0dip" app:cornerRadius="15.0dip" app:icon="@drawable/ic_favorite_outline" app:iconSize="25.0dip" app:tint="?colorControlNormal" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
+</LinearLayout>

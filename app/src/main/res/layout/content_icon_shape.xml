@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:id="@id/scroll_icon_shape" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" app:layout_behavior="@string/appbar_scrolling_view_behavior"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true">
+        <LinearLayout android:gravity="center_horizontal" android:background="?colorSurfaceContainer" android:padding="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.material.imageview.ShapeableImageView android:layout_gravity="center_horizontal" android:id="@id/icon" android:layout_width="@dimen/icon_shape_preview_size" android:layout_height="@dimen/icon_shape_preview_size" app:srcCompat="@drawable/ic_icon_preview" app:strokeWidth="1.0dip" />
+        </LinearLayout>
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceLabelLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/corner" android:layout_marginStart="10.0dip" />
+        <include android:id="@id/include_corner_top_left" layout="@layout/item_icon_shape_param" />
+        <include android:id="@id/include_corner_top_right" layout="@layout/item_icon_shape_param" />
+        <include android:id="@id/include_corner_bottom_left" layout="@layout/item_icon_shape_param" />
+        <include android:id="@id/include_corner_bottom_right" layout="@layout/item_icon_shape_param" />
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceLabelLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/edge" android:layout_marginStart="10.0dip" />
+        <include android:id="@id/include_edge_left" layout="@layout/item_icon_shape_param" />
+        <include android:id="@id/include_edge_top" layout="@layout/item_icon_shape_param" />
+        <include android:id="@id/include_edge_right" layout="@layout/item_icon_shape_param" />
+        <include android:id="@id/include_edge_bottom" layout="@layout/item_icon_shape_param" />
+        <LinearLayout android:gravity="center_horizontal" android:id="@id/frame_extra_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="20.0dip">
+            <include android:id="@id/bk" layout="@layout/native_ad_card" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:gravity="start|center" android:id="@id/btn_import_clipboard" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/import_clipboard" android:insetTop="0.0dip" android:insetBottom="0.0dip" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" app:icon="@drawable/ic_paste" app:shapeAppearance="@style/ShapeAppearance.AdbRemote.TopRounded" style="@style/Widget.Material3.Button.TonalButton" />
+        <com.google.android.material.divider.MaterialDivider android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" />
+        <com.google.android.material.button.MaterialButton android:gravity="start|center" android:id="@id/btn_export_clipboard" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/export_clipboard" android:insetTop="0.0dip" android:insetBottom="0.0dip" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" app:icon="@drawable/ic_copy" app:shapeAppearance="@style/ShapeAppearance.AdbRemote.Circle" style="@style/Widget.Material3.Button.TonalButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_save" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="16.0dip" android:text="@string/save" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

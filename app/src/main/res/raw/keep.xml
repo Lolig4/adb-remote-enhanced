@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rebuild: strict resource shrinking. getIdentifier() is only used on icon-pack packages
+     (IconPack/IconPackResources), never on this app's own resources. -->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:shrinkMode="strict" />

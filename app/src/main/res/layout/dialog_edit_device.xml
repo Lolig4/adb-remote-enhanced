@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:paddingBottom="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="20.0dip" android:paddingEnd="20.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/input_layout_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/name">
+        <com.google.android.material.textfield.TextInputEditText android:id="@id/input_device_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:baselineAligned="false">
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/input_layout_ip_address" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="@string/ip_address" android:layout_weight="1.0" app:expandedHintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/input_n_192_168_x_x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/n_192_168_x_x" android:digits="0123456789." android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:id="@id/input_layout_port" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="@string/port" android:layout_weight="1.0" android:layout_marginStart="15.0dip" app:expandedHintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText android:id="@id/input_port" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/n_5555_2" android:inputType="numberSigned" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyLarge" android:id="@id/text_editing_ip_address_port_may" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/editing_ip_address_port_may" />
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_cancel" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/cancel" android:layout_weight="1.0" style="@style/Widget.Material3.Button.OutlinedButton" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_save" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/save" android:layout_weight="1.0" android:layout_marginStart="15.0dip" style="@style/Widget.Material3.Button" />
+    </LinearLayout>
+</LinearLayout>

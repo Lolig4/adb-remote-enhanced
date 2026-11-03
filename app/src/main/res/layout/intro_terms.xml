@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:animateLayoutChanges="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceHeadlineSmall" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/terms_service" />
+    <com.airbnb.lottie.LottieAnimationView android:id="@id/animation_state" android:layout_width="fill_parent" android:layout_height="wrap_content" android:adjustViewBounds="true" android:cropToPadding="true" app:lottie_autoPlay="true" app:lottie_fileName="lottie/loading.lottie" app:lottie_loop="true" />
+    <androidx.core.widget.NestedScrollView android:id="@id/scroll_terms" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:fillViewport="true" android:paddingStart="20.0dip" android:paddingEnd="20.0dip">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.flexbox.FlexboxLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" app:flexWrap="wrap" app:justifyContent="center">
+                <com.google.android.material.button.MaterialButton android:id="@id/btn_terms_service" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/terms_service" android:layout_marginEnd="10.0dip" app:icon="@drawable/ic_open_in_new" app:iconGravity="end" style="@style/Widget.Material3.Button.TextButton" />
+                <com.google.android.material.button.MaterialButton android:id="@id/btn_privacy_policy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/privacy_policy" app:icon="@drawable/ic_open_in_new" app:iconGravity="end" style="@style/Widget.Material3.Button.TextButton" />
+            </com.google.android.flexbox.FlexboxLayout>
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyLarge" android:id="@id/text_terms" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

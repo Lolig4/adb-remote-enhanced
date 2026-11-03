@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <objectAnimator android:duration="200" android:valueFrom="20.0dip" android:valueTo="15.0dip" android:valueType="intType" android:propertyName="cornerRadius" />
+    </item>
+    <item>
+        <objectAnimator android:duration="0" android:valueFrom="20.0dip" android:valueTo="20.0dip" android:valueType="intType" android:propertyName="cornerRadius" />
+    </item>
+</selector>

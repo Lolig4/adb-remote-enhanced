@@ -1,0 +1,43 @@
+a7	activity_files	files	C1673 FilesActivity inflates R.layout.a7; AppBar/Toolbar/Fab/two RecyclerViews/SwipeRefresh
+cb	item_file	files	file list/grid item (C2886): card, icon jl, name uj, subtitle ut, menu dn/btnMenu; FileViewHolder/FileGridViewHolder
+ck	view_state	core-app	StateView binding C1110 (root LinearLayout, LottieAnimationView id l4 + MaterialTextView id us; loading/empty/disconnected/success state view)
+cd	item_progress_file	files	C1946/CdBinding progress item: icon, name, progress indicator, percent, processed-size, error; ProgressFileViewHolder
+a9	activity_main	main-a	MainActivity (C1204) binding C1405: DrawerLayout h8, include fq(ai), AppBar c6, SearchBar qk, SearchView qs, RecyclerView pr, include l2(ck), overlay k3, NavigationView n_
+ai	layout_remote	main-a	MainActivity included remote control (binding C1089): 12 configurable btn_rowX_Y buttons + D-pad; RECON-UNSURE name
+ab	layout_native_ad	main-a	MainActivity m822 inflates R.layout.ab (C0168) into remote layout as native ad (id n9); RECON-UNSURE name
+cj	item_tool	main-a	ToolsAdapter (C1137) item: card, icon jl, name tu
+cg	item_option	main-a	OptionsAdapter (C3442#4) item: icon jl, title tu
+c_	item_virtual_button	main-a	VirtualButtonsAdapter (C3442#3) item: MaterialButton d0 (DialogExtraButtons)
+c8	item_device	main-b	DevicesAdapter (C0779) item: card root, icon k_ (di/dj default tint), name ut, "ip:port" uq, menu button do_kw (R.menu.c edit/delete)
+c9	item_title_value	main-b	TitleValueAdapter row: title v_ + value vc (LinearLayout)
+ch	item_cpu	main-b	CpuAdapter card: label ui ("CPU"/"Core %d"), CircularProgressIndicator pb, percent p0
+a4	activity_logs	custom	LogsActivity (C1520) binding C1189: AppBar c6, toolbar tz, MaterialSwitchView st, include l2 (ck view_state), RecyclerView pj
+a5	activity_control_buttons	custom	ControlButtonsActivity (C1385) binding C0869: toolbar tz, 12 MaterialButtons e1..eb, ControlPadView g8
+a6	activity_icon_shape	custom	IconShapeActivity (C1575) binding C1827: toolbar tz, include fq (ah)
+ah	layout_icon_shape	custom	IconShapeActivity content (C2424): ad container bi, include bk (ac), copy df, paste dl, save ec, preview jl, 8 includes (eb) fz/g0/fx/fy (corners) hf/hh/hg/he (edges)
+eb	item_icon_shape_param	custom	corner/edge editor row (C0724.m2543): percent gz, Slider rc, title tu, type button vf
+a8	activity_intro	custom	IntroActivity (C1429) binding C2857: GestureOverlayView oo, ViewPager2 on, buttons d5/dd/dr/dw, DotsIndicator gx
+a_	activity_settings	custom	SettingsActivity (C1468): AppBar c6, FrameLayout qz (fragment), toolbar tz
+bj	dialog_markdown	custom	showMarkdownDialog (C1855): NestedScrollView + MaterialTextView ug rendered by Markwon
+c2	item_fav_add	custom	IconShapePreviewAdapter add item (C0830): card eu, icon jl
+ca	item_fav_app	custom	IconShapePreviewAdapter app item (C1670): card eu, icon jl, name tu
+c3	item_icon_pack_add	custom	IconPackAdapter add item (C3565): card eu, icon jl
+ce	item_icon_pack	custom	IconPackAdapter item (C1670.m3873): card, icon jl, name tu
+c7	item_icon_shape_custom	custom	IconShapeAdapter custom item (C1428): container pa, radio pg, title v3, icon jl, customize button dc
+cf	item_icon_shape	custom	IconShapeAdapter item (C3248): radio pg, title v3, icon jl
+ci	item_log	custom	LogsAdapter item (C0830.m2603): MaterialTextView v_
+cr	preference_icon	custom	IconPackPreference/IconShapePreference (C0724.m2542): icon jl, title kf, ShapeableImageView pa, summary so
+cs	preference_slider	custom	SliderPreference (C1394): icon jl, title v_, Slider rc, reset button pw
+a3	activity_apps	apps	AppsActivity (C1634) binding C3121: AppBar c6, include l2 (ck), progress pb, RecyclerView pj, SwipeRefresh sq, toolbar ty
+a2	activity_app_info	apps	AppInfoActivity (C1621) binding C0905: AppBar c6, include fq (ag), toolbar ty
+ag	content_app_info	apps	included in a2 (fq), binding C3215: SwipeRefresh sq root, card ev, icon jm, title tu, version vt, include l2 (ck), info list po, permissions header uy, permissions list pq
+c4	item_app	apps	AppsAdapter app row (C1946 / AppInfoViewHolder): fav button dg, icon jm, disabled jn, system jr, tv js, title tu, version vt
+aa	item_native_ad	apps	NativeAdView root n9 (C0168): icon jl, headline jc, stars bn, price bm, store bo, callToAction es; used by AppsAdapter.AdViewHolder (verify other users)
+c5	item_app_info	apps	AppInfoAdapter row: title tu, value vs
+cb	item_file	files	FilesAdapter item (C3254): card, dn menu, jl icon, ut name, uj info
+cc	item_nav_directory	files	NavDirectoryAdapter item: single MaterialButton
+cd	item_progress_file	files	ProgressFilesAdapter item: pb, sa, un, uo, up, ut, v0
+bb	dialog_file_info	files	file info AlertDialog view (FilesActivity menu pf): n8, ot, vf, r9, kh
+c6	item_control_button	custom	string evidence "com.jcapps.adbremote.databinding.ItemControlButtonBinding" in C3119.getView
+b_	dialog_file_conflict	files	DialogFileProgress.showConflictDialog (C2631.m5018): file name ut, choices container f9, "apply to all" checkbox f6
+eu	item_conflict_choice	files	CheckedTextView row inflated into b_/f9 (replace/skip/keep both)

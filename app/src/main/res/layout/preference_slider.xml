@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" app:tint="?colorControlNormal" />
+    <LinearLayout android:orientation="vertical" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:id="@id/text_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip" />
+        <LinearLayout android:gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.material.slider.Slider android:id="@id/slider" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" app:thumbHeight="30.0dip" />
+            <com.google.android.material.button.MaterialButton android:id="@id/btn_reset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="15.0dip" app:icon="@drawable/ic_reset" style="@style/Widget.Material3.Button.IconButton" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="all_apps_user_apps_entries">
+        <item>App အားလုံး</item>
+        <item>User apps</item>
+        <item>System apps</item>
+    </string-array>
+    <string-array name="english_myanmar_entries">
+        <item>English</item>
+        <item>မြန်မာ</item>
+    </string-array>
+    <string-array name="internal_storage_custom_path_entries">
+        <item>Internal storage</item>
+        <item>စိတ်ကြိုက် path</item>
+    </string-array>
+    <string-array name="system_default_light_dark_entries">
+        <item>မူလအတိုင်းထားရန်</item>
+        <item>အလင်း</item>
+        <item>အမှောင်</item>
+    </string-array>
+</resources>

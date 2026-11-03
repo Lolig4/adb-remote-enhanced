@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView android:id="@id/image_check_circle" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_marginStart="20.0dip" app:srcCompat="@drawable/ic_check_circle" app:tint="@color/status_connected" />
+        <LinearLayout android:orientation="vertical" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="20.0dip">
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:id="@id/text_adb_remote" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawablePadding="8.0dip" app:drawableStartCompat="@drawable/ic_device" />
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyMedium" android:id="@id/text_device_address" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_more" android:layout_width="wrap_content" android:layout_height="wrap_content" app:icon="@drawable/ic_more_vert" style="@style/Widget.Material3.Button.IconButton" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

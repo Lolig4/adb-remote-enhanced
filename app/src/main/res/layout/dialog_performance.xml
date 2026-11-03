@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <include android:id="@id/include_view_state" layout="@layout/view_state" />
+    <com.google.android.material.card.MaterialCardView android:id="@id/card_performance" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" app:cardBackgroundColor="@color/white">
+        <LinearLayout android:orientation="vertical" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/memory" />
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyLarge" android:id="@id/text_performance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="15.0dip" />
+            <com.google.android.material.progressindicator.LinearProgressIndicator android:id="@id/progress" android:layout_width="fill_parent" android:layout_height="wrap_content" app:trackCornerRadius="20.0dip" app:trackThickness="10.0dip" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" app:spanCount="2" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatImageView android:id="@id/icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" app:tint="?colorControlNormal" />
+    <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" android:layout_marginStart="10.0dip" android:layout_marginEnd="15.0dip">
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:id="@id/text_preference_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyMedium" android:id="@id/text_preference_summary" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <com.google.android.material.imageview.ShapeableImageView android:id="@id/image_preview" android:layout_width="@dimen/app_icon_height" android:layout_height="@dimen/app_icon_height" android:layout_margin="15.0dip" app:shapeAppearance="@style/ShapeAppearance.AdbRemote.AppIcon" />
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/name">
+        <com.jcapps.adbremote.views.ReadOnlyTextInput android:id="@id/input_file_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:hint="@string/parent_folder">
+        <com.jcapps.adbremote.views.ReadOnlyTextInput android:id="@id/input_file_parent_folder" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:hint="@string/type">
+        <com.jcapps.adbremote.views.ReadOnlyTextInput android:id="@id/input_arrow_drop_down" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:hint="@string/file_size">
+        <com.jcapps.adbremote.views.ReadOnlyTextInput android:id="@id/input_file_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:hint="@string/last_modified">
+        <com.jcapps.adbremote.views.ReadOnlyTextInput android:id="@id/input_file_modified" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textAlignment="viewStart" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

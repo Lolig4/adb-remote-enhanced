@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AdbRemote.SplashScreen.V21" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:enforceNavigationBarContrast">true</item>
+        <item name="isLightTheme">?android:isLightTheme</item>
+    </style>
+    <style name="Theme.AdbRemote.SplashScreen" parent="@style/Theme.AdbRemote.SplashScreen.DayNight">
+        <item name="android:windowSplashScreenBackground">?windowSplashScreenBackground</item>
+        <item name="android:windowSplashScreenAnimatedIcon">?windowSplashScreenAnimatedIcon</item>
+        <item name="android:windowSplashScreenAnimationDuration">?windowSplashScreenAnimationDuration</item>
+    </style>
+    <style name="Theme.AdbRemote.SplashScreen.IconBackground" parent="@style/Theme.AdbRemote.SplashScreen">
+        <item name="android:windowSplashScreenIconBackgroundColor">?windowSplashScreenIconBackgroundColor</item>
+    </style>
+</resources>

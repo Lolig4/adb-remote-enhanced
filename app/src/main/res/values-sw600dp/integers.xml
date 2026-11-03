@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="fav_apps_columns">6</integer>
+    <integer name="extra_buttons_columns">6</integer>
+    <integer name="tools_columns">6</integer>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip" android:paddingStart="20.0dip" android:paddingEnd="20.0dip">
+        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ntp" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_help" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10.0dip" app:icon="@drawable/ic_help" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
+    </LinearLayout>
+    <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyMedium" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip" android:text="@string/network_time_protocol_ntp_synchronizes" android:paddingStart="15.0dip" android:paddingEnd="15.0dip" />
+    <com.google.android.material.textfield.TextInputLayout android:id="@id/input_layout_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/ntp_server" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" app:endIconMode="clear_text" app:expandedHintEnabled="false" app:helperText="@string/delete_ntp_server_configuration_set" style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView android:id="@id/input_enter_text_here" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton android:layout_gravity="center_horizontal" android:id="@id/btn_save" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:layout_marginBottom="20.0dip" android:text="@string/save" app:icon="@drawable/ic_save" style="@style/Widget.Material3.Button" />
+</LinearLayout>

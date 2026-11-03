@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/screenshot" android:layout_marginStart="15.0dip" android:layout_marginEnd="15.0dip" />
+    <include android:id="@id/include_view_state" layout="@layout/view_state" />
+    <com.jcapps.adbremote.views.ZoomableImageView android:layout_gravity="center_horizontal" android:id="@id/image_image_placeholder" android:padding="15.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="0.0dip" android:adjustViewBounds="true" android:minHeight="100.0dip" android:layout_weight="1.0" app:shapeAppearanceOverlay="@style/ShapeAppearance.AdbRemote.Image" app:strokeColor="?colorSurface" app:strokeWidth="1.0dip" />
+    <com.google.android.material.button.MaterialButton android:id="@id/btn_save" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="15.0dip" android:text="@string/save" style="@style/Widget.Material3.Button" />
+</LinearLayout>

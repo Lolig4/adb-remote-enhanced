@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Reconstructed from the decoded release manifest of ADB Remote 1.1.0 (apktool).
+  Only the app's own declarations are listed here; library components (WorkManager, AdMob,
+  androidx.startup, profileinstaller, room, …) come back through manifest merging.
+  obf -> class:  C0104 AdbRemoteApp · C1204 MainActivity · C1385 ControlButtonsActivity
+                 C1429 IntroActivity · C1468 SettingsActivity · C1520 LogsActivity
+                 C1575 IconShapeActivity · C1621 AppInfoActivity · C1634 AppsActivity
+                 C1673 FilesActivity · C1527 AdbService · C1393 ServerService
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <queries>
+        <package android:name="com.android.vending" />
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".AdbRemoteApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:extractNativeLibs="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/adb_remote"
+        android:localeConfig="@xml/locales_config"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AdbRemote"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".ui.LogsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
+        <activity
+            android:name=".ui.intro.IntroActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
+        <activity
+            android:name=".ui.apps.AppInfoActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
+        <activity
+            android:name=".ui.apps.AppsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
+        <activity
+            android:name=".ui.files.FilesActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.jcapps.adbremote.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <provider
+            android:name=".provider.AppProvider"
+            android:authorities="com.jcapps.adbremote.providers.app_provider"
+            android:exported="false" />
+        <provider
+            android:name=".provider.FileProvider"
+            android:authorities="com.jcapps.adbremote.providers.file_provider"
+            android:exported="false"
+            android:grantUriPermissions="true" />
+
+        <service
+            android:name=".services.AdbService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice" />
+        <service
+            android:name=".services.ServerService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.ControlButtonsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@style/Theme.AdbRemote.Settings" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AdbRemote.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.jcapps.adbremote.ACTION_APPLY_ICON_PACK" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.icons.IconShapeActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:label="@string/customize_icon_shape"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="${admobAppId}" />
+    </application>
+</manifest>

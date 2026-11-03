@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AdbRemote.Base" parent="@style/Theme.Material3.Dark.NoActionBar">
+        <item name="android:colorBackground">@color/theme_background</item>
+        <item name="colorError">@color/theme_error</item>
+        <item name="colorErrorContainer">@color/theme_error_container</item>
+        <item name="colorOnBackground">@color/theme_on_background</item>
+        <item name="colorOnError">@color/theme_on_error</item>
+        <item name="colorOnErrorContainer">@color/theme_on_error_container</item>
+        <item name="colorOnPrimary">@color/theme_on_primary</item>
+        <item name="colorOnPrimaryContainer">@color/theme_on_primary_container</item>
+        <item name="colorOnPrimaryFixed">@color/theme_on_primary_fixed</item>
+        <item name="colorOnPrimaryFixedVariant">@color/theme_on_primary_fixed_variant</item>
+        <item name="colorOnSecondary">@color/theme_on_secondary</item>
+        <item name="colorOnSecondaryContainer">@color/theme_on_secondary_container</item>
+        <item name="colorOnSecondaryFixed">@color/theme_on_secondary_fixed</item>
+        <item name="colorOnSecondaryFixedVariant">@color/theme_on_secondary_fixed_variant</item>
+        <item name="colorOnSurface">@color/theme_on_surface</item>
+        <item name="colorOnSurfaceInverse">@color/theme_on_surface_inverse</item>
+        <item name="colorOnSurfaceVariant">@color/theme_on_surface_variant</item>
+        <item name="colorOnTertiary">@color/theme_on_tertiary</item>
+        <item name="colorOnTertiaryContainer">@color/theme_on_tertiary_container</item>
+        <item name="colorOnTertiaryFixed">@color/theme_on_tertiary_fixed</item>
+        <item name="colorOnTertiaryFixedVariant">@color/theme_on_tertiary_fixed_variant</item>
+        <item name="colorOutline">@color/theme_outline</item>
+        <item name="colorOutlineVariant">@color/theme_outline_variant</item>
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryContainer">@color/theme_primary_container</item>
+        <item name="colorPrimaryFixed">@color/theme_primary_fixed</item>
+        <item name="colorPrimaryFixedDim">@color/theme_primary_fixed_dim</item>
+        <item name="colorPrimaryInverse">@color/theme_primary_inverse</item>
+        <item name="colorSecondary">@color/theme_secondary</item>
+        <item name="colorSecondaryContainer">@color/theme_secondary_container</item>
+        <item name="colorSecondaryFixed">@color/theme_secondary_fixed</item>
+        <item name="colorSecondaryFixedDim">@color/theme_secondary_fixed_dim</item>
+        <item name="colorSurface">@color/theme_surface</item>
+        <item name="colorSurfaceBright">@color/theme_surface_bright</item>
+        <item name="colorSurfaceContainer">@color/theme_surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/theme_surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/theme_surface_container_highest</item>
+        <item name="colorSurfaceContainerLow">@color/theme_surface_container_low</item>
+        <item name="colorSurfaceContainerLowest">@color/theme_surface_container_lowest</item>
+        <item name="colorSurfaceDim">@color/theme_surface_dim</item>
+        <item name="colorSurfaceInverse">@color/theme_surface_inverse</item>
+        <item name="colorSurfaceVariant">@color/theme_surface_variant</item>
+        <item name="colorTertiary">@color/theme_tertiary</item>
+        <item name="colorTertiaryContainer">@color/theme_tertiary_container</item>
+        <item name="colorTertiaryFixed">@color/theme_tertiary_fixed</item>
+        <item name="colorTertiaryFixedDim">@color/theme_tertiary_fixed_dim</item>
+    </style>
+    <style name="Theme.AdbRemote.SplashScreen.DayNight" parent="@style/Theme.AdbRemote.SplashScreen.V21">
+        <item name="isLightTheme">false</item>
+    </style>
+</resources>

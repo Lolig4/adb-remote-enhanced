@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/ic_sort" android:id="@id/action_sort" android:title="@string/sort" app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@id/action_sort_name" android:checked="true" android:title="@string/name_2" />
+                <item android:id="@id/action_sort_size" android:title="@string/size" />
+                <item android:id="@id/action_sort_last_modified" android:title="@string/last_modified_2" />
+            </group>
+            <item android:id="@id/action_ascending" android:title="@string/ascending" android:checkable="true" />
+        </menu>
+    </item>
+    <item android:icon="@drawable/ic_ftp" android:id="@id/action_ftp_settings" android:title="@string/ftp_settings" app:showAsAction="ifRoom" />
+    <item android:icon="@drawable/ic_settings" android:id="@id/action_files_settings" android:title="@string/files_settings" />
+</menu>

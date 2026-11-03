@@ -1,0 +1,179 @@
+C1289	~.utils.ButtonManager	main-a	home control buttons (btn_rowX_Y prefs, enable_tooltip_on_buttons); listener inlined from MainActivity
+EnumC3372	~.model.VirtualButton	main-a	enum mute/power/keyboard/... (key, icon, title, flags); param name "virtualButton"
+C3105	~.utils.ContinuousPressHandler	main-a	continuous_press_delay repeat coroutine (C3866 = its launch body)
+C2660	~.utils.ButtonPressOverlay	main-a	MainActivity "integratedButtonOverlay" icon flash 500ms
+c2	~.utils.HapticFeedback	main-a	enable_haptic_feedback/use_vibrator_api_for_haptic; param name "vibrator"; used by many groups
+C0713#11	~.utils.HidKeyMapper	main-a	merged-class case 11: KeyEvent -> VirtualKey (HID usage) incl. modifier tracking (m2500 static, m2508)
+C2437	~.utils.VirtualKeysKt	main-a	top-level shifted HID VirtualKey vals + String.toVirtualKeys() (m4681)
+C1580	~.utils.UnsupportedCharacterException	main-a	Exception(char, passed, message) thrown by toVirtualKeys
+C3442#3	~.adapters.VirtualButtonsAdapter	main-a	merged adapter case 3 (DialogExtraButtons, layout c_)
+C3442#4	~.adapters.OptionsAdapter	main-a	merged adapter default case = registry OptionsAdapter (layout cg)
+C2919#0	~.adapters.KeyboardButtonsAdapter	main-a	merged adapter case 0 (DialogKeyboard.Button, onButtonClicked)
+C2919#1	~.adapters.ControlButtonsAdapter	main-a	merged adapter case 1 = registry ControlButtonsAdapter (DialogNumpad.NumpadData, onButtonTouched)
+n	~.utils.ViewExtKt.setOnPressListener	main-a	inlined top-level View ext (callback: (Boolean)->Unit), lambda class n + TimerTask q + SuspendLambda p
+AbstractC3368	~.dialogs.home.DialogKeyboard.Button	main-a	sealed; Icon=C0269, Text=C3705, IconADB=C4004 (string evidence)
+AbstractC3222	~.dialogs.home.DialogNumpad.NumpadData	main-a	sealed; Number=C1588, Icon=C3773 (string evidence)
+r	~.model.ProgressState	files	enum PENDING/PAUSE/COMPLETED/ERROR; state of Progress/UiProgressFile/ProgressFTPFile transfer
+EnumC2044	~.provider.ftp.FtpMode	files	enum ACTIVE/PASSIVE; FtpAuthority.mode (MaterialFiles Authority.Mode)
+EnumC1960	~.model.MxPlayerDecodeMode	files	enum, int values 1/2/4; FilesSettings.mxPlayerDecodeMode (default=value 2); constant names lost (RECON-UNSURE)
+m0	~.provider.ftp.FtpAuthorityString	files	data(username,host,port?); toString user@host:port; built by FtpAuthority.toAuthorityString()
+EnumC0685	~.provider.ftp.FtpFileType	files	enum REGULAR_FILE/DIRECTORY/SYMBOLIC_LINK/OTHER; FtpFileAttributes.type; set in FtpFileSystemProvider.readAttributes (RECON-UNSURE exact orig name)
+AbstractC1344	~.provider.common.AbstractFileAttributes	files	empty abstract Parcelable base of FtpFileAttributes (RECON-UNSURE exact orig name)
+EnumC0200	~.provider.common.MimeTypeIcon	files	enum icon-type -> R.drawable; 23 consts (names lost: APK/ARCHIVE/AUDIO/CALENDAR/CERTIFICATE/CODE/CONTACT/DIRECTORY/DOCUMENT/EBOOK/EMAIL/FONT/IMAGE/PDF/TEXT/EXCEL/POWERPOINT/PRESENTATION/SPREADSHEET/VIDEO/WORD + 2 GENERIC); used by MimeTypes/FilesAdapter (RECON-UNSURE names)
+C0696	~.adapters.files.NavDirectoryAdapter	files	breadcrumb RecyclerView adapter for NavDirectory (FilesActivity.navDirectoryAdapter f1688); verify
+C0528	~.adapters.files.ProgressFilesAdapter	files	ListAdapter holding ProgressFileViewHolder (C1807); outer class; has locale-lazy f4108, tint colors f4110
+C0988	~.adapters.files.SupportedAppAdapter	files	adapter for SupportedApp in DialogOpenRemotelyWith (C1481.supportedAppAdapter f6693); verify
+C1081	~.provider.ftp.FtpFileSystemProviderImpl	files	concrete provider: filesystem cache f5606 + authenticator; close m3064; held by FtpFileSystem.provider; RECON-UNSURE vs AbstractC4058 spi-base split
+C2132	~.provider.ftp.FtpFileByteChannel	files	SeekableByteChannel over FTP REST/STOR/RETR; built by FtpClientHelper.newByteChannel (verify)
+C1710	~.provider.ftp.FtpAuthenticator	files	holds Activity (f7314) as password source; FtpClientHelper.authenticator f11656; verify
+InterfaceC3915	~.api.remote.PremiumService	core-app	retrofit svc: @POST apply(ApplyPromoRequest)->Response<ApplyPromoResponse>, @POST update(UpdateDeviceRequest)->Response<UpdateDeviceResponse>; built by ApiClient.m2146 against NativeConfig.apiBaseUrl
+C1743	~.model.Link	core-app	@Parcelize data (url, @SerializedName fallback_url); used by Constants/PlayStore/AppConfig + others
+AbstractC0142	~.premium.PremiumGrant	core-app	sealed parent of Promo/LifetimePromo/Reward; R8-merged with unrelated static byte/stream util bag (TYPE ROLE ONLY; statics inline at use sites). RECON-UNSURE name
+C2035	~.premium.Reward	core-app	object; PremiumGrant subtype (ad-reward path, extends total by NativeConfig.premiumConstant); used in C0330 + C1299.m3239. RECON-UNSURE name
+C3319	~.ntp.NtpTimeInfo	core-app	data (NtpV3Impl packet + responseTicks:Long); field timeInfo of SafeTimeInfo
+C1864	~.ntp.InvalidNtpServerResponseException	core-app	Exception; (message) and (actual,expected,format,property) ctors
+AbstractC3179.m5627	~.utils.LocaleHelperKt.wrapLocale	core-app	wraps Context with saved "language" locale for SDK<33 (merged bag method)
+AbstractC3179.m5672	~.utils.LocaleHelperKt.resolveLanguage	core-app	reads "language" pref validated against R.array.f, default device lang or "en"
+AbstractC3745.m6302	~.utils.ThemeHelperKt.applyTheme	core-app	AppCompatDelegate.setDefaultNightMode by "light"/"dark"/"system" (merged bag method)
+EnumC2642	~.model.DeviceStatus	core-adb	enum CONNECTED/OFFLINE/AUTHORIZING/UNAUTHORIZED; type of DeviceState.state (C2848)
+EnumC0870	~.model.CommandStatus	core-adb	enum OK/ERROR/TIMEOUT; type of CommandResult.type (C1645)
+C0765	~.api.adb.stream.AdbStream	core-adb	ADB shell stream over C0702: WRTE/CLSE/OKAY, write(str)=m2560; localId f4773/remoteId f4772
+u4	~.api.adb.hid.HidKeyboard	core-adb	keyboard HID report writer (NativeConfig.hidReportKeyboard m807); sendKey=m1487, formatReport=m1486
+C1082	~.api.adb.hid.HidMouse	core-adb	mouse/trackpad HID report writer (NativeConfig.hidReportMouse m801); handles MotionEvent via C1172 Position
+C2513	~.api.adb.AdbUnauthorizedException	core-adb	empty Exception subclass; thrown on SocketTimeout during AUTH ("User ignored USB Debugging prompt.")
+AbstractC2564.m4879	~.api.adb.stream.AdbProtocolKt.createMessage	core-adb	app top-level: build Message(cmd,data,arg0,arg1) w/ checksum+~magic
+z8.m1628	~.api.adb.stream.AdbProtocolKt.bytesToInt	core-adb	app top-level: big-endian 4-byte ByteArray -> Int
+C4081	~.ads.AppOpenAdManager	core-app	Application-coupled AdMob App Open ad (f1491); m3874 show(activity), m3875 load(showOnLoad,activity); callbacks C2379/C2864 unclaimed. RECON-UNSURE pkg (no ads group exists)
+C3907	~.prefs.AppPrefs	core-app	extends JsonPrefs(C1047); volatile AppConfig cache f13747; m6507()=config getter (gson "app_config"?), used by FeatureUsage + many groups
+EnumC2409	~.model.ToolType	main-a	enum APPS/PROCESSES/PERFORMANCE/SCREENSHOT/DEVICE_INFO/FILES/CLIPBOARD/NTP; Tool.type; RECON-UNSURE class name
+AbstractC0650	~.utils.ToolsKt.tools	main-a	top-level List<Tool> for MainActivity tools grid; RECON-UNSURE file/val name
+AbstractC1335	~.api.adb.commands.BinaryCommand	main-a	sealed (FQN string evidence); KeyEvent=C2669(keyCode) Text=C3147(text) RECON-UNSURE subclass names; consumed by AdbDeviceHelper channel f13438
+AbstractC0662	~.api.adb.commands.ApiCommand	main-a	sealed (FQN string evidence); KeyEvent=C2950(keyCode) Text=C1561(text) RECON-UNSURE subclass names; consumed by C2916 channel f10597
+AbstractC0913.m2774	~.utils.ClipboardKt.getClipboardManager	main-a	Context ext: ContextCompat.getSystemService(ClipboardManager)!!; RECON-UNSURE fun-vs-val name; shared by many groups
+AbstractC0913.m2771	~.utils.ClipboardKt.getClipboardText	main-a	Context ext: primaryClip item0 coerceToText or ""; shared by many groups
+AbstractC0913.m2775	~.utils.ClipboardKt.copyToClipboard	main-a	Context ext (str): setPrimaryClip(newPlainText("text", str)); shared by many groups
+C2916(no-arg)	~.api.remote.ApiCommandExecutor	core-app	no-arg ctor variant of merged C2916: api provider f10595, IO+SupervisorJob scope f10598, CONFLATED Channel<ApiCommand> f10597, job f10596 (C3593 loop); owned by AppViewModel.f3436, used by MainActivity
+C1518(tag11)	~.ntp.InMemorySntpCache	core-app	C1518(11,false); var timeInfo f6763: SafeTimeInfo?; NtpOptions.cache (already referenced by AdbRemoteApp)
+C1518(tag6)	~.ntp.SntpCacheManager	core-app	C1518(cache,6) wrapper held by SntpClient.f11754; name RECON-UNSURE
+inline:button_control_mode	~.utils.ConnectionMethodPrefsKt.getConnectionMethod	main-a	inline SharedPreferences ext ("<this>"): ConnectionMethod.entries.find{value==getString("button_control_mode", SOCKET.value)} ?: SOCKET; inlined in DialogKeyboard/DialogTrackpad/DialogNumpad lazies + C1425; RECON-UNSURE name
+AbstractC1480.f6690	~.utils.IconShapeKt.iconShapes	custom	List<IconShapeData> of 13 presets
+AbstractC1480.m3419	~.utils.IconShapeKt.getCustomIconShape	custom	(dataStore: SharedPreferences): IconShapeData(-1, R.string.di, parse "custom_icon_shape")
+AbstractC1480.m3420	~.utils.IconShapeKt.createShapeAppearanceModel	custom	createShapeAppearanceModel(iconShape: IconShape, size: Float): ShapeAppearanceModel
+AbstractC1480.m3421	~.utils.IconShapeKt.parseIconShape	custom	String? json -> IconShape (validated 0..100, fallback DEFAULT)
+AbstractC1480.m3422	~.utils.IconShapeKt.getIconShape	custom	getIconShape(context: Context): IconShapeData from pref icon_shape
+AbstractC1480.m3423	~.utils.IconShapeKt.percentToSize	custom	private
+AbstractC1480.m3424	~.utils.IconShapeKt.createEdgeTreatment	custom	private
+AbstractC0164	~.utils.IconShapes	custom	object of 13 preset IconShape constants
+C2710(case0)	~.views.CurvedEdgeTreatment	custom	EdgeTreatment(size) quadTo curve; R8-merged with material TriangleEdgeTreatment(size,true) as case 1
+C0779!	~.adapters.DevicesAdapter	main-b	CONFLICT with files claim FilesGridAdapter: C0779 is the saved-AdbDevice list adapter of DialogDevices (onSelected/onEdit/onDelete, layout c8, AdbDevice differ); only user C0881
+C1776!	~.adapters.DevicesAdapter.DeviceViewHolder	main-b	CONFLICT with registry files.FileGridViewHolder: holder of C0779 (AdbDevice, popup R.menu.c hi=edit ge=delete)
+C1225	~.utils.SpacingItemDecoration	main-b	RecyclerView ItemDecoration(spacing px) linear/grid; used by ~10 classes of many groups; RECON-UNSURE name
+z8.m1616	~.utils.BundleExtKt.getParcelableCompat	main-b	Bundle ext (key, Class<T>): SDK34 getParcelable(key,cls) else instance-checked; shared
+b.m996	~.utils.GuideKt.getGuideUrl	main-b	(context, path): AppPrefs.config.preferredWebsite + [/lang] + /path; shared
+b.m1033	~.utils.GuideKt.openGuide	main-b	(context, path): PlayStore.launchLink(Link(getGuideUrl(..), null)); shared
+AbstractC3040	~.api.adb.commands.AdbBinaryCommand	main-b	sealed element type of AdbBinary.runCommands list; RECON-UNSURE names (core-adb please adopt)
+C0927	~.api.adb.commands.AdbBinaryCommand.Command	main-b	data-less class(command: String) — shell line to write
+C0331	~.api.adb.commands.AdbBinaryCommand.Expect	main-b	class(output: String) — wait for output text (e.g. "Enter pairing code")
+EnumC0359	~.model.CommandResultType	main-b	enum SUCCESS/RETRY/FAILURE; first arg of AdbBinary command callbacks; RECON-UNSURE name
+b.m979	~.api.adb.AdbBinaryExtKt.connect	main-b	AdbBinary ext (ipAddress, port, timeout, callback:(CommandResultType,CommandResult)->Unit): runCommands([Command("adb connect ip:port")]); used by MainViewModel/C3900/DialogConnect
+inline:adb_pair	~.api.adb.AdbBinaryExtKt.pair	main-b	R8-inlined into DialogConnect: ("adb pair ip:port", Expect("Enter pairing code"), code) 20000ms; RECON-UNSURE name
+inline:adb_tcpip	~.api.adb.AdbBinaryExtKt.tcpip	main-b	R8-inlined into DialogConnect.m2156: "adb -s <serial> tcpip <port>" 2000ms; RECON-UNSURE name
+inline:adb_devices	~.api.adb.AdbBinaryExtKt.devices	main-b	R8-inlined into DialogConnect.m2157: "adb devices -l" 1000ms; RECON-UNSURE name
+EnumC2026	~.dialogs.home.ClipboardSetFragment.ClipboardType	main-b	enum TEXT/IMAGE (f7282); RECON-UNSURE name/nesting
+AbstractC3690	~.utils.IconPackKt	custom	file facade: iconPackIntents f13073, var currentIconPack f13074, ShapeableImageView.loadAppIcon m6257, getSelectedIconPack m6258, getIconPacks m6259, loadIconPack m6260 (body C3671/C2355)
+C0723	~.utils.IconPackResources	custom	loaded icon pack: packResources f4636 (name proven), packageName f4637, label f4639, iconMap f4638, drawableIds f4640
+C3766	~.adapters.TitleValueAdapter	main-b	List<TitleValue> rows (layout c9: title v_, value vc); only DialogDeviceInfo; RECON-UNSURE name
+C1601	~.adapters.TitleValueAdapter.ViewHolder	main-b	holder of C3766
+C0408	~.adapters.CpuAdapter	main-b	AsyncListDiffer<Performance.CPU> (layout ch: label ui, progress pb, percent p0); only DialogPerformance; RECON-UNSURE name
+C1005	~.adapters.CpuAdapter.ViewHolder	main-b	holder of C0408
+C3442#0	~.adapters.LogsAdapter	custom	merged adapter case 0: ListAdapter<Pair<Int,String>> (layout ci, holder C1567, diff C2403#1), onItemClicked C2192#9; used by LogsActivity
+C0984	~.ui.intro.PagerController	custom	IntroActivity.pagerController (name proven); ViewPager2 + GestureOverlayView fake-drag, next/previous; RECON-UNSURE class name
+C0431+C1855	~.utils.MarkdownDialogKt.showMarkdownDialog	custom	showMarkdownDialog(scope, context, fileName): IO read asset -> Main Markwon dialog (layout bj); used by SettingsActivity(acknowledgement.md) and MainActivity C0808#0 (what_is_new.md)
+AbstractC0104.m1725	~.utils.FileSizeKt.formatFileSize	custom	formatFileSize(size: Long): String ("0 B", %.2f %s, B..EB with 1000 divisors); used by SettingsActivity, C1536, files adapters (C0528, C3254, AbstractC4056)
+AbstractC3420.m5959	~.utils.NativeAdKt.loadNativeAd	custom	loadNativeAd(context: BaseActivity, startMuted: Boolean, onLoaded: (NativeAd, Int) -> Unit, onFailed: () -> Unit) — AdLoader AD_UNIT_NATIVE; also used by MainActivity (main-a). Inlined "<this>"/"nativeAd" populate helper on ad-layout binding left to main-a/core-app
+C1073	~.dialogs.home.DialogClipboard.PagerAdapter	main-b	inner FragmentStateAdapter over DialogClipboard.fragments; RECON-UNSURE name
+EnumC1152	~.views.ControlPadView.SizeMode	custom	nested enum WRAP/FIXED (attr index 7); RECON-UNSURE name
+AbstractC1557.m3535	~.utils.FileExtKt.toUri	main-b	File ext (context): runCatching FileProvider.getUriForFile(ctx, pkg+".provider", this).getOrNull(); used by ClipboardGetFragment
+AbstractC0889+C2661+C2122	~.dao.Fav	custom	sealed class Fav { data class Data(app: App); data object Add } (name proven by cast message com.jcapps.adbremote.dao.Fav.Data); items of IconShapePreviewAdapter, built by MainActivity C3066
+EnumC0595	~.model.AppType	apps	filter enum ALL/USER/SYSTEM (DialogAppFilter param "type"); RECON-UNSURE class name
+EnumC1837	~.model.AppState	apps	filter enum ALL/ENABLED/DISABLED (param "state"); RECON-UNSURE class name
+EnumC2664	~.model.AppOpenable	apps	filter enum ALL/YES/NO (param "openable", launcher available); RECON-UNSURE class name
+EnumC2870	~.model.TvSupport	apps	filter enum ALL/SUPPORTED/NA (param "tvSupport"); RECON-UNSURE class name
+C1872	~.utils.AppIconLoader	apps	coil ImageLoader for http://<ip>:<port>/app-icon?package_name=..&icon_only, header token; var ipAddress f7720, load(imageView, packageName)=m4051; used by apps/files/custom (IconPack.kt already imports this FQN)
+C0461	~.adapters.apps.AppsAdapter.AdViewHolder	apps	inner native-ad holder of AppsAdapter (layout aa); RECON-UNSURE name
+C3442#1	~.adapters.apps.AppInfoAdapter	apps	merged adapter case 1: AsyncListDiffer<Info> (diff C2403#2), layout c5 (tu title, vs value), holder C0162, onItemClicked C1026#0; only AppInfoActivity; RECON-UNSURE name
+C0162	~.adapters.apps.AppInfoAdapter.ViewHolder	apps	holder of C3442#1
+C3442#2	~.adapters.apps.AppPermissionsAdapter	apps	merged adapter case 2: AsyncListDiffer<String> (diff C2403#3), layout ci (shared with LogsAdapter), holder C3537, onItemClicked C1026#1 ("permissionName"); RECON-UNSURE name
+C3537	~.adapters.apps.AppPermissionsAdapter.ViewHolder	apps	holder of C3442#2
+AbstractC0104.m1732	~.utils.MapExtKt.reversed	apps	Map<K,V>.reversed(): LinkedHashMap<V,K> (associate value->key); only DialogAppFilter; RECON-UNSURE fun/file name
+C3025.m5430+C2361	~.utils.Shell.exec	main-a	object Shell (static INSTANCE C3025.f10918): sh -c <cmd> with withTimeoutOrNull; null -> ShellResult(-1, e=ShellTimeoutException())
+C1864(no-arg)	~.utils.ShellTimeoutException	main-a	no-arg Exception ctor variant of merged C1864; RECON-UNSURE name
+C3583	~.utils.ShellKt.killAdbServer	main-a	R8-inlined top-level: CoroutineScope(IO).launch { ps | grep -iw adb -> kill <pid>; withContext(Main) callback() }; used by MainActivity.m815, MainViewModel.m1897, ServerService
+C3479	~.utils.AppConfigLoader	main-a	loads app_v6.json config from host list (C2120 hosts), caches in AppPrefs, shows DialogUpdate; MainActivity f1516; RECON-UNSURE name (registry note "ad helper" was wrong)
+z8.f2570+z8.f2572	~.utils.AppReviewKt	main-a	@Volatile top-level flags (apiConnected / remoteUsed) + inlined requestAppReviewIfRecommended(activity) (Timer 300ms -> C2696 case0 -> RunnableC0115 case0 in-app review); RECON-UNSURE names
+C0823	~.ads.InterstitialAdManager	main-a	object: interstitial f4880, rewardedInterstitial f4882, loading f4883, lastShown f4884; show(activity)=m2595; used by MainActivity onDestroy/C2497, AppOpenAdManager, apps
+eb.m1179	~.utils.RsaKeyKt.parsePrivateKey	main-a	PEM "-----BEGIN PRIVATE KEY-----" -> kotlin.io.encoding.Base64 -> KeyFactory RSA/BC PKCS8; only MainViewModel
+inline:privateKeyFile	~.utils.RsaKeyKt.readPrivateKey	main-a	R8-inlined into MainViewModel.m1892 (param name privateKeyFile): file.reader().use{readText} catch -> null; RECON-UNSURE name
+EnumC2105	~.model.ServerState	main-a	enum NOT_STARTED/STARTING/RUNNING/STOPPING (names original); global flow in DeviceIpExt (AbstractC0923.f5206/f5205/m2832); RECON-UNSURE class name
+AbstractC0923.f5206+m2832	~.utils.DeviceIpExtKt.serverState/updateServerState	main-a	added to DeviceIpExt.kt (MutableStateFlow + asStateFlow + update(newState)); RECON-UNSURE names
+AbstractC3745.m6311	~.utils.ThemeHelperKt.getColorFromAttr	main-a	Context ext (attr): resolveAttribute -> resourceId or data -> ContextCompat.getColor; used by ControlPadView, NavDirectoryAdapter(C0696); RECON-UNSURE name
+AbstractC0395.m2054	~.utils.VirtualKeysKt.toKeyEvents	main-a	(str): List<Any> Int keycodes / String chars for adb input; used by DialogKeyboard/DialogNumpad filters (C1135)
+EnumC0778	~.utils.NetworkState	main-a	enum WIFI_DISCONNECTED/WIFI_AND_VPN_CONNECTED/WIFI_CONNECTED + networkStateOf (C3025.m5425) + Context.networkStateFlow (C2545/C3883) + showNetworkWarning + isWifiConnected in utils/NetworkState.kt; RECON-UNSURE names
+AbstractC3745.m6308+m6296	~.utils.FragmentExtKt.isSafe/beginDelayedTransition	main-a	Fragment helpers; RECON-UNSURE names
+C1081	~.provider.ftp.FtpFileSystemProvider	files	CORRECTION: C1081 is the FtpFileSystemProvider object (FileSystemProvider subclass); its newByteChannel/readAttributes were moved by R8 into the AbstractC4058 bag (m6639/m6641). FtpFileSystemProviderImpl.kt deleted.
+C1710(case6)	~.provider.ftp.FtpAuthenticator	files	class FtpAuthenticator(activity: FilesActivity){getPassword(authority)=activity.ftpConfig().password}; C1710 itself is an R8 merge of many classes
+SSHBuffer(pos=0)	~.provider.common.ByteStringBuilder	files	R8-merged into bouncycastle SSHBuffer; m3969 append(ByteString), m3970 append(byte), m3971 toByteString
+n0	~.provider.common.ByteStringUriUtils	files	percent decode/encode + createUri (toUri)
+AbstractC3179.m5693	~.provider.common.ByteStringKt.toByteString	files	String.toByteString() (caches string)
+C2844	~.provider.common.InvalidFileNameException	files	FileSystemException for reply 553
+C0792	~.provider.ftp.NegativeReplyCodeException	files	IOException(replyString) + replyCode
+AbstractC2564.m4929	~.provider.ftp.FtpClientExtensionsKt.throwNegativeReplyCodeException	files	FTPClient ext
+AbstractC0999.m2949	~.provider.ftp.FtpClientExtensionsKt.toFileSystemExceptionForFtp	files	IOException -> AccessDenied/NoSuchFile/InvalidFileName/FileSystemException
+C0616	~.provider.common.ChannelProxyFileDescriptorCallback	files	proxy fd callback over SeekableByteChannel; ProxyFileDescriptorCallbackC0372 = its anonymous toProxyFileDescriptorCallback()
+eb.m1172	~.provider.common.ForceableChannelKt.force	files	Channel.force(metaData); + interface ForceableChannel
+eb.m1174	~.provider.FileProviderKt.fileProviderPath	files	private Uri.fileProviderPath = Paths.get(URI.create(Uri.decode(path).substring(1)))
+AbstractC2616	~.provider.common.DelegateOutputStream	files	base of FtpOutputStream; also C2449 (ParcelFileDescriptor output stream, unowned)
+C3922	~.provider.ftp.FtpFileByteChannel.ReadBuffer	files	inner read-ahead buffer (3 MiB, 15 s timeout)
+C0638(case1)	~.provider.ftp.FtpFileByteChannelKt.ByteBufferInputStream	files	private class in FtpFileByteChannel.kt (C0638 is an R8 merge with okio streams)
+FutureC0935	~.utils.DeferredFutureKt.asFuture	files	Deferred<T>.asFuture() / private DeferredFuture
+AbstractC1982.f8102	~.compat.ParcelCompatKt.appClassLoader	files	+ readBooleanCompat/writeBooleanCompat/readParcelable/readParcelableListCompat/writeParcelableListCompat (file name proven by checkNotNull msg)
+C2822	~.utils.ExtensionMimeTypes	files	object; map = AbstractC1319.f6258 (1601 ext->mime); RECON-UNSURE name
+AbstractC1319.f6258	~.utils.ExtensionMimeTypes.extensionToMimeTypeMap	files	generated verbatim
+AbstractC0395.m2078	~.utils.ExtensionMimeTypesKt.mimeType	files	val FTPFile.mimeType (used by FilesAdapter C3254)
+AbstractC0999.m2924	~.provider.common.MimeTypeKt.asMimeType	files	String.asMimeType(); m2914 = isValidMimeType
+SavedStateViewModelFactory(C3193,C1963,..)	~.viewmodels.MainViewModelFactory	main-a	app AbstractSavedStateViewModelFactory R8-merged into androidx SavedStateViewModelFactory (ctor variant + m4683 create); RECON-UNSURE name
+AbstractC3420.f12246+m5956+m5957+m5958	~.utils.NativeAdKt.nativeAds/destroyNativeAds/insertAdPlaceholders/populateNativeAd	main-a	added to custom NativeAd.kt (needed by MainActivity); RECON-UNSURE names
+C1847	~.settings.MaterialListPreferenceDialog	custom	ListPreferenceDialogFragmentCompat via MaterialAlertDialogBuilder; used by SettingsActivity.onDisplayPreferenceDialog
+C2346	~.ui.files.PasteBar	files	copy/move bottom bar controller of FilesActivity (m4573 show, m4574 hide); RECON-UNSURE name
+EnumC0062	~.ui.files.PasteBar.Mode	files	COPY/MOVE (constant names original); RECON-UNSURE placement
+C3256	~.ui.files.FileSortingMenu	files	files_sorting prefs + sort menu ids + comparator m5807; RECON-UNSURE name
+AbstractC3930.m6533	~.ui.files.FilesSettingsStoreKt.loadFilesSettings	files	reads files_settings_open; also needed by DialogFilesSettings
+C4011	~.adapters.files.ProgressFilesAdapter.Error	files	payload data class Error(errorMessage,state); RECON-UNSURE placement
+C2250	~.adapters.files.NavDirectoryAdapter.ViewHolder	files	inner holder
+C3008	~.adapters.files.SupportedAppAdapter.ViewHolder	files	inner holder; C0988 was inner class of C1481 in original
+AbstractC3420.f12245+inlined@C0206	~.utils.NativeAdKt.isLoadingNativeAds/loadNativeAds	apps	batch native-ad loader inlined into AppsAdapter.loadAds (C0206), listener C1839; RECON-UNSURE names
+AbstractC1557(inlined@C3704.0)	~.utils.AppOptions.show	apps	app option sheet inlined into AppsActivity (C3704 case 0); object merged into AbstractC1557 (tag = its simpleName); RECON-UNSURE names
+C3119	~.adapters.ControlButtonChooserAdapter	custom	BaseAdapter<VirtualButton> (layout c6 = ItemControlButtonBinding) for ControlButtonsActivity choose-button dialog
+InterfaceC4050	~.transfer.TransferListener	files	empty after R8 (calls devirtualized to C2631); methods reconstructed from call sites, RECON-UNSURE
+EnumC2363	~.transfer.ConflictAction	files	REPLACE/SKIP/KEEP_BOTH (names original); RECON-UNSURE class name
+C3242	~.transfer.TransferException	files	Exception(message)/(Throwable): per-file failure, transfer continues
+AbstractC4056	~.transfer.FileTransfer	files	base of upload/download/copy: processedBytesList, IO scope, progress helpers m6632..m6638
+C3498	~.transfer.FileUploader	files	SAF PickedFile -> FTP; companion = C2352 (m4586 getFolderFiles) + inlined getPickedFiles (C0273)
+C2433	~.transfer.FileDownloader	files	FTP ProgressFTPFile -> SAF DocumentFile folder
+C3362	~.transfer.FtpFileCopier	files	FTP->FTP COPY/MOVE; companion C3573(16).m6177 = moveFolder
+EnumC3622	~.transfer.FtpFileCopier.Type	files	COPY/MOVE (names original)
+EnumC2116	~.dialogs.files.DialogFileProgress.ButtonState	files	PAUSE/RESUME/OK (names original)
+C2352(C2631)	~.dialogs.files.DialogFileProgress.Companion	files	arg keys progress_type/authority/ftp_file_path/ftp_selected_file/uri_list/uri
+AbstractC0913.m2789	~.utils.TransferUtilsKt.generateUniqueName	files	(originalName, fileNotExists): "name (n).ext"
+AbstractC0395.m2117	~.utils.TransferUtilsKt.getPath	files	FtpAuthority.getPath(path): FtpPath
+AbstractC0999.m2982	~.utils.TransferUtilsKt.listFilesRecursively	files	Path -> List<ProgressFTPFile> (+private m2937 collectFiles)
+z8.m1599	~.utils.TransferUtilsKt.getFileSize	files	DocumentFile.getFileSize(contentResolver): Long?
+z8.m1613	~.utils.TransferUtilsKt.toTreeDocumentFile	files	Uri.toTreeDocumentFile(context) = runCatching fromTreeUri
+AbstractC2727.m5135	~.utils.TransferUtilsKt.collectPickedFiles	files	recursive SAF folder walk -> PickedFile list
+AbstractC2727.m5140	~.utils.TransferUtilsKt.toPickedFile	files	DocumentFile.toPickedFile(contentResolver,id,destFolder,sourceFolderPath)
+C1528	androidx.documentfile.provider.DocumentFile	files	LIB (Single+TreeDocumentFile merged), documentfile 1.0.0 transitive
+C1577	~.provider.common.DelegateSchemeFileSystemProvider	core-adb	MaterialFiles-style scheme-renaming delegate (ftps/ftpes)
+C0828	~.provider.common.StubDefaultFileSystemProvider	core-adb	default "file" provider; every method TODO() (C1070=NotImplementedError); RECON-UNSURE name
+C0116	~.provider.common.AndroidFileTypeDetector	core-adb	FileTypeDetector installed at startup; probeContentType stripped by R8; RECON-UNSURE
+AbstractC3850	~.provider.ftp.FtpSecureFileSystemProvidersKt	core-adb	vals FtpsFileSystemProvider (f13602) / FtpesFileSystemProvider (f13601)
+AbstractC0880	~.provider.AppInitializersKt	core-adb	appInitializers (f5033) + initializeFileSystemProviders (C1703)
