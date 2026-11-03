@@ -84,16 +84,14 @@ class AdbClient(
             val localId = Random.nextInt()
             stream.localId = localId
             adbSocket.writeMessage(
-                createMessage("OPEN", "shell,v2,TERM=xterm-256color,raw:hid -\u0000".toByteArray(Charsets.UTF_8), localId, 0),
+                createMessage("OPEN", "shell,v2,TERM=xterm-256color,raw:$HID_HOST_SCRIPT\u0000".toByteArray(Charsets.UTF_8), localId, 0),
             )
             val response = adbSocket.readMessage()
             if (response.commandString() != "OKAY") {
                 return AuthResult.FAILURE
             }
             stream.remoteId = response.messageHeader.arg0
-            stream.write(NativeConfig.hidRegisterKeyboard)
-            stream.write(NativeConfig.hidRegisterMouse)
-            stream.write(NativeConfig.hidRegisterConsumer)
+            // the 3 virtual devices are registered by HID_HOST_SCRIPT (only when it starts a new host)
             return AuthResult.SUCCESS
         }
         when (item) {
@@ -122,5 +120,28 @@ class AdbClient(
             else -> stream.write("")
         }
         return null
+    }
+
+    private companion object {
+        /**
+         * Rebuild change (the original opened a plain `hid -` and registered the devices itself).
+         *
+         * Every reconnect closed `hid -`, which removed the virtual keyboard/mouse; adding/removing a
+         * keyboard is a configuration change, so the TV launcher was recreated on each reconnect.
+         * Now one `hid` host keeps running on the device and reads a FIFO; each connection only
+         * writes into that FIFO. A holder keeps the FIFO open until 30 s after the last connection
+         * ended, so a reconnect keeps the devices, while a real disconnect still removes them.
+         */
+        const val HID_FIFO = "/data/local/tmp/.adbremote_hid"
+
+        val HID_HOST_SCRIPT: String = buildString {
+            val register = NativeConfig.hidRegisterKeyboard + NativeConfig.hidRegisterMouse + NativeConfig.hidRegisterConsumer
+            append("F=$HID_FIFO; P=\$(cat \$F.pid 2>/dev/null); ")
+            append("if [ -z \"\$P\" ] || [ ! -d /proc/\$P ] || [ ! -p \$F ]; then ")
+            append("rm -f \$F; mkfifo \$F; setsid hid - <\$F >/dev/null 2>&1 & echo \$! >\$F.pid; NEW=1; fi; ")
+            append("S=\$\$; setsid sh -c \"while [ -d /proc/\$S ]; do sleep 1; done; sleep 30\" >\$F 2>/dev/null </dev/null & ")
+            append("[ -n \"\$NEW\" ] && printf '%s' '").append(register).append("' >\$F; ")
+            append("exec cat >\$F")
+        }
     }
 }
