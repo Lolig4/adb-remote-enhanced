@@ -368,13 +368,22 @@ class MainActivity : BaseActivity() {
     private fun onProceed(savedInstanceState: Bundle?) {
         setContentView(binding.root)
         // obf: C0583 case 1 ("main", "view")
+        val mainScrollBottomPadding = (binding.content.root.parent as android.view.View).paddingBottom
+        val searchListBottomPadding = binding.listSearchResults.paddingBottom
         ViewCompat.setOnApplyWindowInsetsListener(binding.coordinatorMain) { v, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout())
             // original: top inset as margin (DrawerLayout.LayoutParams), rest as padding, insets consumed
             val layoutParams = v.layoutParams as androidx.drawerlayout.widget.DrawerLayout.LayoutParams
             layoutParams.topMargin = bars.top
             v.layoutParams = layoutParams
-            v.setPadding(bars.left, v.paddingTop, bars.right, bars.bottom)
+            // Fix (rebuild): the original put the bottom inset on this CoordinatorLayout, which does
+            // not shrink the scrolling content under the AppBar, so the navigation bar covered the
+            // bottom of the main screen and of the search results. Pad the scrolling views instead
+            // (both have clipToPadding=false).
+            v.setPadding(bars.left, v.paddingTop, bars.right, 0)
+            val scroll = binding.content.root.parent as android.view.View
+            scroll.setPadding(scroll.paddingLeft, scroll.paddingTop, scroll.paddingRight, mainScrollBottomPadding + bars.bottom)
+            binding.listSearchResults.setPadding(binding.listSearchResults.paddingLeft, binding.listSearchResults.paddingTop, binding.listSearchResults.paddingRight, searchListBottomPadding + bars.bottom)
             WindowInsetsCompat.CONSUMED
         }
         setSupportActionBar(binding.searchBar)

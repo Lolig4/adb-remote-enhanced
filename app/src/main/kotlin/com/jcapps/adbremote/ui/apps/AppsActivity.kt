@@ -151,7 +151,25 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        applySystemBarInsets(binding.root)
+        // Fix (rebuild): the original padded the root by all system bars, but the list sits under
+        // a scrolling AppBar and is taller than the screen, so the bottom padding had no effect and
+        // the navigation bar covered the last rows. The bottom inset now goes to the list itself
+        // (clipToPadding=false in the layout).
+        val listBottomPadding = binding.list.paddingBottom
+        androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val bars = insets.getInsets(
+                androidx.core.view.WindowInsetsCompat.Type.systemBars() or
+                    androidx.core.view.WindowInsetsCompat.Type.displayCutout(),
+            )
+            v.setPadding(bars.left, bars.top, bars.right, 0)
+            binding.list.setPadding(
+                binding.list.paddingLeft, binding.list.paddingTop, binding.list.paddingRight, listBottomPadding + bars.bottom,
+            )
+            androidx.core.view.WindowInsetsCompat.CONSUMED
+        }
+        // Rebuild change: the toolbar stays in place (the original scrolled it away, also when the
+        // list was empty or fit on the screen).
+        (binding.toolbar.layoutParams as com.google.android.material.appbar.AppBarLayout.LayoutParams).scrollFlags = 0
         // obf: AbstractC0786.m2571 = SDK 34 getSerializableExtra(name, AppsTab::class.java)
         val toolType = if (Build.VERSION.SDK_INT >= 34) {
             intent.getSerializableExtra(EXTRA_TOOL_TYPE, AppsTab::class.java)
