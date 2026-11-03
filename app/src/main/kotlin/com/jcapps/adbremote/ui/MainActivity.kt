@@ -403,15 +403,8 @@ class MainActivity : BaseActivity() {
             } catch (e: Exception) {
             }
         }
-        // obf: ViewOnClickListenerC2376 case 15 — rate app
-        header.d1.setOnClickListener {
-            // obf: C1425 case 14
-            binding.drawerMain.closeDrawers()
-            // obf: C2696 default case -> RunnableC0115 case 20
-            Timer().schedule(180L) {
-                runOnUiThread { DialogRateApp().show(supportFragmentManager, DialogRateApp::class.java.name) }
-            }
-        }
+        // Rebuild change: the "Rate app" button (obf: ViewOnClickListenerC2376 case 15) and the
+        // Telegram/Facebook drawer entries (m4/m3) were removed; "Share app" is centred alone.
         mainViewModel = ViewModelProvider(
             viewModelStore,
             MainViewModelFactory(adbBinary, DevicesStore(prefs), this, savedInstanceState),
@@ -421,14 +414,6 @@ class MainActivity : BaseActivity() {
         // obf: C2497 case 2 (body in C1710 case 18)
         binding.navViewMain.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.m4 -> runDelayed {
-                    // obf: C1425 case 28
-                    with(PlayStore) { launchLink(configPrefs.config.telegramChannel) }
-                }
-                R.id.m3 -> runDelayed {
-                    // obf: C1425 case 29
-                    with(PlayStore) { launchLink(configPrefs.config.facebookPage) }
-                }
                 R.id.action_whats_new -> runDelayed {
                     // obf: C0808 case 0 (showMarkdownDialog inlined)
                     showMarkdownDialog(lifecycleScope, this, "what_is_new.md")

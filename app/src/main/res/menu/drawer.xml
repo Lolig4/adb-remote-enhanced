@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:icon="@drawable/ic_telegram" android:id="@id/m4" android:title="@string/oa" />
-    <item android:icon="@drawable/ic_facebook" android:id="@id/m3" android:title="@string/nq" />
     <item android:icon="@drawable/ic_whats_new" android:id="@id/action_whats_new" android:title="@string/whats_new" />
     <item android:icon="@drawable/ic_settings" android:id="@id/action_settings" android:title="@string/settings" />
     <item android:icon="@drawable/ic_logs" android:id="@id/action_app_logs" android:title="@string/app_logs" />

@@ -285,7 +285,6 @@ app ကို နှစ်သက်လျှင် Play Store တွင် အ�
     <string name="files_settings">ဖိုင် ဆက်တင်များ</string>
     <string name="filter">စစ်ထုတ်ရန်</string>
     <string name="filter_apps">App များကို စစ်ထုတ်ပါ</string>
-    <string name="nq">Facebook page သို့ ဆက်သွယ်ရန်</string>
     <string name="force_stop">ချက်ချင်းပိတ်ရန်</string>
     <string name="force_stop_all_processes">Process အားလုံးပိတ်ရန် သေချာပါသလား?</string>
     <string name="force_stop_all_processes_2">Process အားလုံး ချက်ချင်းပိတ်ရန်</string>
@@ -304,7 +303,6 @@ app ကို နှစ်သက်လျှင် Play Store တွင် အ�
     <string name="image">ဓာတ်ပုံ</string>
     <string name="installation_time">Install လုပ်ခဲ့သောအချိန်</string>
     <string name="internal_storage">စက်တွင်း သိုလှောင်ခန်း</string>
-    <string name="oa">Telegram channel သို့ ဆက်သွယ်ရန်</string>
     <string name="keyboard">ကီးဘုတ်</string>
     <string name="language">ဘာသာစကား</string>
     <string name="last_modified">ပြင်ဆင်ခဲ့သော အချိန်</string>

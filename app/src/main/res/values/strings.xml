@@ -310,7 +310,6 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
     <string name="files_settings">Files settings</string>
     <string name="filter">Filter</string>
     <string name="filter_apps">Filter apps</string>
-    <string name="nq">Follow on Facebook</string>
     <string name="force_stop">Force stop</string>
     <string name="force_stop_all_processes">Force stop all processes?</string>
     <string name="force_stop_all_processes_2">Force stop all processes</string>
@@ -331,7 +330,6 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
     <string name="installation_time">Installation time</string>
     <string name="internal_storage">Internal storage</string>
     <string name="ip_address">IP address</string>
-    <string name="oa">Join Telegram channel</string>
     <string name="keyboard">Keyboard</string>
     <string name="language">Language</string>
     <string name="last_modified">Last modified</string>

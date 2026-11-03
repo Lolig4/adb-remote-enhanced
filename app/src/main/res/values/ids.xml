@@ -30,7 +30,6 @@
     <item type="id" name="browser_actions_menu_items" />
     <item type="id" name="browser_actions_menu_view" />
     <item type="id" name="btn_virtual_button" />
-    <item type="id" name="d1" />
     <item type="id" name="btn_share_app" />
     <item type="id" name="btn_pause" />
     <item type="id" name="btn_add_device" />
@@ -209,8 +208,6 @@
     <item type="id" name="action_app_logs" />
     <item type="id" name="action_copy_logs" />
     <item type="id" name="action_exit_app" />
-    <item type="id" name="m3" />
-    <item type="id" name="m4" />
     <item type="id" name="action_settings" />
     <item type="id" name="action_share" />
     <item type="id" name="action_visit_website" />

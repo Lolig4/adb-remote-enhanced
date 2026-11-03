@@ -5,7 +5,6 @@
     <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceHeadlineSmall" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/adb_remote" />
     <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceTitleMedium" android:layout_gravity="center_horizontal" android:id="@id/text_app_version" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     <com.google.android.flexbox.FlexboxLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="20.0dip" app:flexWrap="wrap" app:justifyContent="center">
-        <com.google.android.material.button.MaterialButton android:id="@id/d1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/rate_app" android:layout_marginEnd="10.0dip" app:icon="@drawable/ic_star" style="@style/Widget.Material3.Button.OutlinedButton" />
-        <com.google.android.material.button.MaterialButton android:id="@id/btn_share_app" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share_app" android:layout_marginEnd="10.0dip" app:icon="@drawable/ic_share" />
+        <com.google.android.material.button.MaterialButton android:id="@id/btn_share_app" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share_app" app:icon="@drawable/ic_share" />
     </com.google.android.flexbox.FlexboxLayout>
 </LinearLayout>
