@@ -448,4 +448,8 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
     <string name="what">What is it?</string>
     <string name="whats_new">"What's New"</string>
     <string name="wireless_debugging_mode">Wireless debugging mode</string>
+    <!-- rebuild addition: second warning before uninstalling a system app -->
+    <string name="system_app_uninstall_title">Uninstall system app?</string>
+    <string name="system_app_uninstall_message">%1$s is a system app. Removing it can break features of the device or make it unstable. It is only removed for the current user and can be restored with adb:\ncmd package install-existing %2$s\n\nIf the system app was updated, only the update is removed and the factory version stays installed; reinstall the update from the Play Store.</string>
+    <string name="system_app_uninstall_confirm">Uninstall</string>
 </resources>

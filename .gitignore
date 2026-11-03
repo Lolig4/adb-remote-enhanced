@@ -7,3 +7,4 @@ local.properties
 *.iml
 # old approximate reconstruction, superseded by app/src/main
 app/src/legacy/
+qa_shot.png

@@ -394,7 +394,12 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 AppAction.ENABLE.toString() -> viewModel.enableApp(this, app, ::onActionResultReload)
                 AppAction.UNINSTALL.toString() -> showConfirmationDialog(R.string.uninstall_now, R.string.uninstalling_remove_all_app_data) {
                     // obf: class မစဍဍဌဏဃ default case (result C0494 case 5)
-                    viewModel.uninstallApp(this, app, ::onActionResultReload)
+                    // Rebuild addition: system apps get a second, explicit warning.
+                    if (app.isSystemApp) {
+                        showSystemAppUninstallWarning(app) { viewModel.uninstallApp(this, app, ::onActionResultReload) }
+                    } else {
+                        viewModel.uninstallApp(this, app, ::onActionResultReload)
+                    }
                 }
                 // obf: result C0494 case 3
                 AppAction.OPEN_APP_INFO_SETTINGS.toString() -> viewModel.openAppInfoSettings(this, app, ::onActionResult)
@@ -485,6 +490,16 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
             .setMessage(message)
             .setNegativeButton(R.string.cancel, null)
             .setPositiveButton(R.string.ok) { _, _ -> onConfirm() }
+            .show()
+    }
+
+    /** Rebuild addition: second confirmation before a system app is removed (for user 0). */
+    private fun showSystemAppUninstallWarning(app: App, onConfirm: () -> Unit) {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.system_app_uninstall_title)
+            .setMessage(getString(R.string.system_app_uninstall_message, app.name, app.packageName))
+            .setNegativeButton(R.string.cancel, null)
+            .setPositiveButton(R.string.system_app_uninstall_confirm) { _, _ -> onConfirm() }
             .show()
     }
 
