@@ -57,12 +57,17 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
     // /apps, /running-apps
     // ------------------------------------------------------------------------------------------
 
-    /** Every installed package (incl. uninstalled-for-user ones, flag 8192), unsorted. */
+    /** Every package installed for the current user, unsorted. */
     // obf: C0279.mo100 case 0 (captures pkgManager, $apps)
     private fun listInstalledApps(pkgManager: PackageManager?, apps: ArrayList<App>) {
         val installedPackages = pkgManager!!.getInstalledPackages(8192)
         for (packageInfo in installedPackages) {
-            val app = packageInfo?.toApp(pkgManager) ?: continue
+            // Fixed (rebuild): flag 8192 (MATCH_UNINSTALLED_PACKAGES) also returns apps removed with
+            // `pm uninstall --user 0`; the original listed them as if still installed. Those lack
+            // FLAG_INSTALLED, so skip them.
+            val appFlags = packageInfo?.applicationInfo?.flags ?: continue
+            if (appFlags and android.content.pm.ApplicationInfo.FLAG_INSTALLED == 0) continue
+            val app = packageInfo.toApp(pkgManager) ?: continue
             apps.add(app)
         }
     }
