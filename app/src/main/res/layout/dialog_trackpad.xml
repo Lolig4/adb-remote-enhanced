@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="?colorSurfaceContainer" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="20.0dip">
+    <com.google.android.material.bottomsheet.BottomSheetDragHandleView android:layout_gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip">
         <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceHeadlineSmall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/trackpad" />
         <Space android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
-        <com.google.android.material.button.MaterialButton android:id="@id/btn_close" android:layout_width="wrap_content" android:layout_height="wrap_content" app:icon="@drawable/ic_close" style="@style/Widget.Material3.Button.IconButton.Filled.Tonal" />
     </LinearLayout>
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <com.jcapps.adbremote.views.MaterialSwitchView android:id="@id/switch_enable_pointers" android:layout_width="0.0dip" android:layout_height="wrap_content" android:checked="true" android:text="@string/enable_pointers" android:layout_weight="1.0" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" />
-        <com.google.android.material.button.MaterialButton android:id="@id/btn_expand_panel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="16.0dip" app:icon="@drawable/ic_expand_panel" style="@style/Widget.Material3.Button.IconButton" />
-    </LinearLayout>
-    <LinearLayout android:orientation="vertical" android:id="@id/layout_pointer_settings" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="@string/pointer_size" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip" />
-        <LinearLayout android:gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip">
-            <com.google.android.material.slider.Slider android:value="100" android:id="@id/slider_trackpad" android:layout_width="0.0dip" android:layout_height="wrap_content" android:stepSize="1.0" android:layout_weight="1.0" android:valueFrom="20" android:valueTo="250" app:thumbHeight="30.0dip" app:tickVisible="false" />
-            <com.google.android.material.button.MaterialButton android:id="@id/btn_reset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="15.0dip" app:icon="@drawable/ic_reset" style="@style/Widget.Material3.Button.IconButton" />
+    <!-- touches below the title never drag the sheet -->
+    <com.jcapps.adbremote.views.NoSheetDragLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.jcapps.adbremote.views.MaterialSwitchView android:id="@id/switch_enable_pointers" android:layout_width="0.0dip" android:layout_height="wrap_content" android:checked="true" android:text="@string/enable_pointers" android:layout_weight="1.0" android:paddingStart="20.0dip" android:paddingEnd="20.0dip" />
+            <com.google.android.material.button.MaterialButton android:id="@id/btn_expand_panel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="16.0dip" app:icon="@drawable/ic_expand_panel" style="@style/Widget.Material3.Button.IconButton" />
         </LinearLayout>
-    </LinearLayout>
-    <com.jcapps.adbremote.views.TrackpadView android:id="@id/trackpad_trackpad" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="10.0dip" android:layout_weight="1.0" app:cardBackgroundColor="@color/white" app:shapeAppearanceOverlay="@style/ShapeAppearance.AdbRemote.BottomSheet" app:strokeWidth="0.0dip" style="@style/Widget.Material3.CardView.Outlined">
-        <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/image_trackpad" android:layout_width="60.0dip" android:layout_height="60.0dip" app:srcCompat="@drawable/ic_trackpad" app:tint="?colorControlNormal" />
-        <com.google.android.material.textview.MaterialTextView android:textAppearance="@style/TextAppearance.Material3.BodyLarge" android:id="@id/text_trackpad_only_available_adb_socket" android:padding="15.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/trackpad_only_available_adb_socket" />
-    </com.jcapps.adbremote.views.TrackpadView>
+        <LinearLayout android:orientation="vertical" android:id="@id/layout_pointer_settings" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="?textAppearanceBodyLarge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="@string/pointer_size" android:layout_marginStart="20.0dip" android:layout_marginEnd="20.0dip" />
+            <LinearLayout android:gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip">
+                <com.google.android.material.slider.Slider android:value="100" android:id="@id/slider_trackpad" android:layout_width="0.0dip" android:layout_height="wrap_content" android:stepSize="1.0" android:layout_weight="1.0" android:valueFrom="20" android:valueTo="250" app:thumbHeight="30.0dip" app:tickVisible="false" />
+                <com.google.android.material.button.MaterialButton android:id="@id/btn_reset" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="15.0dip" app:icon="@drawable/ic_reset" style="@style/Widget.Material3.Button.IconButton" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.jcapps.adbremote.views.TrackpadView android:id="@id/trackpad_trackpad" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="10.0dip" android:layout_weight="1.0" app:cardBackgroundColor="@color/white" app:shapeAppearanceOverlay="@style/ShapeAppearance.AdbRemote.BottomSheet" app:strokeWidth="0.0dip" style="@style/Widget.Material3.CardView.Outlined">
+            <androidx.appcompat.widget.AppCompatImageView android:layout_gravity="center" android:id="@id/image_trackpad" android:layout_width="60.0dip" android:layout_height="60.0dip" app:srcCompat="@drawable/ic_trackpad" app:tint="?colorControlNormal" />
+            <com.google.android.material.textview.MaterialTextView android:textAppearance="@style/TextAppearance.Material3.BodyLarge" android:id="@id/text_trackpad_only_available_adb_socket" android:padding="15.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/trackpad_only_available_adb_socket" />
+        </com.jcapps.adbremote.views.TrackpadView>
+    </com.jcapps.adbremote.views.NoSheetDragLayout>
 </LinearLayout>

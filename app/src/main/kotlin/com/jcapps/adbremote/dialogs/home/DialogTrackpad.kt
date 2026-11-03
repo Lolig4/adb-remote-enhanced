@@ -42,8 +42,12 @@ class DialogTrackpad : BaseBottomSheet<DialogTrackpadBinding>() {
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> DialogTrackpadBinding
         get() = DialogTrackpadBinding::inflate
 
+    // Deviation (rebuild): no bottom inset padding -> touch area down to the screen edge
+    override fun getTheme(): Int = R.style.TrackpadBottomSheetDialog
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return createFullHeightBottomSheetDialog(savedInstanceState, false, false)
+        // Rebuild: swipe down to dismiss like the other sheets (NoSheetDragLayout blocks it below the title)
+        return createFullHeightBottomSheetDialog(savedInstanceState, true, true)
     }
 
     override fun onDestroyView() {
@@ -59,9 +63,8 @@ class DialogTrackpad : BaseBottomSheet<DialogTrackpadBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // obf: anonymous click listener case 0
-        binding.btnClose.setOnClickListener { dismiss() }
-        (requireActivity() as MainActivity).setToolbarBackground(true)
+        // Rebuild: no setToolbarBackground(true) any more - the full-height sheet covers the status bar
+        // itself; the coloured activity background only showed up as a box while the sheet slid.
         val pointersEnabled = prefs.getBoolean("trackpad_pointers_enabled", true)
         var pointerSize = prefs.getInt("trackpad_pointer_size", 100)
         binding.switchEnablePointers.isChecked = pointersEnabled

@@ -219,4 +219,11 @@
         <item name="android:stateListAnimator">@animator/button_press_state_list_anim</item>
         <item name="iconSize">40.0dip</item>
     </style>
+    <!-- Deviation (rebuild): trackpad sheet without the bottom nav-bar inset so the touch area reaches the screen edge -->
+    <style name="TrackpadBottomSheet" parent="@style/Widget.Material3.BottomSheet.Modal">
+        <item name="paddingBottomSystemWindowInsets">false</item>
+    </style>
+    <style name="TrackpadBottomSheetDialog" parent="@style/ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/TrackpadBottomSheet</item>
+    </style>
 </resources>

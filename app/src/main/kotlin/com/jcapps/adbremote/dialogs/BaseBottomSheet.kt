@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.viewbinding.ViewBinding
-import androidx.window.layout.WindowMetricsCalculator
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -68,7 +67,7 @@ abstract class BaseBottomSheet<T : ViewBinding> : BottomSheetDialogFragment() {
         return dialog
     }
 
-    /** A bottom sheet forced to (window height - 100px) and expanded on show. */
+    /** A bottom sheet forced to the full window height and expanded on show. */
     // obf: m4418 (show-listener = DialogInterfaceOnShowListenerC1264 case 1)
     protected fun createFullHeightBottomSheetDialog(
         savedInstanceState: Bundle?,
@@ -82,9 +81,9 @@ abstract class BaseBottomSheet<T : ViewBinding> : BottomSheetDialogFragment() {
             ) as FrameLayout
             val behavior = BottomSheetBehavior.from(sheet)
             val layoutParams = sheet.layoutParams
-            val windowMetrics = WindowMetricsCalculator.getOrCreate()
-                .computeCurrentWindowMetrics(requireActivity())
-            layoutParams?.height = windowMetrics.bounds.height() - 100
+            // Deviation: the original used window height - 100 px, which left an empty strip
+            // at the bottom (the expanded sheet starts at the top) -> fill the whole window.
+            layoutParams?.height = ViewGroup.LayoutParams.MATCH_PARENT
             sheet.layoutParams = layoutParams
             behavior.state = BottomSheetBehavior.STATE_EXPANDED
             behavior.isDraggable = draggable

@@ -72,7 +72,6 @@ class BackPressHandler(
                 dialog.onEvent = { activity.mainViewModel.enqueue(it) }
                 // obf: C0808 case 10
                 dialog.onDismiss = {
-                    activity.setToolbarBackground(false)
                     if (AdbService.isRunning) {
                         requestAppReviewIfRecommended(activity)
                     }
