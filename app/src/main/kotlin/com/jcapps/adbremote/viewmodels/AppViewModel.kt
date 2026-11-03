@@ -288,17 +288,24 @@ class AppViewModel : ViewModel() {
     fun uninstallApp(context: Context, app: App, callback: (Boolean, String) -> Unit) {
         ApiClient.clearAppsCache(context.cacheDir)
         // obf: C3326 case 7 / C0753 case 4
+        // Rebuild change: the server's `app?type=uninstall` always answers "App uninstalled." even when
+        // `pm` fails (system apps always fail without `--user 0`). Run `pm` via the server's `run`
+        // endpoint instead and report its real result.
+        val command = "pm uninstall " + (if (app.isSystemApp) "--user 0 " else "") + app.packageName
         execute(
-            request = { getApi().uninstallApp(app.packageName) },
+            request = { getApi().run(command) },
             onResult = { response ->
-                val message = if (response == null) {
-                    getUnreachableMessage(context)
-                } else if (response.status) {
-                    context.getString(R.string.app_uninstalled, app.name)
-                } else {
-                    response.data ?: getUnreachableMessage(context)
+                val data = response?.data as? Map<*, *>
+                val output = (data?.get("output") as? String)?.trim().orEmpty()
+                val error = (data?.get("error") as? String)?.trim().orEmpty()
+                val exitCode = (data?.get("exit_code") as? Number)?.toInt()
+                val success = response?.status == true && exitCode == 0 && output.contains("Success")
+                val message = when {
+                    response == null -> getUnreachableMessage(context)
+                    success -> context.getString(R.string.app_uninstalled, app.name)
+                    else -> output.ifEmpty { error }.ifEmpty { getUnreachableMessage(context) }
                 }
-                callback(response?.status ?: false, message)
+                callback(success, message)
             },
         )
     }

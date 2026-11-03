@@ -65,7 +65,10 @@ class ServerInstaller(
                     file.delete()
                 }
             }
-            if (serverFile.exists()) {
+            // Rebuild change: re-extract after an app update (the original kept the first extracted
+            // copy forever, so a server shipped with a newer app was never used).
+            val appUpdated = context.packageManager.getPackageInfo(context.packageName, 0).lastUpdateTime
+            if (serverFile.exists() && serverFile.lastModified() >= appUpdated) {
                 onServerFile(serverFile.path)
             } else {
                 val password = NativeConfig.aes128Key

@@ -1,3 +1,7 @@
+buildscript {
+    dependencies { classpath("net.lingala.zip4j:zip4j:2.11.5") } // packs the server asset (see packServerAsset)
+}
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -34,6 +38,8 @@ android {
     kotlinOptions { jvmTarget = "11" }
 
     sourceSets["main"].java.srcDirs("src/main/kotlin")
+    // server_v1.1.0.jar is built from :server (see packServerAsset), not taken from the original APK
+    sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/serverAsset"))
 
     lint {
         abortOnError = false
@@ -153,3 +159,26 @@ dependencies {
     // VENDORED: cgutman AndroidADB (als lokales Modul :adblib ODER JitPack)
     // implementation("com.github.cgutman:AdbLib:<rev>")  // oder project(":adblib")
 }
+
+// The app ships the on-device server as assets/server_v1.1.0.jar: a password-protected zip
+// (password NativeConfig.aes128Key) holding the :server APK, which ServerInstaller unpacks and
+// starts on the TV via app_process.
+val packServerAsset by tasks.registering {
+    val serverApk = project(":server").layout.buildDirectory.file("outputs/apk/release/server-release.apk")
+    val outDir = layout.buildDirectory.dir("generated/serverAsset")
+    dependsOn(":server:assembleRelease")
+    inputs.file(serverApk)
+    outputs.dir(outDir)
+    doLast {
+        val dir = outDir.get().asFile.apply { deleteRecursively(); mkdirs() }
+        val staged = File(temporaryDir, "server_v1.1.0.jar")
+        serverApk.get().asFile.copyTo(staged, overwrite = true)
+        val params = net.lingala.zip4j.model.ZipParameters().apply {
+            isEncryptFiles = true
+            encryptionMethod = net.lingala.zip4j.model.enums.EncryptionMethod.AES
+        }
+        net.lingala.zip4j.ZipFile(File(dir, "server_v1.1.0.jar"), "y7bK&0lvJh8p1qLU".toCharArray())
+            .addFile(staged, params)
+    }
+}
+tasks.matching { it.name.startsWith("merge") && it.name.endsWith("Assets") }.configureEach { dependsOn(packServerAsset) }

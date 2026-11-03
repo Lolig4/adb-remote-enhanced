@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ADB Remote (reconstructed)"
 include(":app")
+include(":server")
