@@ -236,12 +236,24 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.apps, menu)
-        val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView
+        val searchItem = menu?.findItem(R.id.action_search)
+        val searchView = searchItem?.actionView as SearchView
         this.searchView = searchView
         searchView.setOnQueryTextListener(this)
+        // Rebuild fix: after collapsing the search the toolbar lost its Search/Filter icons (and the
+        // overflow no longer listed them); rebuilding the menu brings them back. The search item is
+        // `always` in menu/a.xml, so it no longer shows up in the overflow while expanded.
+        searchItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem): Boolean = true
+            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+                binding.toolbar.post { invalidateOptionsMenu() }
+                return true
+            }
+        })
         if (toolType == AppsTab.APPS) {
             menu?.findItem(R.id.action_force_stop_all)?.isVisible = false
         }
+        menu?.findItem(R.id.sort_by_name)?.let { updateSortItem(it) }
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -271,14 +283,10 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
                 this.tvSupport = tvSupport
                 filterApps()
             }.show(supportFragmentManager, DialogAppFilter::class.simpleName)
-            R.id.rj -> {
-                item.isChecked = true
-                sortAscending = true
-                filterApps()
-            }
-            R.id.rn -> {
-                item.isChecked = true
-                sortAscending = false
+            // Rebuild change: one toolbar toggle instead of the A-Z / Z-A radio items in the overflow.
+            R.id.sort_by_name -> {
+                sortAscending = !sortAscending
+                updateSortItem(item)
                 filterApps()
             }
         }
@@ -509,6 +517,12 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
             .setNegativeButton(R.string.cancel, null)
             .setPositiveButton(R.string.ok) { _, _ -> onConfirm() }
             .show()
+    }
+
+    /** Icon and title of the sort toggle follow [sortAscending]. */
+    private fun updateSortItem(item: MenuItem) {
+        item.setIcon(if (sortAscending) R.drawable.ic_sort_az_asc else R.drawable.ic_sort_az_desc)
+        item.setTitle(if (sortAscending) R.string.sort_name_z else R.string.sort_name_z_2)
     }
 
     /** Rebuild addition: second confirmation before a system app is removed (for user 0). */

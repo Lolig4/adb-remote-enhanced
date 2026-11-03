@@ -321,11 +321,9 @@
     <item type="id" name="snackbar_action" />
     <item type="id" name="snackbar_text" />
     <item type="id" name="action_sort" />
-    <item type="id" name="rj" />
     <item type="id" name="action_sort_last_modified" />
     <item type="id" name="action_sort_name" />
     <item type="id" name="action_sort_size" />
-    <item type="id" name="rn" />
     <item type="id" name="spacer" />
     <item type="id" name="spinner" />
     <item type="id" name="spring_dot" />

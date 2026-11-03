@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rebuild addition: sort-by-name toggle for the apps toolbar (asc: the emphasised triangle shows the direction) -->
+<vector android:tint="?colorControlNormal" android:height="24.0dip" android:width="24.0dip" android:viewportWidth="960.0" android:viewportHeight="960.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@android:color/white" android:fillAlpha="1.0" android:pathData="M480,100L610,250L350,250Z" />
+    <path android:fillColor="@android:color/white" android:fillType="evenOdd" android:pathData="M220,640L306,320L374,320L460,640L396,640L378,576L302,576L284,640ZM318,516L362,516L340,432Z" />
+    <path android:fillColor="@android:color/white" android:pathData="M500,320L740,320L740,380L584,580L740,580L740,640L500,640L500,580L656,380L500,380Z" />
+    <path android:fillColor="@android:color/white" android:fillAlpha="0.38" android:pathData="M350,710L610,710L480,860Z" />
+</vector>
