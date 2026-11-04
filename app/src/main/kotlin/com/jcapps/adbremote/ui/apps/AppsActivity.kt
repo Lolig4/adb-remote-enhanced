@@ -256,6 +256,13 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
             menu?.findItem(R.id.action_force_stop_all)?.isVisible = false
         }
         menu?.findItem(R.id.sort_by_name)?.let { updateSortItem(it) }
+        // Rebuild addition: round "+" button -> sideload screen (Apps only, not Processes)
+        menu?.findItem(R.id.install_apk)?.let { item ->
+            item.isVisible = toolType == AppsTab.APPS
+            item.actionView?.findViewById<android.view.View>(R.id.install_button)?.setOnClickListener {
+                installLauncher.launch(android.content.Intent(this, com.jcapps.adbremote.ui.install.InstallActivity::class.java))
+            }
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -531,6 +538,15 @@ class AppsActivity : BaseActivity(), SearchView.OnQueryTextListener {
             setSpan(CapCenteredImageSpan(icon), 0, 1, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
     }
+
+    /** Sideload screen; reloads the (HTTP-cached) app list when something was installed. */
+    private val installLauncher =
+        registerForActivityResult(androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                com.jcapps.adbremote.api.remote.ApiClient.clearAppsCache(cacheDir)
+                loadApps()
+            }
+        }
 
     /** Icon and title of the sort toggle follow [sortAscending]. */
     private fun updateSortItem(item: MenuItem) {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rebuild addition: round "+" toolbar button (filled, same colour as "Share app") -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingStart="8.0dip"
+    android:paddingEnd="8.0dip">
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/install_button"
+        android:layout_width="40.0dip"
+        android:layout_height="40.0dip"
+        android:layout_gravity="center"
+        android:insetTop="0.0dip"
+        android:insetBottom="0.0dip"
+        android:padding="0.0dip"
+        android:contentDescription="@string/install_title"
+        app:cornerRadius="20.0dip"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        app:iconPadding="0.0dip"
+        app:iconSize="24.0dip" />
+</FrameLayout>

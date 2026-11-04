@@ -428,7 +428,8 @@ class AppsHandler(param: Param, private val context: Context, private val mode: 
      * inflated directly. Returns the written file or null.
      */
     // obf: inlined into mo143 case 0 (parameter names from the dex: context, apkPath, parent, iconName)
-    private fun getIconFromApk(context: Context, apkPath: String, parent: File, iconName: String): File? {
+    // Rebuild addition: internal (was private) so ApkHandler can reuse it for /apk/icon.
+    internal fun getIconFromApk(context: Context, apkPath: String, parent: File, iconName: String): File? {
         val apkFile = try {
             ApkFile(apkPath)
         } catch (e: Exception) {

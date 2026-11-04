@@ -72,6 +72,13 @@ object ADBServer {
         server.get("/screenshot", DeviceHandler(param, DeviceHandler.Mode.SCREENSHOT)) // C0242(3)
         server.get("/device-info", DeviceHandler(param, DeviceHandler.Mode.DEVICE_INFO)) // C0242(0)
 
+        // Rebuild addition: sideload feature (see ApkHandler)
+        server.get("/apk/files", ApkHandler(param, context, ApkHandler.Mode.FILES))
+        server.get("/apk/icon", ApkHandler(param, context, ApkHandler.Mode.ICON))
+        server.get("/apk/installed", ApkHandler(param, context, ApkHandler.Mode.INSTALLED))
+        server.post("/apk/upload", ApkHandler(param, context, ApkHandler.Mode.UPLOAD))
+        server.post("/apk/install", ApkHandler(param, context, ApkHandler.Mode.INSTALL))
+
         // R8 inlined AsyncHttpServer.listen(AsyncServer, int) -> AsyncServer.listen(null, port,
         // mListenCallback) here: C0219.f443 = AsyncServer.getDefault(), RunnableC0168 = the listen
         // runnable (ServerSocketChannel bound to the wildcard address, OP_ACCEPT, mListeners.add).

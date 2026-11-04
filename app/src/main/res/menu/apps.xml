@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/install_apk" android:title="@string/install_title" app:actionLayout="@layout/menu_install_button" app:showAsAction="always" />
     <item android:icon="@drawable/ic_search" android:id="@id/action_search" android:title="@string/search" app:actionLayout="@layout/action_search_view" app:showAsAction="always|collapseActionView" />
     <item android:icon="@drawable/ic_filter" android:id="@id/action_filter" android:title="@string/filter" app:showAsAction="always" />
     <item android:icon="@drawable/ic_sort_az_asc" android:id="@+id/sort_by_name" android:title="@string/sort_name_z" app:showAsAction="always" />

@@ -449,4 +449,34 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
     <string name="system_app_uninstall_title">Uninstall system app?</string>
     <string name="system_app_uninstall_message">%1$s is a system app. Removing it can break features of the device or make it unstable. It is only removed for the current user and can be restored with adb:\ncmd package install-existing %2$s\n\nIf the system app was updated, only the update is removed and the factory version stays installed; reinstall the update from the Play Store.</string>
     <string name="system_app_uninstall_confirm">Uninstall</string>
+    <!-- rebuild addition: sideload feature -->
+    <string name="install_title">Install app</string>
+    <string name="install_tab_installed">Installed</string>
+    <string name="install_tab_apks">APK\'s</string>
+    <string name="install_section_phone">On this phone</string>
+    <string name="install_section_tv">On the TV</string>
+    <string name="install_cant_find">Can\'t find APK?</string>
+    <string name="install_confirm_title">Install on TV?</string>
+    <string name="install_confirm_message">%1$s %2$s will be installed on the TV.</string>
+    <string name="install_confirm_button">Install</string>
+    <string name="install_downgrade_title">Downgrade?</string>
+    <string name="install_downgrade_message">The TV already has a newer version of %1$s installed (%2$s, this APK: %3$s). Installing an older version can fail and the app\'s data may not work with it.</string>
+    <string name="install_downgrade_button">Downgrade</string>
+    <string name="install_progress_upload">Transferring to the TV… %1$d%%</string>
+    <string name="install_progress_install">Installing on the TV…</string>
+    <string name="install_success">%s installed.</string>
+    <string name="install_failed_title">Installation failed</string>
+    <string name="install_storage_title">Access to all files</string>
+    <string name="install_storage_message">To list the APK files in this phone\'s Download folder, allow ADB Remote access to all files.</string>
+    <string name="install_storage_allow">Allow</string>
+    <string name="install_storage_later">Not now</string>
+    <string name="install_storage_needed">Allow file access to list the APKs in this phone\'s Download folder.</string>
+    <string name="install_storage_button">Allow access</string>
+    <string name="install_empty_phone">No APK files in this phone\'s Download folder.</string>
+    <string name="install_empty_tv">No APK files in the TV\'s Download folder.</string>
+    <string name="install_tv_unreachable">The TV is not reachable.</string>
+    <string name="install_no_apps">No apps found.</string>
+    <string name="install_installed_on_tv">On TV</string>
+    <string name="install_update">Update</string>
+    <string name="install_unknown_version">unknown version</string>
 </resources>
