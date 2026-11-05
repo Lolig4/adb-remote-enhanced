@@ -128,20 +128,32 @@ class AdbClient(
          *
          * Every reconnect closed `hid -`, which removed the virtual keyboard/mouse; adding/removing a
          * keyboard is a configuration change, so the TV launcher was recreated on each reconnect.
-         * Now one `hid` host keeps running on the device and reads a FIFO; each connection only
-         * writes into that FIFO. A holder keeps the FIFO open until 30 s after the last connection
-         * ended, so a reconnect keeps the devices, while a real disconnect still removes them.
+         * Now one `hid` host keeps running on the device: it reads a journal file through
+         * `tail -f`, each connection only appends to that file. (A FIFO is not possible: SELinux on
+         * Android 13+ forbids `shell` to create one in /data/local/tmp.) Every connection leaves a
+         * marker in [HID_FIFO].d; 30 s after its shell ended the marker is removed, and when no
+         * marker is left the host is killed, so a real disconnect still removes the devices.
          */
         const val HID_FIFO = "/data/local/tmp/.adbremote_hid"
 
         val HID_HOST_SCRIPT: String = buildString {
             val register = NativeConfig.hidRegisterKeyboard + NativeConfig.hidRegisterMouse + NativeConfig.hidRegisterConsumer
-            append("F=$HID_FIFO; P=\$(cat \$F.pid 2>/dev/null); ")
-            append("if [ -z \"\$P\" ] || [ ! -d /proc/\$P ] || [ ! -p \$F ]; then ")
-            append("rm -f \$F; mkfifo \$F; setsid hid - <\$F >/dev/null 2>&1 & echo \$! >\$F.pid; NEW=1; fi; ")
-            append("S=\$\$; setsid sh -c \"while [ -d /proc/\$S ]; do sleep 1; done; sleep 30\" >\$F 2>/dev/null </dev/null & ")
-            append("[ -n \"\$NEW\" ] && printf '%s' '").append(register).append("' >\$F; ")
-            append("exec cat >\$F")
+            // lock: the app may open several connections at once; only one may start the host
+            append("F=$HID_FIFO; D=\$F.d; L=\$F.lock; N=0; ")
+            append("while ! mkdir \$L 2>/dev/null; do N=\$((N+1)); [ \$N -gt 50 ] && rmdir \$L; sleep 0.1; done; ")
+            append("mkdir -p \$D; P=\$(cat \$F.pid 2>/dev/null); ")
+            // a dead host may linger as a zombie (/proc/<pid> still exists) -> check the state
+            append("ST=\$(sed -n 's/^State:[[:space:]]*\\(.\\).*/\\1/p' /proc/\$P/status 2>/dev/null); ")
+            append("if [ -z \"\$P\" ] || [ -z \"\$ST\" ] || [ \"\$ST\" = Z ]; then ")
+            append("rm -f \$F; : >\$F; printf '%s' '").append(register).append("' >>\$F; ")
+            // own session (pgid = pid) so the whole pipeline can be killed; re-parented to init
+            // the host writes its own pid (setsid may fork, so $! is not the host)
+            append("rm -f \$F.pid; (setsid sh -c \"echo \\\$\\\$ >\$F.pid; tail -n +1 -f \$F | hid -\" >/dev/null 2>&1 </dev/null &); ")
+            append("N=0; while [ ! -s \$F.pid ] && [ \$N -lt 30 ]; do N=\$((N+1)); sleep 0.1; done; fi; ")
+            append("S=\$\$; : >\$D/\$S; rmdir \$L; ")
+            append("setsid sh -c \"while [ -d /proc/\$S ]; do sleep 1; done; sleep 30; rm -f \$D/\$S; ")
+            append("[ -z \\\"\\\$(ls \$D)\\\" ] && kill -- -\\\$(cat \$F.pid) 2>/dev/null\" >/dev/null 2>&1 </dev/null & ")
+            append("exec cat >>\$F")
         }
     }
 }

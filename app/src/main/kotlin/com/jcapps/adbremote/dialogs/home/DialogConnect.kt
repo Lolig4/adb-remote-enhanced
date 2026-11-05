@@ -385,8 +385,10 @@ class DialogConnect : BaseBottomSheet<DialogConnectBinding>() {
                 getString(if (timeoutCount >= 5) R.string.connection_timed_out_ensure_ip else R.string.connection_timed_out_try_again)
             }
         }
-        binding.textAppRequestingApplyIconPack.text = message
-        Logger.log(message)
+        // Fix (rebuild): the original left the status empty when adb printed nothing
+        val shown = message.ifBlank { getString(R.string.failed_connect_device) }
+        binding.textAppRequestingApplyIconPack.text = shown
+        Logger.log(shown)
         val typeName = when (result.type) {
             CommandStatus.OK -> "OK"
             CommandStatus.ERROR -> "ERROR"
