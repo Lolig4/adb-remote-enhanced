@@ -110,7 +110,8 @@ class DialogKeyboard : BaseBottomSheet<DialogKeyboardBinding>() {
         get() = DialogKeyboardBinding::inflate
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return createBottomSheetDialog(savedInstanceState)
+        // Rebuild: skip the collapsed state, else the sheet snaps back up above the soft keyboard
+        return createBottomSheetDialog(savedInstanceState, true, true)
     }
 
     override fun onDestroyView() {
