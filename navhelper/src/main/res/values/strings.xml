@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TV Nav Helper</string>
+    <string name="service_description">Lets you control touch-only apps (e.g. the Netflix phone app) with the D-pad of your TV remote: arrows move a highlight, OK taps it. Long-press OK to pause the helper for the current app.</string>
+</resources>
