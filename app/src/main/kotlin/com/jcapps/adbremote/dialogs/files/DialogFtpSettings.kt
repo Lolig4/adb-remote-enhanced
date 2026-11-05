@@ -317,7 +317,7 @@ class DialogFtpSettings : BaseBottomSheet<DialogFtpSettingsBinding>() {
                 updateServerState(ServerState.STOPPING)
                 val response = apiService.stopFtp()
                 updateServerState(if (response.status) ServerState.NOT_STARTED else ServerState.RUNNING)
-                SimpleResult(status = response.status, message = response.data)
+                SimpleResult(status = response.status, message = if (response.status) response.data else response.message ?: response.data)
             }.getOrElse { SimpleResult(status = false, message = it.message) }
             // obf: C2377
             withContext(Dispatchers.Main) { showResultError(result) }
@@ -383,7 +383,7 @@ class DialogFtpSettings : BaseBottomSheet<DialogFtpSettingsBinding>() {
                 updateServerState(ServerState.STARTING)
                 val response = apiService.startFtp(config)
                 updateServerState(if (response.status) ServerState.RUNNING else ServerState.NOT_STARTED)
-                SimpleResult(status = response.status, message = response.data)
+                SimpleResult(status = response.status, message = if (response.status) response.data else response.message ?: response.data)
             }.getOrElse { SimpleResult(status = false, message = it.message) }
             // obf: C3794
             withContext(Dispatchers.Main) { showResultError(result) }

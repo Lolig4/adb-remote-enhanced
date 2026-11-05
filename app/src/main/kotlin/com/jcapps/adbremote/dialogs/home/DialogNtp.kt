@@ -75,7 +75,8 @@ class DialogNtp : BaseBottomSheet<DialogNtpBinding>() {
                 val (isSuccess, error) = runCatching {
                     val api = ApiClient.create(ipAddress)
                     val response = if (server.isBlank()) api.deleteNtpServer() else api.setNtpServer(server)
-                    if (response.status) Pair(true, null) else Pair(false, response.data)
+                    // Fix (rebuild): the original showed response.data, which is null for errors -> empty error
+                    if (response.status) Pair(true, null) else Pair(false, response.message ?: response.data)
                 }.getOrElse { Pair(false, getString(R.string.failed_connect_device)) }
                 // obf: C3768
                 withContext(Dispatchers.Main) {
@@ -94,7 +95,7 @@ class DialogNtp : BaseBottomSheet<DialogNtpBinding>() {
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
             val (server, error) = runCatching {
                 val response = ApiClient.create(ipAddress).getNtpServer()
-                if (response.status) Pair(response.data, null) else Pair(null, response.data)
+                if (response.status) Pair(response.data, null) else Pair(null, response.message ?: response.data)
             }.getOrElse { Pair(null, getString(R.string.failed_connect_device)) }
             // obf: C2239
             withContext(Dispatchers.Main) {

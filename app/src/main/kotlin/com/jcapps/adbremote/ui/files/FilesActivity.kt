@@ -291,7 +291,7 @@ class FilesActivity : BaseActivity() {
                         updateServerState(ServerState.STARTING)
                         val response = api.startFtp(config)
                         updateServerState(if (response.status) ServerState.RUNNING else ServerState.NOT_STARTED)
-                        SimpleResult(status = response.status, message = response.data)
+                        SimpleResult(status = response.status, message = if (response.status) response.data else response.message ?: response.data)
                     }.getOrElse { SimpleResult(status = false, message = it.message) }
                     // obf: C2053 (body removed by R8)
                     withContext(Dispatchers.Main) { result }
