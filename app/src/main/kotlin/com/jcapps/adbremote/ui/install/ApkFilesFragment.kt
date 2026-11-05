@@ -17,6 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.jcapps.adbremote.R
+import com.jcapps.adbremote.model.ConnectionStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -91,7 +92,11 @@ class ApkFilesFragment : InstallListFragment() {
             val ip = PreferenceManager.getDefaultSharedPreferences(context).getString("current_device_ip", null)
             val phone = async(Dispatchers.IO) { if (access) phoneEntries() else emptyList() }
             val tv = async(Dispatchers.IO) {
-                runCatching { ip?.let { tvEntries(SideloadApi(it)) } ?: error("no device") }
+                runCatching {
+                    // not connected -> don't probe the TV, show the "not reachable" hint right away
+                    if (!ConnectionStatus.isConnected) error("not connected")
+                    ip?.let { tvEntries(SideloadApi(it)) } ?: error("no device")
+                }
             }
             val phoneItems = phone.await()
             val tvResult = tv.await()

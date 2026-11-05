@@ -44,7 +44,7 @@
     <string name="connection_timed_out_ensure_ip">ချိတ်ဆက်မှု အချိန်ကျော်လွန်သွားပါသည်။ ကျေးဇူးပြု၍ IP လိပ်စာနှင့် Port နံပါတ်များ မှန်၊ မမှန် ပြန်စစ်ပါ။ ချိတ်မရ ဖြစ်နေသေးလျှင် ယခုဖုန်းကို restart/reboot လုပ်ပြီး ပြန်ချိတ်ပါ။</string>
     <string name="device_unreachable_try_again_reconnect">စက်နှင့် ချိတ်ဆက်၍ မရပါ။ နောက်တစ်ကြိမ် ပြန်ချိတ်ကြည့်ပါ။</string>
     <string name="device_name_should_not_empty">နာမည် မထည့်ရသေးပါ။</string>
-    <string name="failed_connect_server">ဆာဗာသို့ ချိတ်ဆက်၍မရပါ။</string>
+    <string name="failed_connect_device">ဆာဗာသို့ ချိတ်ဆက်၍မရပါ။</string>
     <string name="failed_connect_server_visit_our">ဆာဗာသို့ ချိတ်ဆက်၍ မရသောကြောင့် ကျေးဇူးပြု၍ website သို့ တိုက်ရိုက်ဝင်ရောက်ကြည့်ရှုပေးပါ။</string>
     <string name="token_invalid">Token မှားနေပါသည်။</string>
     <string name="port_range_must_between_0">Port နံပါတ်သည် 0 မှ 65535 အတွင်း ဖြစ်ရမည်။ ADB Remote က သုံးနေသော port များ မဖြစ်ရပါ။</string>

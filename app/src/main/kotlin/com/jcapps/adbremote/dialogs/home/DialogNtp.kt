@@ -76,7 +76,7 @@ class DialogNtp : BaseBottomSheet<DialogNtpBinding>() {
                     val api = ApiClient.create(ipAddress)
                     val response = if (server.isBlank()) api.deleteNtpServer() else api.setNtpServer(server)
                     if (response.status) Pair(true, null) else Pair(false, response.data)
-                }.getOrElse { Pair(false, getString(R.string.failed_connect_server)) }
+                }.getOrElse { Pair(false, getString(R.string.failed_connect_device)) }
                 // obf: C3768
                 withContext(Dispatchers.Main) {
                     setLoading(false)
@@ -95,7 +95,7 @@ class DialogNtp : BaseBottomSheet<DialogNtpBinding>() {
             val (server, error) = runCatching {
                 val response = ApiClient.create(ipAddress).getNtpServer()
                 if (response.status) Pair(response.data, null) else Pair(null, response.data)
-            }.getOrElse { Pair(null, getString(R.string.failed_connect_server)) }
+            }.getOrElse { Pair(null, getString(R.string.failed_connect_device)) }
             // obf: C2239
             withContext(Dispatchers.Main) {
                 setLoading(false)

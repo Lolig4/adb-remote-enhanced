@@ -83,8 +83,8 @@ class MainViewModel(
     // obf: f3180 — currently selected/connected device (initialised from the default saved device)
     val device: MutableStateFlow<AdbDevice?> = MutableStateFlow(adbPrefs.getDefault())
 
-    // obf: f3186 — connection state
-    val connectionState: MutableStateFlow<ConnectionState> = MutableStateFlow(ConnectionState.DISCONNECTED)
+    // obf: f3186 — connection state (rebuild: shared app-wide via ConnectionStatus)
+    val connectionState: MutableStateFlow<ConnectionState> = com.jcapps.adbremote.model.ConnectionStatus.state
 
     init {
         // obf: C2247 case 13

@@ -9,6 +9,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.textview.MaterialTextView
 import com.jcapps.adbremote.R
+import com.jcapps.adbremote.model.ConnectionStatus
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -27,7 +28,22 @@ class Sideloader(private val activity: InstallActivity) {
     private fun api(): SideloadApi? =
         PreferenceManager.getDefaultSharedPreferences(activity).getString("current_device_ip", null)?.let { SideloadApi(it) }
 
+    /** Fails right away when the app is not connected to the TV (app-wide [ConnectionStatus]). */
     fun start(source: ApkSource) {
+        if (!ConnectionStatus.isConnected || api() == null) return unreachable(source)
+        confirm(source)
+    }
+
+    /** Only a title, no "Installation failed" (nothing was attempted yet). */
+    private fun unreachable(source: ApkSource) {
+        discard(source)
+        MaterialAlertDialogBuilder(activity)
+            .setTitle(R.string.install_tv_unreachable)
+            .setPositiveButton(R.string.ok, null)
+            .show()
+    }
+
+    private fun confirm(source: ApkSource) {
         val version = source.versionName ?: activity.getString(R.string.install_unknown_version)
         MaterialAlertDialogBuilder(activity)
             .setTitle(R.string.install_confirm_title)
