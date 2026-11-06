@@ -68,6 +68,13 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
             android:exported="false"
             android:theme="@style/Theme.AdbRemote.NoActionBar" />
+        <!-- Rebuild addition: live mirroring (landscape, full screen) -->
+        <activity
+            android:name=".ui.MirrorActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.AdbRemote.NoActionBar" />
         <activity
             android:name=".ui.files.FilesActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"

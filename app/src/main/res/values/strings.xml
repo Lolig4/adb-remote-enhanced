@@ -479,4 +479,10 @@ Enjoying the app? Please rate us! If you're facing any issues, we'd love to hear
     <string name="install_installed_on_tv">On device</string>
     <string name="install_update">Update</string>
     <string name="install_unknown_version">unknown version</string>
+    <!-- Rebuild addition: live mirroring -->
+    <string name="mirror">Mirror</string>
+    <string name="mirror_connecting">Connecting to the Device …</string>
+    <string name="mirror_failed">Failed to connect to the Device</string>
+    <string name="mirror_close">Close mirror</string>
+    <string name="mirror_lost">Connection to the Device lost</string>
 </resources>

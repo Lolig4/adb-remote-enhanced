@@ -21,6 +21,7 @@
     <color name="tool_clipboard">#ffd35400</color>
     <color name="tool_files">#ff6a0dad</color>
     <color name="tool_screenshot">#ff008b8b</color>
+    <color name="tool_mirror">#ffc2185b</color>
     <color name="tool_device_info">#ff926700</color>
     <color name="theme_background">#fff9faef</color>
     <color name="theme_error">#ffba1a1a</color>

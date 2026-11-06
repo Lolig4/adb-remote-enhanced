@@ -79,6 +79,8 @@ object ADBServer {
         server.post("/apk/upload", ApkHandler(param, context, ApkHandler.Mode.UPLOAD))
         server.post("/apk/install", ApkHandler(param, context, ApkHandler.Mode.INSTALL))
 
+        MirrorServer.start(token) // rebuild addition: live mirroring on port 3126
+
         // R8 inlined AsyncHttpServer.listen(AsyncServer, int) -> AsyncServer.listen(null, port,
         // mListenCallback) here: C0219.f443 = AsyncServer.getDefault(), RunnableC0168 = the listen
         // runnable (ServerSocketChannel bound to the wildcard address, OP_ACCEPT, mListeners.add).

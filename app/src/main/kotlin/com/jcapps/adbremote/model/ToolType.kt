@@ -25,4 +25,7 @@ enum class ToolType {
 
     // obf: f9287
     NTP,
+
+    // rebuild addition: live mirroring
+    MIRROR,
 }

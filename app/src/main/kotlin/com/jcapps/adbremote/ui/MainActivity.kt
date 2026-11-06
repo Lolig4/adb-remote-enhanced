@@ -713,6 +713,11 @@ class MainActivity : BaseActivity() {
                     DialogNtp().show(supportFragmentManager, DialogNtp::class.java.name)
                 }
             }
+            ToolType.MIRROR -> {
+                // rebuild addition: live mirroring
+                startActivity(Intent(this, MirrorActivity::class.java),
+                    ActivityOptions.makeCustomAnimation(this, R.anim.zoom_enter, R.anim.fade_out_slow).toBundle())
+            }
         }
     }
 
