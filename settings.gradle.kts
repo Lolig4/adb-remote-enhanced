@@ -15,7 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ADB Remote (reconstructed)"
+rootProject.name = "ADB Remote Enhanced"
 include(":app")
 include(":server")
 include(":navhelper")

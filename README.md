@@ -1,8 +1,9 @@
-# ADB Remote 1.1.0 — Kotlin reconstruction
+# ADB Remote Enhanced
 
-Faithful rebuild of the Android app **ADB Remote 1.1.0** (`com.jcapps.adbremote`, versionCode 6)
-from its R8-obfuscated release APK. The first commit reproduces the original app as readable,
-buildable Kotlin source; every later commit is a deliberate change on top of it (see
+Enhanced version of the Android app **ADB Remote 1.1.0** (`com.jcapps.adbremote`, versionCode 6),
+based on a faithful Kotlin rebuild of its R8-obfuscated release APK. The first commit reproduces
+the original app as readable, buildable Kotlin source; every later commit is a deliberate change
+on top of it (see
 [Changes compared to the original](#changes-compared-to-the-original)).
 
 Current version: **1.2.0** (versionCode 7, server 1.2.0).
