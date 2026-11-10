@@ -23,6 +23,10 @@ import kotlin.math.roundToInt
 
 /** Saved devices: select (becomes default), edit, delete; "add" button opens the connect flow. */
 class DialogDevices : BaseBottomSheet<DialogDevicesBinding>() {
+
+    // Rebuild: swipe-to-dismiss like the keyboard sheet (no collapsed half state)
+    override fun onCreateDialog(savedInstanceState: Bundle?): android.app.Dialog =
+        createBottomSheetDialog(savedInstanceState, true, true)
     // obf: C0881
 
     /** A device was deleted; on close, [onDeviceSelected] is told `null`. RECON-UNSURE: name. */

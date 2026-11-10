@@ -13,6 +13,10 @@ import com.jcapps.adbremote.utils.getParcelableCompat
 
 /** Edits name / IP / port of a saved [AdbDevice] (argument [ARG_DEVICE]); reports via [onSuccess]. */
 class DialogEditDevice : BaseBottomSheet<DialogEditDeviceBinding>() {
+
+    // Rebuild: swipe-to-dismiss like the keyboard sheet (no collapsed half state)
+    override fun onCreateDialog(savedInstanceState: Bundle?): android.app.Dialog =
+        createBottomSheetDialog(savedInstanceState, true, true)
     // obf: C3006
 
     // obf: f10840

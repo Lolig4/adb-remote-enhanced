@@ -87,8 +87,9 @@ class DialogConnect : BaseBottomSheet<DialogConnectBinding>() {
         get() = DialogConnectBinding::inflate
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        // obf: m4416 mask 6 (both defaults)
-        return createBottomSheetDialog(savedInstanceState, true, false)
+        // Rebuild: skip the collapsed state like the keyboard sheet (one swipe closes it, it does
+        // not stop half way or snap back above the soft keyboard)
+        return createBottomSheetDialog(savedInstanceState, true, true)
     }
 
     override fun onDestroyView() {
