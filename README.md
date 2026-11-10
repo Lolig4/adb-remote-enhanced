@@ -41,8 +41,8 @@ Current version: **1.2.0** (versionCode 7, server 1.2.0).
   references point to the real library names.
 - **Resource shrinking like the original**: release builds use R8 with `shrinkResources` and
   strict mode (`res/raw/keep.xml`), so the APK contents stay close to the original.
-- Signed with an own test key (`keystore/test.keystore`), so it does not replace the original
-  as an update.
+- Signed with an own release key (see *Building*), so it does not replace the original as an
+  update.
 
 ### On-device server rebuilt from source
 
@@ -144,7 +144,15 @@ Requirements: JDK 21, Android SDK (compileSdk 35), Gradle 8.13 (wrapper included
     ./gradlew :app:assembleQa               # test build without R8, see below
     ./gradlew :navhelper:assembleDebug      # TV Nav Helper
 
-The signing key is `keystore/test.keystore` (password `android`, alias `testkey`).
+Release signing reads `keystore.properties` in the project root (not in git):
+
+    storeFile=keystore/release.jks
+    storePassword=…
+    keyAlias=adbremote
+    keyPassword=…
+
+`keystore/` and `keystore.properties` are git-ignored. Without the file, release and qa builds
+are signed with the debug key.
 
 `app/src/main/assets` (Lottie animations, texts) and `app/src/main/jniLibs` (adb binaries
 `libfs*.so`) come unchanged from the original APK. `server_v<serverVersion>.jar` (version in `gradle.properties`) is generated from the

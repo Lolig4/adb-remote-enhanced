@@ -3,6 +3,9 @@ build/
 .gradle/
 .kotlin/
 local.properties
+# release signing key
+keystore/
+keystore.properties
 .idea/
 *.iml
 # old approximate reconstruction, superseded by app/src/main

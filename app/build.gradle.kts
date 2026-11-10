@@ -1,3 +1,5 @@
+import java.util.Properties
+
 buildscript {
     dependencies { classpath("net.lingala.zip4j:zip4j:2.11.5") } // packs the server asset (see packServerAsset)
 }
@@ -11,6 +13,10 @@ plugins {
 
 /** Server jar file name, derived from serverVersion in gradle.properties. */
 val serverJar = "server_v${property("serverVersion")}.jar"
+
+// Release signing from keystore.properties in the project root. Without it, release/qa use the debug key.
+val signingProps: Properties? = rootProject.file("keystore.properties").takeIf { it.isFile }
+    ?.let { f -> Properties().apply { f.inputStream().use { input -> load(input) } } }
 
 android {
     namespace = "com.jcapps.adbremote"
@@ -53,12 +59,13 @@ android {
         jniLibs { useLegacyPackaging = true }   // libfs*.so nach nativeLibraryDir entpacken (exec)
     }
 
+    // release signing: see signingProps above
     signingConfigs {
-        create("test") {
-            storeFile = rootProject.file("keystore/test.keystore")
-            storePassword = "android"
-            keyAlias = "testkey"
-            keyPassword = "android"
+        if (signingProps != null) create("release") {
+            storeFile = rootProject.file(signingProps.getProperty("storeFile"))
+            storePassword = signingProps.getProperty("storePassword")
+            keyAlias = signingProps.getProperty("keyAlias")
+            keyPassword = signingProps.getProperty("keyPassword")
         }
     }
 
@@ -70,7 +77,7 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             isDebuggable = false             // -> keine 16-KB-Warnung
-            signingConfig = signingConfigs.getByName("test")
+            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
         }
         // QA: identical to release plus the in-process DebugBridge from src/qa (crash sweeps via tools/ar.sh)
         create("qa") {
