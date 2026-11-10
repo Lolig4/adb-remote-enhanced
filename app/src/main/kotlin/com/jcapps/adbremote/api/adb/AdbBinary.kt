@@ -110,8 +110,8 @@ class AdbBinary(context: Context) {
         // obf: RunnableC0506 case 0
         val thread = Thread {
             try {
-                val serverPath = "/data/local/tmp/.server_v1.1.0.jar"
-                val serverName = ".server_v1.1.0.jar"
+                val serverPath = ServerInstaller.DEVICE_SERVER_PATH
+                val serverName = "." + ServerInstaller.SERVER_JAR
                 val stream = openServerShell()
                 currentStream = stream
                 // (original null-checks stdIn here)

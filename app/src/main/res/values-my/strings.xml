@@ -202,7 +202,7 @@ app ကို နှစ်သက်လျှင် Play Store တွင် အ�
     <string name="app_state">App အခြေအနေ</string>
     <string name="app_theme">App အသွင်အပြင်</string>
     <string name="app_type">App အမျိုးအစား</string>
-    <string name="version">ဗားရှင်း %1$s (%2$s)</string>
+    <string name="version">ဗားရှင်း %1$s</string>
     <string name="apply_action_all_files">ဖိုင်အားလုံးကို ယခုလိုလုပ်ရန်</string>
     <string name="apps">Apps</string>
     <string name="apps_icon_shape">Apps icon ပုံစံ</string>

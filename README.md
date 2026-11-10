@@ -5,12 +5,14 @@ from its R8-obfuscated release APK. The first commit reproduces the original app
 buildable Kotlin source; every later commit is a deliberate change on top of it (see
 [Changes compared to the original](#changes-compared-to-the-original)).
 
+Current version: **1.2.0** (versionCode 7, server 1.2.0).
+
 ## Modules
 
 | Module | What it is |
 |---|---|
 | `app` | The phone app (`com.jcapps.adbremote`) |
-| `server` | The on-device server the app pushes to the TV and starts with `app_process` (`com.jcapps.adbserver`); packed into `assets/server_v1.1.0.jar` at build time |
+| `server` | The on-device server the app pushes to the TV and starts with `app_process` (`com.jcapps.adbserver`); packed into `assets/server_v<serverVersion>.jar` at build time |
 | `navhelper` | **TV Nav Helper**: an accessibility service for the TV that drives the Netflix phone app with the normal TV remote |
 
 ## Status
@@ -145,7 +147,7 @@ Requirements: JDK 21, Android SDK (compileSdk 35), Gradle 8.13 (wrapper included
 The signing key is `keystore/test.keystore` (password `android`, alias `testkey`).
 
 `app/src/main/assets` (Lottie animations, texts) and `app/src/main/jniLibs` (adb binaries
-`libfs*.so`) come unchanged from the original APK. `server_v1.1.0.jar` is generated from the
+`libfs*.so`) come unchanged from the original APK. `server_v<serverVersion>.jar` (version in `gradle.properties`) is generated from the
 `server` module on every build.
 
 ## Test build `qa`

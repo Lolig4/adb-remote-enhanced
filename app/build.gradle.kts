@@ -9,16 +9,21 @@ plugins {
     id("kotlin-parcelize")
 }
 
+/** Server jar file name, derived from serverVersion in gradle.properties. */
+val serverJar = "server_v${property("serverVersion")}.jar"
+
 android {
     namespace = "com.jcapps.adbremote"
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.jcapps.adbremote"
+        // file name of the bundled on-device server (asset, app files dir and TV), see gradle.properties
+        buildConfigField("String", "SERVER_JAR", "\"$serverJar\"")
         minSdk = 23
         targetSdk = 35
-        versionCode = 6
-        versionName = "1.1.0"
+        versionCode = (property("appVersionCode") as String).toInt()
+        versionName = property("appVersion") as String
         ndk { abiFilters += listOf("armeabi-v7a", "arm64-v8a") } // adb-Binary (libfs*.so)
         vectorDrawables { useSupportLibrary = true } // Original enthält keine gerasterten Vektor-PNGs
     }
@@ -36,7 +41,7 @@ android {
     kotlinOptions { jvmTarget = "11" }
 
     sourceSets["main"].java.srcDirs("src/main/kotlin")
-    // server_v1.1.0.jar is built from :server (see packServerAsset), not taken from the original APK
+    // the server jar is built from :server (see packServerAsset), not taken from the original APK
     sourceSets["main"].assets.srcDir(layout.buildDirectory.dir("generated/serverAsset"))
 
     lint {
@@ -144,7 +149,7 @@ dependencies {
     // Markdown (what_is_new.md / acknowledgement.md; commonmark + Markwon-Plugins)
     implementation("io.noties.markwon:core:4.6.2")
     implementation("io.noties.markwon:linkify:4.6.2")      // LinkifyPlugin (C0554 case 0)
-    // server_v1.1.0.jar ist ein passwortgeschuetztes Zip (AesExtraDataRecord)
+    // the server jar is a password-protected zip (AesExtraDataRecord)
     implementation("net.lingala.zip4j:zip4j:2.11.5")
     // java.nio.file-Backport fuer den FTP-FileSystemProvider (MaterialFiles-Stil)
     implementation("me.zhanghai.android.retrofile:library:1.1.1")
@@ -156,7 +161,7 @@ dependencies {
     // implementation("com.github.cgutman:AdbLib:<rev>")  // oder project(":adblib")
 }
 
-// The app ships the on-device server as assets/server_v1.1.0.jar: a password-protected zip
+// The app ships the on-device server as assets/<serverJar>: a password-protected zip
 // (password NativeConfig.aes128Key) holding the :server APK, which ServerInstaller unpacks and
 // starts on the TV via app_process.
 val packServerAsset by tasks.registering {
@@ -167,13 +172,13 @@ val packServerAsset by tasks.registering {
     outputs.dir(outDir)
     doLast {
         val dir = outDir.get().asFile.apply { deleteRecursively(); mkdirs() }
-        val staged = File(temporaryDir, "server_v1.1.0.jar")
+        val staged = File(temporaryDir, serverJar)
         serverApk.get().asFile.copyTo(staged, overwrite = true)
         val params = net.lingala.zip4j.model.ZipParameters().apply {
             isEncryptFiles = true
             encryptionMethod = net.lingala.zip4j.model.enums.EncryptionMethod.AES
         }
-        net.lingala.zip4j.ZipFile(File(dir, "server_v1.1.0.jar"), "y7bK&0lvJh8p1qLU".toCharArray())
+        net.lingala.zip4j.ZipFile(File(dir, serverJar), "y7bK&0lvJh8p1qLU".toCharArray())
             .addFile(staged, params)
     }
 }

@@ -1,4 +1,4 @@
-// On-device server (assets/server_v1.1.0.jar): an APK started on the TV via `app_process`.
+// On-device server (assets/server_v<serverVersion>.jar, see gradle.properties): an APK started on the TV via `app_process`.
 // Reconstructed from the original server_v1.1.0.jar (com.jcapps.adbserver 1.1.0, versionCode 2).
 plugins {
     id("com.android.application")
@@ -13,7 +13,7 @@ android {
         minSdk = 21
         targetSdk = 35
         versionCode = 2
-        versionName = "1.1.0"
+        versionName = property("serverVersion") as String
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

@@ -36,6 +36,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.elevation.SurfaceColors
 import com.google.android.material.search.SearchView
 import com.google.android.material.snackbar.Snackbar
+import com.jcapps.adbremote.BuildConfig
 import com.jcapps.adbremote.AdbRemoteApp
 import com.jcapps.adbremote.Constants
 import com.jcapps.adbremote.R
@@ -389,7 +390,7 @@ class MainActivity : BaseActivity() {
         setSupportActionBar(binding.searchBar)
         // obf: inlined nav-header helper ("activity", "headerView", "closeDrawer")
         val header = NavHeaderBinding.bind(binding.navViewMain.getHeaderView(0))
-        header.textAppVersion.text = getString(R.string.version, "1.1.0", "6")
+        header.textAppVersion.text = getString(R.string.version, BuildConfig.VERSION_NAME)
         // obf: ViewOnClickListenerC2219 case 13 — share app
         header.btnShareApp.setOnClickListener {
             try {

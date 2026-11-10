@@ -1,6 +1,7 @@
 package com.jcapps.adbremote.api.adb
 
 import android.content.Context
+import com.jcapps.adbremote.BuildConfig
 import com.jcapps.adbremote.NativeConfig
 import com.jcapps.adbremote.api.adb.commands.AdbBinaryCommand
 import com.jcapps.adbremote.model.CommandResult
@@ -16,8 +17,8 @@ import java.io.FileOutputStream
 import java.lang.ref.WeakReference
 
 /**
- * Pushes the bundled on-device server (`assets/server/server_v1.1.0.jar`) to
- * `/data/local/tmp/.server_v1.1.0.jar` via the [AdbBinary], retrying on timeout.
+ * Pushes the bundled on-device server (asset [SERVER_JAR]) to [DEVICE_SERVER_PATH] via the
+ * [AdbBinary], retrying on timeout.
  */
 // obf: C1410
 class ServerInstaller(
@@ -33,7 +34,7 @@ class ServerInstaller(
 
     /**
      * Extracts the bundled server jar (password-protected zip asset, key [NativeConfig.aes128Key])
-     * to `files/server/server_v1.1.0.jar` (deleting stale `files/apps` and other server files) and
+     * to `files/server/`[SERVER_JAR] (deleting stale `files/apps` and other server files) and
      * pushes it via [pushServer]. R8-inlined into MainViewModel's connect callback (C2097 case 3);
      * the coroutine body is C0198, the path callback C0753 default case. RECON-UNSURE name.
      */
@@ -59,7 +60,7 @@ class ServerInstaller(
             if (!serverDir.exists()) {
                 serverDir.mkdir()
             }
-            val serverFile = File(serverDir, "server_v1.1.0.jar")
+            val serverFile = File(serverDir, SERVER_JAR)
             serverDir.listFiles()?.forEach { file ->
                 if (file != serverFile) {
                     file.delete()
@@ -73,11 +74,11 @@ class ServerInstaller(
             } else {
                 val password = NativeConfig.aes128Key
                 try {
-                    context.assets.open("server_v1.1.0.jar").use { inputStream ->
+                    context.assets.open(SERVER_JAR).use { inputStream ->
                         val zipInputStream = ZipInputStream(inputStream, password.toCharArray())
                         while (true) {
                             val entry = zipInputStream.nextEntry ?: break
-                            if (entry.fileName == "server_v1.1.0.jar") {
+                            if (entry.fileName == SERVER_JAR) {
                                 FileOutputStream(serverFile).use { zipInputStream.copyTo(it) }
                                 break
                             }
@@ -99,12 +100,12 @@ class ServerInstaller(
      * "Still working on it ..."), otherwise reports success when the push exited 1 and its output
      * contains "1 file pushed".
      *
-     * Command: `adb -s <serial> push <serverFilePath> /data/local/tmp/.server_v1.1.0.jar`
+     * Command: `adb -s <serial> push <serverFilePath> <DEVICE_SERVER_PATH>`
      */
     // obf: m3345
     fun pushServer(attempt: Int, serverFilePath: String, serial: String, callback: (Boolean) -> Unit) {
         adb.runCommands(
-            listOf(AdbBinaryCommand.Command("adb -s $serial push $serverFilePath /data/local/tmp/.server_v1.1.0.jar")),
+            listOf(AdbBinaryCommand.Command("adb -s $serial push $serverFilePath $DEVICE_SERVER_PATH")),
             3000L,
         ) { result ->
             if (result.type == CommandStatus.TIMEOUT) {
@@ -125,7 +126,13 @@ class ServerInstaller(
 
     companion object {
         // obf: f6524 — path inside assets
-        val ASSET_SERVER_PATH: String = "server" + File.separator + "server_v1.1.0.jar"
+        /** File name of the server jar, `server_v<serverVersion>.jar` (see gradle.properties). */
+        const val SERVER_JAR: String = BuildConfig.SERVER_JAR
+
+        /** Where the server is pushed to and started from on the device (hidden file). */
+        const val DEVICE_SERVER_PATH: String = "/data/local/tmp/.$SERVER_JAR"
+
+        val ASSET_SERVER_PATH: String = "server" + File.separator + SERVER_JAR
 
         // obf: f6525 — 5^5 = 3125 (RECON-UNSURE: purpose; appears unused at the push site)
         const val SERVER_CONSTANT: Int = 3125

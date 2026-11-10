@@ -63,7 +63,7 @@ object NativeConfig {
         get() = adbServerToken(AdbRemoteApp.appContext)
 
     // ---- on-device server / crypto ----
-    /** Main class inside assets/server_v1.1.0.jar, launched via app_process. */
+    /** Main class inside the server jar ([com.jcapps.adbremote.api.adb.ServerInstaller.SERVER_JAR]), launched via app_process. */
     const val serverMainClass = "com.jcapps.adbserver.ADBServer"
     /**
      * Base64 AES/ECB/PKCS5 ciphertext used inside m798 (NOT a key): decrypted with the key
