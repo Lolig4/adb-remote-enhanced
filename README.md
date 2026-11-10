@@ -133,7 +133,7 @@ remote, optimized only for Netflix:
 
 Install on the TV, then allow restricted settings and enable the service:
 
-    adb install navhelper/build/outputs/apk/debug/navhelper-debug.apk
+    adb install navhelper/build/outputs/apk/release/navhelper-release.apk
     adb shell appops set dev.adbremote.navhelper ACCESS_RESTRICTED_SETTINGS allow
     # Settings > Accessibility > TV Nav Helper
 
@@ -143,7 +143,7 @@ Requirements: JDK 21, Android SDK (compileSdk 35), Gradle 8.13 (wrapper included
 
     ./gradlew :app:assembleRelease          # app/build/outputs/apk/release/app-release.apk (R8)
     ./gradlew :app:assembleQa               # test build without R8, see below
-    ./gradlew :navhelper:assembleDebug      # TV Nav Helper
+    ./gradlew :navhelper:assembleRelease    # TV Nav Helper (same signing as the app)
 
 Release signing reads `keystore.properties` in the project root (not in git):
 
